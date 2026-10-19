@@ -2,9 +2,9 @@ name: IT Tender Monitor
 
 on:
   schedule:
-    - cron: '10 17 * * *'   # ყოველდღე 09:00 თბილისის დროით
-      timezone: 'Asia/Tbilisi'
-  workflow_dispatch:
+    # ყოველდღე 09:00 თბილისის დროით = 05:00 UTC
+    - cron: '15 17 * * *'
+  workflow_dispatch:   # ხელით გაშვების შესაძლებლობა
 
 jobs:
   run-monitor:
@@ -12,10 +12,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v7
+        uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
