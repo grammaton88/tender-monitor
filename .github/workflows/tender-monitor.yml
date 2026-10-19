@@ -3,6 +3,7 @@ name: IT Tender Monitor
 on:
   schedule:
     - cron: '10 17 * * *'   # ყოველდღე 09:00 თბილისის დროით
+      timezone: 'Asia/Tbilisi'
   workflow_dispatch:
 
 jobs:
