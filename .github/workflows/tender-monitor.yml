@@ -1,0 +1,30 @@
+name: IT Tender Monitor
+
+on:
+  schedule:
+    # ყოველდღე 09:00 დილით (UTC+4 → 05:00 UTC)
+    - cron: '0 5 * * *'
+  workflow_dispatch:  # საშუალებას გაძლევს ხელით გაუშვა
+
+jobs:
+  run-monitor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run tender monitor
+        env:
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+        run: python monitor.py
