@@ -2,7 +2,7 @@ name: IT Tender Monitor
 
 on:
   schedule:
-    - cron: '0 17 * * *'   # ყოველდღე 09:00 თბილისის დროით
+    - cron: '5 17 * * *'   # ყოველდღე 09:00 თბილისის დროით
   workflow_dispatch:
 
 jobs:
