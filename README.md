@@ -127,7 +127,7 @@ python monitor.py
 - IT codes are hardcoded in `monitor.py` (CPV categories related to computers, software, networks, telecom, IT services, etc.).
 - GitHub scheduled workflows can sometimes be delayed by a few minutes.
 - The procurement website requires a valid session (cookies). The script handles this automatically.
-- No external database is used — every run sends the current list of active IT tenders.
+- No external database is used - every run sends the current list of active IT tenders.
 
 ## License
 
