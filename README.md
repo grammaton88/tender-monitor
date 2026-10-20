@@ -61,3 +61,50 @@ The workflow is configured to run **every day at 10:00 Tbilisi time** (06:00 UTC
 
 ```yaml
 - cron: '0 6 * * *'
+```
+
+---
+
+You can change the time in .github/workflows/tender-monitor.yml.
+Note: GitHub Actions scheduled jobs run in UTC and may have a delay of several minutes.
+
+Manual Run
+
+Go to the Actions tab in your repository.
+Select IT Tender Monitor.
+Click Run workflow → Run workflow.
+
+IT CPV Codes monitored
+The script currently monitors these categories:
+
+30200000 – Computer equipment & accessories
+32400000 – Networks
+32500000 – Telecommunication equipment
+48100000 – 48900000 – Software packages
+48800000 – Information systems & servers
+50300000 – Computer equipment repair
+51600000 – Computer installation
+64200000 – Telecommunication services
+72100000 – 72900000 – IT consulting & related services
+
+You can add or remove codes in monitor.py inside the IT_BASECODES dictionary.
+
+pip install -r requirements.txt
+
+# Set environment variables
+export EMAIL_TO="kakabadzemisha@gmail.com"
+export EMAIL_FROM="yourname@gmail.com"
+export EMAIL_PASSWORD="your_app_password"
+
+python monitor.py
+
+---
+
+Notes
+
+The script only returns tenders that are currently in status გამოცხადებულია.
+Email is sent only when at least one matching tender is found.
+No external database is used (simple and free).
+Works completely on the free tier of GitHub Actions.
+
+---
