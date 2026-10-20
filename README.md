@@ -1,17 +1,18 @@
 # IT Tender Monitor (Georgia)
 
-Automated monitor for **IT-related public tenders** on the official Georgian State Procurement Agency website:  
-[https://tenders.procurement.gov.ge](https://tenders.procurement.gov.ge)
+Automated monitor for **IT-related public tenders** on the official Georgian State Procurement Agency portal:
 
-The script searches only for tenders with status **„გამოცხადებულია“** (Announced) that belong to IT / ICT CPV categories and sends an email notification with the results.
+**https://tenders.procurement.gov.ge**
+
+The script searches only for tenders with status **„გამოცხადებულია“** (Announced) and matching IT/CPV codes, then sends an email notification with the results.
 
 ---
 
 ## Features
 
-- Filters only **active** tenders (`გამოცხადებულია`)
-- Searches multiple IT-related CPV codes (computers, software, networks, telecom, IT services, etc.)
-- Sends a summary email with tender details and direct links
+- Filters tenders by status: **გამოცხადებულია** only
+- Searches multiple IT-related CPV / base codes (computers, software, networks, telecom, IT services, etc.)
+- Sends a clean Georgian-language email with all found tenders
 - Runs automatically every day via **GitHub Actions**
 - Can also be triggered manually
 
@@ -19,92 +20,116 @@ The script searches only for tenders with status **„გამოცხად�
 
 ## How it works
 
-1. GitHub Actions runs the script on a schedule (or manually).
-2. The script logs into the procurement portal (with session) and searches for each IT CPV code with status `გამოცხადებულია`.
-3. It collects unique tenders and sends one email containing all results.
+1. GitHub Actions runs the Python script on a schedule (cron).
+2. The script logs into the procurement portal (session + cookies).
+3. It searches for each IT base code with status = announced.
+4. Collects unique tenders.
+5. Sends one email containing all results to the configured address.
 
 ---
 
 ## Setup
 
-### 1. Repository Secrets
+### 1. Clone / Fork this repository
+
+### 2. Add GitHub Secrets
 
 Go to your repository → **Settings** → **Secrets and variables** → **Actions** → **New repository secret**
 
-Add these three secrets:
+Add the following secrets:
 
-| Secret Name       | Description                          | Example                          |
-|-------------------|--------------------------------------|----------------------------------|
-| `EMAIL_TO`        | Recipient email                      | `kakabadzemisha@gmail.com`       |
-| `EMAIL_FROM`      | Gmail address used for sending       | `yourname@gmail.com`             |
-| `EMAIL_PASSWORD`  | Gmail App Password (not normal password) | `abcd efgh ijkl mnop`         |
+| Secret Name       | Description                              | Example                     |
+|-------------------|------------------------------------------|-----------------------------|
+| `EMAIL_TO`        | Recipient email                          | `kakabadzemisha@gmail.com`  |
+| `EMAIL_FROM`      | Gmail address used to send               | `your.email@gmail.com`      |
+| `EMAIL_PASSWORD`  | Gmail App Password (not normal password) | `abcd efgh ijkl mnop`       |
 
-> **How to create a Gmail App Password:**  
+> **How to create Gmail App Password:**  
 > Google Account → Security → 2-Step Verification → App passwords → Generate.
 
-### 2. Files in the repository
+### 3. Enable GitHub Actions
 
-tender-monitor/
-├── .github/
-│   └── workflows/
-│       └── tender-monitor.yml    # GitHub Actions workflow
-├── monitor.py                    # Main script
-├── requirements.txt              # Python dependencies
-└── README.md
-
+Make sure Actions are enabled for the repository.
 
 ---
 
 ## Schedule
 
-The workflow is configured to run **every day at 10:00 Tbilisi time** (06:00 UTC):
+The workflow runs automatically according to the cron expression in:
+
+`.github/workflows/tender-monitor.yml`
+
+Current default (example):
 
 ```yaml
-- cron: '0 6 * * *'
+- cron: '0 6 * * *'   # 10:00 Tbilisi time (06:00 UTC)
+```
+
+**Important:** GitHub Actions cron uses **UTC** only.  
+Tbilisi is UTC+4, so subtract 4 hours when setting the time.
+
+| Desired time (Tbilisi) | Cron (UTC)     |
+|------------------------|----------------|
+| 09:00                  | `0 5 * * *`    |
+| 10:00                  | `0 6 * * *`    |
+| 12:00                  | `0 8 * * *`    |
+| 18:00                  | `0 14 * * *`   |
+| 21:00                  | `0 17 * * *`   |
+
+You can also trigger the workflow manually:
+
+**Actions** → **IT Tender Monitor** → **Run workflow**
+
+---
+
+## Project Structure
+
+```
+tender-monitor/
+├── .github/
+│   └── workflows/
+│       └── tender-monitor.yml   # GitHub Actions workflow
+├── monitor.py                   # Main script
+├── requirements.txt             # Python dependencies
+└── README.md
 ```
 
 ---
 
-You can change the time in .github/workflows/tender-monitor.yml.
-Note: GitHub Actions scheduled jobs run in UTC and may have a delay of several minutes.
+## Requirements
 
-Manual Run
+- Python 3.12+
+- `requests`
+- `beautifulsoup4`
 
-Go to the Actions tab in your repository.
-Select IT Tender Monitor.
-Click Run workflow → Run workflow.
+(Installed automatically by the GitHub Actions workflow)
 
-IT CPV Codes monitored
-The script currently monitors these categories:
+---
 
-30200000 – Computer equipment & accessories
-32400000 – Networks
-32500000 – Telecommunication equipment
-48100000 – 48900000 – Software packages
-48800000 – Information systems & servers
-50300000 – Computer equipment repair
-51600000 – Computer installation
-64200000 – Telecommunication services
-72100000 – 72900000 – IT consulting & related services
+## Local Testing
 
-You can add or remove codes in monitor.py inside the IT_BASECODES dictionary.
-
+```bash
 pip install -r requirements.txt
 
 # Set environment variables
 export EMAIL_TO="kakabadzemisha@gmail.com"
-export EMAIL_FROM="yourname@gmail.com"
+export EMAIL_FROM="your.email@gmail.com"
 export EMAIL_PASSWORD="your_app_password"
 
 python monitor.py
+```
 
 ---
 
-Notes
+## Notes
 
-The script only returns tenders that are currently in status გამოცხადებულია.
-Email is sent only when at least one matching tender is found.
-No external database is used (simple and free).
-Works completely on the free tier of GitHub Actions.
+- The script only looks for tenders with status **გამოცხადებულია**.
+- IT codes are hardcoded in `monitor.py` (CPV categories related to computers, software, networks, telecom, IT services, etc.).
+- GitHub scheduled workflows can sometimes be delayed by a few minutes.
+- The procurement website requires a valid session (cookies). The script handles this automatically.
+- No external database is used — every run sends the current list of active IT tenders.
 
----
+## License
+
+MIT
+```
