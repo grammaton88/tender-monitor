@@ -528,7 +528,7 @@ class PipelineTests(unittest.TestCase):
             self.assertNotIn("Summary-detail", body)
             self.assertIn("Subject-detail", body)
             self.assertIn("Buyer-name", body)
-            self.assertIn("file-name.pdf", body)
+            self.assertNotIn("file-name.pdf", body)
 
     def test_georgian_error_explanations_keep_original_diagnostics(self):
         cases = (
@@ -627,7 +627,7 @@ class PipelineTests(unittest.TestCase):
         for value in result["subject"], result["delivery_deadline"], result["warranty"]:
             self.assertIn(value, plain)
             self.assertIn(value, table.get_text())
-        self.assertIn("spec.pdf", table.get_text())
+        self.assertNotIn("spec.pdf", table.get_text())
         self.assertIn("დიახ", table.get_text())
         self.assertEqual(len(table.select_one("tbody tr").find_all("td")), 11)
 
@@ -788,6 +788,47 @@ class PipelineTests(unittest.TestCase):
         for index in (1, 2, 3, 5, 6):
             self.assertEqual(cells[index].get_text(), "პორტალის მონაცემებში არ გამოვლენილა.")
         self.assertIn("ანალიზი სრულად არ დასრულებულა", cells[4].get_text())
+
+    def test_table_values_omit_document_labels_and_deduplicate_equal_values(self):
+        self.state["analyses"]["same"] = {**ANALYSIS, "subject": "10 კომპიუტერი (პუნქტი 1)"}
+        entry = {"documents": {
+            str(i): {"name": f"Annex_{i}.pdf", "status": "completed", "analysis_key": "same"}
+            for i in range(2)
+        }}
+        original = json.dumps(entry, sort_keys=True)
+        fields = pipeline.table_analysis_fields(entry, self.state["analyses"])
+        self.assertEqual(fields["subject"], "10 კომპიუტერი (პუნქტი 1)")
+        self.assertNotIn("დოკუმენტი:", fields["subject"])
+        self.assertEqual(json.dumps(entry, sort_keys=True), original)
+
+    def test_report_heading_uses_tbilisi_date_and_time(self):
+        from datetime import datetime, timezone
+        instant = datetime(2026, 10, 22, 22, 24, tzinfo=timezone.utc)
+        with patch.object(pipeline, "datetime", wraps=datetime) as clock:
+            clock.now.side_effect = lambda tz: instant.astimezone(tz)
+            plain, rich, _ = pipeline.report(self.state, self.ai, [], {})
+        expected = (
+            "IT ტენდერების მონიტორინგის ანგარიში - "
+            "2026-10-23 02:24 (თბილისის დრო, UTC+04:00)"
+        )
+        self.assertTrue(plain.startswith(expected))
+        self.assertIn(expected, BeautifulSoup(rich, "html.parser").get_text())
+        self.assertIn("2026-10-22 (America/Los_Angeles)", plain)
+
+    def test_wide_table_wraps_long_unbroken_values_without_truncation(self):
+        long_value = "IPMPLS_TRANSPORT_NETWORK_" * 20
+        _, rich, _ = pipeline.report(
+            self.state, self.ai, [], {"123": {**TENDER, "buyer": long_value}},
+        )
+        table = BeautifulSoup(rich, "html.parser").find("table")
+        self.assertIn("width:100%", table["style"])
+        self.assertIn("min-width:1600px", table["style"])
+        self.assertEqual(sum(int(col["width"]) for col in table.find_all("col")), 1600)
+        self.assertIn(long_value, table.get_text())
+        for cell in table.find_all(["th", "td"]):
+            self.assertIn("overflow-wrap:anywhere", cell["style"])
+            self.assertIn("word-break:break-word", cell["style"])
+            self.assertNotIn("overflow:hidden", cell["style"])
 
     def test_new_analysis_requires_nullable_table_fields(self):
         self.assertEqual(pipeline.validate_analysis(ANALYSIS), ANALYSIS)

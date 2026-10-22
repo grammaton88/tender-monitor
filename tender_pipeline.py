@@ -512,9 +512,7 @@ def table_analysis_fields(entry: dict, analyses: dict) -> dict[str, str]:
                 continue
             value = result[key]
             if isinstance(value, str) and value.strip():
-                name = ("დოკუმენტაციის ჩანართის ტექსტი"
-                        if document.get("id") == "tab-text" else document["name"])
-                values.append(f"{value} [დოკუმენტი: {name}]")
+                values.append(value.strip())
         if values:
             text = "\n".join(dict.fromkeys(values))
             if len(set(values)) > 1:
@@ -581,15 +579,16 @@ def render_html_report(plain: str, current_tenders: dict | None,
                 continue
             sections.append(
                 '<div style="width:100%;overflow-x:auto;margin-bottom:20px">'
-                '<table width="1200" cellpadding="0" cellspacing="0" border="1" '
-                'style="border-collapse:collapse;width:1200px;table-layout:fixed;'
+                '<table width="100%" cellpadding="0" cellspacing="0" border="1" '
+                'style="border-collapse:collapse;width:100%;min-width:1600px;table-layout:fixed;'
                 'background:#fff;border:1px solid #d1d5db;font-size:13px;line-height:1.6">'
                 "<colgroup>" + "".join(
                     f'<col width="{width}" style="width:{width}px">'
-                    for width in (35, 95, 130, 105, 170, 90, 110, 130, 125, 155, 55)
+                    for width in (40, 115, 170, 150, 240, 125, 150, 190, 180, 170, 70)
                 ) + "</colgroup><thead><tr>" + "".join(
                     f'<th scope="col" style="padding:8px;text-align:left;vertical-align:top;'
-                    f'overflow-wrap:break-word;background:#f1f5f9;color:#111827;'
+                    f'white-space:normal;word-wrap:break-word;word-break:break-word;'
+                    f'overflow-wrap:anywhere;background:#f1f5f9;color:#111827;'
                     f'border:1px solid #d1d5db">{label}</th>'
                     for label in ("№", "განცხადების ნომერი", "შემსყიდველი", "კატეგორია",
                                   "შესყიდვის საგანი", "სავარაუდო ღირებულება", "წარდგენის ვადა",
@@ -613,7 +612,8 @@ def render_html_report(plain: str, current_tenders: dict | None,
                     fields["delivery_deadline"], fields["warranty"], fields["confidential"],
                 ]
                 cells = [
-                    '<td style="padding:8px;vertical-align:top;overflow-wrap:break-word;'
+                    '<td style="padding:8px;vertical-align:top;white-space:normal;'
+                    'word-wrap:break-word;word-break:break-word;overflow-wrap:anywhere;'
                     'border:1px solid #d1d5db">'
                     + html.escape(value).replace("\n", "<br>") + "</td>"
                     for value in values
@@ -624,7 +624,9 @@ def render_html_report(plain: str, current_tenders: dict | None,
                 else:
                     link = html.escape(url)
                 cells.append(
-                    f'<td style="padding:8px;vertical-align:top;border:1px solid #d1d5db">{link}</td>'
+                    f'<td style="padding:8px;vertical-align:top;white-space:normal;'
+                    f'word-wrap:break-word;word-break:break-word;overflow-wrap:anywhere;'
+                    f'border:1px solid #d1d5db">{link}</td>'
                 )
                 sections.append("<tr>" + "".join(cells) + "</tr>")
             sections.append("</tbody></table></div>")
@@ -726,7 +728,8 @@ def report(state: dict, ai: Gemini, scan_errors: list[str],
         "",
     ]
     lines = [
-        f"IT ტენდერების მონიტორინგის ანგარიში - {datetime.now(timezone.utc):%Y-%m-%d %H:%M UTC}",
+        f"IT ტენდერების მონიტორინგის ანგარიში - "
+        f"{datetime.now(ZoneInfo('Asia/Tbilisi')):%Y-%m-%d %H:%M} (თბილისის დრო, UTC+04:00)",
         "", "შემოწმების შედეგები",
     ]
     if current_tenders is not None:
