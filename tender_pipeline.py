@@ -30,7 +30,7 @@ PROMPT = """შენი პასუხი აუცილებლად უ�
 
 Analyze this public Georgian procurement document.
 IMPORTANT LANGUAGE RULE (must follow):
-- All human-readable fields (summary, findings.topic, findings.detail, limitations, subject, delivery_deadline, warranty) MUST be written exclusively in professional, formal Georgian.
+- All human-readable fields (summary, findings.topic, findings.detail, limitations, subject, delivery_deadline, warranty, confidential) MUST be written exclusively in professional, formal Georgian.
 - Do NOT use Hebrew, English, Russian or any other language in the output fields.
 - Use precise Georgian procurement terminology.
 - Keep original names, numbers, identifiers, units and source references unchanged.
@@ -43,15 +43,29 @@ Content rules:
 - Every finding must include a real source page or section. Do not invent page numbers.
 - Clearly note any missing or conflicting information.
 - This is only one document and may not be the complete tender. Human review is required.
-- Also return subject (specific procurement subject, not just a CPV category),
-  delivery_deadline and warranty. Each is null when not stated in this document.
-  Otherwise write a concise Georgian value including its source page or section.
-  Warranty means the goods/services warranty, not a bid or performance guarantee.
+- Extract these table fields independently, checking tables, annexes and contract clauses:
+  subject: the specific goods/services and scope, including quantities when stated;
+  do not substitute the general CPV category for the actual procurement subject.
+  delivery_deadline: delivery/service completion period, triggering event (such as
+  contract signing or order), calendar/working days, stages and extensions if stated.
+  Do not confuse this with the bid submission deadline.
+  warranty: goods/services warranty duration, start event, coverage, maintenance,
+  repair/replacement and response deadlines when stated. Do not substitute bid or
+  performance guarantees for product/service warranty.
+  confidential: explicit statements about classified/confidential procurement
+  materials, restricted access or conditions for obtaining such materials.
+  Distinguish these from ordinary supplier nondisclosure/personal-data clauses.
+  Report an explicit statement of absence only if this document actually states it.
+- Each field is null when not stated in this document. Never infer that confidential
+  materials do not exist merely because they are not mentioned.
+- Otherwise write a concise Georgian value including its real source page or
+  section. Preserve different conditions and contradictions rather than choosing one.
 """
 TABLE_FIELDS = {
     "subject": "შესყიდვის საგანი",
     "delivery_deadline": "მიწოდების ვადა",
     "warranty": "საგარანტიო პირობები",
+    "confidential": "საიდუმლო მასალების შესახებ მითითება",
 }
 SCHEMA = {
     "type": "OBJECT",
@@ -526,10 +540,13 @@ def table_analysis_fields(entry: dict, analyses: dict) -> dict[str, str]:
         if values and (legacy or incomplete):
             text += "\nშენიშვნა: მონაცემები ნაწილობრივია."
         fields[key] = text
-    fields["confidential"] = (
-        "დიახ - პორტალზე მითითებულია საიდუმლო მასალების არსებობა."
-        if entry.get("notice") else
-        "პორტალის შენიშვნა არ გამოვლენილა; საიდუმლო მასალების არარსებობა დადასტურებული არ არის."
+    if entry.get("notice"):
+        fields["confidential"] = (
+            "დიახ - პორტალზე მითითებულია საიდუმლო მასალების არსებობა.\n"
+            + fields["confidential"]
+        )
+    fields["confidential"] += (
+        "\nსაიდუმლო მასალების არარსებობა დადასტურებული არ არის."
     )
     return fields
 
@@ -579,7 +596,7 @@ def render_html_report(plain: str, current_tenders: dict | None,
                 continue
             sections.append(
                 '<div style="width:100%;overflow-x:auto;margin-bottom:20px">'
-                '<table width="100%" cellpadding="0" cellspacing="0" border="1" '
+                '<table class="tender-table" width="100%" cellpadding="0" cellspacing="0" border="1" '
                 'style="border-collapse:collapse;width:100%;min-width:1600px;table-layout:fixed;'
                 'background:#fff;border:1px solid #d1d5db;font-size:13px;line-height:1.6">'
                 "<colgroup>" + "".join(
@@ -631,7 +648,11 @@ def render_html_report(plain: str, current_tenders: dict | None,
                 sections.append("<tr>" + "".join(cells) + "</tr>")
             sections.append("</tbody></table></div>")
     sections.append(
-        '<div id="report-summary" style="max-width:900px;font-size:14px;line-height:1.7">'
+        '<div id="report-summary" style="width:100%;overflow-x:auto;margin-bottom:20px">'
+        '<table width="100%" cellpadding="0" cellspacing="0" border="1" '
+        'style="border-collapse:collapse;width:100%;min-width:1600px;table-layout:fixed;'
+        'background:#fff;border:1px solid #d1d5db;font-size:14px;line-height:1.7">'
+        '<colgroup><col style="width:35%"><col style="width:65%"></colgroup>'
     )
     summary_headings = {
         "შემოწმების შედეგები", "დამუშავების სტატუსი",
@@ -641,60 +662,53 @@ def render_html_report(plain: str, current_tenders: dict | None,
         "ძიების ხარვეზები - ტენდერების მოძიება სრულად ვერ დასრულდა",
     }
     section_open = False
-    list_open = False
+    cell_style = (
+        "padding:10px 12px;text-align:left;vertical-align:top;"
+        "white-space:normal;word-wrap:break-word;word-break:break-word;"
+        "overflow-wrap:anywhere;border:1px solid #d1d5db;"
+    )
     for line in plain.splitlines():
         if not line:
             continue
         escaped = html.escape(line)
         if line.startswith("IT ტენდერების მონიტორინგის ანგარიში"):
-            sections.append(f'<h2 style="font-size:20px;margin:20px 0 12px">{escaped}</h2>')
+            sections.append(
+                '<caption style="text-align:left;padding:20px 0 12px">'
+                f'<h2 style="font-size:20px;margin:0">{escaped}</h2></caption>'
+            )
         elif line in summary_headings:
-            if list_open:
-                sections.append("</ul>")
-                list_open = False
             if section_open:
-                sections.append("</div>")
+                sections.append("</tbody>")
             is_error = line.startswith(("დამუშავების ხარვეზების", "ძიების ხარვეზები"))
             sections.append(
-                '<div class="summary-section" style="margin:16px 0;padding:16px;'
-                'border:1px solid #d1d5db;border-radius:4px;'
-                f'background:{"#fff7ed" if is_error else "#f8fafc"}">'
+                '<tbody class="summary-section" '
+                f'style="background:{"#fff7ed" if is_error else "#fff"}">'
             )
             sections.append(
-                f'<h3 style="font-size:16px;margin:0 0 12px;'
-                f'border-bottom:1px solid #d1d5db;padding-bottom:6px">{escaped}</h3>'
+                f'<tr><th colspan="2" style="{cell_style}'
+                f'background:{"#ffedd5" if is_error else "#f1f5f9"}">'
+                f'<h3 style="font-size:16px;margin:0">{escaped}</h3></th></tr>'
             )
             section_open = True
-            if line in {
-                "მნიშვნელოვანი შენიშვნები",
-                "დამუშავების ხარვეზების მოკლე შეჯამება",
-            }:
-                sections.append('<ul style="margin:0;padding-left:22px">')
-                list_open = True
-        elif list_open:
-            sections.append(
-                f'<li style="margin:8px 0;overflow-wrap:break-word">{escaped}</li>'
-            )
         else:
+            if not section_open:
+                sections.append('<tbody class="summary-section">')
+                section_open = True
             label, separator, value = line.partition(": ")
-            if separator:
+            if separator and "შემთხვევების რაოდენობა:" not in line:
                 value_style = (
                     "font-family:monospace;" if re.search(r"\[[#-]{10}\]", value) else ""
                 )
-                content = (
-                    f"<strong>{html.escape(label)}: </strong><br>"
-                    f'<span style="{value_style}">{html.escape(value)}</span>'
+                sections.append(
+                    f'<tr><th scope="row" style="{cell_style}font-weight:normal">'
+                    f"<strong>{html.escape(label)}: </strong></th>"
+                    f'<td style="{cell_style}{value_style}">{html.escape(value)}</td></tr>'
                 )
             else:
-                content = escaped
-            sections.append(
-                f'<p style="margin:10px 0;overflow-wrap:break-word">{content}</p>'
-            )
-    if list_open:
-        sections.append("</ul>")
+                sections.append(f'<tr><td colspan="2" style="{cell_style}">{escaped}</td></tr>')
     if section_open:
-        sections.append("</div>")
-    sections.append("</div>")
+        sections.append("</tbody>")
+    sections.append("</table></div>")
     return (
         '<!DOCTYPE html><html lang="ka"><head><meta charset="utf-8">'
         '<meta name="viewport" content="width=device-width, initial-scale=1">'
@@ -790,7 +804,7 @@ def report(state: dict, ai: Gemini, scan_errors: list[str],
     # multiline overview or document-by-document analysis.
     soup = BeautifulSoup(rich, "html.parser")
     text_tables = []
-    for table in soup.find_all("table"):
+    for table in soup.select("table.tender-table"):
         heading = table.find_previous("h3")
         if heading:
             text_tables.append(heading.get_text())

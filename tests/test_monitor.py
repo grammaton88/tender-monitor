@@ -25,7 +25,7 @@ ENV = {
 ANALYSIS = {"summary": "Summary", "findings": [
     {"topic": "Deadline", "detail": "Check tender", "source": "section 1"},
 ], "limitations": ["Public document only"],
-    "subject": None, "delivery_deadline": None, "warranty": None}
+    "subject": None, "delivery_deadline": None, "warranty": None, "confidential": None}
 TENDER = {
     "id": "123", "reg_num": "NAT123", "buyer": "Buyer",
     "link": pipeline.PORTAL + "?go=123",
@@ -571,7 +571,7 @@ class PipelineTests(unittest.TestCase):
         # The tables must not contain historical tenders, even when their updates
         # are still included in the complete report below.
         soup = BeautifulSoup(rich, "html.parser")
-        tables = soup.find_all("table")
+        tables = soup.select("table.tender-table")
         self.assertEqual(len(tables), 3)
         expected = (["today", "near"], ["medium"], ["past", "late", "invalid"])
         for table, identifiers in zip(tables, expected):
@@ -591,7 +591,7 @@ class PipelineTests(unittest.TestCase):
             self.state, self.ai, ["Connection reset"], {"123": tender},
         )
         soup = BeautifulSoup(rich, "html.parser")
-        for paragraph in soup.select("#report-summary p, #report-summary h2, #report-summary h3, #report-summary li"):
+        for paragraph in soup.select("#report-summary tr, #report-summary h2"):
             self.assertIn(paragraph.get_text(), plain)
         self.assertIsNone(soup.find("pre"))
         self.assertIsNone(soup.find("script"))
@@ -649,8 +649,8 @@ class PipelineTests(unittest.TestCase):
         for body in (plain, BeautifulSoup(rich, "html.parser").get_text()):
             self.assertIn("დოკუმენტების რაოდენობა: 100", body)
         soup = BeautifulSoup(rich, "html.parser")
-        self.assertEqual(len(soup.select("table tbody tr")), 1)
-        self.assertEqual(len(soup.select("table th")), 11)
+        self.assertEqual(len(soup.select("table.tender-table tbody tr")), 1)
+        self.assertEqual(len(soup.select("table.tender-table th")), 11)
         self.assertNotIn("NAT123", soup.select_one("#report-summary").get_text())
         self.assertIn("123", notified)
         self.assertEqual(self.state["tenders"]["123"]["documents"], docs)
@@ -692,10 +692,10 @@ class PipelineTests(unittest.TestCase):
         self.assertIsNone(soup.find("script"))
         self.assertIsNone(soup.find("link"))
         summary = soup.select_one("#report-summary")
-        self.assertGreater(len(summary.find_all("p")), 5)
-        bars = [p for p in summary.find_all("p") if "[##--------]" in p.get_text()]
+        self.assertGreater(len(summary.find_all("tr")), 5)
+        bars = [td for td in summary.find_all("td") if "[##--------]" in td.get_text()]
         self.assertEqual(len(bars), 1)
-        self.assertIn("monospace", bars[0].find("span")["style"])
+        self.assertIn("monospace", bars[0]["style"])
         self.assertIn("4/20", plain)
 
     def test_summary_groups_metrics_status_and_notes_without_losing_text(self):
@@ -721,14 +721,33 @@ class PipelineTests(unittest.TestCase):
         self.assertIn("#fff7ed", blocks[2]["style"])
         self.assertIn("<model&test>", blocks[3].get_text())
         self.assertIsNone(summary.find("model"))
-        self.assertEqual(len(blocks[5].select("li")), 1)
+        self.assertEqual(len(blocks[5].select("td")), 1)
         self.assertIsNotNone(blocks[3].find("strong", string="მოდელი: "))
         table_heading = soup.find("table").find_previous("h3").get_text()
         for line in plain.partition("\n\n" + table_heading)[0].splitlines():
             if line:
                 self.assertIn(line, summary.get_text())
-        for node in summary.select("p, li"):
+        for node in summary.select("tr"):
             self.assertIn(node.get_text(), plain)
+
+    def test_combined_summary_table_matches_tender_width_without_plain_text_duplication(self):
+        plain, rich, _ = pipeline.report(self.state, self.ai, [], {"123": TENDER})
+        soup = BeautifulSoup(rich, "html.parser")
+        summary_tables = soup.select("#report-summary table")
+        self.assertEqual(len(summary_tables), 1)
+        summary = summary_tables[0]
+        tender = soup.select_one("table.tender-table")
+        for table in (summary, tender):
+            self.assertEqual(table["width"], "100%")
+            self.assertIn("width:100%;min-width:1600px", table["style"])
+            self.assertIn("overflow-x:auto", table.parent["style"])
+        self.assertNotIn("max-width", soup.select_one("#report-summary")["style"])
+        for row in summary.select("tr"):
+            self.assertEqual(sum(int(cell.get("colspan", 1)) for cell in row.find_all(
+                ["th", "td"], recursive=False,
+            )), 2)
+        self.assertEqual(plain.count("მოდელი: test-model"), 1)
+        self.assertEqual(len(soup.select("table.tender-table th")), 11)
 
     def test_report_omits_quota_explanations_in_both_formats(self):
         plain, rich, _ = pipeline.report(self.state, self.ai, [], {"123": TENDER})
@@ -829,6 +848,41 @@ class PipelineTests(unittest.TestCase):
             self.assertIn("overflow-wrap:anywhere", cell["style"])
             self.assertIn("word-break:break-word", cell["style"])
             self.assertNotIn("overflow:hidden", cell["style"])
+
+    def test_confidential_document_analysis_reaches_both_email_formats(self):
+        value = "საიდუმლო დანართი გაიცემა შესაბამისი დაშვების საფუძველზე (პუნქტი 5)"
+        self.state["analyses"]["new"] = {**ANALYSIS, "confidential": value}
+        self.state["tenders"]["123"] = {
+            "details": TENDER, "documents": {
+                "doc": {"name": "annex.pdf", "status": "completed", "analysis_key": "new"},
+            },
+        }
+        for notice in ("", "Portal notice"):
+            self.state["tenders"]["123"]["notice"] = notice
+            plain, rich, _ = pipeline.report(self.state, self.ai, [], {"123": TENDER})
+            cells = BeautifulSoup(rich, "html.parser").select_one(
+                "table.tender-table tbody tr",
+            ).find_all("td")
+            self.assertIn(value, cells[9].get_text())
+            self.assertIn(value, plain)
+            self.assertNotIn("[დოკუმენტი:", cells[9].get_text())
+            if notice:
+                self.assertIn("პორტალზე მითითებულია", cells[9].get_text())
+
+    def test_confidential_legacy_null_and_pending_remain_distinct(self):
+        self.state["analyses"]["old"] = {k: v for k, v in ANALYSIS.items() if k != "confidential"}
+        self.state["analyses"]["new"] = dict(ANALYSIS)
+        for key, status, expected in (
+            ("old", "completed", "ძველ ანალიზში"),
+            ("new", "completed", "არ არის მითითებული"),
+            ("new", "pending", "ანალიზი სრულად არ დასრულებულა"),
+        ):
+            fields = pipeline.table_analysis_fields(
+                {"documents": {"doc": {"status": status, "analysis_key": key}}},
+                self.state["analyses"],
+            )
+            self.assertIn(expected, fields["confidential"])
+            self.assertIn("არარსებობა დადასტურებული არ არის", fields["confidential"])
 
     def test_new_analysis_requires_nullable_table_fields(self):
         self.assertEqual(pipeline.validate_analysis(ANALYSIS), ANALYSIS)
