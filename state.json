@@ -21,7 +21,7 @@
     }
   },
   "initialized": true,
-  "last_request_at": 1792661279.6189785,
+  "last_request_at": 1792662481.5659623,
   "tenders": {
     "696054": {
       "details": {
@@ -37,7 +37,7 @@
       },
       "documents": {
         "que/2102048": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "e0ea4ec0d34b3c97a4fefcb05eff45498883229d6a13a2360ba3e9d3a4e19dd5",
           "id": "que/2102048",
           "name": "1 fasebis cxrili 324 21.007Networking - SPEC 10-07-2026 - ALL.xlsx",
@@ -45,7 +45,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2102048&code=1784644482"
         },
         "que/2102090": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "ebb03c0b45e93f6bf41d12025ef63d64595b5da1267d6dc14affc62faec2b493",
           "id": "que/2102090",
           "name": "324 ხელშეკრულების პროექტი 21.07. 2026.pdf",
@@ -53,7 +53,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2102090&code=1784646020"
         },
         "que/2156441": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "5f71b4ace050850e7f5fda3e4e51ff5170e385a89486afab767827c6dc381a8d",
           "id": "que/2156441",
           "name": "1ტენდერის ოქმი ქსელები-signed.pdf",
@@ -61,7 +61,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2156441&code=1792073132"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "fdeca4d31a75f7ed8958d2e2eee63a04cd07392df99fb6a2b865bd1dfca035e4",
           "id": "tab-text",
           "name": "Documentation tab (text)",
@@ -72,7 +72,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:29:39.683348+00:00",
       "notice": "",
-      "notified": "98c1939aa29ce70aad8cf7ee40248924cd6d693a55885345df57908dc305bc09"
+      "notified": "883a6bba691b7509305feb0876e6a436b9ec590a90cf6471a94136656f5ff3b4"
     },
     "696751": {
       "details": {
@@ -88,7 +88,7 @@
       },
       "documents": {
         "app/7141415": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "ad7130a56939330179a2d1857c723ec5c9cedb623ad5b0fb413a86c8e9f5309a",
           "id": "app/7141415",
           "name": "_Invitation for Bids_Ative_Infastructure2.pdf",
@@ -96,7 +96,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7141415&code=1785341253"
         },
         "app/7141420": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "f28447e8d18029e644702c1fc6cc320d198ef1706fb3183465adda4dbddd5d34",
           "id": "app/7141420",
           "name": "_RFB_SPD-Active_Infrastructure_2_290726_.pdf",
@@ -104,7 +104,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7141420&code=1785341279"
         },
         "app/7141423": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "7d968afa0957f8aa851a42c0b6fd265fedb106aff6ebe3d07040ae1ad4814e73",
           "id": "app/7141423",
           "name": "_Annex1_IPMPLS_TRANSPORT_NETWORKEQUIPMENT_AND_RELATED_COMPONENTS_REQUIREMENTS.pdf",
@@ -112,7 +112,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7141423&code=1785341286"
         },
         "app/7141426": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "a3d3d9e40d77ae5551489faa8c120e41ce701441d21e2fe69c86a11bbd2dd43e",
           "id": "app/7141426",
           "name": "_BID_Manual_Active_Infrastructure2.pdf",
@@ -120,7 +120,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7141426&code=1785341293"
         },
         "app/7178709": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "02cd79d97a2c08a30530142495bc765afed1137317f9c939acd899477df59f79",
           "id": "app/7178709",
           "name": "DEP260000033_Answers_to_the_Tender_Questions_Active_Infrastructure_2_210826.pdf",
@@ -128,7 +128,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7178709&code=1787337487"
         },
         "app/7178711": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "97f09279902ccff768e0189a546272b9d7077d0efb874bdbf95407d46bdd1e7a",
           "id": "app/7178711",
           "name": "DEP260000033_Amendment to Bidding Document_Active_Infrastructure_2_210826.pdf",
@@ -136,7 +136,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7178711&code=1787337499"
         },
         "app/7212412": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "a212dc2c6c4fe8fa1fa84b0579c3d2df68d25bfa3c79c35749d5dc752b022aa9",
           "id": "app/7212412",
           "name": "DEP260000033_Answers_to_the_Tender_Questions_Part2.pdf",
@@ -144,7 +144,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7212412&code=1789416570"
         },
         "app/7212416": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "693c4baee880cf2a149d54f9b57aab442911e2c3f3d31efd3c73348ea0d3d136",
           "id": "app/7212416",
           "name": "DEP260000033_Amendment to Bidding Document_Active_Infrastructure_2_Part2_140926.pdf",
@@ -152,7 +152,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7212416&code=1789416657"
         },
         "app/7222165": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "dba3e9fbfdb8a477bb42bd1024e9b45db7d7f0ee7181a9cff5e1b667e1f1b220",
           "id": "app/7222165",
           "name": "DEP260000033_Answers_to_the_Tender_Questions_Part3.pdf",
@@ -160,7 +160,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7222165&code=1789991644"
         },
         "app/7225878": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "4b209296685a60cb90388e187b0e3f45766106608f8b62fa11e7854f3aff5e02",
           "id": "app/7225878",
           "name": "DEP260000033_Amendment 3 to Bidding Document_Active_Infrastructure_2_Part3_220926.pdf",
@@ -168,7 +168,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7225878&code=1790105985"
         },
         "app/7226851": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "d918423ef3e274853afb6a39c483bdb7f837593cfbd575c7818fc8b73f2c59ea",
           "id": "app/7226851",
           "name": "DEP260000033_Amendment 4 to Bidding Document_Active_Infrastructure_2_230926.pdf",
@@ -176,7 +176,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7226851&code=1790173841"
         },
         "app/7256973": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "fe18ed6297ee633ab503656350e334cd50126aa7f368f4307e21895398d5c484",
           "id": "app/7256973",
           "name": "DEP260000033_Pre-Bid Meeting 2.pdf",
@@ -184,7 +184,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7256973&code=1791576487"
         },
         "app/7262372": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "528a8150cd1dbe1e4341cb356ce357312134deee3ff9a2589479767f4b45f12a",
           "id": "app/7262372",
           "name": "DEP260000033_Amendment 5 to Bidding Document_Active_Infrastructure_2_draft_131026.pdf",
@@ -192,7 +192,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7262372&code=1791993276"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "e01f4846e82eed9d30b6aaeded51151b56870fb4bfda6f7801b782c027602e19",
           "id": "tab-text",
           "name": "Documentation tab (text)",
@@ -203,7 +203,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:29:48.231554+00:00",
       "notice": "",
-      "notified": "af611e06d07804a9ac18613221a78094b0429a98d1c47cbab8ed06be64a33d97"
+      "notified": "80e16327852b1d0f8309e2e204015441369e460e0cea3ab602d41f20a68bff96"
     },
     "702734": {
       "details": {
@@ -219,7 +219,7 @@
       },
       "documents": {
         "que/2129957": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "07ab32311adde7e37574c72961da0cced0ce6e679df065620711aa6328dec0a6",
           "id": "que/2129957",
           "name": "მოწყობილობების მახასიათებლები.xlsx",
@@ -234,7 +234,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2129963&code=1788353071"
         },
         "que/2150397": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "58f144316d10b84b211fee4ece7e25ac70c863212506bcf4ff38aed5e70dde20",
           "id": "que/2150397",
           "name": "ოქმი N1.pdf",
@@ -242,7 +242,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2150397&code=1791210593"
         },
         "que/2150409": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "0beea4460aa8aa3420d5bfc2150e9c5e001fb1c063da1abd5dec35bd821beb08",
           "id": "que/2150409",
           "name": "ხელშეკრულების პროექტი Nutanix ლიცენზია+მხარდაჭერა.pdf",
@@ -250,7 +250,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2150409&code=1791210962"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "7069c301aa458d35d9c3399168414d27c3013e642ff7769132f1cb5a2428d594",
           "id": "tab-text",
           "name": "Documentation tab (text)",
@@ -261,7 +261,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:30:51.635911+00:00",
       "notice": "",
-      "notified": "d770bff5f984e1ae53e693ca5b26faf40092694075bb5f8c6446c6d1e743898b"
+      "notified": "1f52e735fad0d8a1e324f83ca0397c7337cd70ef84a8cbe87b0ea4ccb94d285c"
     },
     "704506": {
       "details": {
@@ -277,7 +277,7 @@
       },
       "documents": {
         "app/7208895": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "b93e700b4c48a7740b577be7860a0b8cbe5d9c51e8d96faa75815b9d9e916cef",
           "id": "app/7208895",
           "name": "_CGE1041-G003_Bidding document.pdf",
@@ -285,7 +285,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7208895&code=1789137873"
         },
         "app/7208896": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "a008d0b1e7091f40f45a2059fb1a4d78906d2c76cd4ad70476a0ae2ae8f43c5d",
           "id": "app/7208896",
           "name": "_CGE1041-G003_Invitation for bids.pdf",
@@ -293,7 +293,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7208896&code=1789137877"
         },
         "app/7208898": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "0cb50c5e9cf26954342d4d574966780d05e01c7b1ef7ef6cfd4d8440b3be63dd",
           "id": "app/7208898",
           "name": "_Guideline - Modified E-Procurement System_eng.pdf",
@@ -301,7 +301,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7208898&code=1789137890"
         },
         "app/7208899": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "57c9d47f044e2235b8200383c84b3ba2e73057e810942589ee89f6f696af397f",
           "id": "app/7208899",
           "name": "_Guideline - Modified E-Procurement System_geo.pdf",
@@ -309,7 +309,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7208899&code=1789137905"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "10b59156ac24d8d1b1d88a1038b4984f599061be87a2c8dcc000e4e8bc8da9eb",
           "id": "tab-text",
           "name": "Documentation tab (text)",
@@ -320,7 +320,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:31:00.018399+00:00",
       "notice": "",
-      "notified": "938acbd871610948255afdc570cf0377b92af51c0415d43babcfc1a2d492bae5"
+      "notified": "1298f059ba86678d24e17da8ed75a063b5fe2670264c8ed037a28e28a4078a56"
     },
     "705252": {
       "details": {
@@ -336,7 +336,7 @@
       },
       "documents": {
         "que/2157405": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "1a919110e72d3fd473e15dfd2fde36160f145381fcf5ed51f2c8d5b6a8a64036",
           "id": "que/2157405",
           "name": "ტექნიკური დავალება.pdf",
@@ -344,7 +344,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2157405&code=1792157579"
         },
         "que/2157406": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "66d8df4b81f960e0761ca375a230a1784660623e62bfea053ed14226ba80cb87",
           "id": "que/2157406",
           "name": "ფასების ცხრილი.xlsx",
@@ -352,7 +352,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2157406&code=1792157591"
         },
         "que/2157407": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "2a7688c8dee3339d02432db7ba3e63f317e2aeae6711b6738cca13047c0e3b72",
           "id": "que/2157407",
           "name": "ხელშეკრულების პროექტი.pdf",
@@ -360,7 +360,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2157407&code=1792157607"
         },
         "que/2157438": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "c845f944354448bc88d53e754ef4162790c7dd7d91ce736ded86b20679d17f86",
           "id": "que/2157438",
           "name": "ოქმი N1 ქსელური მოწყობილობები.pdf",
@@ -368,7 +368,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2157438&code=1792159702"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "9b22d2ce8adc7c49a792d5cbaa13d5c66e2e3ef2c0fb413320076dddbe810ad9",
           "id": "tab-text",
           "name": "Documentation tab (text)",
@@ -379,7 +379,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:29:29.398747+00:00",
       "notice": "",
-      "notified": "290e8ee6088624cbce7e27c004cef080b8f130b86bbb58904181cf4bbce10a7e"
+      "notified": "a3255b35137a5caed6e3fb7ecad48444dcba30994bbaf2412db10e7a8df6aa05"
     },
     "705393": {
       "details": {
@@ -395,7 +395,7 @@
       },
       "documents": {
         "que/2138831": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "87d4796282709073e9a097e53bf8ed51ec4abbcc6751fb870bc0759ad802f562",
           "id": "que/2138831",
           "name": "დანართი №2-ში ტექნიკური სპეციფიკაციები.pdf",
@@ -403,7 +403,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2138831&code=1789566662"
         },
         "que/2152340": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "c674afaad4c8d99707b07bdea666b61eb674510416129db89b408ea7f3603cea",
           "id": "que/2152340",
           "name": "დანართი №1 ფასების ცხრილი.xlsx",
@@ -411,7 +411,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2152340&code=1791387081"
         },
         "que/2155896": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "46a7e1c4db6761a262c046b298153882aa99fa9694fcf4e3227d4b1d2b5226c9",
           "id": "que/2155896",
           "name": "ოქმი#1 -პროგრამული უზრუნველყოფის ლიცენზიები.pdf",
@@ -419,7 +419,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2155896&code=1791913370"
         },
         "que/2155948": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "c23bec002624d84378bcd74b3506b14b8765fe6cc63df9d322a6dc29f2b25444",
           "id": "que/2155948",
           "name": "ხელშ. პროექტი - ლიცენზიები.pdf",
@@ -427,7 +427,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2155948&code=1791916418"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "856cf761136517d9e16057ab872b1c1669b9daa6f8dcd6947d22a6d76d83ab0a",
           "id": "tab-text",
           "name": "Documentation tab (text)",
@@ -438,7 +438,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:30:36.098914+00:00",
       "notice": "",
-      "notified": "fea3883b254b9d9b0d15adf1f23ca90c5ad1bd129bd8800f3fc28751bf06bc00"
+      "notified": "ec303a14aa08c6888e087647f878783dc2861c86e5624839ca2c512fe8d33759"
     },
     "706406": {
       "details": {
@@ -454,7 +454,7 @@
       },
       "documents": {
         "que/2143312": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "0ad197119979166d382757bd2cf81d40173c6dd6bdc1cde4b3ce402046cb0c88",
           "id": "que/2143312",
           "name": "ტექნიკური დავალება.pdf",
@@ -462,7 +462,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2143312&code=1790177407"
         },
         "que/2143313": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "7bacbeda0eb326870f0a7abc97da41b17918c6a31cd77ed466d686d04f9bdb4b",
           "id": "que/2143313",
           "name": "ფასების ცხრილი (დანართი №1).xlsx",
@@ -470,7 +470,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2143313&code=1790177416"
         },
         "que/2143323": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "e52190b8d7e61419ff1e546b848b6d267ebaae64100189e819cac503107b6d8d",
           "id": "que/2143323",
           "name": "ხელშეკრულების პროექტი.pdf",
@@ -478,7 +478,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2143323&code=1790177726"
         },
         "que/2153284": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "0b810e28a5c291215a7a31d706bd0557279660d1b45baf06ee1db934fe1a852f",
           "id": "que/2153284",
           "name": "ოქმი N1.pdf",
@@ -486,7 +486,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2153284&code=1791477413"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "17b229f6b0e7a717aa6772257321cb9329c1e0c76c4aa1becb5485ee9939d814",
           "id": "tab-text",
           "name": "Documentation tab (text)",
@@ -497,7 +497,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:29:44.160164+00:00",
       "notice": "",
-      "notified": "0bec7a6c0e9dcdd1e2b5804901d3643856cb37faf9027a309d75dd77247de497"
+      "notified": "61a732941126fd6a3b0bd0277801e9a0e84476c8cd8229573ec61fb3c73dfb3b"
     },
     "706976": {
       "details": {
@@ -513,7 +513,7 @@
       },
       "documents": {
         "que/2145807": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "7c594b79b48580bd48e12fb514a131c1fd14c56ec156d4a9d1e491ea6f329563",
           "id": "que/2145807",
           "name": "ტექ.დავალება ცვლილებით რადიო-სარელეო 28.09.26. საბოლოო......doc.pdf",
@@ -521,7 +521,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2145807&code=1790609248"
         },
         "que/2145808": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "5225ac99f33e4fa1dbf88ae69b5c80507585be5311e1003916f2983081454dcf",
           "id": "que/2145808",
           "name": "ფასების ცხრილი -  რადიო-სარელეო 28.09.26 .xlsx",
@@ -529,7 +529,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2145808&code=1790609264"
         },
         "que/2146848": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "db07036d290eddddc2dfc6233a3f521d87e92852408c533b4c00d63103f0f972",
           "id": "que/2146848",
           "name": "ხელშეკრულების პროექტი, რადიო სარელეო.pdf",
@@ -537,7 +537,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2146848&code=1790702762"
         },
         "que/2146862": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "b1b8e2ccaf87babf3a16777887960d661fe42362704b882d58111d765e184823",
           "id": "que/2146862",
           "name": "ოქმი 1 - ელექტრონული ტენდერის გამოცხადება, რადიო სარელეო 29.09.26-signed-signed.pdf",
@@ -545,7 +545,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2146862&code=1790703217"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "fc0b74df3bc5bc8dbcda7477077e5d2e03f6e908b39c935ae9f1f577d248a724",
           "id": "tab-text",
           "name": "Documentation tab (text)",
@@ -556,7 +556,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:32:01.310016+00:00",
       "notice": "",
-      "notified": "afed1dd47b0bef77ae74d75d8971ed9c4db353ae92cb38ede5845659c23339a8"
+      "notified": "e5ea8611fbae0b7e8078d798be7fffe974d13c74e71b86f4efe38e332649274e"
     },
     "706995": {
       "details": {
@@ -572,7 +572,7 @@
       },
       "documents": {
         "que/2145905": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "ce542fcf94e9b1b8a1050f934a9737a8d108fd3c6744b92da5970f83af2fc0d8",
           "id": "que/2145905",
           "name": "ტექ.დავალება ცვლილებით ოპტიკურ-ბოჭკოვანი - 28.09.26 საბოლოო.pdf",
@@ -580,7 +580,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2145905&code=1790612010"
         },
         "que/2145906": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "bcd73356f6abd105d5de65897e0a78f7a9c0f3342e48df71faa4fb64645e17be",
           "id": "que/2145906",
           "name": "ფასების ცხრილი - ოპტიკურ- ბოჭკოვანი 28.09.26 (1).xlsx",
@@ -588,7 +588,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2145906&code=1790612021"
         },
         "que/2146847": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "e7df4a929250c5e12afacea6211c1acf6b8a82e38b9d3c42b3fe809814fd8c8a",
           "id": "que/2146847",
           "name": "ხელშეკრულების პროექტი, ოპტიკურ-ბოჭკოვანი.pdf",
@@ -596,7 +596,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2146847&code=1790702735"
         },
         "que/2146872": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "048df37859440f5ff90c0541401d3507327b367741c0db6f79274acc85ae3569",
           "id": "que/2146872",
           "name": "ოქმი 1 - ელექტრონული ტენდერის გამოცხადება, ოპტიკურ-ბოჭკოვანი 29.09.26-signed-signed.pdf",
@@ -604,7 +604,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2146872&code=1790703824"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "10ec561707ef37027af4020219b49ec890f58dbca4645a0074db736aa4a7e8ec",
           "id": "tab-text",
           "name": "Documentation tab (text)",
@@ -615,7 +615,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:32:07.148507+00:00",
       "notice": "",
-      "notified": "0768a5948e35c568bad3920e038a75811aa99ee8d32198fdc1c9165acf869ea1"
+      "notified": "513fc90c320075a146b73d3208a3470ce58970c02eb8732ec0eb1f4f30d9baec"
     },
     "706998": {
       "details": {
@@ -631,7 +631,7 @@
       },
       "documents": {
         "que/2145923": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "83e47d9f2195385f90cbb67af1f5b73cd1e31807cc25f131ea0b8c2faf05af9e",
           "id": "que/2145923",
           "name": "ტექ.დავალება ცვლილებით - კომბინირებული 28.09.26. საბოლოო....doc.pdf",
@@ -639,7 +639,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2145923&code=1790612774"
         },
         "que/2145924": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "259bc01a39f597b7701fae7c0bee59c651ab7ef612e07a0c05b1d4d4756d5a31",
           "id": "que/2145924",
           "name": "ფასების ცხრილი - კომბინირებული 28.09.26 (1).xlsx",
@@ -647,7 +647,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2145924&code=1790612788"
         },
         "que/2146844": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "9a5dcd1b64e52dfe94c3967bf99eecc8db6598318d7c8ce23b48732d8cf96454",
           "id": "que/2146844",
           "name": "ხელშეკრულების პროექტი, კომბინირებული.pdf",
@@ -655,7 +655,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2146844&code=1790702700"
         },
         "que/2146888": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "fed96c57cd357a11e716005dc6b1325888f3996cea1581cc7a86559fc64329c9",
           "id": "que/2146888",
           "name": "ოქმი 1 - ელექტრონული ტენდერის გამოცხადება, კომბინირებული 29.09.26-signed-signed.pdf",
@@ -663,7 +663,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2146888&code=1790704075"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "d167d4c26224672a63f7e01afe29ab34b323f85a21a041413fb3566aaef33f40",
           "id": "tab-text",
           "name": "Documentation tab (text)",
@@ -674,7 +674,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:31:53.269271+00:00",
       "notice": "",
-      "notified": "859e89eaad5fdea1b621bc8c458ffa5de144c297bd54a4e34a0c6d0d812cc978"
+      "notified": "ac44febfda5047296b82584d5c943e63cabc5e25ec27aa4011a9012253374edf"
     },
     "708202": {
       "details": {
@@ -690,7 +690,7 @@
       },
       "documents": {
         "que/2151120": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "53ee85e4c14656a4ecaa70bc9722a8a380aa6c8406f2b1db4269afabda039180",
           "id": "que/2151120",
           "name": "ფასების ცხრილი, დანართი N1.xlsx",
@@ -698,7 +698,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2151120&code=1791285487"
         },
         "que/2151701": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "c9a34f032e827593e2756382cfb0a76687bdd6733aab131d2d02889e4c8f9719",
           "id": "que/2151701",
           "name": "ხელშეკრულების პროექტი.pdf",
@@ -706,7 +706,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2151701&code=1791308402"
         },
         "que/2158156": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "c8b6c787b221de18f520d35e4b259d10479fc778a19db8926538e239259ba3bf",
           "id": "que/2158156",
           "name": "შესყიდვის ობიექტის ტექნიკური დავალება.pdf",
@@ -714,7 +714,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2158156&code=1792411453"
         },
         "que/2159604": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "d0a6dbf637a633151c28cf14c91a79c044fb7ef1e6526a8eb598c430441b7af1",
           "id": "que/2159604",
           "name": "სატენდერო კომისიის სხდომის ოქმი N1.pdf",
@@ -722,7 +722,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2159604&code=1792517497"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "fc2b29117fe7607bb9e93bf070a171d452c13c5abf760fb4312b9298b14c1fe3",
           "id": "tab-text",
           "name": "Documentation tab (text)",
@@ -733,7 +733,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:28:49.238842+00:00",
       "notice": "",
-      "notified": "7b13f5efaa816c932f65748825fb3f3500ab0fa6f6d722440ca51910b87723a0"
+      "notified": "19932c0408ccbd6f5a1e15388d928783cc777de3887fc2dca5c326dfde85b02e"
     },
     "708237": {
       "details": {
@@ -749,7 +749,7 @@
       },
       "documents": {
         "que/2151003": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "cf2801c6a9836ca78e95d8eeb021c0db7fc792799a564969abd57c9976a635e2",
           "id": "que/2151003",
           "name": "ფასების ცხრილი.xlsx",
@@ -757,7 +757,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2151003&code=1791282170"
         },
         "que/2151502": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "88f6559d86644b917df57588fffa97b9b0409708b7d1a4a10d8fc31a5e250bea",
           "id": "que/2151502",
           "name": "ხელშეკრულების პროექტი.pdf",
@@ -765,7 +765,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2151502&code=1791302392"
         },
         "que/2152050": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "7708bf3573e14ea0b4037168327c03a08851abf0da7e056821d1c39dd4ecd538",
           "id": "que/2152050",
           "name": "ოქმი #1.pdf",
@@ -773,7 +773,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2152050&code=1791375645"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "1aa76d0a684fffd0735c9e8d2d40843a40d38365eef7d1f29d9db623088f1d52",
           "id": "tab-text",
           "name": "Documentation tab (text)",
@@ -784,7 +784,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:30:39.839785+00:00",
       "notice": "",
-      "notified": "6faf1235963ad9bf37e6d4d86b37b96086a4309239bae4fc2bf8d84c6fb74d45"
+      "notified": "47e5df4ced9d0dea711ee95024aeaa24c40b8e89adba9c06fb7faa014c48b245"
     },
     "708310": {
       "details": {
@@ -800,7 +800,7 @@
       },
       "documents": {
         "que/2159990": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "1022de7b43a27cfc08a24dca3c4fdd3c17edec687384f21ece1cd7b82db92380",
           "id": "que/2159990",
           "name": "დანართი N1 - ტექნიკური პარამეტრები.xlsx",
@@ -808,7 +808,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2159990&code=1792586170"
         },
         "que/2159992": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "a3ef0e9c22be07e128d8b60fb096e62b4362898a958c5f9b761e4d6494a4f1ed",
           "id": "que/2159992",
           "name": "დანართი N3 - ფასების ცხრილი.xlsx",
@@ -816,7 +816,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2159992&code=1792586187"
         },
         "que/2160313": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "4630bb9b6f9d0a311c807b590a7116b91e7283dc5ea051138cd0865092264e2c",
           "id": "que/2160313",
           "name": "ხელშეკრულების ნიმუში.pdf",
@@ -824,7 +824,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2160313&code=1792596633"
         },
         "que/2160680": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "82ec2853a38970b4b92041304e2a1bcabf65ce4235067533279fe5649d2a73b3",
           "id": "que/2160680",
           "name": "სატენდერო დოკუმენტაციის დამტკიცების ოქმი №CON-UPS -01-signed.pdf",
@@ -832,7 +832,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2160680&code=1792607434"
         },
         "que/2160738": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "c3a8fd53bbbcf230be4c86e08ec08d218074e4265fe4c69ad17d4942a84e8ced",
           "id": "que/2160738",
           "name": "დანართი N2 - რაოდენობების განაწილება შემსყიდველი ორგანიზაციების მიხედვით.xlsx",
@@ -840,7 +840,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2160738&code=1792608769"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "4a0719bb6450b1de0fb964691850a979f90decf18e6498b51e17cb94d8a3529c",
           "id": "tab-text",
           "name": "Documentation tab (text)",
@@ -851,7 +851,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:28:11.108557+00:00",
       "notice": "",
-      "notified": "b48e57280c104d5e43b0fc7485fe967627f7d976c7e8fcf4ad5cd026ebb5c3a6"
+      "notified": "5a706a253b3481d9fd2caf6de969f2700e6ccfee1eaed3c7060055e6927ee87f"
     },
     "708750": {
       "details": {
@@ -867,7 +867,7 @@
       },
       "documents": {
         "que/2153135": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "1d4b1753b7426ec254ed76848e92b13e51d71b1c77a4a5e11caf32d57c6c3903",
           "id": "que/2153135",
           "name": "ტექნიკური დავალება.pdf",
@@ -875,7 +875,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2153135&code=1791472295"
         },
         "que/2153521": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "1c3d4419249141b8c6bf68c9bc6beec055dd78f41cb2d4dfb5d2104e7ef48f9d",
           "id": "que/2153521",
           "name": "ხელშეკრულების პროექტი.pdf",
@@ -883,7 +883,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2153521&code=1791540076"
         },
         "que/2156190": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "ccda1b1f614af993c1e13928287fd5f8ca43ceee7c339776d9213a66fd49a760",
           "id": "que/2156190",
           "name": "ფასების ცხრილი.xlsx",
@@ -891,7 +891,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2156190&code=1792063197"
         },
         "que/2160070": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "b990eb42ef3ea911db33872f003d7a3a1aea496486323061506d48afd71a9534",
           "id": "que/2160070",
           "name": "ოქმი №1.pdf",
@@ -899,7 +899,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2160070&code=1792591257"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "1cb5121f75f31e9b8e2fdc4790e9743853bbd4a92dfb7d0403ed63e09318dd01",
           "id": "tab-text",
           "name": "Documentation tab (text)",
@@ -910,7 +910,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:30:11.892894+00:00",
       "notice": "",
-      "notified": "3d114da0e2ca23e541dfa4d746f80701bb7fb9980d3cf89720162addf8af8360"
+      "notified": "3ff93786cf9c5626472915712d63f0df0a527bab267d8bc90975e35a096dcbac"
     },
     "708761": {
       "details": {
@@ -926,7 +926,7 @@
       },
       "documents": {
         "que/2157901": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "fca368d4256df55378b58cff19f770a59a253118ba3aafa5294a5eb090063016",
           "id": "que/2157901",
           "name": "ტექნიკური დავალება.xlsx",
@@ -934,7 +934,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2157901&code=1792178417"
         },
         "que/2157905": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "0738dbc66c627916c35ceb8ea4d79f2f61912afd8a9e8fca7de67743ce69ae2c",
           "id": "que/2157905",
           "name": "ფასების ცხრილი (დანართი N1).xlsx",
@@ -942,7 +942,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2157905&code=1792178666"
         },
         "que/2157912": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "611587b3969866b3c1d96b4d20aac6502e9bea36831c3670db8305346db64ef5",
           "id": "que/2157912",
           "name": "ხელშეკრულების პროექტი.pdf",
@@ -950,7 +950,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2157912&code=1792179638"
         },
         "que/2159834": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "50801e721cf7ee4de16331d38aee3882d14caade5946e218a36f2e4cf400b7c8",
           "id": "que/2159834",
           "name": "ოქმი N1.pdf",
@@ -958,7 +958,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2159834&code=1792581859"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "0d9cc4a8ecc9d86476edcb01129bc24c9bd2b83add2f2ad0d8065208450c9c74",
           "id": "tab-text",
           "name": "Documentation tab (text)",
@@ -969,7 +969,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:28:25.583164+00:00",
       "notice": "",
-      "notified": "0c27ab840f8b895c64ad4bcfc9e24b5b44299a2c1f3167cb8ed8724e6dda232d"
+      "notified": "2dea658dcf04e4d17f139db56281a7a5b7625af4290d5e3c14d51b04df608c32"
     },
     "708799": {
       "details": {
@@ -985,7 +985,7 @@
       },
       "documents": {
         "que/2159428": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "8e4bbb827475c5465db7ebab9b69fc33a5c559e6fcdc5c55df39378f28eadcef",
           "id": "que/2159428",
           "name": "ტექნიკური დავალება.pdf",
@@ -993,7 +993,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2159428&code=1792511626"
         },
         "que/2159429": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "520642cb6fa6cfd93061497d4692e4641975546204261f88c2b7151d0ca9b888",
           "id": "que/2159429",
           "name": "Price Schedule-ფასების ცხრილი.xlsx",
@@ -1001,7 +1001,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2159429&code=1792511633"
         },
         "que/2159822": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "2bdacab0372ee6aac71108eec843af98b3b558738458fb19b67b7b4084bac2d1",
           "id": "que/2159822",
           "name": "ხელშეკრულების პროექტი.pdf",
@@ -1009,7 +1009,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2159822&code=1792581573"
         },
         "que/2160099": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "ec627ce663024566aa45ace993886c88e7c1f1a4400d7182a511b7e33e6f5be3",
           "id": "que/2160099",
           "name": "ოქმი  N1 -  ოპტიკურ-ბოჭკოვანი კაბელები და აქსესუარები.pdf",
@@ -1017,7 +1017,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2160099&code=1792592070"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "be5677779a521737c6146edd362e1a0dc1efb2ad4f17b7100213d7f8b65005a6",
           "id": "tab-text",
           "name": "Documentation tab (text)",
@@ -1028,7 +1028,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:30:08.434702+00:00",
       "notice": "",
-      "notified": "b17093fc8ffdb905b18a2209b0a39f0fc40dba8ef89f7cbd293730e4175521dd"
+      "notified": "e4e09be9a79373e7fde4f1839f8bb7fd7ff7a9e02afdc1512e60a55f968efbf7"
     },
     "708864": {
       "details": {
@@ -1044,7 +1044,7 @@
       },
       "documents": {
         "que/2157078": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "99a10f5c8bfcaf9a657755f2b105fc622368b4ec265152ecc8726d78654db4a8",
           "id": "que/2157078",
           "name": "ფასების ცხრილი.xlsx",
@@ -1052,7 +1052,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2157078&code=1792145139"
         },
         "que/2159545": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "ab7fdce42abcce9b92e0678751503937832b14d2979b529b49ba49da7c0affde",
           "id": "que/2159545",
           "name": "ხელშეკრულების პროექტი(71).pdf",
@@ -1060,7 +1060,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2159545&code=1792515109"
         },
         "que/2159584": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "7137567fa8f049f1681a5ccfa865f98579a310b6bbc7881977d2dacfce70170c",
           "id": "que/2159584",
           "name": "ოქმი N1.pdf",
@@ -1068,7 +1068,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2159584&code=1792516969"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "deaf0033105b2fff2db303580269880c5fa1a3a4287df2d964a05fbe3be2f6cb",
           "id": "tab-text",
           "name": "Documentation tab (text)",
@@ -1079,7 +1079,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:28:43.445313+00:00",
       "notice": "",
-      "notified": "a5594a5d4d11f458668176affb268a39cd5c220cc74f25b27ba1768e2b4c5629"
+      "notified": "171246a4688e7431c200dcaf175e923ea672102ff1c3f53a7e0ee7596cea1e1e"
     },
     "708963": {
       "details": {
@@ -1103,7 +1103,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2154207&code=1791576093"
         },
         "que/2155190": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "dcdad98050d6cf1e1a95136f5bea88f5fecc151c183829da64072e8f3f9c0f1e",
           "id": "que/2155190",
           "name": "ხელშეკრულების პროექტი-CD.pdf",
@@ -1111,7 +1111,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2155190&code=1791839033"
         },
         "que/2155210": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "91d8f7d452032abdaa29a09acaa5ea985aee0b0182f2dc8d01f76208a303b4a9",
           "id": "que/2155210",
           "name": "ოქმი N1.pdf",
@@ -1119,7 +1119,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2155210&code=1791846481"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "e9edb311dd3363011fc4e82b4666be70ac30d56d7237ca48ea03d858d759f937",
           "id": "tab-text",
           "name": "Documentation tab (text)",
@@ -1130,7 +1130,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:28:56.074997+00:00",
       "notice": "",
-      "notified": "cd61e070a7870d0998346527cec6a2d285cc052b36eb8aadeb4ad15739dd2b85"
+      "notified": "e5d3e18d0ccf41d18db628bd99a8026cc2d316748be07685dccb2d8560e6b4bc"
     },
     "709190": {
       "details": {
@@ -1146,7 +1146,7 @@
       },
       "documents": {
         "que/2155236": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "0dfcee892bf97089547094da7bcb455def14b92853feb418f1950f7ac86731be",
           "id": "que/2155236",
           "name": "Letter BSMA 3.09.26.pdf",
@@ -1154,7 +1154,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2155236&code=1791884727"
         },
         "que/2155242": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "c1417a0469a69d6ca70967fd15a0f32c2d3a67d3333584d4c7652ec8f99eb413",
           "id": "que/2155242",
           "name": "ფასების ცხრილი.xlsx",
@@ -1162,7 +1162,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2155242&code=1791884971"
         },
         "que/2155585": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "c434f19c9d53f29d3fd1e4d12d83f130ee863960e5d8f3ba0abccd352c2b1c9a",
           "id": "que/2155585",
           "name": "ხელშეკრულების პროექტი.pdf",
@@ -1170,7 +1170,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2155585&code=1791902152"
         },
         "que/2156818": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "3223638e7e06b48fc5aed6f75b055d3c8966afb6e4d8197e1ac4d1e0bdf3349a",
           "id": "que/2156818",
           "name": "ოქმი N1.......pdf",
@@ -1178,7 +1178,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2156818&code=1792081904"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "292a76750b797fec3163132a347d40aea6560083f2cf5d55492c18b1f45bc81f",
           "id": "tab-text",
           "name": "Documentation tab (text)",
@@ -1189,7 +1189,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:29:19.778257+00:00",
       "notice": "",
-      "notified": "ecd099e7f195472cc4a362f314a10274b7cc5905e9076194cf6561b9b19bf315"
+      "notified": "a52030c9c10d03dc37e5be8810e0780010474a00ea4f83a6024e071377858965"
     },
     "709218": {
       "details": {
@@ -1205,7 +1205,7 @@
       },
       "documents": {
         "que/2155373": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "46ae9223ead6a87ce3c23b20a87ba095132c1dcf780b450dbe3f953095fc76b7",
           "id": "que/2155373",
           "name": "ფასების ცხრილი.xlsx",
@@ -1213,7 +1213,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2155373&code=1791890875"
         },
         "que/2155428": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "e1c3f3c507b8c1fc17c1e485e4276fa6a8359c969099184b508111f44318a70a",
           "id": "que/2155428",
           "name": "ხელშეკრულების პროექტი.pdf",
@@ -1221,7 +1221,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2155428&code=1791893483"
         },
         "que/2155802": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "5259e64f5efb0d5be45d7d7dd35a379beca92fcd333ca395bdacc8328982cb5d",
           "id": "que/2155802",
           "name": "ოქმი N1.pdf",
@@ -1229,7 +1229,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2155802&code=1791909504"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "c9abfd90c334fa885df01826e176ff416642f685ee234610df60cce7248369e1",
           "id": "tab-text",
           "name": "Documentation tab (text)",
@@ -1240,7 +1240,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:32:13.430296+00:00",
       "notice": "",
-      "notified": "a9ea28dda6995191b9ddda60a0c38d10ab438f7fe952a3f0a182c5f5eb5074fb"
+      "notified": "23c4270783e5bc4441f4d877b094e47d77d461634c8ce96815f3dad3c0fe6cd6"
     },
     "709299": {
       "details": {
@@ -1256,7 +1256,7 @@
       },
       "documents": {
         "que/2155614": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "502dea165d6043a8f3638517a3fcfec247eca10763caab039aaecfe89150fceb",
           "id": "que/2155614",
           "name": "ტექნიკური დავალება.pdf",
@@ -1264,7 +1264,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2155614&code=1791903738"
         },
         "que/2155616": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "30d560095f966249f7f927ccfd9aa9e260dc37914d9ca72ce12cf17217352e65",
           "id": "que/2155616",
           "name": "ფასების ცხრილი.xlsx",
@@ -1272,7 +1272,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2155616&code=1791903788"
         },
         "que/2155625": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "6bb9f693d49d1da345f75dba24839085750aa041372cd67406f9b371e52ef857",
           "id": "que/2155625",
           "name": "ხელშეკრულების პროექტი.pdf",
@@ -1280,7 +1280,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2155625&code=1791904132"
         },
         "que/2155626": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "5b46d587f38e86224dae3b59bcfcd62dbd6bb231e9f45eeb21708c59fc737e60",
           "id": "que/2155626",
           "name": "ოქმი 1-SIGNED.pdf",
@@ -1288,7 +1288,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2155626&code=1791904197"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "a75f7ce6f78bf9a02e7ae5353814a85915d1e4306ba2d84a8b5028bc68a3c215",
           "id": "tab-text",
           "name": "Documentation tab (text)",
@@ -1299,7 +1299,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:31:41.327096+00:00",
       "notice": "",
-      "notified": "7b7dfd4507c7f6054c231904268df9ae8969461ffaea0e182db415e789ed4a9c"
+      "notified": "5aa7768f33f8fa043e5242d89bcdbe649028a5c038fe7eea75f0d9c0c5908cb8"
     },
     "709507": {
       "details": {
@@ -1315,7 +1315,7 @@
       },
       "documents": {
         "que/2156531": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "f1eaaa8c3bf7544c05961bac3056377c947051dfc7ac41b6809541fb6f078fc8",
           "id": "que/2156531",
           "name": "ფასების_ცხრილი (3).xlsx",
@@ -1323,7 +1323,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2156531&code=1792076964"
         },
         "que/2159527": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "d9ea254d55ad32c3121a4446b89934127c9175235a8088fba44c309ed5cc4286",
           "id": "que/2159527",
           "name": "ხელშეკრულების პროექტი.pdf",
@@ -1331,7 +1331,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2159527&code=1792514496"
         },
         "que/2159540": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "f5c3813ac0a1ec25b00d4d117d61d06cd59b37830a4982b0f790624ae1649a64",
           "id": "que/2159540",
           "name": "ოქმი N1.pdf",
@@ -1339,7 +1339,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2159540&code=1792514707"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "92efc80bba88c9545180d696e7ba699b1f8261743d9ddc69bd446ebd01d80ceb",
           "id": "tab-text",
           "name": "Documentation tab (text)",
@@ -1350,7 +1350,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:30:16.122735+00:00",
       "notice": "",
-      "notified": "0ca306d09456ce0f8ed82d53fca3c4ff6268cd0c492775afafe59c2f44e66b73"
+      "notified": "1b5b116a0a67a5e83311d87f7b5b231cad84b204f90ca5791f11042a8210564f"
     },
     "709526": {
       "details": {
@@ -1366,7 +1366,7 @@
       },
       "documents": {
         "que/2157908": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "c8ca8ef7bf8c4ef125ee1113c88bcdf7b70d5ffb6e48993854d6d4a3bb93235e",
           "id": "que/2157908",
           "name": "ტექნიკური დავალება.pdf",
@@ -1374,7 +1374,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2157908&code=1792178950"
         },
         "que/2157911": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "28ee388b55ac867a5d3654279a629121279dfd61edd168a366973d796f9588d5",
           "id": "que/2157911",
           "name": "დანართი N1 - ფასების ცხრილი...xlsx",
@@ -1382,7 +1382,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2157911&code=1792179282"
         },
         "que/2157919": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "acb5031b590b86270d86342b26ec272a9f6b056f9c5feebbb4b91327636c18db",
           "id": "que/2157919",
           "name": "ოქმი N1.pdf",
@@ -1390,7 +1390,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2157919&code=1792183561"
         },
         "que/2158303": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "0c2a4803efc3541429fc290f2b36278f8becfdb2c22469d0781bc83adebcf807",
           "id": "que/2158303",
           "name": "ხელშეკრულების პროექტი (2) (1).pdf",
@@ -1398,7 +1398,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2158303&code=1792417608"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "dfa965f2658b6613a84f74769b77907b88d99866a3fc028742a9c73bf7260239",
           "id": "tab-text",
           "name": "Documentation tab (text)",
@@ -1409,7 +1409,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:31:37.258669+00:00",
       "notice": "",
-      "notified": "7080105de684b6547442dc7bfd778b7f344d4b0ab0001b4796417c7e7bac5c57"
+      "notified": "aa0fbbeb7c888a6b3302020b61b02f2a00e556d432a51a531f53e50e7baaa563"
     },
     "709631": {
       "details": {
@@ -1425,7 +1425,7 @@
       },
       "documents": {
         "que/2157899": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "23bd42dfdb7fa4f0a2d96da170283ceb8197e452a3783a8d8a9e828c49db8e27",
           "id": "que/2157899",
           "name": "დანართი N1 - ფასების ცხრილი...xlsx",
@@ -1433,7 +1433,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2157899&code=1792178192"
         },
         "que/2157900": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "c590350d73d4e16c54afff0ce314e111663f5da301ae2144cd151673bd4220a6",
           "id": "que/2157900",
           "name": "ტექნიკური დავალება.pdf",
@@ -1441,7 +1441,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2157900&code=1792178395"
         },
         "que/2157915": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "7ee85aefeb3ea6c3425a3857a40952c2fb5e1b6e0043e35fbcf634290f71fa0d",
           "id": "que/2157915",
           "name": "ხელშეკრულების პროექტი.pdf",
@@ -1449,7 +1449,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2157915&code=1792182575"
         },
         "que/2158300": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "2d6f116ddfe901690a10472a51cae8374617353c4d9043b53daf9ed895876f31",
           "id": "que/2158300",
           "name": "ოქმი N1.pdf",
@@ -1457,7 +1457,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2158300&code=1792416825"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "e1e44d65ad0c33e6bdc578c37dc04a4bd68435b19b6418f19e2932f74f26d0eb",
           "id": "tab-text",
           "name": "Documentation tab (text)",
@@ -1468,7 +1468,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:30:22.856998+00:00",
       "notice": "",
-      "notified": "f4b4e6857456df84ba6ecded0a19f2eaad1c7d39b085bb05c2bbf87c0fd7323b"
+      "notified": "1d4a6568cc40c11225e4e4e70a518099417f2200f8921bbaeded0ccd95e93bc8"
     },
     "709642": {
       "details": {
@@ -1484,7 +1484,7 @@
       },
       "documents": {
         "que/2157896": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "ea7bfb830691b8a5084182383d067f3b7e7318f92c2e17e429ba2f5e9c13eab4",
           "id": "que/2157896",
           "name": "დანართი N1 - ფასების ცხრილი.xlsx",
@@ -1492,7 +1492,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2157896&code=1792177907"
         },
         "que/2157897": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "1679e5e43b8d5bf6b0f7f7750688bbd67a88881214f60a99085d564f0ed675f6",
           "id": "que/2157897",
           "name": "ტექნიკური დავალება.pdf",
@@ -1500,7 +1500,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2157897&code=1792177937"
         },
         "que/2158297": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "e0a288a506f2987ed83434fb83d74643917bb332d7e37797423219d04267d5e1",
           "id": "que/2158297",
           "name": "ოქმი 1.pdf",
@@ -1508,7 +1508,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2158297&code=1792416330"
         },
         "que/2158298": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "b577c76d446bff81b0050432aabb1c5139f0168f978eedca247b61f82cb7d6ba",
           "id": "que/2158298",
           "name": "ხელშეკრულების პროექტი.pdf",
@@ -1516,7 +1516,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2158298&code=1792416543"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "36b20adf75f0f9f11d6f1624318535b5f12073539198b7e58855b9fab339452f",
           "id": "tab-text",
           "name": "Documentation tab (text)",
@@ -1527,7 +1527,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:30:30.764545+00:00",
       "notice": "",
-      "notified": "6c66df22e4c6ae2e29c07e00f8ffd9e79e364d0a80838b83dee328231bb8b8e9"
+      "notified": "283420b10489d8e60a2412ebf011d859d0d43352768ceef24e02f9f92716e002"
     },
     "709797": {
       "details": {
@@ -1543,7 +1543,7 @@
       },
       "documents": {
         "que/2157922": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "44b54c9e007cbc957bbe1a807013b04394e06015a1e01c4f91106aa1bd7ce3af",
           "id": "que/2157922",
           "name": "ვებ კამერაFASEBIS CXRILI - (1) (1).xlsx",
@@ -1551,7 +1551,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2157922&code=1792188766"
         },
         "que/2157923": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "6b3ec4b4795a5fb5d308ee226eaab6c7f2bc7748fd75a5c8f06ba8d2f24f0036",
           "id": "que/2157923",
           "name": "ვებ კამერა ტექნიკური.xlsx",
@@ -1559,7 +1559,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2157923&code=1792188777"
         },
         "que/2157924": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "4f69129c5676d66cf555a1203311d73d0493389cd5dee6d1bf4f01807e18780f",
           "id": "que/2157924",
           "name": "2026 w xelshk. - -.pdf",
@@ -1567,7 +1567,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2157924&code=1792189525"
         },
         "que/2158722": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "7da659b3a7658db062d9fd150b48ce5b019ff6f3b682e28352029807b7600344",
           "id": "que/2158722",
           "name": "2026w         OQMI #1 მაუსი , ვებ კამერა.pdf",
@@ -1575,7 +1575,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2158722&code=1792432185"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "ed8654e2a2b742f75b22d66dcb01e991a47544b53b2e57eff7da114b8d754d3b",
           "id": "tab-text",
           "name": "Documentation tab (text)",
@@ -1586,7 +1586,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:28:29.161821+00:00",
       "notice": "",
-      "notified": "7a63b5e501df8c1094d84f51a7b4feb0d2014218431df63873ab985278e3926e"
+      "notified": "fdf3c98dca8c26276baaa62cc0dc449f0e2e646264e50bfb08f2951c15b39baa"
     },
     "709888": {
       "details": {
@@ -1602,7 +1602,7 @@
       },
       "documents": {
         "que/2158225": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "ebcb3704941c1f89889c0e404d54eaa6d017e4fa067293db595e3c168bd8de2f",
           "id": "que/2158225",
           "name": "ტექნიკური დავალება.pdf",
@@ -1610,7 +1610,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2158225&code=1792413259"
         },
         "que/2159497": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "37d3f570a38473cc684161c55ffcdd7c789486e415659a29bb4fdf36da4318fe",
           "id": "que/2159497",
           "name": "ხელშეკრულების პროექტი.pdf",
@@ -1618,7 +1618,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2159497&code=1792513817"
         },
         "que/2159512": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "2f276d4371469857d2f2fa6200cab67d2b476d4f24d1c734ae9af1904f3e03a4",
           "id": "que/2159512",
           "name": "ოქმი 02.pdf",
@@ -1626,7 +1626,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2159512&code=1792514248"
         },
         "que/2159525": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "29a7d69ef55c012b701311559998e0d88ac219f4dcdeb7d3f10f84341b4e9a5f",
           "id": "que/2159525",
           "name": "ფასების ცხრილი.xlsx",
@@ -1634,7 +1634,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2159525&code=1792514462"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "4c7fbe9c7657b892c8f2b3ed11b62324a52822bd2f48eaa6d9200e7134082231",
           "id": "tab-text",
           "name": "Documentation tab (text)",
@@ -1645,7 +1645,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:31:33.133958+00:00",
       "notice": "",
-      "notified": "d1ffd591ee81c12c43b3baa3664f6c74beead88ae74c63cbfcb7783bef2edc02"
+      "notified": "4a18c8b4fc48b750933e9ff1632793263986278dc803f078d224301eae7f4112"
     },
     "710078": {
       "details": {
@@ -1661,7 +1661,7 @@
       },
       "documents": {
         "que/2159244": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "4804c18bb114559fae47116b322db0072ae0bc8030693ecafb3fcd43da6cbaa1",
           "id": "que/2159244",
           "name": "ფასების ცხრილი - დანართი №1.xlsx",
@@ -1669,7 +1669,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2159244&code=1792506483"
         },
         "que/2160032": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "53c35ef7a23de866436e3cdb3a12f64adb9fea5ee1144755221fbc23e4643083",
           "id": "que/2160032",
           "name": "ხელშეკრულების პროექტი.pdf",
@@ -1677,7 +1677,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2160032&code=1792588448"
         },
         "que/2160750": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "e4af7ff6aac5bdecd0cbb67df6989de2154befe087033dd6c30e70128592b563",
           "id": "que/2160750",
           "name": "სატენდერო კომისიის სხდომის ოქმი N1-signed.pdf",
@@ -1685,7 +1685,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2160750&code=1792609874"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "d9414b5706ad8ab84272d0ad6f79cd494577331cfa216129897f866162470c26",
           "id": "tab-text",
           "name": "Documentation tab (text)",
@@ -1696,7 +1696,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:30:55.987186+00:00",
       "notice": "",
-      "notified": "c5db30ffacbd6e4ff10b1b549555bd76bb5aadd231a6f46a5dbb391df19e46cb"
+      "notified": "eef2f2eb93e4ae7909f56606230ad909bb7b47c4edcc9f0ff85710e3b53f900b"
     },
     "710112": {
       "details": {
@@ -1712,7 +1712,7 @@
       },
       "documents": {
         "que/2159206": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "51d9ac9c5590d030b789646273ad543bfe46ff6621f790b66b542d0edd64a471",
           "id": "que/2159206",
           "name": "დანართი #1 პრეისკ. საბეჭ. დანადგ. ტექ.მომს..xlsx",
@@ -1720,7 +1720,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2159206&code=1792504926"
         },
         "que/2159211": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "f2915b78ff317ea286fff8d6d329c5d082d4f0c647602c1625dce80a7b613a2f",
           "id": "que/2159211",
           "name": "ხელშ. პროექტი - საბეჭ. დანადგ. ტექ.მომს..pdf",
@@ -1728,7 +1728,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2159211&code=1792505426"
         },
         "que/2159216": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "adf8047e7234305505ab810b6b94ebd5c81a04db17a9ac3e5fce28fd1de48a59",
           "id": "que/2159216",
           "name": "ოქმი #1 - საბეჭ. დანადგ. ტექ.მომს-.pdf",
@@ -1736,7 +1736,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2159216&code=1792505631"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "7ab35d2af6609b3c94d90db51e9354d9581ab3afb87d02584dde6d688b0bd9aa",
           "id": "tab-text",
           "name": "Documentation tab (text)",
@@ -1747,7 +1747,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:31:49.792964+00:00",
       "notice": "",
-      "notified": "eadcc4593d0fad37067374b36b22cb36390d1c890507dfdebfe03a2ad90966ff"
+      "notified": "5e5d5f3264ac85bda7dfcee9fb0d66d2b483fbf8a63604fa35bf8c352e4515cf"
     },
     "710417": {
       "details": {
@@ -1772,7 +1772,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7273583&code=1792601181"
         },
         "app/7273584": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "470dfb78e68e349bcddd50bb43507fde50b88361ffdd5548e414c9f65490579c",
           "id": "app/7273584",
           "name": "_1. დანართი N2.pdf",
@@ -1780,7 +1780,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7273584&code=1792601185"
         },
         "app/7273585": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "5fc46f8ab89ef315f04528148f63aa94b292eedcb82035135b322e248a96597a",
           "id": "app/7273585",
           "name": "_1. GEO - განცხადება 372 624.00.pdf",
@@ -1788,7 +1788,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7273585&code=1792601192"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "0d169c2d807bfdb95798b33d54bd5df16fa49840004b51d0c6a77df9363e6ad4",
           "id": "tab-text",
           "name": "Documentation tab (text)",
@@ -1799,7 +1799,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:31:30.194223+00:00",
       "notice": "Portal mentions confidential material. Public files may be incomplete; displayed values may be conditional. Verify on the portal.",
-      "notified": "709389e3146f174d86cf15182dba4b9b9506ecafd3681d2dc998e67e8f9116df"
+      "notified": "9966790f26f09aed72a159423e5f0ebe15988fb8cf17ec53cf44f34bea644e29"
     },
     "710418": {
       "details": {
@@ -1824,7 +1824,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7273594&code=1792601300"
         },
         "app/7273596": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "470dfb78e68e349bcddd50bb43507fde50b88361ffdd5548e414c9f65490579c",
           "id": "app/7273596",
           "name": "_1. დანართი N2.pdf",
@@ -1832,7 +1832,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7273596&code=1792601303"
         },
         "app/7273597": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "a661f5acc7f536ccbd676f4d3162fe9c71e65fd74daebe2a8a1f11c050397a8b",
           "id": "app/7273597",
           "name": "_1. GEO - განცხადება 71 400.00.pdf",
@@ -1840,7 +1840,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7273597&code=1792601308"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "b813afd2f762b29fe282dc7da6eee495a9e1dce5a6c867e34b5652f891f42a5b",
           "id": "tab-text",
           "name": "Documentation tab (text)",
@@ -1851,7 +1851,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:27:56.617525+00:00",
       "notice": "Portal mentions confidential material. Public files may be incomplete; displayed values may be conditional. Verify on the portal.",
-      "notified": "1f43e6c09b56413786921a29981a5b0cb7d5422a16a05a8116a0609831900b15"
+      "notified": "f746c577e10a848ed29dc266ec478672f7aa48d73c4f4df8ca55c2555a9f3ae3"
     },
     "710420": {
       "details": {
@@ -1876,7 +1876,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7273606&code=1792601372"
         },
         "app/7273607": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "470dfb78e68e349bcddd50bb43507fde50b88361ffdd5548e414c9f65490579c",
           "id": "app/7273607",
           "name": "_1. დანართი N2.pdf",
@@ -1884,7 +1884,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7273607&code=1792601375"
         },
         "app/7273609": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "7992d6f2579710ea03faf3abbefaf9e8acec033d160a73277af53bc63d52d177",
           "id": "app/7273609",
           "name": "_1. GEO - განცხადება 70 410.00.pdf",
@@ -1892,7 +1892,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7273609&code=1792601380"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "b238732d0d732d91a70caf98bb938e7e74a01be11e40d52c2c5fe846dc1b0920",
           "id": "tab-text",
           "name": "Documentation tab (text)",
@@ -1903,7 +1903,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:31:27.406637+00:00",
       "notice": "Portal mentions confidential material. Public files may be incomplete; displayed values may be conditional. Verify on the portal.",
-      "notified": "d2ab3aa0905731c6d09d3b62e3d9c399c596d9258430d43f4739600dff717b40"
+      "notified": "26d4d81ef54a43f0ecfab03fd93b710476e6d3c1c345cced874dd3ac3b4f8a4f"
     },
     "710422": {
       "details": {
@@ -1928,7 +1928,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7273623&code=1792601446"
         },
         "app/7273625": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "470dfb78e68e349bcddd50bb43507fde50b88361ffdd5548e414c9f65490579c",
           "id": "app/7273625",
           "name": "_1. დანართი N2.pdf",
@@ -1936,7 +1936,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7273625&code=1792601449"
         },
         "app/7273628": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "5b893d3e63b88880d64944b1d13853ad4070b4bfe56dc377268e88b1b29464ff",
           "id": "app/7273628",
           "name": "_1. GEO - განცხადება 324 625.00.pdf",
@@ -1944,7 +1944,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7273628&code=1792601458"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
           "hash": "43f632fee706401bae541cfbfd4d308856e648f0743365504b296bbf5b8de810",
           "id": "tab-text",
           "name": "Documentation tab (text)",
@@ -1955,7 +1955,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:29:26.896240+00:00",
       "notice": "Portal mentions confidential material. Public files may be incomplete; displayed values may be conditional. Verify on the portal.",
-      "notified": "4c0f9ea600cbd4cb0f556fa0c99c86ee366ab215651f8d06b8b5bd9f5e7b65df"
+      "notified": "0b7dc81994682c5f78cd65266342da96b04ae2ebd1abcd521b87ecc73f9280fa"
     }
   },
   "usage": {
@@ -1965,10 +1965,10 @@
       "model": "gemini-3.8-flash",
       "output": 289,
       "quota_errors": 0,
-      "requests": 1,
-      "reserved_tokens": 703,
+      "requests": 2,
+      "reserved_tokens": 1470,
       "total": 1338,
-      "unknown_usage": 0
+      "unknown_usage": 1
     }
   },
   "version": 1
