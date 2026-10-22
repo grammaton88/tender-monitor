@@ -2148,7 +2148,7 @@
     }
   },
   "initialized": true,
-  "last_request_at": 1792673156.0712066,
+  "last_request_at": 1792674184.3964143,
   "tenders": {
     "696054": {
       "details": {
@@ -4259,10 +4259,10 @@
       "model": "gemini-3.5-flash-lite",
       "output": 55967,
       "quota_errors": 0,
-      "requests": 57,
-      "reserved_tokens": 352819,
+      "requests": 58,
+      "reserved_tokens": 389005,
       "total": 324765,
-      "unknown_usage": 2
+      "unknown_usage": 3
     },
     "2026-10-22/gemini-3.8-flash": {
       "date": "2026-10-22",
