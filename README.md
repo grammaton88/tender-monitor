@@ -37,19 +37,40 @@ material are flagged; public attachments may not constitute complete requirement
 Upload these files to your repository's default branch and enable Actions.
 Scheduled workflows must exist on the default branch.
 
+[myaccoun](h[myaccou](https://myaccou))- Google Accounts](https://aistudio.google.com/rate-limit?timeRange=last-28-days).))velopers](https://ai.google.dev/gemini-api/docs/pricing)))m/apppasswords).)[Sign in - Google Accounts](https://aistudio.google.com/rate-limit?timeRange=last-28-days).)[404 &nbsp;|&nbsp; Page Not Found &nbsp;|&nbsp; Google AI for Developers](https://ai.google.dev/gemini-api/docs/pricing))
+.github/
+  workflows/
+    tender-monitor.yml
+tests/
+  test_monitor.py
+.gitignore
+monitor.py
+tender_pipeline.py
+requirements.txt
+README.md
+```
+
+Keep `tests/test_monitor.py`: the workflow runs these offline tests before scanning.
+They do not consume Gemini quota or send real email. No separate live-test script,
+VS Code task, paid server or external database is required.
+Do not upload virtual environments, Python caches, `.env`, credentials, or local
+state files. GitHub creates the persistent state branch automatically.
+
 ### Repository secrets
 
 Under **Settings > Secrets and variables > Actions > Secrets**, configure:
 
 | Secret | Value |
 |---|---|
-| `GEMINI_API_KEY` | API key from Google AI Studio |
+| `GEMINI_API_KEY` | Gemini API key from Google AI Studio for the intended project; rotate any key exposed in chat or logs |
 | `EMAIL_FROM` | Sending Gmail address |
 | `EMAIL_PASSWORD` | Gmail App Password, not the normal account password |
 | `EMAIL_TO` | Recipient email address |
 
 For Gmail App Passwords, enable Google Account 2-Step Verification and create an
 App Password. Never commit secrets.
+Create an App Password at [Google Account App Passwords](https://myaccount.google.com/apppasswords).
+Secrets go in **Repository secrets**, not repository variables or source code.
 
 ### Repository variables
 
@@ -64,6 +85,24 @@ Under **Settings > Secrets and variables > Actions > Variables**, configure:
 | `GEMINI_RPM_LIMIT` | Unknown | Requests/minute setting; when set, generation calls are conservatively spaced at least 61 seconds apart |
 | `GEMINI_TPM_LIMIT` | Unknown | Input tokens/minute setting; preflight rejects any single document above it and spaces calls |
 | `GEMINI_TPD_LIMIT` | Unknown | Optional local daily **input-token budget**; not a verified provider total-token quota |
+
+For the initial production trial, use these repository variable values:
+
+| Name | First-test value |
+|---|---|
+| `GEMINI_MODEL` | `gemini-3.8-flash` |
+| `GEMINI_RPM_LIMIT` | `5` |
+| `GEMINI_TPM_LIMIT` | `250000` |
+| `GEMINI_RPD_LIMIT` | `20` |
+| `MAX_ANALYSES_PER_RUN` | `1` |
+| `INITIAL_SCAN_MODE` | `all` |
+
+These model quotas were displayed for the Tender Monitor project in AI Studio on
+October 22, 2026; they are not guaranteed allowances for other projects or future
+dates. Verify them against the same project as your API key. Enter values without
+quotes. Leave `GEMINI_TPD_LIMIT` unset: the displayed 250,000-token limit is per
+minute, not per day. After verifying email and persistence, increase
+`MAX_ANALYSES_PER_RUN` to `10` for normal operation.
 
 Blank or zero quota settings mean **unknown/not enforced locally**, not unlimited.
 Negative or invalid numeric settings fail configuration explicitly.
@@ -85,6 +124,12 @@ The workflow requests `contents: write`, creates/updates `monitor-state`, and pr
 overlapping monitor jobs. Repository/organization rules must allow this branch update.
 State is committed even if a later document or SMTP request fails.
 
+Under **Settings > Actions > General**, enable Actions and, where permitted, select
+**Workflow permissions > Read and write permissions**, then save. Organization
+policies or branch rules can still prevent writes and must allow `monitor-state`
+updates. Do not manually add a personal access token or a `GITHUB_TOKEN` secret:
+GitHub supplies the workflow token automatically.
+
 **The state branch has the same visibility as the repository.** It contains public
 tender metadata, public document URLs/hashes, AI summaries, usage counters and delivery
 markers, but no API keys, email credentials or downloaded files. Use a private
@@ -102,6 +147,22 @@ The [workflow](.github/workflows/tender-monitor.yml) runs daily at **10:17 Tbili
 time (06:17 UTC)**. Run **Actions > IT Tender Monitor > Run workflow** manually first.
 Check successful file downloads, analysis, email and the state-branch push.
 
+First-run checklist:
+
+1. Add all four repository secrets and the first-test variables above.
+2. Run the workflow manually on the default branch.
+3. Verify the test, scan, email and state-persistence steps in the Actions log.
+4. Confirm the recipient receives a daily report with analysis or an explicit error.
+5. Confirm `monitor-state` contains `state.json`; do not delete this history.
+6. Run again and verify unchanged completed analyses are reused. Pending files are
+   retried; other unprocessed files can consume the next run's analysis allowance.
+7. Increase `MAX_ANALYSES_PER_RUN` to `10` once delivery and persistence work.
+
+The first test scans all matching tenders, not only tender 710418. The value `1`
+limits generation attempts, not tender discovery or downloads. A green workflow
+does not prove Gemini analysis succeeded: handled service failures can still
+produce a successful email listing pending documents.
+
 GitHub scheduling is best-effort, not an exact 24-hour SLA. Public-repository schedules
 can be disabled after 60 days without repository activity. Standard public-repository
 Linux runners are free; private repositories have plan-specific allowances.
@@ -109,6 +170,46 @@ Linux runners are free; private repositories have plan-specific allowances.
 Daily processing is preferable to 48/72-hour batches: unused Gemini daily quota does
 not accumulate. If incoming work consistently exceeds capacity, the backlog grows.
 Oversized/unsupported documents need manual action; waiting does not make them smaller.
+
+## What the recipient receives
+
+- **New tenders and documentation updates:** tender number, buyer, category, status,
+  announcement date, displayed value, submission deadline and portal link, where
+  extracted from the portal. Conditional values and confidential-material notices
+  must be checked against the original.
+- **Document results:** filename, public download link, Georgian summary, findings,
+  source page/section references and limitations. Findings cover requested products,
+  quantities, technical specifications, eligibility, deadlines, delivery, payment,
+  guarantees, warranty, penalties and disqualification risks where present.
+  Results are per document, not a guaranteed consolidated tender assessment.
+- **Failures and pending work:** download/analysis error, affected file, pending
+  document count and next-scan retry notice. A failed document does not discard
+  completed analyses. Unchanged completed tenders are not repeated in full.
+- **Usage:** generation attempts, reported tokens, configured-limit bars, unresolved
+  usage, rate/quota errors and month-to-date totals.
+- **No changes:** a short daily report and usage information are still sent.
+
+The email has HTML and plain-text alternatives. Its headings are currently English;
+AI summaries are requested in Georgian. Documents are linked, not attached.
+If Gemini returns `503 UNAVAILABLE` because of high demand, the email includes that
+reason and marks the affected document pending instead of claiming analysis succeeded.
+
+## Troubleshooting
+
+| Symptom | Action |
+|---|---|
+| Gemini HTTP 401/403 | Verify the API key, selected project, API access and restrictions. Rotate exposed keys. |
+| Gemini HTTP 404 | Verify the exact model ID and its availability to your project. |
+| Gemini HTTP 429 | Check AI Studio limits and shared-project usage. Work remains pending for a later run. |
+| Gemini HTTP 503 / high demand | Provider generation is unavailable; work remains pending. Do not assume a quota problem or enable billing solely for this error. |
+| No email | Check all email secrets, Gmail App Password, spam folder and Actions logs. |
+| State push fails | Check workflow write permissions and rules on `monitor-state`. Avoid rerunning blindly because unsaved history can cause repeats. |
+| Completed workflow but no analysis | Read document statuses in the email; handled AI failures do not necessarily fail the job. |
+
+Production readiness requires a real successful analysis, email delivery and state
+push. Offline tests do not establish these. Local testing of tender 710418 verified
+PDF retrieval and preflight access, but generation returned high-demand HTTP 503;
+a complete live analysis was not verified at that point.
 
 ## Email usage chart
 
