@@ -30,7 +30,7 @@ PROMPT = """შენი პასუხი აუცილებლად უ�
 
 Analyze this public Georgian procurement document.
 IMPORTANT LANGUAGE RULE (must follow):
-- All human-readable fields (summary, findings.topic, findings.detail, limitations) MUST be written exclusively in professional, formal Georgian.
+- All human-readable fields (summary, findings.topic, findings.detail, limitations, subject, delivery_deadline, warranty) MUST be written exclusively in professional, formal Georgian.
 - Do NOT use Hebrew, English, Russian or any other language in the output fields.
 - Use precise Georgian procurement terminology.
 - Keep original names, numbers, identifiers, units and source references unchanged.
@@ -573,14 +573,24 @@ def render_html_report(plain: str, current_tenders: dict | None,
             "საშუალო პრიორიტეტი (8-20 დღე)",
             "დანარჩენი ტენდერები (მათ შორის, დაუზუსტებელი ან გასული ვადით)",
         ), groups):
-            sections.append(f"<h3>{title}</h3>")
+            sections.append(
+                f'<h3 style="font-size:17px;line-height:1.5;margin:24px 0 10px">{title}</h3>'
+            )
             if not entries:
                 sections.append("<p>ამ კატეგორიაში ტენდერები არ გამოვლენილა.</p>")
                 continue
             sections.append(
-                '<table style="border-collapse:collapse;width:100%;background:#fff">'
-                "<thead><tr>" + "".join(
-                    f'<th style="padding:8px;text-align:left;background:#1e293b;color:#fff">{label}</th>'
+                '<div style="width:100%;overflow-x:auto;margin-bottom:20px">'
+                '<table width="1200" cellpadding="0" cellspacing="0" border="1" '
+                'style="border-collapse:collapse;width:1200px;table-layout:fixed;'
+                'background:#fff;border:1px solid #d1d5db;font-size:13px;line-height:1.6">'
+                "<colgroup>" + "".join(
+                    f'<col width="{width}" style="width:{width}px">'
+                    for width in (35, 95, 130, 105, 170, 90, 110, 130, 125, 155, 55)
+                ) + "</colgroup><thead><tr>" + "".join(
+                    f'<th scope="col" style="padding:8px;text-align:left;vertical-align:top;'
+                    f'overflow-wrap:break-word;background:#f1f5f9;color:#111827;'
+                    f'border:1px solid #d1d5db">{label}</th>'
                     for label in ("№", "განცხადების ნომერი", "შემსყიდველი", "კატეგორია",
                                   "შესყიდვის საგანი", "სავარაუდო ღირებულება", "წარდგენის ვადა",
                                   "მიწოდების ვადა", "საგარანტიო პირობები",
@@ -594,14 +604,18 @@ def render_html_report(plain: str, current_tenders: dict | None,
                     state["tenders"].get(tender["id"], {}), state["analyses"],
                 )
                 values = [
-                    str(number), tender.get("reg_num") or tender["id"],
-                    tender.get("buyer", ""), tender.get("category", ""),
+                    str(number), tender.get("reg_num") or "პორტალის მონაცემებში არ გამოვლენილა.",
+                    tender.get("buyer") or "პორტალის მონაცემებში არ გამოვლენილა.",
+                    tender.get("category") or "პორტალის მონაცემებში არ გამოვლენილა.",
                     fields["subject"],
-                    tender.get("amount", ""), tender.get("deadline", ""),
+                    tender.get("amount") or "პორტალის მონაცემებში არ გამოვლენილა.",
+                    tender.get("deadline") or "პორტალის მონაცემებში არ გამოვლენილა.",
                     fields["delivery_deadline"], fields["warranty"], fields["confidential"],
                 ]
                 cells = [
-                    f'<td style="padding:8px;border-bottom:1px solid #e2e8f0">{html.escape(value)}</td>'
+                    '<td style="padding:8px;vertical-align:top;overflow-wrap:break-word;'
+                    'border:1px solid #d1d5db">'
+                    + html.escape(value).replace("\n", "<br>") + "</td>"
                     for value in values
                 ]
                 url = tender["link"]
@@ -609,20 +623,82 @@ def render_html_report(plain: str, current_tenders: dict | None,
                     link = f'<a href="{html.escape(url, quote=True)}">გახსნა</a>'
                 else:
                     link = html.escape(url)
-                cells.append(f'<td style="padding:8px">{link}</td>')
+                cells.append(
+                    f'<td style="padding:8px;vertical-align:top;border:1px solid #d1d5db">{link}</td>'
+                )
                 sections.append("<tr>" + "".join(cells) + "</tr>")
-            sections.append("</tbody></table>")
-    sections.extend([
-        "<h2>გამოყენების სტატისტიკა და დამუშავების მოკლე შეჯამება</h2>",
-        '<pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:14px Arial,sans-serif;'
-        'line-height:1.6;background:#fff;padding:16px;border:1px solid #e2e8f0">',
-        html.escape(plain), "</pre>",
-    ])
+            sections.append("</tbody></table></div>")
+    sections.append(
+        '<div id="report-summary" style="max-width:900px;font-size:14px;line-height:1.7">'
+    )
+    summary_headings = {
+        "შემოწმების შედეგები", "დამუშავების სტატუსი",
+        "GEMINI-ის გამოყენების სტატისტიკა - მხოლოდ ამ მონიტორის მონაცემები",
+        "მიმდინარე თვის გამოყენება",
+        "დამუშავების ხარვეზების მოკლე შეჯამება", "მნიშვნელოვანი შენიშვნები",
+        "ძიების ხარვეზები - ტენდერების მოძიება სრულად ვერ დასრულდა",
+    }
+    section_open = False
+    list_open = False
+    for line in plain.splitlines():
+        if not line:
+            continue
+        escaped = html.escape(line)
+        if line.startswith("IT ტენდერების მონიტორინგის ანგარიში"):
+            sections.append(f'<h2 style="font-size:20px;margin:20px 0 12px">{escaped}</h2>')
+        elif line in summary_headings:
+            if list_open:
+                sections.append("</ul>")
+                list_open = False
+            if section_open:
+                sections.append("</div>")
+            is_error = line.startswith(("დამუშავების ხარვეზების", "ძიების ხარვეზები"))
+            sections.append(
+                '<div class="summary-section" style="margin:16px 0;padding:16px;'
+                'border:1px solid #d1d5db;border-radius:4px;'
+                f'background:{"#fff7ed" if is_error else "#f8fafc"}">'
+            )
+            sections.append(
+                f'<h3 style="font-size:16px;margin:0 0 12px;'
+                f'border-bottom:1px solid #d1d5db;padding-bottom:6px">{escaped}</h3>'
+            )
+            section_open = True
+            if line in {
+                "მნიშვნელოვანი შენიშვნები",
+                "დამუშავების ხარვეზების მოკლე შეჯამება",
+            }:
+                sections.append('<ul style="margin:0;padding-left:22px">')
+                list_open = True
+        elif list_open:
+            sections.append(
+                f'<li style="margin:8px 0;overflow-wrap:break-word">{escaped}</li>'
+            )
+        else:
+            label, separator, value = line.partition(": ")
+            if separator:
+                value_style = (
+                    "font-family:monospace;" if re.search(r"\[[#-]{10}\]", value) else ""
+                )
+                content = (
+                    f"<strong>{html.escape(label)}: </strong><br>"
+                    f'<span style="{value_style}">{html.escape(value)}</span>'
+                )
+            else:
+                content = escaped
+            sections.append(
+                f'<p style="margin:10px 0;overflow-wrap:break-word">{content}</p>'
+            )
+    if list_open:
+        sections.append("</ul>")
+    if section_open:
+        sections.append("</div>")
+    sections.append("</div>")
     return (
         '<!DOCTYPE html><html lang="ka"><head><meta charset="utf-8">'
         '<meta name="viewport" content="width=device-width, initial-scale=1">'
         "<title>IT ტენდერების მონიტორინგი</title></head>"
-        '<body style="font-family:Arial,sans-serif;color:#1e293b;background:#f8fafc;padding:16px">'
+        '<body style="font-family:Arial,sans-serif;font-size:14px;line-height:1.6;'
+        'color:#111827;background:#fff;margin:0;padding:16px">'
         + "".join(sections) + "</body></html>"
     ).replace("\u2014", "-")
 
@@ -633,8 +709,7 @@ def report(state: dict, ai: Gemini, scan_errors: list[str],
     usage = ai.bucket()
     monthly = [b for b in state["usage"].values()
                if b["model"] == ai.model and b["date"].startswith(now.strftime("%Y-%m"))]
-    lines = [
-        f"IT ტენდერების მონიტორინგის ანგარიში - {datetime.now(timezone.utc):%Y-%m-%d %H:%M UTC}",
+    usage_lines = [
         "", "GEMINI-ის გამოყენების სტატისტიკა - მხოლოდ ამ მონიტორის მონაცემები",
         "მაჩვენებლები არ ასახავს მთელი პროექტის დარჩენილ კვოტას.",
         f"მოდელი: {ai.model}",
@@ -644,23 +719,24 @@ def report(state: dict, ai: Gemini, scan_errors: list[str],
         f"API-ის მიერ დღეს აღრიცხული ტოკენები: შემავალი - {usage['input']:,}, გამომავალი - {usage['output']:,}, სულ - {usage['total']:,}",
         f"მცდელობები ტოკენების დაუზუსტებელი მოხმარებით: {usage['unknown_usage']}",
         f"დღეს დაფიქსირებული სიხშირის/კვოტის შეცდომები (429): {usage['quota_errors']}",
+        "", "მიმდინარე თვის გამოყენება",
         f"მიმდინარე თვის მონაცემები ({now:%Y-%m}, ამ მოდელისთვის): "
         f"{sum(b['requests'] for b in monthly):,} მცდელობა; "
         f"{sum(b['total'] for b in monthly):,} აღრიცხული ტოკენი",
-        "ჯამი შესაძლოა მოიცავდეს მსჯელობისა და ქეშირებულ ტოკენებს; შემავალი და გამომავალი ტოკენების ჯამი შეიძლება განსხვავდებოდეს სრული რაოდენობისგან.",
-        "ლიმიტები მითითებულია ხელით. მიუთითებელი ლიმიტი ნიშნავს უცნობ მნიშვნელობას და არა შეუზღუდავ გამოყენებას.",
-        "countTokens-ის წინასწარი დათვლის მოთხოვნები ანალიზის მცდელობების რაოდენობაში არ შედის.",
-        "TPD აქ აღნიშნავს შემავალი ტოკენების ადგილობრივ დღიურ ბიუჯეტს და არა პროვაიდერის დადასტურებულ კვოტას.",
         "",
     ]
+    lines = [
+        f"IT ტენდერების მონიტორინგის ანგარიში - {datetime.now(timezone.utc):%Y-%m-%d %H:%M UTC}",
+        "", "შემოწმების შედეგები",
+    ]
+    if current_tenders is not None:
+        qualifier = " (არასრული შემოწმება)" if scan_errors else ""
+        lines.append(
+            f"ამ შემოწმებისას მოძიებული აქტიური IT ტენდერების რაოდენობა: {len(current_tenders)}{qualifier}"
+        )
     if scan_errors:
         lines.extend(["ძიების ხარვეზები - ტენდერების მოძიება სრულად ვერ დასრულდა",
                       f"ძიების წარუმატებელი მოთხოვნების რაოდენობა: {len(scan_errors)}", ""])
-    if current_tenders is not None:
-        qualifier = " (არასრული შემოწმება)" if scan_errors else ""
-        lines[1:1] = ["",
-            f"ამ შემოწმებისას მოძიებული აქტიური IT ტენდერების რაოდენობა: {len(current_tenders)}{qualifier}",
-            ""]
     notified = {}
     pending = 0
     changed_count = 0
@@ -684,12 +760,11 @@ def report(state: dict, ai: Gemini, scan_errors: list[str],
             if scan_errors else "ახალი ტენდერები ან დოკუმენტაციის ცვლილებები არ გამოვლენილა."
         )
     lines.extend([
+        "", "დამუშავების სტატუსი",
         f"ახალი ან განახლებული ჩანაწერების რაოდენობა: {changed_count}",
         f"დამუშავების მოლოდინში მყოფი დოკუმენტების რაოდენობა: {pending}",
         "დარჩენილი დოკუმენტების დამუშავების მცდელობა განმეორდება შემდეგი დაგეგმილი შემოწმებისას. "
         "არამხარდაჭერილი ფორმატისა და დასაშვებზე დიდი ფაილები საჭიროებს ხელით შემოწმებას.",
-        "ხელოვნური ინტელექტის მიერ მომზადებული მიმოხილვა საინფორმაციო ხასიათისაა. "
-        "ტენდერში მონაწილეობამდე გადაამოწმეთ დოკუმენტების ორიგინალები.",
     ])
     if errors:
         lines.extend(["", "დამუშავების ხარვეზების მოკლე შეჯამება"])
@@ -698,8 +773,14 @@ def report(state: dict, ai: Gemini, scan_errors: list[str],
         for error, count in errors.items():
             grouped[report_error(error).split("\n", 1)[0]] += count
         for reason, count in grouped.items():
-            lines.append(f"- {reason} შემთხვევების რაოდენობა: {count}")
+            lines.append(f"{reason} შემთხვევების რაოდენობა: {count}")
         lines.append("სრული ტექნიკური ინფორმაცია ხელმისაწვდომია GitHub Actions-ის ჟურნალში.")
+    lines.extend(usage_lines)
+    lines.extend([
+        "მნიშვნელოვანი შენიშვნები",
+        "ხელოვნური ინტელექტის მიერ მომზადებული მიმოხილვა საინფორმაციო ხასიათისაა. "
+        "ტენდერში მონაწილეობამდე გადაამოწმეთ დოკუმენტების ორიგინალები.",
+    ])
     summary = "\n".join(lines).replace("\u2014", "-")
     rich = render_html_report(summary, current_tenders, state)
     # Text-only clients receive a single compact table equivalent, not the removed

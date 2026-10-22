@@ -418,8 +418,11 @@ class PipelineTests(unittest.TestCase):
         message = server.send_message.call_args.args[0]
         for part in message.iter_parts():
             body = part.get_content()
+            self.assertIn(TENDER["link"], body)
+            if part.get_content_type() == "text/html":
+                body = BeautifulSoup(body, "html.parser").get_text()
             for expected in (
-                "NAT123", TENDER["link"], "დროებით მიუწვდომელია",
+                "NAT123", "დროებით მიუწვდომელია",
                 "დამუშავების მოლოდინში მყოფი დოკუმენტების რაოდენობა: 1",
                 "შემდეგი დაგეგმილი შემოწმებისას",
             ):
@@ -439,10 +442,11 @@ class PipelineTests(unittest.TestCase):
             }},
         }
         plain, rich, _ = pipeline.report(self.state, self.ai, [], {"456": current})
-        for body in (plain, rich):
+        self.assertIn(current["link"], rich)
+        self.assertIn(current["link"], plain)
+        for body in (plain, BeautifulSoup(rich, "html.parser").get_text()):
             self.assertIn("ამ შემოწმებისას მოძიებული აქტიური IT ტენდერების რაოდენობა: 1", body)
             self.assertIn("NAT456", body)
-            self.assertIn(current["link"], body)
             self.assertNotIn("NAT123", body)
             self.assertIn("ახალი ან განახლებული ჩანაწერების რაოდენობა: 1", body)
             self.assertIn("დამუშავების მოლოდინში მყოფი დოკუმენტების რაოდენობა: 1", body)
@@ -587,7 +591,9 @@ class PipelineTests(unittest.TestCase):
             self.state, self.ai, ["Connection reset"], {"123": tender},
         )
         soup = BeautifulSoup(rich, "html.parser")
-        self.assertTrue(plain.startswith(soup.find("pre").get_text()))
+        for paragraph in soup.select("#report-summary p, #report-summary h2, #report-summary h3, #report-summary li"):
+            self.assertIn(paragraph.get_text(), plain)
+        self.assertIsNone(soup.find("pre"))
         self.assertIsNone(soup.find("script"))
         self.assertEqual(soup.find_all("a"), [])
         self.assertIn("არასრული შემოწმება", plain)
@@ -640,11 +646,12 @@ class PipelineTests(unittest.TestCase):
             self.assertNotIn("UNAVAILABLE", body)
             self.assertEqual(body.count("დროებით მიუწვდომელია"), 1)
             self.assertIn("შემთხვევების რაოდენობა: 100", body)
+        for body in (plain, BeautifulSoup(rich, "html.parser").get_text()):
             self.assertIn("დოკუმენტების რაოდენობა: 100", body)
         soup = BeautifulSoup(rich, "html.parser")
         self.assertEqual(len(soup.select("table tbody tr")), 1)
         self.assertEqual(len(soup.select("table th")), 11)
-        self.assertNotIn("NAT123", soup.find("pre").get_text())
+        self.assertNotIn("NAT123", soup.select_one("#report-summary").get_text())
         self.assertIn("123", notified)
         self.assertEqual(self.state["tenders"]["123"]["documents"], docs)
 
@@ -671,6 +678,116 @@ class PipelineTests(unittest.TestCase):
         self.assertIn("12 თვე", fields["warranty"])
         self.assertIn("24 თვე", fields["warranty"])
         self.assertIn("რამდენიმე წყაროს", fields["warranty"])
+
+    def test_gmail_layout_has_inline_tables_readable_summary_and_usage_bars(self):
+        self.ai.request_limit = 20
+        self.ai.bucket()["requests"] = 4
+        plain, rich, _ = pipeline.report(self.state, self.ai, [], {"123": TENDER})
+        soup = BeautifulSoup(rich, "html.parser")
+        table = soup.find("table")
+        self.assertEqual(table["border"], "1")
+        self.assertEqual(len(table.find_all("th", scope="col")), 11)
+        self.assertIn("overflow-x:auto", table.parent["style"])
+        self.assertIsNone(soup.find("pre"))
+        self.assertIsNone(soup.find("script"))
+        self.assertIsNone(soup.find("link"))
+        summary = soup.select_one("#report-summary")
+        self.assertGreater(len(summary.find_all("p")), 5)
+        bars = [p for p in summary.find_all("p") if "[##--------]" in p.get_text()]
+        self.assertEqual(len(bars), 1)
+        self.assertIn("monospace", bars[0].find("span")["style"])
+        self.assertIn("4/20", plain)
+
+    def test_summary_groups_metrics_status_and_notes_without_losing_text(self):
+        self.state["tenders"]["123"] = {
+            "details": TENDER, "documents": {
+                "x": {"status": "pending", "error": "Gemini HTTP 503: UNAVAILABLE"},
+            },
+        }
+        self.ai.model = "<model&test>"
+        plain, rich, _ = pipeline.report(self.state, self.ai, [], {"123": TENDER})
+        soup = BeautifulSoup(rich, "html.parser")
+        summary = soup.select_one("#report-summary")
+        blocks = summary.select(".summary-section")
+        self.assertEqual([b.h3.get_text() for b in blocks], [
+            "შემოწმების შედეგები", "დამუშავების სტატუსი",
+            "დამუშავების ხარვეზების მოკლე შეჯამება",
+            "GEMINI-ის გამოყენების სტატისტიკა - მხოლოდ ამ მონიტორის მონაცემები",
+            "მიმდინარე თვის გამოყენება",
+            "მნიშვნელოვანი შენიშვნები",
+        ])
+        self.assertIn("დოკუმენტების რაოდენობა: 1", blocks[1].get_text())
+        self.assertIn("შემთხვევების რაოდენობა: 1", blocks[2].get_text())
+        self.assertIn("#fff7ed", blocks[2]["style"])
+        self.assertIn("<model&test>", blocks[3].get_text())
+        self.assertIsNone(summary.find("model"))
+        self.assertEqual(len(blocks[5].select("li")), 1)
+        self.assertIsNotNone(blocks[3].find("strong", string="მოდელი: "))
+        table_heading = soup.find("table").find_previous("h3").get_text()
+        for line in plain.partition("\n\n" + table_heading)[0].splitlines():
+            if line:
+                self.assertIn(line, summary.get_text())
+        for node in summary.select("p, li"):
+            self.assertIn(node.get_text(), plain)
+
+    def test_report_omits_quota_explanations_in_both_formats(self):
+        plain, rich, _ = pipeline.report(self.state, self.ai, [], {"123": TENDER})
+        for body in (plain, rich):
+            for removed in (
+                "კვოტისა და აღრიცხვის განმარტებები",
+                "ჯამი შესაძლოა მოიცავდეს მსჯელობისა და ქეშირებულ ტოკენებს",
+                "ლიმიტები მითითებულია ხელით.",
+                "countTokens-ის წინასწარი დათვლის მოთხოვნები",
+                "TPD აქ აღნიშნავს",
+            ):
+                self.assertNotIn(removed, body)
+            self.assertIn("მაჩვენებლები არ ასახავს მთელი პროექტის დარჩენილ კვოტას.", body)
+
+    def test_all_eleven_columns_receive_the_correct_source_values(self):
+        source = BeautifulSoup("""
+            <table><tr id="A123"><td>
+            <p class="status">გამოცხადებულია</p>
+            <p>განცხადების ნომერი: <strong>NAT123</strong></p>
+            <p>შემსყიდველი: <strong>სატესტო ორგანიზაცია</strong></p>
+            <p>შესყიდვის კატეგორია: 30200000 - კომპიუტერები</p>
+            <p>სავარაუდო ღირებულება: 12 000 GEL</p>
+            <p>მიღების ვადა: 30.10.2026 12:00</p>
+            </td></tr></table>""", "html.parser")
+        tender = monitor.parse_search_results(source, "18924")[0]
+        self.state["analyses"]["result"] = {
+            **ANALYSIS, "subject": "10 კომპიუტერი (პუნქტი 1)",
+            "delivery_deadline": "30 დღე (პუნქტი 2)",
+            "warranty": "24 თვე (პუნქტი 3)",
+        }
+        self.state["tenders"]["123"] = {
+            "details": tender, "notice": "Confidential notice",
+            "documents": {"doc": {
+                "name": "spec.pdf", "status": "completed", "analysis_key": "result",
+            }},
+        }
+        plain, rich, _ = pipeline.report(self.state, self.ai, [], {"123": tender})
+        row = BeautifulSoup(rich, "html.parser").select_one("tbody tr")
+        cells = row.find_all("td")
+        expected = [
+            "1", "NAT123", "სატესტო ორგანიზაცია", "30200000 - კომპიუტერები",
+            "10 კომპიუტერი (პუნქტი 1)", "სავარაუდო ღირებულება: 12 000 GEL",
+            "მიღების ვადა: 30.10.2026 12:00", "30 დღე (პუნქტი 2)",
+            "24 თვე (პუნქტი 3)", "დიახ - პორტალზე მითითებულია",
+        ]
+        self.assertEqual(len(cells), 11)
+        for cell, value in zip(cells, expected):
+            self.assertIn(value, cell.get_text())
+            self.assertIn(value, plain)
+        self.assertEqual(cells[10].find("a")["href"], tender["link"])
+
+    def test_missing_portal_values_are_explicit_not_blank_or_invented(self):
+        _, rich, _ = pipeline.report(self.state, self.ai, [], {
+            "123": {"id": "123", "link": TENDER["link"]},
+        })
+        cells = BeautifulSoup(rich, "html.parser").select_one("tbody tr").find_all("td")
+        for index in (1, 2, 3, 5, 6):
+            self.assertEqual(cells[index].get_text(), "პორტალის მონაცემებში არ გამოვლენილა.")
+        self.assertIn("ანალიზი სრულად არ დასრულებულა", cells[4].get_text())
 
     def test_new_analysis_requires_nullable_table_fields(self):
         self.assertEqual(pipeline.validate_analysis(ANALYSIS), ANALYSIS)
