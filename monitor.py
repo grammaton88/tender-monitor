@@ -1,16 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
-from datetime import datetime
-import os
-import time
-
-# ================== Environment Variables (Secrets) ==================
-EMAIL_TO = os.environ.get("EMAIL_TO", "kakabadzemisha@gmail.com")
-EMAIL_FROM = os.environ.get("EMAIL_FROM")
-EMAIL_PASSWORD = os.environ.get("EMAIL_PASSWORD")
+import re
+from tender_pipeline import ProcessingError, run_monitor
 
 IT_BASECODES = {
     "18924": "30200000 - კომპიუტერული მოწყობილობები და აქსესუარები",
@@ -49,7 +40,7 @@ def create_session():
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Accept-Language": "ka,en-US;q=0.9,en;q=0.8",
     })
-    session.get(f"{BASE_URL}/?go=", timeout=30)
+    session.get(f"{BASE_URL}/?go=", timeout=30).raise_for_status()
     return session
 
 
@@ -85,15 +76,41 @@ def search_tenders(session, basecode: str) -> list[dict]:
         "Origin": "https://tenders.procurement.gov.ge",
     }
 
-    try:
-        r = session.post(CONTROLLER, data=payload, headers=headers, timeout=30)
-        r.raise_for_status()
-        r.encoding = "utf-8"
-    except Exception as e:
-        print(f"Request error {basecode}: {e}")
-        return []
+    r = session.post(CONTROLLER, data=payload, headers=headers, timeout=30)
+    r.raise_for_status()
+    r.encoding = "utf-8"
 
     soup = BeautifulSoup(r.text, "html.parser")
+    pager = soup.select_one(".pager")
+    match = re.search(r"(\d+)\s*/\s*(\d+)", pager.get_text(" ", strip=True)) if pager else None
+    if not match:
+        raise ProcessingError(f"Unrecognized search response for CPV {basecode}; missing pagination")
+    pages = int(match[2])
+    if pages > 200:
+        raise ProcessingError(f"Unexpected page count {pages} for CPV {basecode}; manual review needed")
+    results = parse_search_results(soup, basecode)
+    if pages and not results:
+        raise ProcessingError(f"Search reports results but returned no tender rows for CPV {basecode}")
+    for page in range(2, pages + 1):
+        response = session.get(
+            CONTROLLER, params={"action": "search_app", "page": page},
+            headers={"Referer": f"{BASE_URL}/?go="}, timeout=30,
+        )
+        response.raise_for_status()
+        response.encoding = "utf-8"
+        page_soup = BeautifulSoup(response.text, "html.parser")
+        page_pager = page_soup.select_one(".pager")
+        position = re.search(r"(\d+)\s*/\s*(\d+)", page_pager.get_text(" ", strip=True)) if page_pager else None
+        if not position or int(position[1]) != page:
+            raise ProcessingError(f"Pagination/session mismatch for CPV {basecode}, page {page}")
+        page_results = parse_search_results(page_soup, basecode)
+        if not page_results:
+            raise ProcessingError(f"Empty result page for CPV {basecode}, page {page}")
+        results.extend(page_results)
+    return results
+
+
+def parse_search_results(soup: BeautifulSoup, basecode: str) -> list[dict]:
     results = []
 
     for tr in soup.select("tr[id^='A']"):
@@ -134,58 +151,10 @@ def search_tenders(session, basecode: str) -> list[dict]:
                 "deadline": deadline,
                 "link": link,
             })
-        except Exception:
-            continue
+        except (AttributeError, TypeError, ValueError) as exc:
+            raise ProcessingError(f"Invalid tender row in CPV {basecode}: {exc}") from exc
 
     return results
-
-
-def send_email(tenders: list[dict]):
-    if not tenders:
-        print("No tenders found — email not sent")
-        return
-
-    if not EMAIL_FROM or not EMAIL_PASSWORD:
-        print("EMAIL_FROM or EMAIL_PASSWORD missing")
-        return
-
-    subject = f"[ტენდერის შეტყობინება] {len(tenders)} აქტიური IT ტენდერი – {datetime.now().strftime('%Y-%m-%d %H:%M')}"
-
-    body_lines = [
-        "საიტზე tenders.procurement.gov.ge აღმოჩენილია აქტიური IT ტენდერები (სტატუსი: გამოცხადებულია):\n",
-        "=" * 60,
-    ]
-
-    for i, t in enumerate(tenders, 1):
-        body_lines.extend([
-            f"\n#{i}",
-            f"განცხადების ნომერი : {t['reg_num']}",
-            f"სტატუსი            : {t['status']}",
-            f"შემსყიდველი         : {t['buyer']}",
-            f"კატეგორია          : {t['category']}",
-            f"სავარაუდო ღირებულება: {t['amount']}",
-            f"გამოცხადების თარიღი : {t['announce_date']}",
-            f"წინადადებების ვადა  : {t['deadline']}",
-            f"ბმული              : {t['link']}",
-            "-" * 50,
-        ])
-
-    body_lines.append("\nეს არის ავტომატური შეტყობინება (GitHub Actions).")
-    body = "\n".join(body_lines)
-
-    msg = MIMEMultipart()
-    msg["From"] = EMAIL_FROM
-    msg["To"] = EMAIL_TO
-    msg["Subject"] = subject
-    msg.attach(MIMEText(body, "plain", "utf-8"))
-
-    try:
-        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-            server.login(EMAIL_FROM, EMAIL_PASSWORD)
-            server.send_message(msg)
-        print(f"✅ Email sent successfully with {len(tenders)} tenders")
-    except Exception as e:
-        print(f"❌ Email failed: {e}")
 
 
 def main():
@@ -193,25 +162,8 @@ def main():
     print("Starting IT Tender Monitor")
     print("=" * 60)
 
-    session = create_session()
-    all_tenders = []
-
-    for basecode, desc in IT_BASECODES.items():
-        print(f"Searching: {basecode} → {desc}")
-        found = search_tenders(session, basecode)
-        print(f"  → Found {len(found)}")
-        all_tenders.extend(found)
-        time.sleep(1.3)
-
-    # უნიკალური ტენდერები
-    unique = {}
-    for t in all_tenders:
-        if t["id"]:
-            unique[t["id"]] = t
-    tenders = list(unique.values())
-
-    print(f"\nTotal unique active IT tenders: {len(tenders)}")
-    send_email(tenders)
+    with create_session() as session:
+        run_monitor(session, search_tenders, IT_BASECODES)
 
 
 if __name__ == "__main__":
