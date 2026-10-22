@@ -164,7 +164,7 @@ class PipelineTests(unittest.TestCase):
             self.assertEqual(post.call_count, 1)
         self.assertEqual(self.ai.bucket()["quota_errors"], 1)
         plain, _, _ = pipeline.report(self.state, self.ai, [])
-        self.assertIn("Rate/quota errors (429) today: 1", plain)
+        self.assertIn("დღეს დაფიქსირებული სიხშირის/კვოტის შეცდომები (429): 1", plain)
 
     def test_network_failure_keeps_attempt_and_unknown_usage(self):
         with patch.object(self.ai, "post", side_effect=[
@@ -247,10 +247,10 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(len(self.state["usage"]), 2)
 
     def test_meter_unknown_and_exceeded_not_false_remaining_balance(self):
-        self.assertIn("limit not configured", pipeline.meter(4, 0))
+        self.assertIn("ლიმიტი მითითებული არ არის", pipeline.meter(4, 0))
         self.assertIn("[#####-----]", pipeline.meter(5, 10))
         self.assertIn("120%", pipeline.meter(12, 10))
-        self.assertIn("LIMIT REACHED", pipeline.meter(12, 10))
+        self.assertIn("ლიმიტი მიღწეულია", pipeline.meter(12, 10))
 
     def test_daily_report_html_escaping_and_pending(self):
         self.state["tenders"]["123"] = {
@@ -261,8 +261,8 @@ class PipelineTests(unittest.TestCase):
             }},
         }
         plain, rich, notified = pipeline.report(self.state, self.ai, ["CPV search failed"])
-        self.assertIn("Pending documents: 1", plain)
-        self.assertIn("SCAN ERRORS", plain)
+        self.assertIn("დამუშავების მოლოდინში მყოფი დოკუმენტების რაოდენობა: 1", plain)
+        self.assertIn("ძიების ხარვეზები", plain)
         self.assertNotIn("<script>", rich)
         self.assertIn("&lt;script&gt;", rich)
         self.assertIn("123", notified)
@@ -309,7 +309,7 @@ class PipelineTests(unittest.TestCase):
                 patch.object(pipeline, "send_report") as send:
             search = lambda *args: [TENDER]
             pipeline.run_monitor(session, search, {"code": "CPV"})
-            self.assertIn("NEW TENDER: NAT123", send.call_args.args[0])
+            self.assertIn("ახალი ტენდერი: NAT123", send.call_args.args[0])
             self.assertIn("Summary", send.call_args.args[0])
             self.assertEqual(post.call_count, 2)
             saved = pipeline.load_state(self.path)
@@ -317,11 +317,11 @@ class PipelineTests(unittest.TestCase):
             self.assertIn("notified", saved["tenders"]["123"])
             pipeline.run_monitor(session, search, {"code": "CPV"})
             self.assertEqual(post.call_count, 2)
-            self.assertIn("No new tenders", send.call_args.args[0])
+            self.assertIn("ახალი ტენდერები ან დოკუმენტაციის ცვლილებები არ გამოვლენილა.", send.call_args.args[0])
             download.return_value = b"%PDF-amended"
             pipeline.run_monitor(session, search, {"code": "CPV"})
             self.assertEqual(post.call_count, 4)
-            self.assertIn("UPDATE: NAT123", send.call_args.args[0])
+            self.assertIn("განახლებული ინფორმაცია: NAT123", send.call_args.args[0])
             self.assertEqual(len(pipeline.load_state(self.path)["analyses"]), 2)
 
     def test_failed_document_is_reported_and_retried_using_cached_other_document(self):
@@ -375,22 +375,22 @@ class PipelineTests(unittest.TestCase):
                 patch.object(pipeline, "process_tender", side_effect=process), \
                 patch.object(pipeline, "send_report") as send:
             pipeline.run_monitor(MagicMock(), lambda *args: [TENDER], {"x": "CPV"})
-            self.assertIn("NEW TENDER", send.call_args.args[0])
+            self.assertIn("ახალი ტენდერი", send.call_args.args[0])
         self.assertIn("notified", pipeline.load_state(self.path)["tenders"]["123"])
         with patch.object(pipeline.time, "sleep"), \
                 patch.object(pipeline, "process_tender", side_effect=process), \
                 patch.object(pipeline, "send_report") as send:
             pipeline.run_monitor(MagicMock(), lambda *args: [TENDER], {"x": "CPV"})
-            self.assertIn("No new tenders", send.call_args.args[0])
+            self.assertIn("ახალი ტენდერები ან დოკუმენტაციის ცვლილებები არ გამოვლენილა.", send.call_args.args[0])
 
     def test_partial_discovery_failure_still_emails_then_fails_job(self):
         with patch.object(pipeline.time, "sleep"), \
                 patch.object(pipeline, "send_report") as send:
             with self.assertRaises(pipeline.ProcessingError):
                 pipeline.run_monitor(MagicMock(), MagicMock(side_effect=requests.Timeout()), {"x": "CPV"})
-        self.assertIn("SCAN ERRORS", send.call_args.args[0])
-        self.assertIn("Discovery incomplete", send.call_args.args[0])
-        self.assertNotIn("No new tenders", send.call_args.args[0])
+        self.assertIn("ძიების ხარვეზები", send.call_args.args[0])
+        self.assertIn("ძიება სრულად ვერ დასრულდა", send.call_args.args[0])
+        self.assertNotIn("ახალი ტენდერები ან დოკუმენტაციის ცვლილებები არ გამოვლენილა.", send.call_args.args[0])
         self.assertNotIn("initialized", pipeline.load_state(self.path))
 
     def test_gemini_503_still_sends_daily_email_with_reason_and_retry_notice(self):
@@ -415,7 +415,8 @@ class PipelineTests(unittest.TestCase):
             body = part.get_content()
             for expected in (
                 "NAT123", TENDER["link"], "spec.pdf", "HTTP 503", "UNAVAILABLE",
-                "high demand", "Pending documents: 1", "next scheduled scan",
+                "high demand", "დამუშავების მოლოდინში მყოფი დოკუმენტების რაოდენობა: 1",
+                "შემდეგი დაგეგმილი შემოწმებისას",
             ):
                 self.assertIn(expected, body)
             self.assertNotIn(ENV["GEMINI_API_KEY"], body)
@@ -423,17 +424,117 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(saved["tenders"]["123"]["documents"]["app/42"]["status"], "pending")
         self.assertIn("notified", saved["tenders"]["123"])
 
+    def test_report_numbers_and_counts_active_tenders_separately_from_old_pending(self):
+        current = {**TENDER, "id": "456", "reg_num": "NAT456",
+                   "link": pipeline.PORTAL + "?go=456"}
+        self.state["tenders"]["123"] = {
+            "details": TENDER, "documents": {"app/42": {
+                "name": "old.pdf", "url": TENDER["link"],
+                "status": "pending", "error": "Per-run analysis budget reached",
+            }},
+        }
+        plain, rich, _ = pipeline.report(self.state, self.ai, [], {"456": current})
+        for body in (plain, rich):
+            self.assertIn("ამ შემოწმებისას მოძიებული აქტიური IT ტენდერების რაოდენობა: 1", body)
+            self.assertIn("#1 | NAT456", body)
+            self.assertIn(current["link"], body)
+            self.assertIn("#1\nახალი ტენდერი: NAT123", body)
+            self.assertIn("ტენდერის ბმული: " + TENDER["link"], body)
+            self.assertIn("-" * 60, body)
+            self.assertIn("განახლებებისა და მოლოდინის სექციაში წარმოდგენილი ტენდერების რაოდენობა: 1", body)
+
+    def test_unchanged_tender_remains_in_overview_without_repeated_analysis(self):
+        entry = {"details": TENDER, "documents": {}, "error": ""}
+        entry["notified"] = pipeline.notification_fingerprint(entry)
+        self.state["tenders"]["123"] = entry
+        plain, _, notified = pipeline.report(self.state, self.ai, [], {"123": TENDER})
+        self.assertIn("#1 | NAT123", plain)
+        self.assertIn("განახლებებისა და მოლოდინის სექციაში წარმოდგენილი ტენდერების რაოდენობა: 0", plain)
+        self.assertEqual(notified, {})
+        partial, _, _ = pipeline.report(self.state, self.ai, ["Connection reset"], {})
+        self.assertIn("0 (არასრული შემოწმება)", partial)
+        self.assertIn("ძიება სრულად ვერ დასრულდა", partial)
+
     def test_email_has_plain_and_html_parts_and_raises_delivery_errors(self):
         with patch.object(pipeline.smtplib, "SMTP_SSL") as smtp:
             server = smtp.return_value.__enter__.return_value
             server.send_message.return_value = {}
             pipeline.send_report("plain", "<p>html</p>")
             message = server.send_message.call_args.args[0]
+            self.assertTrue(str(message["Subject"]).startswith("IT ტენდერების მონიტორინგი"))
             self.assertEqual([p.get_content_type() for p in message.iter_parts()],
                              ["text/plain", "text/html"])
             server.send_message.return_value = {"recipient@example.test": (550, b"refused")}
             with self.assertRaises(pipeline.ProcessingError):
                 pipeline.send_report("plain", "<p>html</p>")
+
+    def test_georgian_report_preserves_sources_and_technical_errors(self):
+        self.state["analyses"]["cached"] = {
+            "summary": "დოკუმენტში განსაზღვრულია საქონლის მიწოდების პირობები.",
+            "findings": [{"topic": "მიწოდება", "detail": "მიწოდების ვადა შეადგენს 10 დღეს.",
+                          "source": "პუნქტი 2"}],
+            "limitations": ["ფასების დანართი ხელმისაწვდომი არ არის."],
+        }
+        self.state["tenders"]["123"] = {
+            "details": TENDER,
+            "notice": "Portal mentions confidential material. Public files may be incomplete.",
+            "documents": {
+                "tab-text": {"id": "tab-text", "name": "Documentation tab (text)",
+                             "url": TENDER["link"], "status": "completed", "analysis_key": "cached"},
+                "app/42": {"id": "app/42", "name": "spec.pdf", "url": TENDER["link"],
+                           "status": "pending", "error": "Per-run analysis budget reached"},
+                "app/43": {"id": "app/43", "name": "baseline.pdf", "url": TENDER["link"],
+                           "status": "baseline"},
+            },
+        }
+        plain, rich, _ = pipeline.report(self.state, self.ai, [], {"123": TENDER})
+        for body in (plain, rich):
+            for text in (
+                "IT ტენდერების მონიტორინგის ანგარიში", "შემსყიდველი ორგანიზაცია:",
+                "დოკუმენტაციის ჩანართის ტექსტი", "[ანალიზი დასრულებულია]",
+                "[დამუშავების მოლოდინში]", "საწყის მდგომარეობად აღრიცხულია",
+                "მოკლე მიმოხილვა:", "წყარო: პუნქტი 2", "შეზღუდვა:",
+                "საიდუმლო მასალების არსებობა", "ამ გაშვებისთვის განსაზღვრული",
+                "ტექნიკური ინფორმაცია: Per-run analysis budget reached",
+                "ტოკენების დაუზუსტებელი მოხმარებით",
+            ):
+                self.assertIn(text, body)
+            self.assertNotIn("Documentation tab (text)", body)
+            self.assertNotIn("Portal mentions confidential material", body)
+        self.assertIn('lang="ka"', rich)
+        self.assertIn("professional, formal Georgian", pipeline.PROMPT)
+
+    def test_report_replaces_em_dashes_in_cached_and_external_text(self):
+        self.state["analyses"]["cached"] = {
+            "summary": "Summary\u2014detail", "findings": [], "limitations": [],
+        }
+        tender = {**TENDER, "buyer": "Buyer\u2014name"}
+        self.state["tenders"]["123"] = {
+            "details": tender, "documents": {"app/42": {
+                "name": "file\u2014name.pdf", "url": TENDER["link"],
+                "status": "completed", "analysis_key": "cached",
+            }},
+        }
+        plain, rich, _ = pipeline.report(self.state, self.ai, [], {"123": tender})
+        for body in (plain, rich):
+            self.assertNotIn("\u2014", body)
+            self.assertIn("Summary-detail", body)
+            self.assertIn("Buyer-name", body)
+            self.assertIn("file-name.pdf", body)
+
+    def test_georgian_error_explanations_keep_original_diagnostics(self):
+        cases = (
+            ("Gemini HTTP 503: UNAVAILABLE | high demand", "დროებით მიუწვდომელია"),
+            ("Gemini HTTP 429", "კვოტის"),
+            ("Expanded office document exceeds safety limit", "უსაფრთხოების ზღვარს"),
+            ("Unsupported file or HTML/session error", "ფორმატი არ არის მხარდაჭერილი"),
+            ("Unknown portal error", "დამუშავება ვერ დასრულდა"),
+        )
+        for error, expected in cases:
+            with self.subTest(error=error):
+                text = pipeline.report_error(error)
+                self.assertIn(expected, text)
+                self.assertIn("ტექნიკური ინფორმაცია: " + error, text)
 
 
 class SearchTests(unittest.TestCase):
