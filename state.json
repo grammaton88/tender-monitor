@@ -1,5 +1,42 @@
 {
   "analyses": {
+    "gemini-3.5-flash-lite/02cd79d97a2c08a30530142495bc765afed1137317f9c939acd899477df59f79": {
+      "delivery_deadline": "დეტალური ვადები განსხვავებულია ფაზების მიხედვით: მე-2 ფაზის სრული დასრულება არის 170-დან 200 დღემდე პერიოდში (გვერდი 13), ხოლო მე-3 ფაზის მიწოდება ხდება წერილობითი შეკვეთიდან არა უმეტეს 180 დღისა, ხოლო ინსტალაცია/კონფიგურაცია 300 დღეში, მაგრამ არა უგვიანეს 2027 წლის დეკემბრისა (გვერდი 18).",
+      "findings": [
+        {
+          "detail": "BDS ITB 14.7-სა და SCC GCC 4.2(b)-ში მითითებული „Incoterms 2026“ არის ხარვეზი და გამოიყენება Incoterms 2020, რომელიც გამოცემულია საერთაშორისო სავაჭრო პალატის მიერ.",
+          "source": "გვერდი 3",
+          "topic": "ინკოთერმის რედაქცია"
+        },
+        {
+          "detail": "შესყიდვა შედგება ერთი ლოტისა და ერთი ხელშეკრულებისაგან. შეთავაზება წარმოდგენილი უნდა იყოს მოცულობის 100%-ზე, წინააღმდეგ შემთხვევაში ბიდი უარყოფილი იქნება.",
+          "source": "გვერდი 7",
+          "topic": "შესყიდვის ლოტი"
+        },
+        {
+          "detail": "SCC GCC 16.5-ში მითითებული გადახდის დაგვიანების პერიოდი შეადგენს ოცდარვა (28) დღეს.",
+          "source": "გვერდი 10",
+          "topic": "გადახდის დაგვიანების პერიოდი"
+        },
+        {
+          "detail": "შემოთავაზებული მოწყობილობა წარმოებული უნდა იყოს ტენდერის წინადადების წარდგენის ბოლო ვადამდე არა უმეტეს 12 თვისა.",
+          "source": "გვერდი 31",
+          "topic": "წარმოების თარიღი"
+        },
+        {
+          "detail": "აგრეგაციის როუტერებისა და წვდომის მოწყობილობების მწარმოებლის წარმოების სიმძლავრე უნდა იყოს შეკვეთილი რაოდენობების მინიმუმ 200-მაგი (4800 აგრეგაციის როუტერი და 9600 წვდომის მოწყობილობა).",
+          "source": "გვერდი 33",
+          "topic": "წარმოების სიმძლავრე"
+        }
+      ],
+      "limitations": [
+        "ეს დოკუმენტი წარმოადგენს მხოლოდ კითხვა-პასუხების კრებულს და შესაძლოა არ მოიცავდეს სრულ სატენდერო დოკუმენტაციას.",
+        "აუცილებელია ადამიანის მიერ დოკუმენტაციის სრული გადახედვა და შესაბამისი დანართების ან ცვლილებების გათვალისწინება."
+      ],
+      "subject": "IP/MPLS აქტიური მოწყობილობების შესყიდვა, ფაზა 2 (DEP260000033)",
+      "summary": "ეს დოკუმენტი წარმოადგენს ტენდერის კითხვებზე პასუხებს IP/MPLS აქტიური მოწყობილობების მე-2 ფაზის შესყიდვისთვის (DEP260000033). მასში განხილულია პოტენციური პრეტენდენტების მიერ დასმული კითხვები, რომლებიც ეხება ინკოთერმს, პროექტის ლოკაციებს, კონდიციონერების განთავსებას, ერთლოტიან შეფასებას, ინსტალაციისა და კონფიგურაციის პირობებს, ქსელის სტაბილურობის გარანტიას, გადახდის ვადებს, ბირთვის როუტერების გამტარუნარიანობას, შეფასების კრიტერიუმებს, შესრულების ვადებს, ტრანსივერების ტიპებს, მწარმოებლის ავტორიზაციას, შესრულების უზრუნველყოფის მექანიზმებს, ხელმისაწვდომობისა და SLA-ს პირობებს, წარმოების თარიღის მოთხოვნებს, ფინანსურ კვალიფიკაციასა და წარმოების სიმძლავრეს.",
+      "warranty": "მოიცავს 10-წლიან ქსელის სტაბილურობის გარანტიას აშენებულ ქსელზე (სრული ქსელისთვის მე-3 ფაზის მიღების შემდეგ) და 5-წლიან მწარმოებლის პროგრამულ გარანტიას (გვერდები 9 და 28)."
+    },
     "gemini-3.5-flash-lite/0738dbc66c627916c35ceb8ea4d79f2f61912afd8a9e8fca7de67743ce69ae2c": {
       "findings": [
         {
@@ -1222,6 +1259,38 @@
       ],
       "summary": "სახელმწიფო შესყიდვის დოკუმენტაცია ეხება ქსელური მოწყობილობების შესყიდვას. წარმოდგენილია ტექნიკური მოთხოვნები, მიწოდების პირობები, ვადები, საგარანტიო პირობები, ანგარიშსწორების წესი და დისკვალიფიკაციის რისკები."
     },
+    "gemini-3.5-flash-lite/a3d3d9e40d77ae5551489faa8c120e41ce701441d21e2fe69c86a11bbd2dd43e": {
+      "delivery_deadline": null,
+      "findings": [
+        {
+          "detail": "ტენდერი არის ორკონვერტიანი, სადაც პრეტენდენტმა ტექნიკური და ფინანსური ნაწილები ცალ-ცალკე უნდა წარადგინოს. ტექნიკური ნაწილის PDF ფაილი არ უნდა იყოს დაპაროლებული, წინააღმდეგ შემთხვევაში წინადადება უარყოფილი იქნება.",
+          "source": "გვერდი 1",
+          "topic": "ტექნიკური და ფინანსური ნაწილების წარდგენა"
+        },
+        {
+          "detail": "ფინანსური ნაწილი უნდა შედგებოდეს მხოლოდ შესაბამისი ინსტრუქციებით განსაზღვრული დოკუმენტებისგან, გაერთიანებული უნდა იყოს ერთ PDF ფაილში და სავალდებულოა მისი დაპაროლება. თუ ფინანსური ნაწილი არ იქნება დაპაროლებული, წინადადება უარყოფილი იქნება.",
+          "source": "გვერდი 1 და გვერდი 2",
+          "topic": "ფინანსური ნაწილის დაპაროლება"
+        },
+        {
+          "detail": "პრეტენდენტებმა წინადადებები ელექტრონულად უნდა ატვირთონ GE-GP სისტემის მეშვეობით, ფაილები შესაბამისად უნდა დასათაურდეს და ატვირთვის შემდეგ მონიშნული უნდა იყოს როგორც პირადი (private) საკეტის ხატულაზე დაჭერით.",
+          "source": "გვერდი 2",
+          "topic": "წინადადებების წარდგენა და კონფიდენციალურობა"
+        },
+        {
+          "detail": "სისტემაში ფასის მითითებისას ფაქტობრივი ფასი არ უნდა ჩაიწეროს - ამის ნაცვლად სავალდებულოა ფიგურა 1-ის მითითება, წინააღმდეგ შემთხვევაში წინადადება უარყოფილი იქნება.",
+          "source": "გვერდი 2 და გვერდი 3",
+          "topic": "ფასის მითითების წესი სისტემაში"
+        }
+      ],
+      "limitations": [
+        "ეს არის მხოლოდ ერთი სახელმძღვანელო დოკუმენტი და შესაძლოა არ წარმოადგენდეს სრულ სატენდერო დოკუმენტაციას, შესაბამისად საჭიროა ადამიანური გადამოწმება.",
+        "დოკუმენტში არ არის მოცემული პროდუქტების ზუსტი რაოდენობები, ტექნიკური მოთხოვნები, ვადები, გადახდის პირობები და ჯარიმები."
+      ],
+      "subject": "IP/MPLS Bidding - აქტიური ინფრასტრუქტურა",
+      "summary": "ეს დოკუმენტი წარმოადგენს ინსტრუქციას IP/MPLS ტენდერში წინადადების წარდგენის შესახებ. დოკუმენტში აღწერილია ორკონვერტიანი სისტემით ტექნიკური და ფინანსური ნაწილების ატვირთვის წესები, პაროლის დადების მოთხოვნები და ფასის მითითების პირობები GE-GP სისტემაში.",
+      "warranty": null
+    },
     "gemini-3.5-flash-lite/a3ef0e9c22be07e128d8b60fb096e62b4362898a958c5f9b761e4d6494a4f1ed": {
       "findings": [
         {
@@ -2185,7 +2254,7 @@
     }
   },
   "initialized": true,
-  "last_request_at": 1792675329.5615313,
+  "last_request_at": 1792676303.765725,
   "tenders": {
     "696054": {
       "details": {
@@ -2283,19 +2352,21 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7141423&code=1785341286"
         },
         "app/7141426": {
-          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
+          "analysis_key": "gemini-3.5-flash-lite/a3d3d9e40d77ae5551489faa8c120e41ce701441d21e2fe69c86a11bbd2dd43e",
+          "error": "",
           "hash": "a3d3d9e40d77ae5551489faa8c120e41ce701441d21e2fe69c86a11bbd2dd43e",
           "id": "app/7141426",
           "name": "_BID_Manual_Active_Infrastructure2.pdf",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7141426&code=1785341293"
         },
         "app/7178709": {
-          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
+          "analysis_key": "gemini-3.5-flash-lite/02cd79d97a2c08a30530142495bc765afed1137317f9c939acd899477df59f79",
+          "error": "",
           "hash": "02cd79d97a2c08a30530142495bc765afed1137317f9c939acd899477df59f79",
           "id": "app/7178709",
           "name": "DEP260000033_Answers_to_the_Tender_Questions_Active_Infrastructure_2_210826.pdf",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7178709&code=1787337487"
         },
         "app/7178711": {
@@ -2374,7 +2445,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:29:48.231554+00:00",
       "notice": "",
-      "notified": "60f3588f97303e8e4469b130020e3637c23f997e7d247f2b55c7c133f3282128"
+      "notified": "6ce5f97e1616ec13a8944d0da8cb25e9b66bf9400d3228ce723ae0799e2e370a"
     },
     "702734": {
       "details": {
@@ -4022,6 +4093,73 @@
       "notice": "",
       "notified": "5e5d5f3264ac85bda7dfcee9fb0d66d2b483fbf8a63604fa35bf8c352e4515cf"
     },
+    "710229": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 179`800.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 22.10.2026",
+        "buyer": "ილიას სახელმწიფო უნივერსიტეტი",
+        "category": "72400000-ინტერნეტმომსახურებები",
+        "deadline": "წინადადებების მიღების ვადა: 02.11.2026",
+        "id": "710229",
+        "link": "https://tenders.procurement.gov.ge/public/?go=710229",
+        "reg_num": "NAT260022080",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {
+        "que/2160111": {
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
+          "hash": "b995431ba1759c5dd314ace7713d055995c1988a36a1163427d33e8bd290faa6",
+          "id": "que/2160111",
+          "name": "ხელშეკრულების პროექტი.pdf",
+          "status": "pending",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2160111&code=1792592622"
+        },
+        "que/2160655": {
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
+          "hash": "09265ef0749c426ad0b732c510daaf91bf34eb3dc3cd3977fb7a6aa89132c4bd",
+          "id": "que/2160655",
+          "name": "ოქმი N1.pdf",
+          "status": "pending",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2160655&code=1792606241"
+        },
+        "que/2160972": {
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
+          "hash": "af15e2654511fb427d42207a0baa867a89d2ef6663fa6dfceb256fd4de52701a",
+          "id": "que/2160972",
+          "name": "გასაწევი მომსახურების ხარჯთაღრიცხვა.xlsx",
+          "status": "pending",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2160972&code=1792669633"
+        },
+        "que/2160998": {
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
+          "hash": "ff5711b1178060d0643732e482039074d1895f599d894452060e897c0176b1ec",
+          "id": "que/2160998",
+          "name": "ინფორმაცია შესრულებული პროექტების შესახებ.pdf",
+          "status": "pending",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2160998&code=1792670731"
+        },
+        "que/2161503": {
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
+          "hash": "433f4bccad4670c823d6f0df94cd2bbcf2272022f07fadc6c603050310815d4f",
+          "id": "que/2161503",
+          "name": "ტექნიკური დავალება.pdf",
+          "status": "pending",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2161503&code=1792689034"
+        },
+        "tab-text": {
+          "error": "Gemini HTTP 503: UNAVAILABLE | This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.; analysis not completed",
+          "hash": "123899dc41eecf77494310f3195a8bd2e342e69810e015e4413e9ce6000c002b",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "pending",
+          "url": "https://tenders.procurement.gov.ge/public/?go=710229"
+        }
+      },
+      "error": "",
+      "first_seen": "2026-10-22T13:40:53.211304+00:00",
+      "notice": "",
+      "notified": "6818deed05b76bff314e2bf01b668be00607d43fc451c662063b9fe3d4594913"
+    },
     "710304": {
       "details": {
         "amount": "შესყიდვის სავარაუდო ღირებულება: 7`224.00 ლარი",
@@ -4293,14 +4431,14 @@
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
-      "input": 302432,
+      "input": 323931,
       "model": "gemini-3.5-flash-lite",
-      "output": 56916,
+      "output": 58912,
       "quota_errors": 0,
-      "requests": 60,
-      "reserved_tokens": 427216,
-      "total": 359348,
-      "unknown_usage": 4
+      "requests": 63,
+      "reserved_tokens": 456272,
+      "total": 382843,
+      "unknown_usage": 5
     },
     "2026-10-22/gemini-3.8-flash": {
       "date": "2026-10-22",
