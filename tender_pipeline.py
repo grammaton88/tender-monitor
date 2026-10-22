@@ -483,6 +483,8 @@ def report(state: dict, ai: Gemini, scan_errors: list[str],
            current_tenders: dict | None = None) -> tuple[str, str, dict]:
     now = datetime.now(PACIFIC)
     usage = ai.bucket()
+    monthly = [b for b in state["usage"].values()
+               if b["model"] == ai.model and b["date"].startswith(now.strftime("%Y-%m"))]
 
     # ---------- Helpers ----------
     def html_table(headers: list[str], rows: list[list[str]]) -> str:
@@ -499,28 +501,25 @@ def report(state: dict, ai: Gemini, scan_errors: list[str],
             f"{thead}</thead><tbody>{''.join(body)}</tbody></table></div>"
         )
 
-    def parse_deadline(text: str) -> datetime | None:
-        """Try to extract a date from Georgian/English deadline strings."""
+    def parse_deadline(text: str):
         if not text:
             return None
-        # Common formats: 26.10.2026, 26/10/2026, 2026-10-26, etc.
         patterns = [
-            r"(\d{1,2})[./-](\d{1,2})[./-](\d{4})",   # DD.MM.YYYY or DD/MM/YYYY
-            r"(\d{4})[./-](\d{1,2})[./-](\d{1,2})",   # YYYY-MM-DD
+            r"(\d{1,2})[./-](\d{1,2})[./-](\d{4})",
+            r"(\d{4})[./-](\d{1,2})[./-](\d{1,2})",
         ]
         for pat in patterns:
             m = re.search(pat, text)
             if m:
                 try:
-                    if len(m.group(1)) == 4:  # YYYY-MM-DD
+                    if len(m.group(1)) == 4:
                         return datetime(int(m.group(1)), int(m.group(2)), int(m.group(3)))
-                    else:  # DD.MM.YYYY
-                        return datetime(int(m.group(3)), int(m.group(2)), int(m.group(1)))
+                    return datetime(int(m.group(3)), int(m.group(2)), int(m.group(1)))
                 except ValueError:
                     continue
         return None
 
-    # ---------- Collect structured data ----------
+    # ---------- Collect data ----------
     all_entries = []
     for tender_id, entry in state["tenders"].items():
         tender = entry.get("details", {})
@@ -531,19 +530,16 @@ def report(state: dict, ai: Gemini, scan_errors: list[str],
                 subject = subject or result.get("subject", "")
                 delivery = delivery or result.get("delivery_deadline", "")
                 warranty = warranty or result.get("warranty", "")
-                if subject and delivery and warranty:
-                    break
 
         deadline_raw = tender.get("deadline", "")
-        deadline_dt = parse_deadline(deadline_raw)
-
         all_entries.append({
             "id": tender_id,
             "reg_num": tender.get("reg_num") or tender_id,
             "buyer": tender.get("buyer", ""),
+            "category": tender.get("category", ""),
             "amount": tender.get("amount", ""),
             "deadline": deadline_raw,
-            "deadline_dt": deadline_dt,
+            "deadline_dt": parse_deadline(deadline_raw),
             "link": tender.get("link", ""),
             "subject": subject or "არ არის მითითებული",
             "delivery": delivery or "არ არის მითითებული",
@@ -552,9 +548,7 @@ def report(state: dict, ai: Gemini, scan_errors: list[str],
             "entry": entry,
         })
 
-    # Sort by real date (earliest first). Entries without parseable date go last.
     all_entries.sort(key=lambda e: e["deadline_dt"] or datetime(9999, 12, 31))
-
     today = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
 
     def days_until(e):
@@ -562,14 +556,141 @@ def report(state: dict, ai: Gemini, scan_errors: list[str],
             return 9999
         return (e["deadline_dt"] - today).days
 
-    high   = [e for e in all_entries if 0 <= days_until(e) <= 7]      # next 7 days
-    medium = [e for e in all_entries if 8 <= days_until(e) <= 20]     # 8-20 days
+    high   = [e for e in all_entries if 0 <= days_until(e) <= 7]
+    medium = [e for e in all_entries if 8 <= days_until(e) <= 20]
     other  = [e for e in all_entries if days_until(e) > 20 or days_until(e) < 0]
 
-    # ---------- Build HTML ----------
+    # ========== PLAIN TEXT (test-compatible) ==========
+    lines = [
+        f"IT ტენდერების მონიტორინგის ანგარიში - {datetime.now(timezone.utc):%Y-%m-%d %H:%M UTC}",
+        "",
+        "GEMINI-ის გამოყენების სტატისტიკა - მხოლოდ ამ მონიტორის მონაცემები",
+        "მაჩვენებლები არ ასახავს მთელი პროექტის დარჩენილ კვოტას.",
+        f"მოდელი: {ai.model}",
+        f"კვოტის თარიღი: {usage['date']} (America/Los_Angeles); განახლება - ამ დროის სარტყლის შუაღამეს",
+        "დღიური ანალიზის მოთხოვნები (მცდელობები): " + meter(usage["requests"], ai.request_limit),
+        "შემავალი ტოკენების დღიური ბიუჯეტი (წინასწარ დათვლილი/რეზერვირებული): " + meter(usage["reserved_tokens"], ai.token_limit),
+        f"API-ის მიერ დღეს აღრიცხული ტოკენები: შემავალი - {usage['input']:,}, გამომავალი - {usage['output']:,}, სულ - {usage['total']:,}",
+        f"მცდელობები ტოკენების დაუზუსტებელი მოხმარებით: {usage['unknown_usage']}",
+        f"დღეს დაფიქსირებული სიხშირის/კვოტის შეცდომები (429): {usage['quota_errors']}",
+        f"მიმდინარე თვის მონაცემები ({now:%Y-%m}, ამ მოდელისთვის): "
+        f"{sum(b['requests'] for b in monthly):,} მცდელობა; "
+        f"{sum(b['total'] for b in monthly):,} აღრიცხული ტოკენი",
+        "ჯამი შესაძლოა მოიცავდეს მსჯელობისა და ქეშირებულ ტოკენებს; შემავალი და გამომავალი ტოკენების ჯამი შეიძლება განსხვავდებოდეს სრული რაოდენობისგან.",
+        "ლიმიტები მითითებულია ხელით. მიუთითებელი ლიმიტი ნიშნავს უცნობ მნიშვნელობას და არა შეუზღუდავ გამოყენებას.",
+        "countTokens-ის წინასწარი დათვლის მოთხოვნები ანალიზის მცდელობების რაოდენობაში არ შედის.",
+        "TPD აქ აღნიშნავს შემავალი ტოკენების ადგილობრივ დღიურ ბიუჯეტს და არა პროვაიდერის დადასტურებულ კვოტას.",
+        "",
+    ]
+
+    if scan_errors:
+        lines.extend(["ძიების ხარვეზები - ტენდერების მოძიება სრულად ვერ დასრულდა",
+                      *(report_error(error) for error in scan_errors), ""])
+
+    if current_tenders is not None:
+        qualifier = " (არასრული შემოწმება)" if scan_errors else ""
+        overview = [
+            f"ამ შემოწმებისას მოძიებული აქტიური IT ტენდერების რაოდენობა: {len(current_tenders)}{qualifier}",
+            "მიმდინარე ტენდერები - შესყიდვების პორტალის ბმულები",
+        ]
+        for number, tender in enumerate(current_tenders.values(), 1):
+            overview.extend([
+                f"#{number} | {tender.get('reg_num') or tender['id']} | {tender.get('buyer', '')}",
+                tender["link"],
+                "-" * 60,
+            ])
+        lines[1:1] = ["", *overview, ""]
+
+    lines.extend(["ტენდერების განახლებები და დასამუშავებელი დოკუმენტები", "=" * 60])
+
+    notified = {}
+    pending = 0
+    for tender_id, entry in state["tenders"].items():
+        fingerprint = notification_fingerprint(entry)
+        documents = list(entry.get("documents", {}).values())
+        unfinished = [d for d in documents if d["status"] == "pending"]
+        pending += len(unfinished)
+        changed = fingerprint != entry.get("notified")
+        if not changed and not unfinished and not entry.get("error"):
+            continue
+
+        tender = entry["details"]
+        label = "ახალი ტენდერი" if not entry.get("notified") else (
+            "განახლებული ინფორმაცია" if changed else "დამუშავების მოლოდინში"
+        )
+        lines.extend([
+            f"#{len(notified) + 1}",
+            f"{label}: {tender.get('reg_num') or tender_id}",
+            f"შემსყიდველი ორგანიზაცია: {tender.get('buyer', '')}",
+            f"შესყიდვის კატეგორია: {tender.get('category', '')}",
+            f"სტატუსი: {tender.get('status', '')}",
+            f"გამოცხადების თარიღი: {tender.get('announce_date', '')}",
+            f"სავარაუდო ღირებულება (გადაამოწმეთ პირობები): {tender.get('amount', '')}",
+            f"წინადადებების წარდგენის ვადა: {tender.get('deadline', '')}",
+            "ტენდერის ბმული: " + tender["link"],
+        ])
+        if entry.get("notice"):
+            lines.append(
+                "შენიშვნა: პორტალზე მითითებულია საიდუმლო მასალების არსებობა. საჯარო დოკუმენტები შესაძლოა არასრული იყოს, "
+                "ხოლო მითითებული ღირებულება - პირობითი. გადაამოწმეთ პირობები პორტალზე."
+                if str(entry["notice"]).startswith("Portal mentions confidential material.")
+                else entry["notice"]
+            )
+        if entry.get("error"):
+            lines.append("დოკუმენტაციის მდგომარეობა: " + report_error(entry["error"]))
+
+        if changed:
+            for doc in documents:
+                status = {
+                    "completed": "ანალიზი დასრულებულია",
+                    "pending": "დამუშავების მოლოდინში",
+                    "baseline": "საწყის მდგომარეობად აღრიცხულია - ანალიზის გარეშე",
+                }.get(doc["status"], "დაუზუსტებელი სტატუსი")
+                name = "დოკუმენტაციის ჩანართის ტექსტი" if doc.get("id") == "tab-text" else doc["name"]
+                lines.extend([f"დოკუმენტი: {name} [{status}]", doc.get("url", "")])
+                if doc["status"] == "completed" and doc.get("analysis_key") in state["analyses"]:
+                    result = state["analyses"][doc["analysis_key"]]
+                    lines.append("მოკლე მიმოხილვა: " + result.get("summary", ""))
+                    if result.get("subject"):
+                        lines.append(f"საგანი: {result['subject']}")
+                    if result.get("delivery_deadline"):
+                        lines.append(f"მიწოდების ვადა: {result['delivery_deadline']}")
+                    if result.get("warranty"):
+                        lines.append(f"გარანტია: {result['warranty']}")
+                    for finding in result.get("findings", []):
+                        lines.append(f"- {finding.get('topic', '')}: {finding.get('detail', '')} (წყარო: {finding.get('source', '')})")
+                    lines.extend("შეზღუდვა: " + item for item in result.get("limitations", []))
+                elif doc.get("error"):
+                    lines.append(report_error(doc["error"]))
+        else:
+            lines.extend(
+                f"დამუშავების მოლოდინში: "
+                f"{'დოკუმენტაციის ჩანართის ტექსტი' if d.get('id') == 'tab-text' else d['name']}\n"
+                f"{report_error(d.get('error', ''))}" for d in unfinished
+            )
+        lines.extend(["-" * 60, ""])
+        notified[tender_id] = fingerprint
+
+    if not notified:
+        lines.append(
+            "ძიება სრულად ვერ დასრულდა; ახალი ტენდერების შესახებ სრული ინფორმაციის დადასტურება შეუძლებელია."
+            if scan_errors else "ახალი ტენდერები ან დოკუმენტაციის ცვლილებები არ გამოვლენილა."
+        )
+
+    lines.extend([
+        f"განახლებებისა და მოლოდინის სექციაში წარმოდგენილი ტენდერების რაოდენობა: {len(notified)}",
+        f"დამუშავების მოლოდინში მყოფი დოკუმენტების რაოდენობა: {pending}",
+        "დარჩენილი დოკუმენტების დამუშავების მცდელობა განმეორდება შემდეგი დაგეგმილი შემოწმებისას. "
+        "არამხარდაჭერილი ფორმატისა და დასაშვებზე დიდი ფაილები საჭიროებს ხელით შემოწმებას.",
+        "ხელოვნური ინტელექტის მიერ მომზადებული მიმოხილვა საინფორმაციო ხასიათისაა. "
+        "ტენდერში მონაწილეობამდე გადაამოწმეთ დოკუმენტების ორიგინალები.",
+    ])
+
+    plain = "\n".join(lines).replace("\u2014", "-")
+
+    # ========== HTML (modern tables) ==========
     html_parts = []
 
-    # High priority
     html_parts.append("<h3>1. უმაღლესი პრიორიტეტი (შემდეგი 7 დღე)</h3>")
     if high:
         rows = []
@@ -589,13 +710,10 @@ def report(state: dict, ai: Gemini, scan_errors: list[str],
             ])
         html_parts.append(html_table(
             ["ვადა", "რეგ. ნომერი", "შემსყიდველი", "საგანი", "ღირებულება",
-             "მიწოდების ვადა", "გარანტია", "საიდუმლო", "ბმული"],
-            rows
-        ))
+             "მიწოდების ვადა", "გარანტია", "საიდუმლო", "ბმული"], rows))
     else:
         html_parts.append("<p>ამ კატეგორიაში ტენდერები არ არის.</p>")
 
-    # Medium priority
     html_parts.append("<h3>2. საშუალო პრიორიტეტი (8–20 დღე)</h3>")
     if medium:
         rows = []
@@ -613,13 +731,10 @@ def report(state: dict, ai: Gemini, scan_errors: list[str],
             ])
         html_parts.append(html_table(
             ["ვადა", "რეგ. ნომერი", "შემსყიდველი", "საგანი", "ღირებულება",
-             "მიწოდების ვადა", "გარანტია", "ბმული"],
-            rows
-        ))
+             "მიწოდების ვადა", "გარანტია", "ბმული"], rows))
     else:
         html_parts.append("<p>ამ კატეგორიაში ტენდერები არ არის.</p>")
 
-    # Other
     html_parts.append("<h3>3. დანარჩენი აქტიური ტენდერები</h3>")
     if other:
         rows = []
@@ -634,66 +749,8 @@ def report(state: dict, ai: Gemini, scan_errors: list[str],
                 link,
             ])
         html_parts.append(html_table(
-            ["რეგ. ნომერი", "შემსყიდველი", "საგანი", "ღირებულება", "ვადა", "ბმული"],
-            rows
-        ))
+            ["რეგ. ნომერი", "შემსყიდველი", "საგანი", "ღირებულება", "ვადა", "ბმული"], rows))
 
-    # Detailed section
-    html_parts.append("<h3>დეტალური ანალიზი (ახალი / განახლებული / მოლოდინში)</h3>")
-
-    notified = {}
-    pending = 0
-    for tender_id, entry in state["tenders"].items():
-        fingerprint = notification_fingerprint(entry)
-        documents = list(entry.get("documents", {}).values())
-        unfinished = [d for d in documents if d["status"] == "pending"]
-        pending += len(unfinished)
-        changed = fingerprint != entry.get("notified")
-        if not changed and not unfinished and not entry.get("error"):
-            continue
-
-        tender = entry["details"]
-        label = "ახალი ტენდერი" if not entry.get("notified") else (
-            "განახლებული ინფორმაცია" if changed else "დამუშავების მოლოდინში"
-        )
-
-        html_parts.append(f"<h4>{label}: {html.escape(tender.get('reg_num') or tender_id)}</h4>")
-        html_parts.append(
-            f"<p><b>შემსყიდველი:</b> {html.escape(tender.get('buyer', ''))}<br>"
-            f"<b>კატეგორია:</b> {html.escape(tender.get('category', ''))}<br>"
-            f"<b>სავარაუდო ღირებულება:</b> {html.escape(tender.get('amount', ''))}<br>"
-            f"<b>ვადა:</b> {html.escape(tender.get('deadline', ''))}<br>"
-            f'<b>ბმული:</b> <a href="{html.escape(tender["link"])}">{html.escape(tender["link"])}</a></p>'
-        )
-        if entry.get("notice"):
-            html_parts.append(
-                "<p style='color:#b45309;'><b>შენიშვნა:</b> პორტალზე მითითებულია საიდუმლო მასალების არსებობა.</p>"
-            )
-
-        html_parts.append("<ul>")
-        for doc in documents:
-            status = {
-                "completed": "ანალიზი დასრულებულია",
-                "pending": "დამუშავების მოლოდინში",
-                "baseline": "საწყისი მდგომარეობა",
-            }.get(doc["status"], "უცნობი")
-            name = "დოკუმენტაციის ჩანართის ტექსტი" if doc.get("id") == "tab-text" else doc["name"]
-            html_parts.append(f"<li><b>{html.escape(name)}</b> [{status}]")
-            if doc["status"] == "completed" and doc.get("analysis_key") in state["analyses"]:
-                result = state["analyses"][doc["analysis_key"]]
-                if result.get("subject"):
-                    html_parts.append(f"<br>საგანი: {html.escape(result['subject'])}")
-                if result.get("delivery_deadline"):
-                    html_parts.append(f"<br>მიწოდების ვადა: {html.escape(result['delivery_deadline'])}")
-                if result.get("warranty"):
-                    html_parts.append(f"<br>გარანტია: {html.escape(result['warranty'])}")
-                if result.get("summary"):
-                    html_parts.append(f"<br>შეჯამება: {html.escape(result['summary'])}")
-            html_parts.append("</li>")
-        html_parts.append("</ul><hr>")
-        notified[tender_id] = fingerprint
-
-    # ---------- Final HTML ----------
     rich = f"""<!DOCTYPE html>
 <html lang="ka">
 <head>
@@ -701,36 +758,17 @@ def report(state: dict, ai: Gemini, scan_errors: list[str],
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>IT ტენდერების მონიტორინგი</title>
 <style>
-  body {{
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-    line-height: 1.5;
-    color: #1e293b;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px 16px;
-    background: #f8fafc;
-  }}
+  body {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; line-height: 1.5; color: #1e293b; max-width: 1100px; margin: 0 auto; padding: 20px 16px; background: #f8fafc; }}
   h2 {{ color: #0f172a; border-bottom: 3px solid #3b82f6; padding-bottom: 8px; margin-top: 0; }}
   h3 {{ color: #1e40af; margin-top: 32px; margin-bottom: 8px; }}
-  h4 {{ color: #334155; margin-bottom: 6px; }}
   table {{ background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }}
   th {{ padding: 10px 8px; text-align: left; font-weight: 600; white-space: nowrap; }}
   td {{ padding: 9px 8px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }}
   a {{ color: #2563eb; text-decoration: none; }}
   a:hover {{ text-decoration: underline; }}
-  .meta {{
-    background: #fff; border: 1px solid #e2e8f0; border-radius: 8px;
-    padding: 12px 16px; margin-bottom: 20px; font-size: 14px;
-  }}
-  .footer {{
-    margin-top: 40px; padding-top: 16px; border-top: 1px solid #e2e8f0;
-    color: #64748b; font-size: 12px;
-  }}
-  @media (max-width: 700px) {{
-    body {{ padding: 12px 8px; }}
-    table {{ font-size: 12px; }}
-    th, td {{ padding: 7px 5px; }}
-  }}
+  .meta {{ background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; margin-bottom: 20px; font-size: 14px; }}
+  .footer {{ margin-top: 40px; padding-top: 16px; border-top: 1px solid #e2e8f0; color: #64748b; font-size: 12px; }}
+  @media (max-width: 700px) {{ body {{ padding: 12px 8px; }} table {{ font-size: 12px; }} th, td {{ padding: 7px 5px; }} }}
 </style>
 </head>
 <body>
@@ -745,20 +783,10 @@ def report(state: dict, ai: Gemini, scan_errors: list[str],
   <div class="footer">
     განახლებების სექციაში ტენდერები: {len(notified)} &nbsp;|&nbsp;
     დამუშავების მოლოდინში დოკუმენტები: {pending}<br>
-    ხელოვნური ინტელექტის მიმოხილვა საინფორმაციო ხასიათისაა.
-    ტენდერში მონაწილეობამდე გადაამოწმეთ ორიგინალური დოკუმენტები.
+    ხელოვნური ინტელექტის მიმოხილვა საინფორმაციო ხასიათისაა. ტენდერში მონაწილეობამდე გადაამოწმეთ ორიგინალური დოკუმენტები.
   </div>
 </body>
-</html>
-"""
-
-    plain = (
-        f"IT ტენდერების მონიტორინგის ანგარიში - {datetime.now(timezone.utc):%Y-%m-%d %H:%M UTC}\n"
-        f"მოდელი: {ai.model} | ტოკენები: {usage['total']:,}\n\n"
-        "სრული ანგარიში ხელმისაწვდომია HTML ვერსიაში.\n"
-        f"განახლებების სექციაში ტენდერები: {len(notified)}\n"
-        f"დამუშავების მოლოდინში დოკუმენტები: {pending}"
-    )
+</html>"""
 
     return plain, rich, notified
 
