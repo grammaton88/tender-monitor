@@ -136,8 +136,8 @@ class PipelineTests(unittest.TestCase):
     def test_analysis_schema_requests_only_concise_table_fields(self):
         self.assertEqual(pipeline.SCHEMA["required"], list(pipeline.TABLE_FIELDS))
         self.assertEqual(set(pipeline.SCHEMA["properties"]), set(pipeline.TABLE_FIELDS))
-        self.assertIn("160 characters", pipeline.PROMPT)
-        self.assertIn("No summary, findings or extra explanation", pipeline.PROMPT)
+        self.assertIn("80 characters", pipeline.PROMPT)
+        self.assertIn("Return only those fields", pipeline.PROMPT)
         self.assertEqual(
             pipeline.validate_analysis({**ANALYSIS, "unused": "extra"}),
             ANALYSIS,
@@ -185,6 +185,28 @@ class PipelineTests(unittest.TestCase):
                 self.ai.analyze("a.pdf", {})
         self.assertEqual(self.ai.bucket()["unknown_usage"], 1)
         self.assertEqual(self.ai.bucket()["requests"], 1)
+
+    def test_temporary_overload_is_retried_before_giving_up(self):
+        overloaded = response({"error": {"status": "UNAVAILABLE"}}, status=503)
+        with patch.object(self.ai.http, "post", side_effect=[
+            overloaded, overloaded, response({"totalTokens": 5}),
+        ]) as http_post, patch.object(pipeline.time, "sleep") as sleep:
+            self.assertEqual(self.ai.post("countTokens", {}).status_code, 200)
+        self.assertEqual(http_post.call_count, 3)
+        self.assertEqual([c.args[0] for c in sleep.call_args_list], [10, 30])
+        with patch.object(self.ai.http, "post", return_value=overloaded) as http_post, \
+                patch.object(pipeline.time, "sleep"):
+            self.assertEqual(self.ai.post("countTokens", {}).status_code, 503)
+        self.assertEqual(http_post.call_count, len(pipeline.RETRY_DELAYS) + 1)
+        with patch.object(self.ai.http, "post", side_effect=[
+            requests.ConnectionError("secret-url"), response({"totalTokens": 5}),
+        ]), patch.object(pipeline.time, "sleep"):
+            self.assertEqual(self.ai.post("countTokens", {}).status_code, 200)
+        with patch.object(self.ai.http, "post", side_effect=requests.ConnectionError("secret-url")), \
+                patch.object(pipeline.time, "sleep"):
+            with self.assertRaisesRegex(pipeline.ProcessingError, "network failure") as caught:
+                self.ai.post("countTokens", {})
+        self.assertNotIn("secret-url", str(caught.exception))
 
     def test_service_error_reports_sanitized_reason_and_stops_run(self):
         reply = response({"error": {
@@ -490,7 +512,11 @@ class PipelineTests(unittest.TestCase):
             server.send_message.return_value = {}
             pipeline.send_report("plain", "<p>html</p>")
             message = server.send_message.call_args.args[0]
-            self.assertTrue(str(message["Subject"]).startswith("IT ტენდერების მონიტორინგი"))
+            self.assertRegex(
+                str(message["Subject"]),
+                r"^IT ტენდერების მონიტორინგი - ყოველდღიური ანგარიში \| "
+                r"\d{4}-\d{2}-\d{2} \d{2}:\d{2} \(თბილისის დრო, UTC\+04:00\)$",
+            )
             self.assertEqual([p.get_content_type() for p in message.iter_parts()],
                              ["text/plain", "text/html"])
             server.send_message.return_value = {"recipient@example.test": (550, b"refused")}
@@ -529,7 +555,7 @@ class PipelineTests(unittest.TestCase):
             self.assertNotIn("მოკლე მიმოხილვა:", body)
             self.assertNotIn("ტექნიკური ინფორმაცია:", body)
         self.assertIn('lang="ka"', rich)
-        self.assertIn("concise, formal Georgian", pipeline.PROMPT)
+        self.assertIn("keywords", pipeline.PROMPT)
 
     def test_report_replaces_em_dashes_in_cached_and_external_text(self):
         self.state["analyses"]["cached"] = {
@@ -708,7 +734,7 @@ class PipelineTests(unittest.TestCase):
         table = soup.find("table")
         self.assertEqual(table["border"], "1")
         self.assertEqual(len(table.find_all("th", scope="col")), 11)
-        self.assertIn("overflow-x:auto", table.parent["style"])
+        self.assertNotIn("overflow-x", table.parent["style"])
         self.assertIsNone(soup.find("pre"))
         self.assertIsNone(soup.find("script"))
         self.assertIsNone(soup.find("link"))
@@ -760,8 +786,9 @@ class PipelineTests(unittest.TestCase):
         tender = soup.select_one("table.tender-table")
         for table in (summary, tender):
             self.assertEqual(table["width"], "100%")
-            self.assertIn("width:100%;min-width:1600px", table["style"])
-            self.assertIn("overflow-x:auto", table.parent["style"])
+            self.assertIn("width:100%;table-layout:fixed", table["style"])
+            self.assertNotIn("min-width", table["style"])
+            self.assertNotIn("overflow-x", table.parent["style"])
         self.assertNotIn("max-width", soup.select_one("#report-summary")["style"])
         for row in summary.select("tr"):
             self.assertEqual(sum(int(cell.get("colspan", 1)) for cell in row.find_all(
@@ -862,8 +889,8 @@ class PipelineTests(unittest.TestCase):
         )
         table = BeautifulSoup(rich, "html.parser").find("table")
         self.assertIn("width:100%", table["style"])
-        self.assertIn("min-width:1600px", table["style"])
-        self.assertEqual(sum(int(col["width"]) for col in table.find_all("col")), 1600)
+        self.assertNotIn("min-width", table["style"])
+        self.assertEqual(sum(int(col["width"].rstrip("%")) for col in table.find_all("col")), 100)
         self.assertIn(long_value, table.get_text())
         for cell in table.find_all(["th", "td"]):
             self.assertIn("overflow-wrap:anywhere", cell["style"])
