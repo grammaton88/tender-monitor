@@ -24,7 +24,8 @@ ENV = {
 }
 ANALYSIS = {"summary": "Summary", "findings": [
     {"topic": "Deadline", "detail": "Check tender", "source": "section 1"},
-], "limitations": ["Public document only"]}
+], "limitations": ["Public document only"],
+    "subject": None, "delivery_deadline": None, "warranty": None}
 TENDER = {
     "id": "123", "reg_num": "NAT123", "buyer": "Buyer",
     "link": pipeline.PORTAL + "?go=123",
@@ -588,6 +589,76 @@ class PipelineTests(unittest.TestCase):
         self.assertIsNone(soup.find("script"))
         self.assertEqual(soup.find_all("a"), [])
         self.assertIn("არასრული შემოწმება", plain)
+
+    def test_all_table_columns_and_structured_values_in_both_formats(self):
+        result = {
+            **ANALYSIS, "subject": "კომპიუტერები (პუნქტი 1)",
+            "delivery_deadline": "30 დღე (პუნქტი 2)",
+            "warranty": "24 თვე (პუნქტი 3)",
+        }
+        self.state["analyses"]["new"] = result
+        self.state["tenders"]["123"] = {
+            "details": TENDER, "notice": "Confidential notice",
+            "documents": {"x": {
+                "name": "spec.pdf", "status": "completed", "analysis_key": "new",
+            }},
+        }
+        # Mark unchanged to exercise overview rendering without document updates.
+        entry = self.state["tenders"]["123"]
+        entry["notified"] = pipeline.notification_fingerprint(entry)
+        plain, rich, _ = pipeline.report(self.state, self.ai, [], {"123": TENDER})
+        table = BeautifulSoup(rich, "html.parser").find("table")
+        headers = [th.get_text() for th in table.find_all("th")]
+        self.assertEqual(len(headers), 11)
+        for label in (
+            "შესყიდვის საგანი", "მიწოდების ვადა", "საგარანტიო პირობები",
+            "საიდუმლო მასალების შესახებ მითითება",
+        ):
+            self.assertIn(label, headers)
+            self.assertIn(label, plain)
+        for value in result["subject"], result["delivery_deadline"], result["warranty"]:
+            self.assertIn(value, plain)
+            self.assertIn(value, table.get_text())
+        self.assertIn("spec.pdf", table.get_text())
+        self.assertIn("დიახ", table.get_text())
+        self.assertEqual(len(table.select_one("tbody tr").find_all("td")), 11)
+
+    def test_table_fields_distinguish_legacy_pending_absent_and_conflicting_sources(self):
+        self.state["analyses"].update({
+            "legacy": {"summary": "Old", "findings": [], "limitations": []},
+            "missing": {**ANALYSIS},
+            "a": {**ANALYSIS, "warranty": "12 თვე (პუნქტი 1)"},
+            "b": {**ANALYSIS, "warranty": "24 თვე (პუნქტი 2)"},
+        })
+        def entry(*keys):
+            return {"documents": {
+                key: {"status": "completed", "analysis_key": key, "name": key + ".pdf"}
+                for key in keys
+            }}
+        fields = pipeline.table_analysis_fields(entry("legacy"), self.state["analyses"])
+        self.assertIn("ძველ ანალიზში", fields["subject"])
+        self.assertIn("არარსებობა დადასტურებული არ არის", fields["confidential"])
+        fields = pipeline.table_analysis_fields({}, self.state["analyses"])
+        self.assertIn("სრულად არ დასრულებულა", fields["subject"])
+        fields = pipeline.table_analysis_fields(entry("missing"), self.state["analyses"])
+        self.assertIn("არ არის მითითებული", fields["subject"])
+        fields = pipeline.table_analysis_fields(entry("a", "b"), self.state["analyses"])
+        self.assertIn("12 თვე", fields["warranty"])
+        self.assertIn("24 თვე", fields["warranty"])
+        self.assertIn("რამდენიმე წყაროს", fields["warranty"])
+
+    def test_new_analysis_requires_nullable_table_fields(self):
+        self.assertEqual(pipeline.validate_analysis(ANALYSIS), ANALYSIS)
+        for key in pipeline.TABLE_FIELDS:
+            self.assertIn(key, pipeline.SCHEMA["required"])
+            self.assertTrue(pipeline.SCHEMA["properties"][key]["nullable"])
+            invalid = dict(ANALYSIS)
+            del invalid[key]
+            with self.assertRaisesRegex(pipeline.ProcessingError, "table field"):
+                pipeline.validate_analysis(invalid)
+            invalid[key] = 12
+            with self.assertRaises(pipeline.ProcessingError):
+                pipeline.validate_analysis(invalid)
 
 
 class SearchTests(unittest.TestCase):

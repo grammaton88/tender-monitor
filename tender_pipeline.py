@@ -42,7 +42,16 @@ Content rules:
 - Every finding must include a real source page or section. Do not invent page numbers.
 - Clearly note any missing or conflicting information.
 - This is only one document and may not be the complete tender. Human review is required.
+- Also return subject (specific procurement subject, not just a CPV category),
+  delivery_deadline and warranty. Each is null when not stated in this document.
+  Otherwise write a concise Georgian value including its source page or section.
+  Warranty means the goods/services warranty, not a bid or performance guarantee.
 """
+TABLE_FIELDS = {
+    "subject": "შესყიდვის საგანი",
+    "delivery_deadline": "მიწოდების ვადა",
+    "warranty": "საგარანტიო პირობები",
+}
 SCHEMA = {
     "type": "OBJECT",
     "properties": {
@@ -60,8 +69,9 @@ SCHEMA = {
             },
         },
         "limitations": {"type": "ARRAY", "items": {"type": "STRING"}},
+        **{key: {"type": "STRING", "nullable": True} for key in TABLE_FIELDS},
     },
-    "required": ["summary", "findings", "limitations"],
+    "required": ["summary", "findings", "limitations", *TABLE_FIELDS],
 }
 
 
@@ -231,6 +241,11 @@ def validate_analysis(value: object) -> dict:
         for item in findings
     ) or any(not isinstance(item, str) for item in limitations):
         raise ProcessingError("Gemini returned invalid source references")
+    for key in TABLE_FIELDS:
+        if key not in value or (value[key] is not None and (
+            not isinstance(value[key], str) or not value[key].strip()
+        )):
+            raise ProcessingError(f"Gemini returned an invalid table field: {key}")
     return value
 
 
@@ -479,7 +494,49 @@ def report_error(error: str) -> str:
     return f"{explanation}\nტექნიკური ინფორმაცია: {error}"
 
 
-def render_html_report(plain: str, current_tenders: dict | None) -> str:
+def table_analysis_fields(entry: dict, analyses: dict) -> dict[str, str]:
+    documents = list(entry.get("documents", {}).values())
+    fields = {}
+    for key in TABLE_FIELDS:
+        values = []
+        legacy = False
+        incomplete = bool(entry.get("error")) or not documents
+        for document in documents:
+            if document.get("status") != "completed":
+                incomplete = True
+                continue
+            result = analyses.get(document.get("analysis_key"))
+            if not isinstance(result, dict) or key not in result:
+                legacy = True
+                continue
+            value = result[key]
+            if isinstance(value, str) and value.strip():
+                name = ("დოკუმენტაციის ჩანართის ტექსტი"
+                        if document.get("id") == "tab-text" else document["name"])
+                values.append(f"{value} [დოკუმენტი: {name}]")
+        if values:
+            text = "\n".join(dict.fromkeys(values))
+            if len(set(values)) > 1:
+                text += "\nმოცემულია რამდენიმე წყაროს მონაცემები; გადაამოწმეთ მათი შესაბამისობა."
+        elif legacy:
+            text = "ინფორმაცია ძველ ანალიზში ცალკე ველად არ აღრიცხულა."
+        elif incomplete:
+            text = "ინფორმაცია ჯერ დაუზუსტებელია; დოკუმენტაციის ანალიზი სრულად არ დასრულებულა."
+        else:
+            text = "ინფორმაცია არ არის მითითებული გაანალიზებულ დოკუმენტებში."
+        if values and (legacy or incomplete):
+            text += "\nშენიშვნა: მონაცემები ნაწილობრივია."
+        fields[key] = text
+    fields["confidential"] = (
+        "დიახ - პორტალზე მითითებულია საიდუმლო მასალების არსებობა."
+        if entry.get("notice") else
+        "პორტალის შენიშვნა არ გამოვლენილა; საიდუმლო მასალების არარსებობა დადასტურებული არ არის."
+    )
+    return fields
+
+
+def render_html_report(plain: str, current_tenders: dict | None,
+                       state: dict) -> str:
     today = datetime.now(ZoneInfo("Asia/Tbilisi")).date()
     groups: list[list[tuple]] = [[], [], []]
     for number, tender in enumerate((current_tenders or {}).values(), 1):
@@ -524,16 +581,23 @@ def render_html_report(plain: str, current_tenders: dict | None) -> str:
                 "<thead><tr>" + "".join(
                     f'<th style="padding:8px;text-align:left;background:#1e293b;color:#fff">{label}</th>'
                     for label in ("№", "განცხადების ნომერი", "შემსყიდველი", "კატეგორია",
-                                  "სავარაუდო ღირებულება", "წარდგენის ვადა", "ბმული")
+                                  "შესყიდვის საგანი", "სავარაუდო ღირებულება", "წარდგენის ვადა",
+                                  "მიწოდების ვადა", "საგარანტიო პირობები",
+                                  "საიდუმლო მასალების შესახებ მითითება", "ბმული")
                 ) + "</tr></thead><tbody>"
             )
             for _, number, tender in sorted(entries, key=lambda item: (
                 item[0] is None, item[0] or today, item[1],
             )):
+                fields = table_analysis_fields(
+                    state["tenders"].get(tender["id"], {}), state["analyses"],
+                )
                 values = [
                     str(number), tender.get("reg_num") or tender["id"],
                     tender.get("buyer", ""), tender.get("category", ""),
+                    fields["subject"],
                     tender.get("amount", ""), tender.get("deadline", ""),
+                    fields["delivery_deadline"], fields["warranty"], fields["confidential"],
                 ]
                 cells = [
                     f'<td style="padding:8px;border-bottom:1px solid #e2e8f0">{html.escape(value)}</td>'
@@ -599,9 +663,14 @@ def report(state: dict, ai: Gemini, scan_errors: list[str],
             "მიმდინარე ტენდერები - შესყიდვების პორტალის ბმულები",
         ]
         for number, tender in enumerate(current_tenders.values(), 1):
+            fields = table_analysis_fields(
+                state["tenders"].get(tender["id"], {}), state["analyses"],
+            )
             overview.extend([
                 f"#{number} | {tender.get('reg_num') or tender['id']} | {tender.get('buyer', '')}",
                 tender["link"],
+                *(f"{label}: {fields[key]}" for key, label in TABLE_FIELDS.items()),
+                "საიდუმლო მასალების შესახებ მითითება: " + fields["confidential"],
                 "-" * 60,
             ])
         lines[1:1] = ["", *overview, ""]
@@ -650,6 +719,9 @@ def report(state: dict, ai: Gemini, scan_errors: list[str],
                 if doc["status"] == "completed":
                     result = state["analyses"][doc["analysis_key"]]
                     lines.append("მოკლე მიმოხილვა: " + result["summary"])
+                    for key, label in TABLE_FIELDS.items():
+                        if result.get(key):
+                            lines.append(f"{label}: {result[key]}")
                     for finding in result["findings"]:
                         lines.append(f"- {finding['topic']}: {finding['detail']} (წყარო: {finding['source']})")
                     lines.extend("შეზღუდვა: " + item for item in result["limitations"])
@@ -677,7 +749,7 @@ def report(state: dict, ai: Gemini, scan_errors: list[str],
         "ტენდერში მონაწილეობამდე გადაამოწმეთ დოკუმენტების ორიგინალები.",
     ])
     plain = "\n".join(lines).replace("\u2014", "-")
-    rich = render_html_report(plain, current_tenders)
+    rich = render_html_report(plain, current_tenders, state)
     return plain, rich, notified
 
 
