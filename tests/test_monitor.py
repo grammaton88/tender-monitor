@@ -389,6 +389,8 @@ class PipelineTests(unittest.TestCase):
             with self.assertRaises(pipeline.ProcessingError):
                 pipeline.run_monitor(MagicMock(), MagicMock(side_effect=requests.Timeout()), {"x": "CPV"})
         self.assertIn("SCAN ERRORS", send.call_args.args[0])
+        self.assertIn("Discovery incomplete", send.call_args.args[0])
+        self.assertNotIn("No new tenders", send.call_args.args[0])
         self.assertNotIn("initialized", pipeline.load_state(self.path))
 
     def test_gemini_503_still_sends_daily_email_with_reason_and_retry_notice(self):
@@ -437,21 +439,27 @@ class PipelineTests(unittest.TestCase):
 class SearchTests(unittest.TestCase):
     def test_search_fetches_all_pages_and_preserves_announced_filter(self):
         session = MagicMock()
-        session.post.return_value = response(text="""
+        first = response(text="""
         <div class="pager">8 ჩანაწერი (გვერდი: 1/2)</div>
         <table><tr id="A1"><td><p class="status">Announced</p></td></tr></table>""")
-        session.get.return_value = response(text="""
+        second = response(text="""
         <div class="pager">8 ჩანაწერი (გვერდი: 2/2)</div>
         <table><tr id="A2"><td><p class="status">Announced</p></td></tr></table>""")
+        session.get.side_effect = [first, second]
+        session.post.side_effect = requests.ConnectionError("Remote end closed connection")
         self.assertEqual([t["id"] for t in monitor.search_tenders(session, "18924")], ["1", "2"])
-        self.assertEqual(session.post.call_args.kwargs["data"]["app_status"], "10")
+        session.post.assert_not_called()
+        initial = session.get.call_args_list[0].kwargs["params"]
+        self.assertEqual(initial["app_status"], "10")
+        self.assertEqual(initial["app_basecode"], "18924")
+        self.assertEqual(initial["action"], "search_app")
         self.assertEqual(session.get.call_args.kwargs["params"]["page"], 2)
 
     def test_empty_search_and_session_error_are_not_confused(self):
         session = MagicMock()
-        session.post.return_value = response(text='<div class="pager">0 ჩანაწერი (გვერდი: 1/0)</div>')
+        session.get.return_value = response(text='<div class="pager">0 ჩანაწერი (გვერდი: 1/0)</div>')
         self.assertEqual(monitor.search_tenders(session, "x"), [])
-        session.post.return_value = response(text="<html>Session error</html>")
+        session.get.return_value = response(text="<html>Session error</html>")
         with self.assertRaises(pipeline.ProcessingError):
             monitor.search_tenders(session, "x")
 

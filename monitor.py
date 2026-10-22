@@ -71,12 +71,10 @@ def search_tenders(session, basecode: str) -> list[dict]:
     }
 
     headers = {
-        "Content-Type": "application/x-www-form-urlencoded",
         "Referer": f"{BASE_URL}/?go=",
-        "Origin": "https://tenders.procurement.gov.ge",
     }
 
-    r = session.post(CONTROLLER, data=payload, headers=headers, timeout=30)
+    r = session.get(CONTROLLER, params=payload, headers=headers, timeout=30)
     r.raise_for_status()
     r.encoding = "utf-8"
 

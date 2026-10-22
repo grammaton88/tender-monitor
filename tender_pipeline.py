@@ -514,7 +514,10 @@ def report(state: dict, ai: Gemini, scan_errors: list[str]) -> tuple[str, str, d
         lines.append("")
         notified[tender_id] = fingerprint
     if not notified:
-        lines.append("No new tenders or documentation updates.")
+        lines.append(
+            "Discovery incomplete; no new tender results can be confirmed."
+            if scan_errors else "No new tenders or documentation updates."
+        )
     lines.extend([
         f"Pending documents: {pending}",
         "Pending work will be retried on the next scheduled scan. "
