@@ -7,6 +7,7 @@ from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 import requests
+from bs4 import BeautifulSoup
 from docx import Document
 from openpyxl import Workbook
 
@@ -535,6 +536,58 @@ class PipelineTests(unittest.TestCase):
                 text = pipeline.report_error(error)
                 self.assertIn(expected, text)
                 self.assertIn("ტექნიკური ინფორმაცია: " + error, text)
+
+    def test_html_priorities_use_current_scan_and_tbilisi_date(self):
+        from datetime import datetime
+
+        def tender(identifier, deadline):
+            return {
+                **TENDER, "id": identifier, "reg_num": identifier,
+                "deadline": deadline, "link": pipeline.PORTAL + "?go=" + identifier,
+            }
+
+        current = {
+            "late": tender("late", "12.11.2026"),
+            "medium": tender("medium", "2026-11-01"),
+            "near": tender("near", "29/10/2026"),
+            "today": tender("today", "22.10.2026"),
+            "invalid": tender("invalid", "31.02.2026"),
+            "past": tender("past", "21.10.2026"),
+        }
+        self.state["tenders"]["historical"] = {
+            "details": tender("historical", "22.10.2026"), "documents": {},
+        }
+        with patch.object(pipeline, "datetime") as clock:
+            clock.now.return_value = datetime(2026, 10, 22, 0, 30)
+            clock.side_effect = datetime
+            _, rich, _ = pipeline.report(self.state, self.ai, [], current)
+        # The tables must not contain historical tenders, even when their updates
+        # are still included in the complete report below.
+        soup = BeautifulSoup(rich, "html.parser")
+        tables = soup.find_all("table")
+        self.assertEqual(len(tables), 3)
+        expected = (["today", "near"], ["medium"], ["past", "late", "invalid"])
+        for table, identifiers in zip(tables, expected):
+            self.assertEqual(
+                [row.find_all("td")[1].get_text() for row in table.select("tbody tr")],
+                identifiers,
+            )
+            self.assertNotIn("historical", table.get_text())
+        self.assertEqual(clock.now.call_args.args[0].key, "Asia/Tbilisi")
+
+    def test_html_keeps_complete_plain_report_and_escapes_table_content(self):
+        tender = {
+            **TENDER, "buyer": '<script>alert("x")</script>',
+            "link": 'javascript:alert("x")',
+        }
+        plain, rich, _ = pipeline.report(
+            self.state, self.ai, ["Connection reset"], {"123": tender},
+        )
+        soup = BeautifulSoup(rich, "html.parser")
+        self.assertEqual(soup.find("pre").get_text(), plain)
+        self.assertIsNone(soup.find("script"))
+        self.assertEqual(soup.find_all("a"), [])
+        self.assertIn("არასრული შემოწმება", plain)
 
 
 class SearchTests(unittest.TestCase):
