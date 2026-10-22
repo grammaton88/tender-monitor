@@ -22,10 +22,9 @@ ENV = {
     "EMAIL_FROM": "sender@example.test",
     "EMAIL_PASSWORD": "test-password",
 }
-ANALYSIS = {"summary": "Summary", "findings": [
-    {"topic": "Deadline", "detail": "Check tender", "source": "section 1"},
-], "limitations": ["Public document only"],
-    "subject": None, "delivery_deadline": None, "warranty": None, "confidential": None}
+ANALYSIS = {
+    "subject": None, "delivery_deadline": None, "warranty": None, "confidential": None,
+}
 TENDER = {
     "id": "123", "reg_num": "NAT123", "buyer": "Buyer",
     "link": pipeline.PORTAL + "?go=123",
@@ -133,6 +132,16 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual((bucket["input"], bucket["output"], bucket["total"]), (50, 20, 80))
         self.assertEqual(bucket["unknown_usage"], 0)
         self.assertEqual(pipeline.load_state(self.path)["usage"], self.state["usage"])
+
+    def test_analysis_schema_requests_only_concise_table_fields(self):
+        self.assertEqual(pipeline.SCHEMA["required"], list(pipeline.TABLE_FIELDS))
+        self.assertEqual(set(pipeline.SCHEMA["properties"]), set(pipeline.TABLE_FIELDS))
+        self.assertIn("160 characters", pipeline.PROMPT)
+        self.assertIn("No summary, findings or extra explanation", pipeline.PROMPT)
+        self.assertEqual(
+            pipeline.validate_analysis({**ANALYSIS, "unused": "extra"}),
+            ANALYSIS,
+        )
 
     def test_daily_and_per_run_budgets_prevent_calls(self):
         self.ai.request_limit = 2
@@ -291,6 +300,18 @@ class PipelineTests(unittest.TestCase):
             download.return_value = b"%PDF-v4"
             pipeline.process_tender(session, TENDER, entry, self.state, self.ai)
             self.assertEqual(analyze.call_count, 3)
+
+    def test_new_analysis_version_refreshes_legacy_cached_results(self):
+        legacy_key = f"{self.ai.model}/{pipeline.digest(b'%PDF-v1')}"
+        self.state["analyses"][legacy_key] = dict(ANALYSIS)
+        entry = {"details": TENDER, "documents": {}}
+        with patch.object(pipeline, "portal_get", side_effect=lambda *a, **kw:
+                          response(text=DOCS if kw.get("params", {}).get("action") == "app_docs" else "Public")), \
+                patch.object(pipeline, "download_document", return_value=b"%PDF-v1"), \
+                patch.object(self.ai, "analyze", return_value=ANALYSIS) as analyze:
+            pipeline.process_tender(MagicMock(), TENDER, entry, self.state, self.ai)
+        analyze.assert_called_once()
+        self.assertIn(pipeline.ANALYSIS_VERSION, entry["documents"]["app/42"]["analysis_key"])
 
     def test_signed_link_changes_do_not_trigger_repeat_notifications(self):
         entry = {"details": TENDER, "documents": {"app/42": {
@@ -508,7 +529,7 @@ class PipelineTests(unittest.TestCase):
             self.assertNotIn("მოკლე მიმოხილვა:", body)
             self.assertNotIn("ტექნიკური ინფორმაცია:", body)
         self.assertIn('lang="ka"', rich)
-        self.assertIn("professional, formal Georgian", pipeline.PROMPT)
+        self.assertIn("concise, formal Georgian", pipeline.PROMPT)
 
     def test_report_replaces_em_dashes_in_cached_and_external_text(self):
         self.state["analyses"]["cached"] = {
@@ -669,15 +690,15 @@ class PipelineTests(unittest.TestCase):
             }}
         fields = pipeline.table_analysis_fields(entry("legacy"), self.state["analyses"])
         self.assertIn("ძველ ანალიზში", fields["subject"])
-        self.assertIn("არარსებობა დადასტურებული არ არის", fields["confidential"])
+        self.assertIn("არარსებობა დაუდასტურებელია", fields["confidential"])
         fields = pipeline.table_analysis_fields({}, self.state["analyses"])
-        self.assertIn("სრულად არ დასრულებულა", fields["subject"])
+        self.assertIn("ანალიზი დაუსრულებელია", fields["subject"])
         fields = pipeline.table_analysis_fields(entry("missing"), self.state["analyses"])
-        self.assertIn("არ არის მითითებული", fields["subject"])
+        self.assertIn("დოკუმენტში მითითებული არ არის", fields["subject"])
         fields = pipeline.table_analysis_fields(entry("a", "b"), self.state["analyses"])
         self.assertIn("12 თვე", fields["warranty"])
         self.assertIn("24 თვე", fields["warranty"])
-        self.assertIn("რამდენიმე წყაროს", fields["warranty"])
+        self.assertIn("წყაროებში განსხვავებაა", fields["warranty"])
 
     def test_gmail_layout_has_inline_tables_readable_summary_and_usage_bars(self):
         self.ai.request_limit = 20
@@ -806,7 +827,7 @@ class PipelineTests(unittest.TestCase):
         cells = BeautifulSoup(rich, "html.parser").select_one("tbody tr").find_all("td")
         for index in (1, 2, 3, 5, 6):
             self.assertEqual(cells[index].get_text(), "პორტალის მონაცემებში არ გამოვლენილა.")
-        self.assertIn("ანალიზი სრულად არ დასრულებულა", cells[4].get_text())
+        self.assertIn("ანალიზი დაუსრულებელია", cells[4].get_text())
 
     def test_table_values_omit_document_labels_and_deduplicate_equal_values(self):
         self.state["analyses"]["same"] = {**ANALYSIS, "subject": "10 კომპიუტერი (პუნქტი 1)"}
@@ -874,15 +895,15 @@ class PipelineTests(unittest.TestCase):
         self.state["analyses"]["new"] = dict(ANALYSIS)
         for key, status, expected in (
             ("old", "completed", "ძველ ანალიზში"),
-            ("new", "completed", "არ არის მითითებული"),
-            ("new", "pending", "ანალიზი სრულად არ დასრულებულა"),
+            ("new", "completed", "დოკუმენტში მითითებული არ არის"),
+            ("new", "pending", "ანალიზი დაუსრულებელია"),
         ):
             fields = pipeline.table_analysis_fields(
                 {"documents": {"doc": {"status": status, "analysis_key": key}}},
                 self.state["analyses"],
             )
             self.assertIn(expected, fields["confidential"])
-            self.assertIn("არარსებობა დადასტურებული არ არის", fields["confidential"])
+            self.assertIn("არარსებობა დაუდასტურებელია", fields["confidential"])
 
     def test_new_analysis_requires_nullable_table_fields(self):
         self.assertEqual(pipeline.validate_analysis(ANALYSIS), ANALYSIS)
