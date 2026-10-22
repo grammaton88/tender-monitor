@@ -6,12 +6,19 @@ on:
     - cron: '0 6 * * *'
   workflow_dispatch:   # ხელით გაშვების შესაძლებლობა
 
+permissions:
+  contents: write
+
+concurrency:
+  group: tender-monitor-state
+  cancel-in-progress: false
+
 jobs:
   run-monitor:
     runs-on: ubuntu-latest
-
+    timeout-minutes: 90
     steps:
-      - name: Checkout repository
+      - name: Checkout application
         uses: actions/checkout@v4
 
       - name: Set up Python
@@ -22,9 +29,66 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Test scanner
+        run: python -m unittest discover -s tests -v
+
+      - name: Load persistent state branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          git init .monitor-state
+          cd .monitor-state
+          git remote add origin "https://github.com/${REPOSITORY}.git"
+          AUTH="$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)"
+          echo "::add-mask::$AUTH"
+          git config http.https://github.com/.extraheader "AUTHORIZATION: basic $AUTH"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          set +e
+          git ls-remote --exit-code --heads origin monitor-state
+          status=$?
+          set -e
+          if [ "$status" -eq 0 ]; then
+            git fetch --depth=1 origin monitor-state
+            git checkout -b monitor-state FETCH_HEAD
+          elif [ "$status" -eq 2 ]; then
+            git checkout --orphan monitor-state
+          else
+            exit "$status"
+          fi
+
       - name: Run tender monitor
         env:
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
           EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          GEMINI_RPD_LIMIT: ${{ vars.GEMINI_RPD_LIMIT }}
+          GEMINI_TPD_LIMIT: ${{ vars.GEMINI_TPD_LIMIT }}
+          GEMINI_RPM_LIMIT: ${{ vars.GEMINI_RPM_LIMIT }}
+          GEMINI_TPM_LIMIT: ${{ vars.GEMINI_TPM_LIMIT }}
+          MAX_ANALYSES_PER_RUN: ${{ vars.MAX_ANALYSES_PER_RUN || '10' }}
+          INITIAL_SCAN_MODE: ${{ vars.INITIAL_SCAN_MODE || 'all' }}
+          STATE_PATH: .monitor-state/state.json
         run: python monitor.py
+
+      - name: Persist progress even after processing or email failure
+        if: ${{ always() }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ ! -f .monitor-state/state.json ]; then
+            echo "No state file was produced."
+            exit 0
+          fi
+          cd .monitor-state
+          git add -- state.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Update tender monitor state" \
+              -m "Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+            git push origin HEAD:monitor-state
+          fi
