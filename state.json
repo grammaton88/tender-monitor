@@ -2875,6 +2875,12 @@
       "subject": "კომპიუტერი (All-in-One) - 1 ცალი; ოპერატიული მეხსიერების ბარათი - 2 ცალი; ოპერატიული მეხსიერების ბარათი - 7 ცალი",
       "warranty": null
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/065867809245ec03fc5d7dceaf403252882d03639c609dabeadc73eebfacb10d": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან და მისი ძალაში შესვლიდან - 2026 წლის 31 დეკემბრამდე, ყოველ კონკრეტულ ჯერზე შემსყიდველის მოთხოვნიდან არაუმეტეს 30 კალენდარული დღის განმავლობაში",
+      "subject": "საბეჭდი დანადგარების ტექნიკური მომსახურება და შეკეთება (პრეისკურანტით)",
+      "warranty": "მიღება-ჩაბარების აქტის გაფორმებიდან დანართი №1-ის მე-5 სვეტში მითითებული პერიოდის შესაბამისად"
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/089a12b8bf10707788b8bde9841a9053766a20df824750c36df5cccbc3bd3f7f": {
       "confidential": null,
       "delivery_deadline": "ხელშეკრულების გაფორმებიდან არაუმეტეს 150 კალენდარული დღე",
@@ -2904,6 +2910,12 @@
       "delivery_deadline": "Phase 1: 60-100 days, Phase 2: 120-180 days, Phase 3: 120-180 days following order date, calculated from contract signature or order date",
       "subject": "IP/MPLS Active Equipment, Phase 2",
       "warranty": "10 years hardware, 5 years software, 10 years network stability, 5 years power system, 3-5 years air conditioner, 5 years firewall, 2 years NOC"
+    },
+    "gemini-3.5-flash-lite/tender-keywords-v4/1c38a7f61678e297f9cc1ffd9ece4c220283bf544e89281d1a3927acce362c26": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან 30 კალენდარული დღის ვადაში",
+      "subject": "სერვერები, რაოდენობა: 3 კომპლექტი",
+      "warranty": "არანაკლებ 3 წელი"
     },
     "gemini-3.5-flash-lite/tender-keywords-v4/2cc33873196b7685fbd6cb5e4e811f07f0eedfc72c7b4c2610db008b2a7a2b49": {
       "confidential": null,
@@ -2977,6 +2989,12 @@
       "subject": "ქსელური მოწყობილობები და აქსესუარები",
       "warranty": null
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/69ccc7c5a8107044a067b18dd4aa57e5b27252caded5f0aee930a16da3dcc1c5": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების დადების თარიღიდან 2027 წლის 31 დეკემბრის ჩათვლით",
+      "subject": "IT სისტემების/სერვისების განთავსების, ადმინისტრირების, მხარდაჭერის და მაღალი დატვირთვის პერიოდებისთვის რესურსების უზრუნველყოფის მომსახურება",
+      "warranty": null
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/7c35d0d17ee1fb6765584cd15271fb2f2b8eebb9e377ccc137653cdd32ec13d3": {
       "confidential": null,
       "delivery_deadline": "ხელშეკრულების გაფორმებიდან 30 კალენდარული დღე",
@@ -2988,6 +3006,18 @@
       "delivery_deadline": "ხელშეკრულების ორმხრივად გაფორმებიდან არაუგვიანეს 2026 წლის 20 დეკემბრისა",
       "subject": "მაღალი წარმადობის კომპიუტერული ტექნიკის (სიმულატორების სამუშაო სადგურების) შესყიდვა (53 ერთეული)",
       "warranty": "საბოლოო მიღება-ჩაბარების აქტის გაფორმებიდან არანაკლებ 36 თვის ვადით"
+    },
+    "gemini-3.5-flash-lite/tender-keywords-v4/852f7537ffdc6ae44b8bbeb10a8f87ba16aa00b1f4d2cbdfdc220794bf6301cf": {
+      "confidential": null,
+      "delivery_deadline": "2027 წლის 1 იანვრიდან 2029 წლის 31 დეკემბრის ჩათვლით",
+      "subject": "რადიო-სარელეო არხებით მომსახურება (10 არხი)",
+      "warranty": null
+    },
+    "gemini-3.5-flash-lite/tender-keywords-v4/9714863efcb8e2cdc4852840eb9bb6a7a35f5bffab24e441be282c2032681857": {
+      "confidential": null,
+      "delivery_deadline": "2027 წლის 1 იანვრიდან 2029 წლის 31 დეკემბრის ჩათვლით",
+      "subject": "სარეზერვო ოპტიკურ-ბოჭკოვანი არხებით სარგებლობის მომსახურება",
+      "warranty": null
     },
     "gemini-3.5-flash-lite/tender-keywords-v4/9b4c80325a3c7620d63bc58cbe80f3171da05e591d066e22c8ba4cdd4929efcc": {
       "confidential": null,
@@ -3049,11 +3079,23 @@
       "subject": "ფერადი კოპიერები (თანმდევი მომსახურებით - მონტაჟი), რაოდენობა: 5 ცალი",
       "warranty": "მიღება-ჩაბარების აქტის გაფორმებიდან 2 წელი"
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/eb327583e50fc13f8a0daedee4e8c1fec203d61c98919c1ac4c0a2911c35b03e": {
+      "confidential": null,
+      "delivery_deadline": "2027 წლის 01 იანვრიდან 2029 წლის 31 დეკემბრის ჩათვლით",
+      "subject": "საქართველოს ტერიტორიაზე განთავსებული შპს „საქაერონავიგაციის“ ობიექტებს შორის რადიო სარელეო/ოპტიკურ-ბოჭკოვანი ან კომბინირებული არხებით მომსახურება",
+      "warranty": null
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/eca0d19af75236077e830a047073fba1e9af90581410ee7905ab2f2b1f0b9044": {
       "confidential": null,
       "delivery_deadline": "არაუგვიანეს 2026 წლის 19 დეკემბრისა",
       "subject": "Nutanix ჰიპერკონვერგენტული ინფრასტრუქტურის მწარმოებლის ლიცენზიები (100 და 48 ერთეული) და მხარდაჭერის სერვისი",
       "warranty": "3 წელი (36 თვე) 2026 წლის 19 დეკემბრიდან"
+    },
+    "gemini-3.5-flash-lite/tender-keywords-v4/ff082f887fe41e4aafa46307a7c27368b15dea9021b46639cb9f4771f88c16b3": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან არაუგვიანეს 14 დღე",
+      "subject": "საქართველოს ეროვნულ ბანკში არსებული ელექტრონული წერილების არქივაციის სისტემის (Barracuda Message Archiver, model: V650 / 2 Node Cluster) მწარმოებლის 1 წლიანი (პერიოდი: 2026 წლის 27 დეკემბრიდან - 2027 წლის 27 დეკემბრამდე) სტანდარტული მხარდაჭერის და განახლების ლიცენზია, რაოდენობა: 2 ცალი",
+      "warranty": null
     },
     "gemini-3.8-flash/a537caae3ab4d3c7c13e87ea64e04b1e635f8bba5e1320891e497faf28386f0f": {
       "findings": [
@@ -3076,7 +3118,7 @@
     }
   },
   "initialized": true,
-  "last_request_at": 1792692977.2702074,
+  "last_request_at": 1792694589.6441207,
   "tenders": {
     "696054": {
       "details": {
@@ -3304,7 +3346,7 @@
           "error": "Unsupported file or HTML/session error instead of PDF/DOCX/XLSX",
           "id": "que/2129963",
           "name": "ფასების ცხრილი  დანართი N1.xls",
-          "status": "pending",
+          "status": "skipped",
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2129963&code=1788353071"
         },
         "que/2150397": {
@@ -3338,7 +3380,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:30:51.635911+00:00",
       "notice": "",
-      "notified": "c0efe2a05a6b4e9564a412246c7ad63b2202e49b1b4c12073b87e15c1cdc8ee0"
+      "notified": "ce6139b0f1824ead585b1607e3f6fa24cb9390d2b3ed8ec010525c366df2022b"
     },
     "704506": {
       "details": {
@@ -3610,50 +3652,55 @@
       },
       "documents": {
         "que/2145807": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/852f7537ffdc6ae44b8bbeb10a8f87ba16aa00b1f4d2cbdfdc220794bf6301cf",
+          "error": "",
           "hash": "7c594b79b48580bd48e12fb514a131c1fd14c56ec156d4a9d1e491ea6f329563",
           "id": "que/2145807",
           "name": "ტექ.დავალება ცვლილებით რადიო-სარელეო 28.09.26. საბოლოო......doc.pdf",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2145807&code=1790609248"
         },
         "que/2145808": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/852f7537ffdc6ae44b8bbeb10a8f87ba16aa00b1f4d2cbdfdc220794bf6301cf",
+          "error": "",
           "hash": "5225ac99f33e4fa1dbf88ae69b5c80507585be5311e1003916f2983081454dcf",
           "id": "que/2145808",
           "name": "ფასების ცხრილი -  რადიო-სარელეო 28.09.26 .xlsx",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2145808&code=1790609264"
         },
         "que/2146848": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/852f7537ffdc6ae44b8bbeb10a8f87ba16aa00b1f4d2cbdfdc220794bf6301cf",
+          "error": "",
           "hash": "db07036d290eddddc2dfc6233a3f521d87e92852408c533b4c00d63103f0f972",
           "id": "que/2146848",
           "name": "ხელშეკრულების პროექტი, რადიო სარელეო.pdf",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2146848&code=1790702762"
         },
         "que/2146862": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/852f7537ffdc6ae44b8bbeb10a8f87ba16aa00b1f4d2cbdfdc220794bf6301cf",
+          "error": "",
           "hash": "b1b8e2ccaf87babf3a16777887960d661fe42362704b882d58111d765e184823",
           "id": "que/2146862",
           "name": "ოქმი 1 - ელექტრონული ტენდერის გამოცხადება, რადიო სარელეო 29.09.26-signed-signed.pdf",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2146862&code=1790703217"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/852f7537ffdc6ae44b8bbeb10a8f87ba16aa00b1f4d2cbdfdc220794bf6301cf",
+          "error": "",
           "hash": "fc0b74df3bc5bc8dbcda7477077e5d2e03f6e908b39c935ae9f1f577d248a724",
           "id": "tab-text",
           "name": "Documentation tab (text)",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/?go=706976"
         }
       },
       "error": "",
       "first_seen": "2026-10-22T09:32:01.310016+00:00",
       "notice": "",
-      "notified": "afed1dd47b0bef77ae74d75d8971ed9c4db353ae92cb38ede5845659c23339a8"
+      "notified": "af9a28ee034d8b89302cb81a78d7d66d193901953d30433c890088992482fad9"
     },
     "706995": {
       "details": {
@@ -3669,50 +3716,55 @@
       },
       "documents": {
         "que/2145905": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/9714863efcb8e2cdc4852840eb9bb6a7a35f5bffab24e441be282c2032681857",
+          "error": "",
           "hash": "ce542fcf94e9b1b8a1050f934a9737a8d108fd3c6744b92da5970f83af2fc0d8",
           "id": "que/2145905",
           "name": "ტექ.დავალება ცვლილებით ოპტიკურ-ბოჭკოვანი - 28.09.26 საბოლოო.pdf",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2145905&code=1790612010"
         },
         "que/2145906": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/9714863efcb8e2cdc4852840eb9bb6a7a35f5bffab24e441be282c2032681857",
+          "error": "",
           "hash": "bcd73356f6abd105d5de65897e0a78f7a9c0f3342e48df71faa4fb64645e17be",
           "id": "que/2145906",
           "name": "ფასების ცხრილი - ოპტიკურ- ბოჭკოვანი 28.09.26 (1).xlsx",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2145906&code=1790612021"
         },
         "que/2146847": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/9714863efcb8e2cdc4852840eb9bb6a7a35f5bffab24e441be282c2032681857",
+          "error": "",
           "hash": "e7df4a929250c5e12afacea6211c1acf6b8a82e38b9d3c42b3fe809814fd8c8a",
           "id": "que/2146847",
           "name": "ხელშეკრულების პროექტი, ოპტიკურ-ბოჭკოვანი.pdf",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2146847&code=1790702735"
         },
         "que/2146872": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/9714863efcb8e2cdc4852840eb9bb6a7a35f5bffab24e441be282c2032681857",
+          "error": "",
           "hash": "048df37859440f5ff90c0541401d3507327b367741c0db6f79274acc85ae3569",
           "id": "que/2146872",
           "name": "ოქმი 1 - ელექტრონული ტენდერის გამოცხადება, ოპტიკურ-ბოჭკოვანი 29.09.26-signed-signed.pdf",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2146872&code=1790703824"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/9714863efcb8e2cdc4852840eb9bb6a7a35f5bffab24e441be282c2032681857",
+          "error": "",
           "hash": "10ec561707ef37027af4020219b49ec890f58dbca4645a0074db736aa4a7e8ec",
           "id": "tab-text",
           "name": "Documentation tab (text)",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/?go=706995"
         }
       },
       "error": "",
       "first_seen": "2026-10-22T09:32:07.148507+00:00",
       "notice": "",
-      "notified": "0768a5948e35c568bad3920e038a75811aa99ee8d32198fdc1c9165acf869ea1"
+      "notified": "7e7df173276c19d39d4606d6db78a11ef730732c0fb49a130b281f13c6fb6487"
     },
     "706998": {
       "details": {
@@ -3728,50 +3780,55 @@
       },
       "documents": {
         "que/2145923": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/eb327583e50fc13f8a0daedee4e8c1fec203d61c98919c1ac4c0a2911c35b03e",
+          "error": "",
           "hash": "83e47d9f2195385f90cbb67af1f5b73cd1e31807cc25f131ea0b8c2faf05af9e",
           "id": "que/2145923",
           "name": "ტექ.დავალება ცვლილებით - კომბინირებული 28.09.26. საბოლოო....doc.pdf",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2145923&code=1790612774"
         },
         "que/2145924": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/eb327583e50fc13f8a0daedee4e8c1fec203d61c98919c1ac4c0a2911c35b03e",
+          "error": "",
           "hash": "259bc01a39f597b7701fae7c0bee59c651ab7ef612e07a0c05b1d4d4756d5a31",
           "id": "que/2145924",
           "name": "ფასების ცხრილი - კომბინირებული 28.09.26 (1).xlsx",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2145924&code=1790612788"
         },
         "que/2146844": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/eb327583e50fc13f8a0daedee4e8c1fec203d61c98919c1ac4c0a2911c35b03e",
+          "error": "",
           "hash": "9a5dcd1b64e52dfe94c3967bf99eecc8db6598318d7c8ce23b48732d8cf96454",
           "id": "que/2146844",
           "name": "ხელშეკრულების პროექტი, კომბინირებული.pdf",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2146844&code=1790702700"
         },
         "que/2146888": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/eb327583e50fc13f8a0daedee4e8c1fec203d61c98919c1ac4c0a2911c35b03e",
+          "error": "",
           "hash": "fed96c57cd357a11e716005dc6b1325888f3996cea1581cc7a86559fc64329c9",
           "id": "que/2146888",
           "name": "ოქმი 1 - ელექტრონული ტენდერის გამოცხადება, კომბინირებული 29.09.26-signed-signed.pdf",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2146888&code=1790704075"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/eb327583e50fc13f8a0daedee4e8c1fec203d61c98919c1ac4c0a2911c35b03e",
+          "error": "",
           "hash": "d167d4c26224672a63f7e01afe29ab34b323f85a21a041413fb3566aaef33f40",
           "id": "tab-text",
           "name": "Documentation tab (text)",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/?go=706998"
         }
       },
       "error": "",
       "first_seen": "2026-10-22T09:31:53.269271+00:00",
       "notice": "",
-      "notified": "859e89eaad5fdea1b621bc8c458ffa5de144c297bd54a4e34a0c6d0d812cc978"
+      "notified": "442c727ade3937c52cdc15277d03c5e7446f3a658e32616b156ecbed1dd961b9"
     },
     "708202": {
       "details": {
@@ -4294,7 +4351,7 @@
           "hash": "a283841c2d663062d9de906ff6532c43927f9406e54fa5e2ac921ef0a54dc506",
           "id": "que/2154207",
           "name": "დანართი N1.xlsx",
-          "status": "pending",
+          "status": "skipped",
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2154207&code=1791576093"
         },
         "que/2155190": {
@@ -4328,7 +4385,7 @@
       "error": "",
       "first_seen": "2026-10-22T09:28:56.074997+00:00",
       "notice": "",
-      "notified": "06bfa70f87103750e9cc421934ca9330da4dbd5f7d22ac9458f84883f23cff63"
+      "notified": "7a7d7e7ca29c8a60350c2cc1e1299e71f55270dd76067bda7976f4517a06b9d1"
     },
     "709190": {
       "details": {
@@ -4408,42 +4465,46 @@
       },
       "documents": {
         "que/2155373": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/ff082f887fe41e4aafa46307a7c27368b15dea9021b46639cb9f4771f88c16b3",
+          "error": "",
           "hash": "46ae9223ead6a87ce3c23b20a87ba095132c1dcf780b450dbe3f953095fc76b7",
           "id": "que/2155373",
           "name": "ფასების ცხრილი.xlsx",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2155373&code=1791890875"
         },
         "que/2155428": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/ff082f887fe41e4aafa46307a7c27368b15dea9021b46639cb9f4771f88c16b3",
+          "error": "",
           "hash": "e1c3f3c507b8c1fc17c1e485e4276fa6a8359c969099184b508111f44318a70a",
           "id": "que/2155428",
           "name": "ხელშეკრულების პროექტი.pdf",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2155428&code=1791893483"
         },
         "que/2155802": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/ff082f887fe41e4aafa46307a7c27368b15dea9021b46639cb9f4771f88c16b3",
+          "error": "",
           "hash": "5259e64f5efb0d5be45d7d7dd35a379beca92fcd333ca395bdacc8328982cb5d",
           "id": "que/2155802",
           "name": "ოქმი N1.pdf",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2155802&code=1791909504"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/ff082f887fe41e4aafa46307a7c27368b15dea9021b46639cb9f4771f88c16b3",
+          "error": "",
           "hash": "c9abfd90c334fa885df01826e176ff416642f685ee234610df60cce7248369e1",
           "id": "tab-text",
           "name": "Documentation tab (text)",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/?go=709218"
         }
       },
       "error": "",
       "first_seen": "2026-10-22T09:32:13.430296+00:00",
       "notice": "",
-      "notified": "a9ea28dda6995191b9ddda60a0c38d10ab438f7fe952a3f0a182c5f5eb5074fb"
+      "notified": "db5959980c01556bc7fc4b045fd2056431564577ae6e6a5c8c0aee6062333578"
     },
     "709299": {
       "details": {
@@ -4459,50 +4520,55 @@
       },
       "documents": {
         "que/2155614": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/1c38a7f61678e297f9cc1ffd9ece4c220283bf544e89281d1a3927acce362c26",
+          "error": "",
           "hash": "502dea165d6043a8f3638517a3fcfec247eca10763caab039aaecfe89150fceb",
           "id": "que/2155614",
           "name": "ტექნიკური დავალება.pdf",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2155614&code=1791903738"
         },
         "que/2155616": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/1c38a7f61678e297f9cc1ffd9ece4c220283bf544e89281d1a3927acce362c26",
+          "error": "",
           "hash": "30d560095f966249f7f927ccfd9aa9e260dc37914d9ca72ce12cf17217352e65",
           "id": "que/2155616",
           "name": "ფასების ცხრილი.xlsx",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2155616&code=1791903788"
         },
         "que/2155625": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/1c38a7f61678e297f9cc1ffd9ece4c220283bf544e89281d1a3927acce362c26",
+          "error": "",
           "hash": "6bb9f693d49d1da345f75dba24839085750aa041372cd67406f9b371e52ef857",
           "id": "que/2155625",
           "name": "ხელშეკრულების პროექტი.pdf",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2155625&code=1791904132"
         },
         "que/2155626": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/1c38a7f61678e297f9cc1ffd9ece4c220283bf544e89281d1a3927acce362c26",
+          "error": "",
           "hash": "5b46d587f38e86224dae3b59bcfcd62dbd6bb231e9f45eeb21708c59fc737e60",
           "id": "que/2155626",
           "name": "ოქმი 1-SIGNED.pdf",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2155626&code=1791904197"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/1c38a7f61678e297f9cc1ffd9ece4c220283bf544e89281d1a3927acce362c26",
+          "error": "",
           "hash": "a75f7ce6f78bf9a02e7ae5353814a85915d1e4306ba2d84a8b5028bc68a3c215",
           "id": "tab-text",
           "name": "Documentation tab (text)",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/?go=709299"
         }
       },
       "error": "",
       "first_seen": "2026-10-22T09:31:41.327096+00:00",
       "notice": "",
-      "notified": "7b7dfd4507c7f6054c231904268df9ae8969461ffaea0e182db415e789ed4a9c"
+      "notified": "363f87ee37a5d87ad24f9f46774936e14f7997e0cffae9daa53fa1d37111939d"
     },
     "709507": {
       "details": {
@@ -4948,42 +5014,46 @@
       },
       "documents": {
         "que/2159206": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/065867809245ec03fc5d7dceaf403252882d03639c609dabeadc73eebfacb10d",
+          "error": "",
           "hash": "51d9ac9c5590d030b789646273ad543bfe46ff6621f790b66b542d0edd64a471",
           "id": "que/2159206",
           "name": "დანართი #1 პრეისკ. საბეჭ. დანადგ. ტექ.მომს..xlsx",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2159206&code=1792504926"
         },
         "que/2159211": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/065867809245ec03fc5d7dceaf403252882d03639c609dabeadc73eebfacb10d",
+          "error": "",
           "hash": "f2915b78ff317ea286fff8d6d329c5d082d4f0c647602c1625dce80a7b613a2f",
           "id": "que/2159211",
           "name": "ხელშ. პროექტი - საბეჭ. დანადგ. ტექ.მომს..pdf",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2159211&code=1792505426"
         },
         "que/2159216": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/065867809245ec03fc5d7dceaf403252882d03639c609dabeadc73eebfacb10d",
+          "error": "",
           "hash": "adf8047e7234305505ab810b6b94ebd5c81a04db17a9ac3e5fce28fd1de48a59",
           "id": "que/2159216",
           "name": "ოქმი #1 - საბეჭ. დანადგ. ტექ.მომს-.pdf",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2159216&code=1792505631"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/065867809245ec03fc5d7dceaf403252882d03639c609dabeadc73eebfacb10d",
+          "error": "",
           "hash": "7ab35d2af6609b3c94d90db51e9354d9581ab3afb87d02584dde6d688b0bd9aa",
           "id": "tab-text",
           "name": "Documentation tab (text)",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/?go=710112"
         }
       },
       "error": "",
       "first_seen": "2026-10-22T09:31:49.792964+00:00",
       "notice": "",
-      "notified": "eadcc4593d0fad37067374b36b22cb36390d1c890507dfdebfe03a2ad90966ff"
+      "notified": "c9a95370deac4b3536ea4e45c2db8dc5ddbf796128b3789458caa9ad7b85639c"
     },
     "710229": {
       "details": {
@@ -4999,58 +5069,64 @@
       },
       "documents": {
         "que/2160111": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/69ccc7c5a8107044a067b18dd4aa57e5b27252caded5f0aee930a16da3dcc1c5",
+          "error": "",
           "hash": "b995431ba1759c5dd314ace7713d055995c1988a36a1163427d33e8bd290faa6",
           "id": "que/2160111",
           "name": "ხელშეკრულების პროექტი.pdf",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2160111&code=1792592622"
         },
         "que/2160655": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/69ccc7c5a8107044a067b18dd4aa57e5b27252caded5f0aee930a16da3dcc1c5",
+          "error": "",
           "hash": "09265ef0749c426ad0b732c510daaf91bf34eb3dc3cd3977fb7a6aa89132c4bd",
           "id": "que/2160655",
           "name": "ოქმი N1.pdf",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2160655&code=1792606241"
         },
         "que/2160972": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/69ccc7c5a8107044a067b18dd4aa57e5b27252caded5f0aee930a16da3dcc1c5",
+          "error": "",
           "hash": "af15e2654511fb427d42207a0baa867a89d2ef6663fa6dfceb256fd4de52701a",
           "id": "que/2160972",
           "name": "გასაწევი მომსახურების ხარჯთაღრიცხვა.xlsx",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2160972&code=1792669633"
         },
         "que/2160998": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/69ccc7c5a8107044a067b18dd4aa57e5b27252caded5f0aee930a16da3dcc1c5",
+          "error": "",
           "hash": "ff5711b1178060d0643732e482039074d1895f599d894452060e897c0176b1ec",
           "id": "que/2160998",
           "name": "ინფორმაცია შესრულებული პროექტების შესახებ.pdf",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2160998&code=1792670731"
         },
         "que/2161503": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/69ccc7c5a8107044a067b18dd4aa57e5b27252caded5f0aee930a16da3dcc1c5",
+          "error": "",
           "hash": "433f4bccad4670c823d6f0df94cd2bbcf2272022f07fadc6c603050310815d4f",
           "id": "que/2161503",
           "name": "ტექნიკური დავალება.pdf",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2161503&code=1792689034"
         },
         "tab-text": {
-          "error": "Per-run analysis budget reached",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/69ccc7c5a8107044a067b18dd4aa57e5b27252caded5f0aee930a16da3dcc1c5",
+          "error": "",
           "hash": "123899dc41eecf77494310f3195a8bd2e342e69810e015e4413e9ce6000c002b",
           "id": "tab-text",
           "name": "Documentation tab (text)",
-          "status": "pending",
+          "status": "completed",
           "url": "https://tenders.procurement.gov.ge/public/?go=710229"
         }
       },
       "error": "",
       "first_seen": "2026-10-22T13:40:53.211304+00:00",
       "notice": "",
-      "notified": "f52c4b07e9fc54cb94a6235e839923882bee6c1a6b7a738c3763d65024ff72e1"
+      "notified": "0a5bbe38474f54d8d9c6b65b451dcaa258029daa38b1ebcc8c7457d3f2ecafac"
     },
     "710304": {
       "details": {
@@ -5386,13 +5462,13 @@
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
-      "input": 1134925,
+      "input": 1214011,
       "model": "gemini-3.5-flash-lite",
-      "output": 77964,
+      "output": 78834,
       "quota_errors": 0,
-      "requests": 141,
-      "reserved_tokens": 1314008,
-      "total": 1212889,
+      "requests": 148,
+      "reserved_tokens": 1396094,
+      "total": 1292845,
       "unknown_usage": 7
     },
     "2026-10-22/gemini-3.8-flash": {
