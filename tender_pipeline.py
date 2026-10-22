@@ -8,6 +8,7 @@ import re
 import smtplib
 import time
 import zipfile
+from collections import Counter
 from datetime import datetime, timezone
 from email.message import EmailMessage
 from pathlib import Path
@@ -611,9 +612,8 @@ def render_html_report(plain: str, current_tenders: dict | None,
                 cells.append(f'<td style="padding:8px">{link}</td>')
                 sections.append("<tr>" + "".join(cells) + "</tr>")
             sections.append("</tbody></table>")
-    # Both MIME alternatives carry the same complete diagnostics and findings.
     sections.extend([
-        "<h2>სრული ანგარიში</h2>",
+        "<h2>გამოყენების სტატისტიკა და დამუშავების მოკლე შეჯამება</h2>",
         '<pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:14px Arial,sans-serif;'
         'line-height:1.6;background:#fff;padding:16px;border:1px solid #e2e8f0">',
         html.escape(plain), "</pre>",
@@ -655,101 +655,69 @@ def report(state: dict, ai: Gemini, scan_errors: list[str],
     ]
     if scan_errors:
         lines.extend(["ძიების ხარვეზები - ტენდერების მოძიება სრულად ვერ დასრულდა",
-                      *(report_error(error) for error in scan_errors), ""])
+                      f"ძიების წარუმატებელი მოთხოვნების რაოდენობა: {len(scan_errors)}", ""])
     if current_tenders is not None:
         qualifier = " (არასრული შემოწმება)" if scan_errors else ""
-        overview = [
+        lines[1:1] = ["",
             f"ამ შემოწმებისას მოძიებული აქტიური IT ტენდერების რაოდენობა: {len(current_tenders)}{qualifier}",
-            "მიმდინარე ტენდერები - შესყიდვების პორტალის ბმულები",
-        ]
-        for number, tender in enumerate(current_tenders.values(), 1):
-            fields = table_analysis_fields(
-                state["tenders"].get(tender["id"], {}), state["analyses"],
-            )
-            overview.extend([
-                f"#{number} | {tender.get('reg_num') or tender['id']} | {tender.get('buyer', '')}",
-                tender["link"],
-                *(f"{label}: {fields[key]}" for key, label in TABLE_FIELDS.items()),
-                "საიდუმლო მასალების შესახებ მითითება: " + fields["confidential"],
-                "-" * 60,
-            ])
-        lines[1:1] = ["", *overview, ""]
-    lines.extend(["ტენდერების განახლებები და დასამუშავებელი დოკუმენტები", "=" * 60])
+            ""]
     notified = {}
     pending = 0
+    changed_count = 0
+    errors = Counter(scan_errors)
     for tender_id, entry in state["tenders"].items():
         fingerprint = notification_fingerprint(entry)
         documents = list(entry.get("documents", {}).values())
         unfinished = [d for d in documents if d["status"] == "pending"]
         pending += len(unfinished)
+        errors.update(d.get("error") or "Document processing incomplete" for d in unfinished)
+        if entry.get("error"):
+            errors[entry["error"]] += 1
         changed = fingerprint != entry.get("notified")
+        changed_count += int(changed)
         if not changed and not unfinished and not entry.get("error"):
             continue
-        tender = entry["details"]
-        label = "ახალი ტენდერი" if not entry.get("notified") else ("განახლებული ინფორმაცია" if changed else "დამუშავების მოლოდინში")
-        lines.extend([
-            f"#{len(notified) + 1}",
-            f"{label}: {tender.get('reg_num') or tender_id}",
-            f"შემსყიდველი ორგანიზაცია: {tender.get('buyer', '')}",
-            f"შესყიდვის კატეგორია: {tender.get('category', '')}",
-            f"სტატუსი: {tender.get('status', '')}",
-            f"გამოცხადების თარიღი: {tender.get('announce_date', '')}",
-            f"სავარაუდო ღირებულება (გადაამოწმეთ პირობები): {tender.get('amount', '')}",
-            f"წინადადებების წარდგენის ვადა: {tender.get('deadline', '')}",
-            "ტენდერის ბმული: " + tender["link"],
-        ])
-        if entry.get("notice"):
-            lines.append(
-                "შენიშვნა: პორტალზე მითითებულია საიდუმლო მასალების არსებობა. საჯარო დოკუმენტები შესაძლოა არასრული იყოს, "
-                "ხოლო მითითებული ღირებულება - პირობითი. გადაამოწმეთ პირობები პორტალზე."
-                if entry["notice"].startswith("Portal mentions confidential material.")
-                else entry["notice"]
-            )
-        if entry.get("error"):
-            lines.append("დოკუმენტაციის მდგომარეობა: " + report_error(entry["error"]))
-        if changed:
-            for doc in documents:
-                status = {
-                    "completed": "ანალიზი დასრულებულია",
-                    "pending": "დამუშავების მოლოდინში",
-                    "baseline": "საწყის მდგომარეობად აღრიცხულია - ანალიზის გარეშე",
-                }.get(doc["status"], "დაუზუსტებელი სტატუსი")
-                name = "დოკუმენტაციის ჩანართის ტექსტი" if doc.get("id") == "tab-text" else doc["name"]
-                lines.extend([f"დოკუმენტი: {name} [{status}]", doc["url"]])
-                if doc["status"] == "completed":
-                    result = state["analyses"][doc["analysis_key"]]
-                    lines.append("მოკლე მიმოხილვა: " + result["summary"])
-                    for key, label in TABLE_FIELDS.items():
-                        if result.get(key):
-                            lines.append(f"{label}: {result[key]}")
-                    for finding in result["findings"]:
-                        lines.append(f"- {finding['topic']}: {finding['detail']} (წყარო: {finding['source']})")
-                    lines.extend("შეზღუდვა: " + item for item in result["limitations"])
-                elif doc.get("error"):
-                    lines.append(report_error(doc["error"]))
-        else:
-            lines.extend(
-                f"დამუშავების მოლოდინში: "
-                f"{'დოკუმენტაციის ჩანართის ტექსტი' if d.get('id') == 'tab-text' else d['name']}\n"
-                f"{report_error(d['error'])}" for d in unfinished
-            )
-        lines.extend(["-" * 60, ""])
         notified[tender_id] = fingerprint
-    if not notified:
+    if scan_errors or not changed_count:
         lines.append(
             "ძიება სრულად ვერ დასრულდა; ახალი ტენდერების შესახებ სრული ინფორმაციის დადასტურება შეუძლებელია."
             if scan_errors else "ახალი ტენდერები ან დოკუმენტაციის ცვლილებები არ გამოვლენილა."
         )
     lines.extend([
-        f"განახლებებისა და მოლოდინის სექციაში წარმოდგენილი ტენდერების რაოდენობა: {len(notified)}",
+        f"ახალი ან განახლებული ჩანაწერების რაოდენობა: {changed_count}",
         f"დამუშავების მოლოდინში მყოფი დოკუმენტების რაოდენობა: {pending}",
         "დარჩენილი დოკუმენტების დამუშავების მცდელობა განმეორდება შემდეგი დაგეგმილი შემოწმებისას. "
         "არამხარდაჭერილი ფორმატისა და დასაშვებზე დიდი ფაილები საჭიროებს ხელით შემოწმებას.",
         "ხელოვნური ინტელექტის მიერ მომზადებული მიმოხილვა საინფორმაციო ხასიათისაა. "
         "ტენდერში მონაწილეობამდე გადაამოწმეთ დოკუმენტების ორიგინალები.",
     ])
-    plain = "\n".join(lines).replace("\u2014", "-")
-    rich = render_html_report(plain, current_tenders, state)
+    if errors:
+        lines.extend(["", "დამუშავების ხარვეზების მოკლე შეჯამება"])
+        # Group repeated causes instead of repeating errors for every document.
+        grouped = Counter()
+        for error, count in errors.items():
+            grouped[report_error(error).split("\n", 1)[0]] += count
+        for reason, count in grouped.items():
+            lines.append(f"- {reason} შემთხვევების რაოდენობა: {count}")
+        lines.append("სრული ტექნიკური ინფორმაცია ხელმისაწვდომია GitHub Actions-ის ჟურნალში.")
+    summary = "\n".join(lines).replace("\u2014", "-")
+    rich = render_html_report(summary, current_tenders, state)
+    # Text-only clients receive a single compact table equivalent, not the removed
+    # multiline overview or document-by-document analysis.
+    soup = BeautifulSoup(rich, "html.parser")
+    text_tables = []
+    for table in soup.find_all("table"):
+        heading = table.find_previous("h3")
+        if heading:
+            text_tables.append(heading.get_text())
+        for row in table.find_all("tr"):
+            cells = []
+            for cell in row.find_all(["th", "td"]):
+                anchor = cell.find("a")
+                cells.append(anchor["href"] if anchor else cell.get_text(" ", strip=True))
+            text_tables.append(" | ".join(cells))
+        text_tables.append("")
+    plain = "\n".join([summary, "", *text_tables]).rstrip()
     return plain, rich, notified
 
 

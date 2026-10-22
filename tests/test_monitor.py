@@ -262,7 +262,9 @@ class PipelineTests(unittest.TestCase):
                 "status": "pending", "error": "Quota reached",
             }},
         }
-        plain, rich, notified = pipeline.report(self.state, self.ai, ["CPV search failed"])
+        plain, rich, notified = pipeline.report(self.state, self.ai, ["CPV search failed"], {
+            "123": self.state["tenders"]["123"]["details"],
+        })
         self.assertIn("დამუშავების მოლოდინში მყოფი დოკუმენტების რაოდენობა: 1", plain)
         self.assertIn("ძიების ხარვეზები", plain)
         self.assertNotIn("<script>", rich)
@@ -311,8 +313,9 @@ class PipelineTests(unittest.TestCase):
                 patch.object(pipeline, "send_report") as send:
             search = lambda *args: [TENDER]
             pipeline.run_monitor(session, search, {"code": "CPV"})
-            self.assertIn("ახალი ტენდერი: NAT123", send.call_args.args[0])
-            self.assertIn("Summary", send.call_args.args[0])
+            self.assertIn("NAT123", send.call_args.args[0])
+            self.assertIn("ახალი ან განახლებული ჩანაწერების რაოდენობა: 1", send.call_args.args[0])
+            self.assertNotIn("Summary", send.call_args.args[0])
             self.assertEqual(post.call_count, 2)
             saved = pipeline.load_state(self.path)
             self.assertEqual(len(saved["analyses"]), 1)
@@ -323,7 +326,7 @@ class PipelineTests(unittest.TestCase):
             download.return_value = b"%PDF-amended"
             pipeline.run_monitor(session, search, {"code": "CPV"})
             self.assertEqual(post.call_count, 4)
-            self.assertIn("განახლებული ინფორმაცია: NAT123", send.call_args.args[0])
+            self.assertIn("ახალი ან განახლებული ჩანაწერების რაოდენობა: 1", send.call_args.args[0])
             self.assertEqual(len(pipeline.load_state(self.path)["analyses"]), 2)
 
     def test_failed_document_is_reported_and_retried_using_cached_other_document(self):
@@ -377,7 +380,7 @@ class PipelineTests(unittest.TestCase):
                 patch.object(pipeline, "process_tender", side_effect=process), \
                 patch.object(pipeline, "send_report") as send:
             pipeline.run_monitor(MagicMock(), lambda *args: [TENDER], {"x": "CPV"})
-            self.assertIn("ახალი ტენდერი", send.call_args.args[0])
+            self.assertIn("ახალი ან განახლებული ჩანაწერების რაოდენობა: 1", send.call_args.args[0])
         self.assertIn("notified", pipeline.load_state(self.path)["tenders"]["123"])
         with patch.object(pipeline.time, "sleep"), \
                 patch.object(pipeline, "process_tender", side_effect=process), \
@@ -416,8 +419,8 @@ class PipelineTests(unittest.TestCase):
         for part in message.iter_parts():
             body = part.get_content()
             for expected in (
-                "NAT123", TENDER["link"], "spec.pdf", "HTTP 503", "UNAVAILABLE",
-                "high demand", "დამუშავების მოლოდინში მყოფი დოკუმენტების რაოდენობა: 1",
+                "NAT123", TENDER["link"], "დროებით მიუწვდომელია",
+                "დამუშავების მოლოდინში მყოფი დოკუმენტების რაოდენობა: 1",
                 "შემდეგი დაგეგმილი შემოწმებისას",
             ):
                 self.assertIn(expected, body)
@@ -438,20 +441,19 @@ class PipelineTests(unittest.TestCase):
         plain, rich, _ = pipeline.report(self.state, self.ai, [], {"456": current})
         for body in (plain, rich):
             self.assertIn("ამ შემოწმებისას მოძიებული აქტიური IT ტენდერების რაოდენობა: 1", body)
-            self.assertIn("#1 | NAT456", body)
+            self.assertIn("NAT456", body)
             self.assertIn(current["link"], body)
-            self.assertIn("#1\nახალი ტენდერი: NAT123", body)
-            self.assertIn("ტენდერის ბმული: " + TENDER["link"], body)
-            self.assertIn("-" * 60, body)
-            self.assertIn("განახლებებისა და მოლოდინის სექციაში წარმოდგენილი ტენდერების რაოდენობა: 1", body)
+            self.assertNotIn("NAT123", body)
+            self.assertIn("ახალი ან განახლებული ჩანაწერების რაოდენობა: 1", body)
+            self.assertIn("დამუშავების მოლოდინში მყოფი დოკუმენტების რაოდენობა: 1", body)
 
     def test_unchanged_tender_remains_in_overview_without_repeated_analysis(self):
         entry = {"details": TENDER, "documents": {}, "error": ""}
         entry["notified"] = pipeline.notification_fingerprint(entry)
         self.state["tenders"]["123"] = entry
         plain, _, notified = pipeline.report(self.state, self.ai, [], {"123": TENDER})
-        self.assertIn("#1 | NAT123", plain)
-        self.assertIn("განახლებებისა და მოლოდინის სექციაში წარმოდგენილი ტენდერების რაოდენობა: 0", plain)
+        self.assertIn("NAT123", plain)
+        self.assertIn("ახალი ან განახლებული ჩანაწერების რაოდენობა: 0", plain)
         self.assertEqual(notified, {})
         partial, _, _ = pipeline.report(self.state, self.ai, ["Connection reset"], {})
         self.assertIn("0 (არასრული შემოწმება)", partial)
@@ -492,23 +494,22 @@ class PipelineTests(unittest.TestCase):
         plain, rich, _ = pipeline.report(self.state, self.ai, [], {"123": TENDER})
         for body in (plain, rich):
             for text in (
-                "IT ტენდერების მონიტორინგის ანგარიში", "შემსყიდველი ორგანიზაცია:",
-                "დოკუმენტაციის ჩანართის ტექსტი", "[ანალიზი დასრულებულია]",
-                "[დამუშავების მოლოდინში]", "საწყის მდგომარეობად აღრიცხულია",
-                "მოკლე მიმოხილვა:", "წყარო: პუნქტი 2", "შეზღუდვა:",
+                "IT ტენდერების მონიტორინგის ანგარიში",
                 "საიდუმლო მასალების არსებობა", "ამ გაშვებისთვის განსაზღვრული",
-                "ტექნიკური ინფორმაცია: Per-run analysis budget reached",
                 "ტოკენების დაუზუსტებელი მოხმარებით",
             ):
                 self.assertIn(text, body)
             self.assertNotIn("Documentation tab (text)", body)
             self.assertNotIn("Portal mentions confidential material", body)
+            self.assertNotIn("მოკლე მიმოხილვა:", body)
+            self.assertNotIn("ტექნიკური ინფორმაცია:", body)
         self.assertIn('lang="ka"', rich)
         self.assertIn("professional, formal Georgian", pipeline.PROMPT)
 
     def test_report_replaces_em_dashes_in_cached_and_external_text(self):
         self.state["analyses"]["cached"] = {
             "summary": "Summary\u2014detail", "findings": [], "limitations": [],
+            "subject": "Subject\u2014detail", "delivery_deadline": None, "warranty": None,
         }
         tender = {**TENDER, "buyer": "Buyer\u2014name"}
         self.state["tenders"]["123"] = {
@@ -520,7 +521,8 @@ class PipelineTests(unittest.TestCase):
         plain, rich, _ = pipeline.report(self.state, self.ai, [], {"123": tender})
         for body in (plain, rich):
             self.assertNotIn("\u2014", body)
-            self.assertIn("Summary-detail", body)
+            self.assertNotIn("Summary-detail", body)
+            self.assertIn("Subject-detail", body)
             self.assertIn("Buyer-name", body)
             self.assertIn("file-name.pdf", body)
 
@@ -585,7 +587,7 @@ class PipelineTests(unittest.TestCase):
             self.state, self.ai, ["Connection reset"], {"123": tender},
         )
         soup = BeautifulSoup(rich, "html.parser")
-        self.assertEqual(soup.find("pre").get_text(), plain)
+        self.assertTrue(plain.startswith(soup.find("pre").get_text()))
         self.assertIsNone(soup.find("script"))
         self.assertEqual(soup.find_all("a"), [])
         self.assertIn("არასრული შემოწმება", plain)
@@ -622,6 +624,29 @@ class PipelineTests(unittest.TestCase):
         self.assertIn("spec.pdf", table.get_text())
         self.assertIn("დიახ", table.get_text())
         self.assertEqual(len(table.select_one("tbody tr").find_all("td")), 11)
+
+    def test_compact_report_omits_both_removed_sections_and_groups_errors(self):
+        docs = {
+            str(i): {"name": f"private-detail-{i}.pdf", "status": "pending",
+                     "error": "Gemini HTTP 503: UNAVAILABLE | high demand"}
+            for i in range(100)
+        }
+        self.state["tenders"]["123"] = {"details": TENDER, "documents": docs}
+        plain, rich, notified = pipeline.report(self.state, self.ai, [], {"123": TENDER})
+        for body in (plain, rich):
+            self.assertNotIn("#1 | NAT123", body)
+            self.assertNotIn("ტენდერების განახლებები და დასამუშავებელი დოკუმენტები", body)
+            self.assertNotIn("private-detail-", body)
+            self.assertNotIn("UNAVAILABLE", body)
+            self.assertEqual(body.count("დროებით მიუწვდომელია"), 1)
+            self.assertIn("შემთხვევების რაოდენობა: 100", body)
+            self.assertIn("დოკუმენტების რაოდენობა: 100", body)
+        soup = BeautifulSoup(rich, "html.parser")
+        self.assertEqual(len(soup.select("table tbody tr")), 1)
+        self.assertEqual(len(soup.select("table th")), 11)
+        self.assertNotIn("NAT123", soup.find("pre").get_text())
+        self.assertIn("123", notified)
+        self.assertEqual(self.state["tenders"]["123"]["documents"], docs)
 
     def test_table_fields_distinguish_legacy_pending_absent_and_conflicting_sources(self):
         self.state["analyses"].update({
