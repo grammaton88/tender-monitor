@@ -7,7 +7,9 @@ Uses GitHub Actions, Gemini document analysis, Git-backed state, and Gmail SMTP.
 ## Daily behavior
 
 1. Search every configured IT CPV code with the existing announced-status filter.
-   Fetch all search-result pages and deduplicate tenders.
+   Use session-aware GET searches, fetch all search-result pages and deduplicate
+   tenders. The portal has been observed closing POST searches without a response;
+   the same filters and pagination have been verified using GET.
 2. Read each active tender's documentation tab with the same portal session.
    Discover both `mode=app` and `mode=que` public attachments.
 3. Download documents and compare SHA-256 hashes. Reuse completed analyses for
@@ -157,6 +159,22 @@ Oversized/unsupported documents need manual action; waiting does not make them s
 
 ## What the daily email contains
 
+The subject, report headings, tender-field labels, document statuses, quota
+explanations and retry notices are written in formal Georgian. Gemini is instructed
+to use professional Georgian procurement terminology in all human-readable analysis
+fields. Original filenames, identifiers, URLs and source references are preserved.
+Errors include a Georgian explanation followed by the original technical diagnostic.
+Both HTML (`lang="ka"`) and plain-text email versions use the same Georgian content.
+Email text uses ASCII hyphens (-), including normalization of cached AI text.
+Saved analyses are reused as-is: this presentation change does not consume quota to
+translate or regenerate previously completed results.
+
+- **Numbered overview:** total active matching tenders discovered in the current
+  scan, followed by a numbered list of their tender numbers, buyers and portal
+  links, including unchanged tenders. Partial scans are explicitly labeled.
+  This is separate from the numbered, visibly separated update/pending section;
+  old incomplete tenders retried after leaving announced status are not added to
+  the active count. Completed unchanged analyses are still not repeated.
 - **New tenders and documentation updates:** tender number, portal link, buyer,
   category, status, announcement date, displayed estimated value and deadline when
   extracted. Displayed values may have conditions; verify the original tender.
@@ -284,7 +302,15 @@ an outage. The schedule remains enabled during manual testing.
 | HTTP 503 with high-demand message | Google reports temporary model overload. Work remains pending; do not enable billing merely to troubleshoot this error. |
 | Usage is zero with unresolved attempts | The request returned no usage metadata; zero reported tokens does not prove zero consumption. |
 | No email | Check Actions logs, configured secrets, Gmail App Password, SMTP errors and Spam. |
+| `RemoteDisconnected` / connection reset during CPV search | Ensure the deployed scanner uses GET searches, not the earlier POST implementation. Persistent failures may indicate a portal/network outage or runner connectivity problem; inspect logs before assuming an empty result. |
 | State push denied | Fix workflow permissions and branch rules before rerunning to avoid losing deduplication history. |
+| Per-run analysis budget reached | Normal queue deferral, not a provider error. After the one-attempt trial, raise `MAX_ANALYSES_PER_RUN` to `10`; the configured daily request ceiling still applies across runs sharing state. |
+| Expanded office document exceeds safety limit | The archive expands beyond the 32 MiB safety bound. Review the original or prepare a smaller safe document; waiting for quota will not fix it. |
+| Unsupported file or HTML/session error | Inspect the original portal attachment and file format. Legacy DOC/XLS and non-document responses are not supported; do not assume this is an AI failure. |
+
+If any CPV search fails, the scanner sends an incomplete-discovery report and then
+fails the job explicitly. It does not claim that no tenders exist or finish first-run
+initialization based on an incomplete scan. The workflow still attempts to save state.
 
 Live portal downloads have been verified for the sample tenders. Local Gemini tests
 reached generation but returned a provider-confirmed high-demand 503; successful AI
