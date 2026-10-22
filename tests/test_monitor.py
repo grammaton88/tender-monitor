@@ -258,7 +258,8 @@ class PipelineTests(unittest.TestCase):
                     response({"totalTokens": 50}), generation(),
                 ]):
             self.ai.analyze("a.pdf", {})
-        sleep.assert_called_once_with(51)
+        sleep.assert_called_once()
+        self.assertAlmostEqual(sleep.call_args.args[0], 3)
 
     def test_truncated_or_invalid_analysis_is_not_completed(self):
         with patch.object(self.ai, "post", side_effect=[
@@ -335,6 +336,45 @@ class PipelineTests(unittest.TestCase):
         analyze.assert_called_once()
         self.assertIn(pipeline.ANALYSIS_VERSION, entry["documents"]["app/42"]["analysis_key"])
 
+    def test_all_documents_of_a_tender_use_one_gemini_request_and_shared_result(self):
+        markup = DOCS + '<a href="library/files.php?mode=que&amp;file=43">answers.pdf</a>'
+        entry = {"details": TENDER, "documents": {}}
+        with patch.object(pipeline, "portal_get", side_effect=lambda *a, **kw:
+                          response(text=markup if kw.get("params", {}).get("action") == "app_docs" else "Public")), \
+                patch.object(pipeline, "download_document", side_effect=[b"%PDF-a", b"%PDF-b"] * 2), \
+                patch.object(self.ai, "analyze", return_value=ANALYSIS) as analyze:
+            pipeline.process_tender(MagicMock(), TENDER, entry, self.state, self.ai)
+            pipeline.process_tender(MagicMock(), TENDER, entry, self.state, self.ai)
+        analyze.assert_called_once()
+        self.assertEqual(len(analyze.call_args.args[1]), 2)
+        self.assertEqual(len(self.state["analyses"]), 1)
+        self.assertEqual({d["status"] for d in entry["documents"].values()}, {"completed"})
+        self.assertEqual(len({d["analysis_key"] for d in entry["documents"].values()}), 1)
+
+    def test_documents_over_the_request_size_limit_are_left_for_manual_review(self):
+        markup = DOCS + '<a href="library/files.php?mode=app&amp;file=43">second.pdf</a>'
+        entry = {"details": TENDER, "documents": {}}
+        with patch.object(pipeline, "MAX_REQUEST_BYTES", 10), \
+                patch.object(pipeline, "portal_get", side_effect=lambda *a, **kw:
+                             response(text=markup if kw.get("params", {}).get("action") == "app_docs" else "Public")), \
+                patch.object(pipeline, "download_document", side_effect=[b"%PDF-1234", b"%PDF-5678"]), \
+                patch.object(self.ai, "analyze", return_value=ANALYSIS) as analyze:
+            pipeline.process_tender(MagicMock(), TENDER, entry, self.state, self.ai)
+        self.assertEqual(len(analyze.call_args.args[1]), 1)
+        statuses = sorted(d["status"] for d in entry["documents"].values())
+        self.assertEqual(statuses, ["completed", "pending"])
+
+    def test_failed_combined_analysis_marks_all_documents_pending(self):
+        markup = DOCS + '<a href="library/files.php?mode=app&amp;file=43">second.pdf</a>'
+        entry = {"details": TENDER, "documents": {}}
+        with patch.object(pipeline, "portal_get", side_effect=lambda *a, **kw:
+                          response(text=markup if kw.get("params", {}).get("action") == "app_docs" else "Public")), \
+                patch.object(pipeline, "download_document", side_effect=[b"%PDF-a", b"%PDF-b"]), \
+                patch.object(self.ai, "analyze", side_effect=pipeline.ProcessingError("Gemini HTTP 503")):
+            pipeline.process_tender(MagicMock(), TENDER, entry, self.state, self.ai)
+        self.assertEqual({d["status"] for d in entry["documents"].values()}, {"pending"})
+        self.assertEqual(self.state["analyses"], {})
+
     def test_signed_link_changes_do_not_trigger_repeat_notifications(self):
         entry = {"details": TENDER, "documents": {"app/42": {
             "name": "x.pdf", "hash": "abc", "url": "old", "status": "completed",
@@ -405,7 +445,7 @@ class PipelineTests(unittest.TestCase):
                 patch.object(self.ai, "analyze", return_value=ANALYSIS) as analyze:
             pipeline.process_tender(MagicMock(), TENDER, entry, self.state, self.ai)
             self.assertEqual(entry["documents"]["tab-text"]["status"], "completed")
-            self.assertNotIn("secretDynamic", analyze.call_args.args[1]["text"])
+            self.assertNotIn("secretDynamic", analyze.call_args.args[1][0]["text"])
 
     def test_email_failure_preserves_analysis_and_retries_notification(self):
         def process(session, tender, entry, state, ai, baseline):
@@ -430,6 +470,37 @@ class PipelineTests(unittest.TestCase):
                 patch.object(pipeline, "send_report") as send:
             pipeline.run_monitor(MagicMock(), lambda *args: [TENDER], {"x": "CPV"})
             self.assertIn("ახალი ტენდერები ან დოკუმენტაციის ცვლილებები არ გამოვლენილა.", send.call_args.args[0])
+
+    def test_unexpected_tender_error_does_not_stop_run_or_email(self):
+        second = {**TENDER, "id": "124", "reg_num": "NAT124"}
+        calls = []
+
+        def process(session, tender, entry, state, ai, baseline):
+            calls.append(tender["id"])
+            if tender["id"] == "123":
+                raise KeyError("secret-detail")
+            entry["documents"], entry["error"] = {}, ""
+
+        with patch.object(pipeline.time, "sleep"), \
+                patch.object(pipeline, "process_tender", side_effect=process), \
+                patch.object(pipeline, "send_report") as send:
+            pipeline.run_monitor(MagicMock(), lambda *args: [TENDER, second], {"x": "CPV"})
+        self.assertEqual(calls, ["123", "124"])
+        self.assertNotIn("secret-detail", send.call_args.args[0])
+        self.assertIn("მოულოდნელი შეცდომა", send.call_args.args[0])
+        self.assertIn("NAT124", send.call_args.args[0] + send.call_args.args[1])
+
+    def test_exhausted_time_budget_skips_remaining_downloads_and_still_emails(self):
+        self.ai.deadline = 0
+        with self.assertRaisesRegex(pipeline.Deferred, "time budget"):
+            self.ai.analyze("a.pdf", {})
+        with patch.dict(os.environ, {"MAX_RUN_MINUTES": "0"}), \
+                patch.object(pipeline.time, "sleep"), \
+                patch.object(pipeline, "process_tender") as process, \
+                patch.object(pipeline, "send_report") as send:
+            pipeline.run_monitor(MagicMock(), lambda *args: [TENDER], {"x": "CPV"})
+        process.assert_not_called()
+        send.assert_called_once()
 
     def test_partial_discovery_failure_still_emails_then_fails_job(self):
         with patch.object(pipeline.time, "sleep"), \
