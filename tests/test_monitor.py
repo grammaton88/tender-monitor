@@ -435,6 +435,19 @@ class PipelineTests(unittest.TestCase):
 
 
 class SearchTests(unittest.TestCase):
+    def test_session_retries_transient_portal_failures(self):
+        with patch.object(monitor.requests, "Session") as create:
+            monitor.create_session()
+        adapter = next(
+            call.args[1] for call in create.return_value.mount.call_args_list
+            if call.args[0] == "https://tenders.procurement.gov.ge/"
+        )
+        retries = adapter.max_retries
+        self.assertEqual(retries.total, 3)
+        self.assertEqual(retries.backoff_factor, 0.5)
+        self.assertIn("POST", retries.allowed_methods)
+        self.assertIn(503, retries.status_forcelist)
+
     def test_search_fetches_all_pages_and_preserves_announced_filter(self):
         session = MagicMock()
         session.post.return_value = response(text="""

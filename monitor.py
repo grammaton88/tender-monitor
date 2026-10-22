@@ -1,6 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 import re
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 from tender_pipeline import ProcessingError, run_monitor
 
 IT_BASECODES = {
@@ -32,10 +34,20 @@ IT_BASECODES = {
 
 BASE_URL = "https://tenders.procurement.gov.ge/public"
 CONTROLLER = f"{BASE_URL}/library/controller.php"
+PORTAL_RETRIES = Retry(
+    total=3,
+    connect=3,
+    read=3,
+    status=3,
+    backoff_factor=0.5,
+    status_forcelist=(429, 500, 502, 503, 504),
+    allowed_methods=frozenset({"GET", "POST"}),
+)
 
 
 def create_session():
     session = requests.Session()
+    session.mount("https://tenders.procurement.gov.ge/", HTTPAdapter(max_retries=PORTAL_RETRIES))
     session.headers.update({
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Accept-Language": "ka,en-US;q=0.9,en;q=0.8",
