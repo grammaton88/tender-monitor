@@ -357,12 +357,16 @@ class PipelineTests(unittest.TestCase):
         with patch.object(pipeline, "MAX_REQUEST_BYTES", 10), \
                 patch.object(pipeline, "portal_get", side_effect=lambda *a, **kw:
                              response(text=markup if kw.get("params", {}).get("action") == "app_docs" else "Public")), \
-                patch.object(pipeline, "download_document", side_effect=[b"%PDF-1234", b"%PDF-5678"]), \
+                patch.object(pipeline, "download_document", side_effect=[b"%PDF-1234", b"%PDF-5678"] * 2), \
                 patch.object(self.ai, "analyze", return_value=ANALYSIS) as analyze:
             pipeline.process_tender(MagicMock(), TENDER, entry, self.state, self.ai)
-        self.assertEqual(len(analyze.call_args.args[1]), 1)
-        statuses = sorted(d["status"] for d in entry["documents"].values())
-        self.assertEqual(statuses, ["completed", "pending"])
+            self.assertEqual(len(analyze.call_args.args[1]), 1)
+            statuses = sorted(d["status"] for d in entry["documents"].values())
+            self.assertEqual(statuses, ["completed", "skipped"])
+            pipeline.process_tender(MagicMock(), TENDER, entry, self.state, self.ai)
+            self.assertEqual(analyze.call_count, 1)
+            self.assertEqual(sorted(d["status"] for d in entry["documents"].values()),
+                             ["completed", "skipped"])
 
     def test_failed_combined_analysis_marks_all_documents_pending(self):
         markup = DOCS + '<a href="library/files.php?mode=app&amp;file=43">second.pdf</a>'
@@ -418,7 +422,7 @@ class PipelineTests(unittest.TestCase):
         with patch.object(pipeline, "portal_get", side_effect=lambda *a, **kw:
                           response(text=markup if kw.get("params", {}).get("action") == "app_docs" else "Public")), \
                 patch.object(pipeline, "download_document", side_effect=[
-                    b"%PDF-v1", pipeline.ProcessingError("Download failed"),
+                    b"%PDF-v1", requests.ConnectionError("Download failed"),
                     b"%PDF-v1", b"%PDF-v2",
                 ]), \
                 patch.object(self.ai, "analyze", return_value=ANALYSIS) as analyze:
@@ -796,6 +800,17 @@ class PipelineTests(unittest.TestCase):
         self.assertIn("12 თვე", fields["warranty"])
         self.assertIn("24 თვე", fields["warranty"])
         self.assertIn("წყაროებში განსხვავებაა", fields["warranty"])
+
+    def test_skipped_file_does_not_make_tender_incomplete(self):
+        self.state["analyses"]["a"] = {**ANALYSIS, "warranty": "12 თვე"}
+        entry = {"documents": {
+            "app/1": {"status": "completed", "analysis_key": "a"},
+            "que/2": {"status": "skipped", "error": "Expanded office document exceeds safety limit"},
+        }}
+        fields = pipeline.table_analysis_fields(entry, self.state["analyses"])
+        self.assertEqual(fields["warranty"], "12 თვე")
+        self.assertNotIn("დაუსრულებელია", "".join(fields.values()))
+        self.assertIn("ხელით შესამოწმებელია", fields["subject"])
 
     def test_gmail_layout_has_inline_tables_readable_summary_and_usage_bars(self):
         self.ai.request_limit = 20

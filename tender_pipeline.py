@@ -429,10 +429,17 @@ def process_tender(session: requests.Session, tender: dict, entry: dict,
                 old = previous.get(document["id"], {})
                 if baseline or (old.get("status") == "baseline" and old.get("hash") == file_hash):
                     record["status"] = "baseline"
+                elif old.get("status") == "skipped" and old.get("hash") == file_hash:
+                    record.update(status="skipped", error=old.get("error", ""))
                 else:
                     to_analyze.append((record, data))
-                record["error"] = ""
-            except (ProcessingError, requests.RequestException, ValueError, zipfile.BadZipFile) as exc:
+                if record.get("status") != "skipped":
+                    record["error"] = ""
+            except (ProcessingError, ValueError, zipfile.BadZipFile) as exc:
+                # Wrong format or oversize: retrying the same file cannot help.
+                record.update(status="skipped", error=str(exc))
+                print(f"Tender {tender['id']}, document {document['id']}: {exc}")
+            except requests.RequestException as exc:
                 record.update(status="pending", error=str(exc))
                 print(f"Tender {tender['id']}, document {document['id']}: {exc}")
         analyze_tender(tender, text, to_analyze, state, ai)
@@ -460,7 +467,7 @@ def analyze_tender(tender: dict, text: str, items: list[tuple[dict, bytes]],
             if inline_bytes > MAX_REQUEST_BYTES or text_chars > MAX_REQUEST_TEXT:
                 raise ProcessingError("Combined tender documents exceed request size limit; manual review required")
         except (ProcessingError, ValueError, zipfile.BadZipFile) as exc:
-            record.update(status="pending", error=str(exc))
+            record.update(status="skipped", error=str(exc))
             print(f"Tender {tender['id']}, document {record['id']}: {exc}")
             continue
         parts.append(part)
@@ -542,6 +549,8 @@ def table_analysis_fields(entry: dict, analyses: dict) -> dict[str, str]:
         legacy = False
         incomplete = bool(entry.get("error")) or not documents
         for document in documents:
+            if document.get("status") == "skipped":
+                continue
             if document.get("status") != "completed":
                 incomplete = True
                 continue
@@ -565,6 +574,8 @@ def table_analysis_fields(entry: dict, analyses: dict) -> dict[str, str]:
         if values and (legacy or incomplete):
             text += "\nშენიშვნა: მონაცემები ნაწილობრივია."
         fields[key] = text
+    if any(document.get("status") == "skipped" for document in documents):
+        fields["subject"] += "\nშენიშვნა: ზოგი ფაილი ხელით შესამოწმებელია."
     if entry.get("notice"):
         fields["confidential"] = (
             "დიახ - პორტალზე მითითებულია საიდუმლო მასალების არსებობა.\n"
@@ -779,12 +790,14 @@ def report(state: dict, ai: Gemini, scan_errors: list[str],
                       f"ძიების წარუმატებელი მოთხოვნების რაოდენობა: {len(scan_errors)}", ""])
     notified = {}
     pending = 0
+    manual = 0
     changed_count = 0
     errors = Counter(scan_errors)
     for tender_id, entry in state["tenders"].items():
         fingerprint = notification_fingerprint(entry)
         documents = list(entry.get("documents", {}).values())
         unfinished = [d for d in documents if d["status"] == "pending"]
+        skipped = [d for d in documents if d["status"] == "skipped"]
         pending += len(unfinished)
         errors.update(d.get("error") or "Document processing incomplete" for d in unfinished)
         if entry.get("error"):
@@ -793,6 +806,8 @@ def report(state: dict, ai: Gemini, scan_errors: list[str],
         changed_count += int(changed)
         if not changed and not unfinished and not entry.get("error"):
             continue
+        manual += len(skipped)
+        errors.update(d.get("error") or "Unsupported file" for d in skipped)
         notified[tender_id] = fingerprint
     if scan_errors or not changed_count:
         lines.append(
@@ -803,8 +818,8 @@ def report(state: dict, ai: Gemini, scan_errors: list[str],
         "", "დამუშავების სტატუსი",
         f"ახალი ან განახლებული ჩანაწერების რაოდენობა: {changed_count}",
         f"დამუშავების მოლოდინში მყოფი დოკუმენტების რაოდენობა: {pending}",
-        "დარჩენილი დოკუმენტების დამუშავების მცდელობა განმეორდება შემდეგი დაგეგმილი შემოწმებისას. "
-        "არამხარდაჭერილი ფორმატისა და დასაშვებზე დიდი ფაილები საჭიროებს ხელით შემოწმებას.",
+        f"ხელით შესამოწმებელი ფაილების რაოდენობა (არამხარდაჭერილი ან ზედმეტად დიდი): {manual}",
+        "დარჩენილი დოკუმენტების დამუშავების მცდელობა განმეორდება შემდეგი დაგეგმილი შემოწმებისას.",
     ])
     if errors:
         lines.extend(["", "დამუშავების ხარვეზების მოკლე შეჯამება"])
