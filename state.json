@@ -1,0 +1,18 @@
+{
+  "analyses": {},
+  "tenders": {},
+  "usage": {
+    "2026-10-22/gemini-3.8-flash": {
+      "date": "2026-10-22",
+      "input": 0,
+      "model": "gemini-3.8-flash",
+      "output": 0,
+      "quota_errors": 0,
+      "requests": 0,
+      "reserved_tokens": 0,
+      "total": 0,
+      "unknown_usage": 0
+    }
+  },
+  "version": 1
+}
