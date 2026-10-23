@@ -1,66 +1,110 @@
 # Georgian IT Tender Monitor
 
-Checks announced IT tenders on the [Georgian procurement portal](https://tenders.procurement.gov.ge/public/), analyzes their public documents with Gemini, and emails a daily Georgian report.
+An automated monitor for announced information-technology tenders on the [Georgian State Procurement portal](https://tenders.procurement.gov.ge/public/). It searches configured CPV categories, reviews available public tender documents with Google Gemini, and sends a daily report by email.
 
-## What it does
+**Author:** [Mikheil Kakabadze](https://www.linkedin.com/in/mikheil-kakabadze)
 
-- Searches the configured IT CPV categories and their result pages.
-- Extracts short Georgian keywords for four fields: procurement subject, delivery period, warranty, and explicit references to confidential materials.
-- Supports PDF, DOCX, XLSX and XLSM files. Unsupported, oversized, or unreadable files are flagged for manual review.
-- Combines eligible documents from a tender into one Gemini analysis request. Results are cached by model, analysis version, and document content, so unchanged results are reused. New or changed content and analysis-rule/model changes may require a new request.
-- Retries pending work in later runs. Unchanged files marked as skipped after content was read are not re-parsed; files rejected during download may be checked again.
-- Sends a compact, Gmail-width report. The subject includes the date and time in Tbilisi time (UTC+04:00).
-- Tracks model usage counters for this scanner, not the account-wide remaining quota.
+## At a glance
 
-## GitHub Actions setup
+- **Schedule:** daily at 06:00 UTC (10:00 Tbilisi time), plus manual runs from GitHub Actions.
+- **Runtime:** GitHub Actions with Python 3.12; no always-on server or external database.
+- **AI output:** concise Georgian keywords for the procurement subject, delivery period, warranty, and explicit references to confidential materials.
+- **Documents:** PDF, DOCX, XLSX, and XLSM. Unsupported, malformed, or oversized files are reported for manual review.
+- **State:** saved as `state.json` on the `monitor-state` branch so progress and analysis cache survive between runs.
 
-Add the application files, `requirements.txt`, `.gitignore`, `tests/test_monitor.py`, and `.github/workflows/tender-monitor.yml` to your repository's default branch. The workflow runs tests before starting the monitor.
+## How it works
 
-In **Settings > Secrets and variables > Actions**, add these **secrets**:
+1. `monitor.py` searches announced tenders in the configured IT CPV categories and paginates through the portal results.
+2. For each tender, the monitor discovers public documentation and downloads available attachments.
+3. Eligible documents for a tender are sent together in one Gemini analysis request. The prompt asks for short, factual values only; it does not ask Gemini for a long narrative or a general tender assessment.
+4. Results are cached using the model, analysis version, and document content. The app can reuse a matching cached result rather than make another Gemini generation request. If the model, extraction rules, or document content changes, a new analysis may be required.
+5. Pending work is saved and retried on a later run. Per-run request and time limits defer remaining work rather than intentionally discard it.
+6. The report is sent as both plain text and HTML. Its subject includes the current Tbilisi date and time (UTC+04:00).
 
-| Secret | Value |
-|---|---|
-| `GEMINI_API_KEY` | API key from your Google AI Studio project |
-| `EMAIL_FROM` | Gmail address used to send the report |
-| `EMAIL_PASSWORD` | Gmail App Password (not your normal password) |
-| `EMAIL_TO` | Report recipient |
+The monitor currently searches the IT CPV base codes defined in `monitor.py`. Edit that list if the scope of monitored procurement categories needs to change.
 
-Enable 2-Step Verification to create a [Gmail App Password](https://myaccount.google.com/apppasswords). Never put API keys or passwords in source code or commit them to Git.
+## Prerequisites
 
-Add these **variables** as needed. Check the model's current limits in [AI Studio](https://aistudio.google.com/rate-limit?timeRange=last-28-days); do not copy limits from a different model.
+- A GitHub repository containing this project and GitHub Actions enabled.
+- A Google AI Studio project and Gemini API key with access to the selected model.
+- A Gmail account for delivery, with 2-Step Verification enabled and a Gmail App Password created.
+- Repository permission for the workflow to write the `monitor-state` branch.
 
-| Variable | Recommended/default | Purpose |
+Gemini model availability, quotas, pricing, and data-use terms can change. Check the current [AI Studio rate limits](https://aistudio.google.com/rate-limit?timeRange=last-28-days) and [Gemini API pricing and terms](https://ai.google.dev/gemini-api/docs/pricing) before selecting a model or relying on free-tier capacity.
+
+## GitHub Actions configuration
+
+Add the project files, `requirements.txt`, `.gitignore`, `tests/test_monitor.py`, and `.github/workflows/tender-monitor.yml` to the repository's default branch. The workflow installs dependencies and runs the tests before starting the monitor.
+
+Go to **Settings > Secrets and variables > Actions**. Store credentials as **secrets**:
+
+| Secret | Required | Description |
+|---|---:|---|
+| `GEMINI_API_KEY` | Yes | Gemini API key from your Google AI Studio project |
+| `EMAIL_FROM` | Yes | Gmail address used to send the report |
+| `EMAIL_PASSWORD` | Yes | Gmail App Password; do not use your normal Gmail password |
+| `EMAIL_TO` | Yes | Report recipient address |
+
+Create a [Gmail App Password](https://myaccount.google.com/apppasswords) after enabling 2-Step Verification. Never place credentials in source code, README files, workflow logs, or committed state.
+
+Set these **Actions variables** under **Settings > Secrets and variables > Actions > Variables**. The values below match the current repository configuration shown in the project setup screenshot. Confirm Gemini limits in AI Studio before changing them; quotas can vary by model and project.
+
+| Variable | Current value | Details |
 |---|---|---|
-| `GEMINI_MODEL` | `gemini-3.5-flash-lite` | Model name available to your API key |
-| `MAX_ANALYSES_PER_RUN` | `10` | Maximum Gemini analysis requests per run; increase carefully within quota |
-| `MAX_RUN_MINUTES` | `50` | Stop analysis before the workflow timeout; remaining work is saved for a later run |
-| `INITIAL_SCAN_MODE` | `all` | `all` analyzes initial tenders; `baseline` records existing document hashes without analyzing them |
-| `GEMINI_RPM_LIMIT` | Your model's requests/minute limit | Paces requests; blank or `0` means unknown |
-| `GEMINI_TPM_LIMIT` | Your model's input tokens/minute limit | Paces requests; blank or `0` means unknown |
-| `GEMINI_RPD_LIMIT` | Your model's requests/day limit | Local daily request cap; blank or `0` means unknown |
-| `GEMINI_TPD_LIMIT` | Unset | Optional local daily input-token budget; blank or `0` means unknown |
+| `GEMINI_MODEL` | `gemini-3.5-flash-lite` | Model identifier available to your API key. The app does not choose a model automatically. |
+| `GEMINI_RPD_LIMIT` | `400` | Configured Gemini requests-per-day limit used by the monitor's local safety check. |
+| `GEMINI_RPM_LIMIT` | `8` | Configured requests-per-minute limit; the monitor uses it to pace calls. |
+| `GEMINI_TPM_LIMIT` | `200000` | Configured input-tokens-per-minute limit; also used when pacing calls. |
+| `INITIAL_SCAN_MODE` | `all` | Analyze existing tenders on the first initialization. `baseline` instead records initial document hashes without analyzing unchanged existing documents. |
+| `MAX_ANALYSES_PER_RUN` | `30` | Maximum Gemini generation requests per run. Remaining tenders are deferred and retried in later runs. |
+| `MAX_RUN_MINUTES` | `50` (workflow default) | Analysis time budget. This variable is optional; if unset, the workflow supplies `50`. The workflow timeout is 90 minutes. |
+| `GEMINI_TPD_LIMIT` | Unset | Optional local daily input-token budget. Leave unset unless you want an additional daily cap. |
 
-The model provider may impose other limits regardless of these settings. Gemini free-tier availability and terms can change; verify them before relying on free usage.
+Blank or `0` for a quota variable means **unknown / not locally configured**, not unlimited. These are local pacing and safety settings; Google independently enforces account and model quotas and may reject requests. Keep configured values aligned with the limits currently shown for your model in [AI Studio](https://aistudio.google.com/rate-limit?timeRange=last-28-days). The monitor's usage counters cover only its recorded requests and tokens, not all project usage. Daily quota accounting follows Pacific Time.
 
-### Enable and run
+## First-time setup and operation
 
-1. Under **Settings > Actions > General**, enable Actions and allow **Read and write permissions**. Branch rules must allow the workflow to update `monitor-state`.
-2. Open **Actions > IT Tender Monitor > Run workflow** for a manual run. Otherwise, it runs daily at 06:00 UTC (10:00 Tbilisi time); GitHub may delay scheduled runs.
-3. Check the workflow log and email. The `monitor-state` branch stores `state.json`, including tender history and analysis cache. Keep this branch to preserve progress between runs.
-4. Run again to confirm unchanged analyses are reused.
+1. In **Settings > Actions > General**, enable Actions and set workflow permissions to **Read and write permissions**. Make sure repository rules permit the workflow to create or update `monitor-state`.
+2. Add the required secrets and configure the Actions variables above. The listed values are the current setup; update them in GitHub if you change the model or its quota limits.
+3. Open **Actions > IT Tender Monitor** and select **Run workflow** to start a manual run.
+4. Review the Actions log and the email. Confirm the workflow has created or updated `state.json` on `monitor-state`.
+5. Keep the `monitor-state` branch. It contains the saved progress required for analysis reuse and pending retries.
 
-No personal access token, external database, or separate server is required. GitHub may disable scheduled workflows in inactive public repositories.
+The workflow runs automatically each day at 06:00 UTC. Scheduled runs may start late because GitHub does not guarantee exact start times. GitHub may disable scheduled workflows in inactive public repositories. No personal access token is required by the included workflow.
 
-## Understanding the report and errors
+### State and reset behavior
 
-- **Per-run analysis budget reached:** work was deferred, not lost. It will be retried on a later run; raise `MAX_ANALYSES_PER_RUN` if appropriate for the model's quota and runtime.
-- **Pending/incomplete:** a temporary download, portal, Gemini, quota, or time-limit issue stopped processing. The next run retries it.
-- **Manual review/skipped file:** unsupported, malformed, or oversized content could not be analyzed. Review the original attachment on the procurement portal.
-- **HTTP 429:** rate or quota limit. Check AI Studio usage and the configured limits.
-- **HTTP 503:** temporary Gemini overload; the app retries before deferring work.
-- Search, startup, email, and runner failures are visible in the Actions log. If a run ends before email delivery, use the log to identify the cause.
+The `monitor-state` branch holds the state file, which includes tender metadata, document statuses, cached AI analyses, and this monitor's usage records. The workflow saves progress even when processing or email delivery fails, when a state file was created.
 
-AI output can miss or misinterpret requirements. Verify important details against the original tender documents before acting. Only public tender documents are processed; review Google's [Gemini pricing and data-use terms](https://ai.google.dev/gemini-api/docs/pricing). Repository state follows the repository's visibility.
+Deleting the `monitor-state` branch or its `state.json` resets history and cache. The next run behaves like a first run and may analyze tenders again. `INITIAL_SCAN_MODE=baseline` also changes first-run handling; it is not a general cache-reset switch.
+
+## Documents, limits, and retries
+
+- A single downloaded attachment is limited to 12 MiB. Office documents are also checked for expanded archive size and extracted-text limits.
+- A combined Gemini request is kept within configured byte and text safety limits. If a tender's eligible documents cannot fit, affected material is flagged for manual review rather than silently assumed to be analyzed.
+- Gemini API requests use retries for temporary overload/server responses. Persistent network, quota, or time-budget failures leave work pending for a later run.
+- Content that was read and marked skipped is not parsed repeatedly when its hash is unchanged. A file rejected before its contents can be hashed (for example, an HTML/session response or download-size rejection) may be checked again on a later run.
+- If the analysis budget is reached, subsequent tenders are deferred. Increase `MAX_ANALYSES_PER_RUN` only when the model quota and total run time allow it.
+
+## Reading the email and troubleshooting
+
+| Email/log message | Meaning and next step |
+|---|---|
+| `Per-run analysis budget reached` | The run reached `MAX_ANALYSES_PER_RUN`. Remaining work is retained for a later run; increase the limit if appropriate. |
+| Pending or incomplete analysis | A temporary portal, download, API, quota, or time-limit issue prevented completion. Inspect the Actions log; pending tenders are retried. |
+| Manual-review/skipped-file note | A document could not safely be parsed or included. Open the original attachment on the procurement portal and review it directly. |
+| HTTP 429 | A rate or quota limit was reached. Check AI Studio usage and confirm the configured limits match the selected model. |
+| HTTP 503 | Gemini may be temporarily overloaded. The monitor retries selected temporary server errors and defers work if the failure persists. |
+| Search/CPV error | Tender discovery for one or more categories may be incomplete. Check the workflow log; the email indicates that discovery was not complete. |
+| Email not received | Check workflow completion and SMTP errors in the Actions log, and verify `EMAIL_FROM`, `EMAIL_TO`, and the Gmail App Password. |
+
+The daily email is not a guarantee that every tender or every attachment was analyzed. Check the processing status and error summary, and use the Actions log for technical details.
+
+## Privacy and responsible use
+
+The monitor downloads public tender documents and submits eligible document content to the configured Gemini model. Review Google's current data-use terms and your organization's requirements before enabling AI analysis. The GitHub repository's visibility and access permissions also apply to the `monitor-state` branch.
+
+AI extraction may omit or misinterpret information. Treat report values as an aid to review, not as a legal or procurement determination. Verify important requirements—including deadlines, warranty terms, quantities, and confidentiality notices—against the official tender and source documents.
 
 ## Run locally
 
@@ -73,4 +117,24 @@ python -m pip install -r requirements.txt
 python -B -m unittest discover -s tests -v
 ```
 
-For a local monitor run, set the required secrets as environment variables and run `python monitor.py`. Do not commit local credentials or `state.json`.
+To run the monitor locally, configure `GEMINI_API_KEY`, `GEMINI_MODEL`, `EMAIL_FROM`, `EMAIL_PASSWORD`, and `EMAIL_TO` in your process environment, then run:
+
+```powershell
+python monitor.py
+```
+
+Optional quota and run settings can be supplied as environment variables. By default, local state is written to `state.json`; set `STATE_PATH` to use a different location. Do not commit credentials or runtime state.
+
+## Project files
+
+| Path | Purpose |
+|---|---|
+| `monitor.py` | Portal search, IT CPV categories, and application entry point |
+| `tender_pipeline.py` | Document handling, Gemini requests, caching, reporting, email, and saved state |
+| `tests/test_monitor.py` | Automated unit tests; the workflow runs these before monitoring |
+| `requirements.txt` | Python dependencies |
+| `.github/workflows/tender-monitor.yml` | Scheduled and manual GitHub Actions workflow |
+
+---
+
+Maintained by [Mikheil Kakabadze](https://www.linkedin.com/in/mikheil-kakabadze).
