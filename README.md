@@ -104,7 +104,7 @@ The daily email is not a guarantee that every tender or every attachment was ana
 
 The monitor downloads public tender documents and submits eligible document content to the configured Gemini model. Review Google's current data-use terms and your organization's requirements before enabling AI analysis. The GitHub repository's visibility and access permissions also apply to the `monitor-state` branch.
 
-AI extraction may omit or misinterpret information. Treat report values as an aid to review, not as a legal or procurement determination. Verify important requirements—including deadlines, warranty terms, quantities, and confidentiality notices—against the official tender and source documents.
+AI extraction may omit or misinterpret information. Treat report values as an aid to review, not as a legal or procurement determination. Verify important requirements-including deadlines, warranty terms, quantities, and confidentiality notices-against the official tender and source documents.
 
 ## Run locally
 
