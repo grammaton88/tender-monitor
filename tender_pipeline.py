@@ -864,8 +864,8 @@ def send_report(plain: str, rich: str) -> None:
     message = EmailMessage()
     message["From"], message["To"] = sender, recipient
     message["Subject"] = (
-        "IT ტენდერების მონიტორინგი - ყოველდღიური ანგარიში | "
-        f"{datetime.now(ZoneInfo('Asia/Tbilisi')):%Y-%m-%d %H:%M} (თბილისის დრო, UTC+04:00)"
+        "IT ტენდერების მონიტორინგი - 72 საათიანი ანგარიში | "
+        f"{datetime.now(ZoneInfo('Asia/Tbilisi')):%Y-%m-%d %H:%M} "
     )
     message.set_content(plain)
     message.add_alternative(rich, subtype="html")
