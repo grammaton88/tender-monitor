@@ -3178,7 +3178,7 @@
     }
   },
   "initialized": true,
-  "last_request_at": 1793008529.2589726,
+  "last_request_at": 1793041739.168148,
   "tenders": {
     "694702": {
       "details": {
@@ -5889,6 +5889,23 @@
       "notice": "",
       "notified": "f1b30b7a166c23787ca032af64775b2a2137b38828d373fcfe1ed6307ab521e4"
     },
+    "710761": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 3`435.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 26.10.2026",
+        "buyer": "საჯარო სამართლის იურიდიული პირი \"საქართველოს საპენსიო ფონდი\"",
+        "category": "32400000-ქსელები",
+        "deadline": "წინადადებების მიღების ვადა: 06.11.2026",
+        "id": "710761",
+        "link": "https://tenders.procurement.gov.ge/public/?go=710761",
+        "reg_num": "NAT260022276",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-10-26T19:08:52.550208+00:00",
+      "notice": ""
+    },
     "710780": {
       "details": {
         "amount": "შესყიდვის სავარაუდო ღირებულება: 216`023.00 ლარი",
@@ -5954,6 +5971,7 @@
       "notified": "0c61aa57cd3a78584f2ed9ff6db3a96480687776d4a7dfc7d41d1d996f6d7b03"
     }
   },
+  "updated_at": "2026-10-26T19:08:59.168213+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -5994,10 +6012,10 @@
       "model": "gemini-3.5-flash-lite",
       "output": 92,
       "quota_errors": 0,
-      "requests": 1,
-      "reserved_tokens": 17118,
+      "requests": 2,
+      "reserved_tokens": 34656,
       "total": 16258,
-      "unknown_usage": 0
+      "unknown_usage": 1
     }
   },
   "version": 1
