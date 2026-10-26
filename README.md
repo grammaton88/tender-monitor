@@ -47,10 +47,10 @@ The repository is configured for Vercel's Python/Flask runtime. Flask serves dyn
 
 1. Push the repository to GitHub and import it into Vercel as a project. Vercel detects `app.py` as the Flask entrypoint, installs `requirements.txt`, and uses `vercel.json` to configure the function's maximum duration.
 2. Add these environment variables in the Vercel project settings for the Production environment (and Preview if desired):
-   - `GITHUB_REPOSITORY` — repository slug, for example `owner/repository`.
-   - `GITHUB_ACTIONS_TOKEN` — fine-grained repository token with Actions read/write, Contents read, and repository metadata read permissions.
-   - `DASHBOARD_USERNAME` and `DASHBOARD_PASSWORD` — credentials for the dashboard's sign-in form.
-   - `SECRET_KEY` — a long, random value used to sign Flask sessions.
+   - `GITHUB_REPOSITORY` - repository slug, for example `owner/repository`.
+   - `GITHUB_ACTIONS_TOKEN` - fine-grained repository token with Actions read/write, Contents read, and repository metadata read permissions.
+   - `DASHBOARD_USERNAME` and `DASHBOARD_PASSWORD` - credentials for the dashboard's sign-in form.
+   - `SECRET_KEY` - a long, random value used to sign Flask sessions.
 3. Deploy or redeploy the project after setting the variables.
 4. In GitHub repository settings, allow Actions to write repository contents so the workflow can persist state to `monitor-state`. Add `GEMINI_API_KEY`, `EMAIL_FROM`, `EMAIL_PASSWORD`, and optionally `EMAIL_TO` as GitHub Actions Secrets.
 5. Open the deployed dashboard and save settings. Manual launches are available from the dashboard or from **Actions > IT Tender Monitor > Run workflow**.
