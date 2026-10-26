@@ -1,0 +1,38 @@
+{
+  "cpv_codes": [
+    "18936",
+    "18937",
+    "19006",
+    "19012",
+    "19013",
+    "19014",
+    "19015",
+    "19017",
+    "19009",
+    "19027",
+    "19070",
+    "19083",
+    "19072",
+    "19073",
+    "19074",
+    "19075",
+    "19076"
+  ],
+  "app_types": [
+    "9",
+    "2",
+    "4",
+    "3"
+  ],
+  "app_status": "10",
+  "enabled": true,
+  "gemini_model": "gemini-3.5-flash-lite",
+  "gemini_rpd_limit": 400,
+  "gemini_tpd_limit": 0,
+  "gemini_rpm_limit": 8,
+  "gemini_tpm_limit": 200000,
+  "max_analyses_per_run": 30,
+  "max_run_minutes": 50,
+  "initial_scan_mode": "all",
+  "schedule_interval_hours": 72
+}

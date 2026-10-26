@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+
+{% block title %}მიმოხილვა | ტენდერების მონიტორინგი{% endblock %}
+{% block page_title %}მიმოხილვა{% endblock %}
+
+{% block content %}
+  <section class="welcome-panel">
+    <div>
+      <p class="section-kicker">მიმდინარე კონფიგურაცია</p>
+      <h2>მონიტორინგის ფილტრები</h2>
+      <p>შედეგები იძებნება გამოცხადებული ტენდერების, CPV კატეგორიებისა და პროცედურის ტიპების მიხედვით.</p>
+    </div>
+    <div class="dashboard-actions">
+      <a class="primary-button" href="{{ url_for('settings') }}">ფილტრების შეცვლა</a>
+      {% if config_remote %}
+        <form class="run-now-form" action="{{ url_for('run_now') }}" method="post">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+          <button class="primary-button" type="submit">გაშვება ახლავე</button>
+        </form>
+      {% endif %}
+    </div>
+  </section>
+
+  <section class="summary-grid" aria-label="არჩეული ფილტრების რაოდენობა">
+    <article class="summary-card">
+      <span class="summary-label">არჩეული CPV კატეგორიები</span>
+      <strong>{{ selected_cpv|length }}</strong>
+    </article>
+    <article class="summary-card">
+      <span class="summary-label">არჩეული პროცედურები</span>
+      <strong>{{ selected_types|length }}</strong>
+    </article>
+    <article class="summary-card">
+      <span class="summary-label">მონიტორინგის სტატუსი</span>
+      <strong class="summary-status">{{ 'ჩართულია' if config.enabled else 'შეჩერებულია' }}</strong>
+    </article>
+    <article class="summary-card">
+      <span class="summary-label">ბოლო გაშვება</span>
+      <strong class="summary-date">{{ state.last_run[:16].replace('T', ' ') if state.last_run else 'ჯერ არ გაშვებულა' }}</strong>
+    </article>
+  </section>
+
+  <section class="panel-section usage-panel" aria-labelledby="usage-heading">
+    <div class="panel-heading usage-heading">
+      <div>
+        <p class="section-kicker">დღიური გამოყენება</p>
+        <h2 id="usage-heading">Gemini AI-ის სტატისტიკა</h2>
+        <p class="section-description">
+          კვოტის დღე: <time id="usage-date" datetime="{{ daily_usage.date }}">{{ daily_usage.date }}</time>
+          (აშშ-ის წყნარი ოკეანის დროით).
+        </p>
+      </div>
+      <div class="usage-controls">
+        <span class="usage-updated" id="usage-updated" aria-live="polite">
+        {% if daily_usage.updated_at %}
+          ბოლო მონაცემი:
+          <time datetime="{{ daily_usage.updated_at }}">{{ daily_usage.updated_at }}</time>
+        {% else %}
+          მონაცემები ჯერ არ განახლებულა
+        {% endif %}
+        </span>
+        <button class="refresh-button" type="button" data-refresh-usage>განახლება</button>
+        <span class="refresh-status" id="usage-refreshed" aria-live="polite"></span>
+      </div>
+    </div>
+    <div class="usage-grid" id="usage-stats">
+      <article class="usage-card">
+        <span>მოთხოვნები</span>
+        <strong data-metric="requests">{{ "{:,}".format(daily_usage.requests) }}</strong>
+      </article>
+      <article class="usage-card">
+        <span>შემავალი ტოკენები</span>
+        <strong data-metric="input">{{ "{:,}".format(daily_usage.input) }}</strong>
+      </article>
+      <article class="usage-card">
+        <span>გამომავალი ტოკენები</span>
+        <strong data-metric="output">{{ "{:,}".format(daily_usage.output) }}</strong>
+      </article>
+      <article class="usage-card">
+        <span>სულ ტოკენები</span>
+        <strong data-metric="total">{{ "{:,}".format(daily_usage.total) }}</strong>
+      </article>
+      <article class="usage-card">
+        <span>კვოტის შეცდომები</span>
+        <strong data-metric="quota_errors">{{ "{:,}".format(daily_usage.quota_errors) }}</strong>
+      </article>
+    </div>
+    <p class="usage-note">
+      სტატისტიკა ასახავს მხოლოდ ამ მონიტორის მიერ დაფიქსირებულ მოხმარებას და არა Gemini-ის
+      ანგარიშის მთლიან ან დარჩენილ კვოტას. მონაცემები ახლდება GitHub Actions-ის მდგომარეობის
+      შენახვის შემდეგ; გვერდი პერიოდულად ამოწმებს განახლებას.
+    </p>
+  </section>
+
+  <section class="panel-section">
+    <div class="panel-heading">
+      <div>
+        <p class="section-kicker">მონიშნული კატეგორიები</p>
+        <h2>CPV ფილტრები</h2>
+      </div>
+      <a class="text-button" href="{{ url_for('settings') }}">მართვა</a>
+    </div>
+    {% if selected_cpv %}
+      <div class="selected-list">
+        {% for item in selected_cpv %}
+          <div class="selected-row">
+            <span class="selected-code">{{ item.id }}</span>
+            <span>{{ item.name.split(' - ', 1)[1] if ' - ' in item.name else item.name }}</span>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="empty-state">CPV კატეგორიები არჩეული არ არის.</p>
+    {% endif %}
+  </section>
+
+  <section class="panel-section">
+    <div class="panel-heading">
+      <div>
+        <p class="section-kicker">მონიშნული პროცედურები</p>
+        <h2>შესყიდვის ტიპები</h2>
+      </div>
+      <a class="text-button" href="{{ url_for('settings') }}">მართვა</a>
+    </div>
+    {% if selected_types %}
+      <div class="type-summary-list">
+        {% for item in selected_types %}
+          <div class="type-summary">
+            <span class="type-code">{{ item.code }} <small>კოდი {{ item.id }}</small></span>
+            <span>{{ item.name }}</span>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="empty-state">შესყიდვის ტიპები არჩეული არ არის.</p>
+    {% endif %}
+  </section>
+
+  <section class="notice-panel">
+    <strong>შენიშვნა</strong>
+    <p>ეს ვებინტერფეისი ინახავს პარამეტრებს GitHub Actions-ის <code>MONITOR_CONFIG</code> variable-ში. შემდეგი დაგეგმილი ან ხელით გაშვება ამ კონფიგურაციას გამოიყენებს. საიდუმლო გასაღებები GitHub Secrets-ში ინახება და UI-ში აღარ ჩანს.</p>
+  </section>
+{% endblock %}

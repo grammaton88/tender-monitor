@@ -6,6 +6,7 @@ import json
 import os
 import re
 import smtplib
+import subprocess
 import time
 import zipfile
 from collections import Counter
@@ -92,13 +93,63 @@ def load_state(path: Path) -> dict:
 
 
 def save_state(path: Path, state: dict) -> None:
+    global _last_live_state_publish
     path.parent.mkdir(parents=True, exist_ok=True)
+    state["updated_at"] = datetime.now(timezone.utc).isoformat()
     temporary = path.with_suffix(".tmp")
     with temporary.open("w", encoding="utf-8") as stream:
         json.dump(state, stream, ensure_ascii=False, indent=2, sort_keys=True)
         stream.flush()
         os.fsync(stream.fileno())
     temporary.replace(path)
+    if os.environ.get("GITHUB_ACTIONS") == "true":
+        now = time.monotonic()
+        if now - _last_live_state_publish >= 30:
+            _last_live_state_publish = now
+            try:
+                publish_live_state(path)
+            except (OSError, subprocess.CalledProcessError) as exc:
+                print(
+                    "Live state publication failed; final workflow state will still be saved "
+                    f"at the end ({type(exc).__name__})"
+                )
+
+
+_last_live_state_publish = 0.0
+
+
+def publish_live_state(path: Path) -> None:
+    repository_path = path.parent
+    changed = subprocess.run(
+        ["git", "-C", str(repository_path), "status", "--porcelain", "--", path.name],
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+    if changed:
+        subprocess.run(
+            ["git", "-C", str(repository_path), "add", "--", path.name],
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+        subprocess.run(
+            [
+                "git", "-C", str(repository_path), "commit", "-m",
+                "Publish live monitor progress",
+                "-m",
+                "Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+    subprocess.run(
+        ["git", "-C", str(repository_path), "push", "origin", "HEAD:monitor-state"],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
 
 
 def digest(value: bytes) -> str:
@@ -881,6 +932,15 @@ def send_report(plain: str, rich: str) -> None:
 def run_monitor(session: requests.Session, search, codes: dict) -> None:
     path = Path(os.environ.get("STATE_PATH", "state.json"))
     state = load_state(path)
+    schedule_interval = positive_setting("SCHEDULE_INTERVAL_HOURS", 72) * 60 * 60
+    last_monitor_run = state.get("last_monitor_run_at")
+    if (
+        os.environ.get("GITHUB_EVENT_NAME") == "schedule"
+        and isinstance(last_monitor_run, (int, float))
+        and time.time() - last_monitor_run < schedule_interval
+    ):
+        print("Scheduled monitor run skipped; configured interval has not elapsed")
+        return
     ai = Gemini(state, path)
     mode = os.environ.get("INITIAL_SCAN_MODE", "all")
     if mode not in ("all", "baseline"):
@@ -924,6 +984,8 @@ def run_monitor(session: requests.Session, search, codes: dict) -> None:
         send_report(plain, rich)
         for tender_id, fingerprint in notified.items():
             state["tenders"][tender_id]["notified"] = fingerprint
+        if not errors:
+            state["last_monitor_run_at"] = time.time()
         print(f"Daily email sent; {len(notified)} new/updated/pending tender entries")
         if errors:
             raise ProcessingError("One or more CPV searches failed; see daily email")

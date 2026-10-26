@@ -76,6 +76,33 @@ class PipelineTests(unittest.TestCase):
             pipeline.load_state(self.path)
         self.assertFalse(self.path.with_suffix(".tmp").exists())
 
+    def test_state_save_publishes_live_snapshot_in_github_actions(self):
+        pipeline._last_live_state_publish = 0
+        with patch.dict(os.environ, {"GITHUB_ACTIONS": "true"}), patch.object(
+            pipeline,
+            "publish_live_state",
+        ) as publish, patch.object(pipeline.time, "monotonic", return_value=120):
+            pipeline.save_state(self.path, self.state)
+        publish.assert_called_once_with(self.path)
+        self.assertEqual(pipeline._last_live_state_publish, 120)
+
+    def test_live_state_publish_failure_is_throttled_and_does_not_stop_monitor(self):
+        pipeline._last_live_state_publish = 0
+        with patch.dict(os.environ, {"GITHUB_ACTIONS": "true"}), patch.object(
+            pipeline,
+            "publish_live_state",
+            side_effect=OSError("temporary push failure"),
+        ) as publish, patch.object(
+            pipeline.time,
+            "monotonic",
+            side_effect=[120, 125],
+        ), patch("builtins.print") as output:
+            pipeline.save_state(self.path, self.state)
+            pipeline.save_state(self.path, self.state)
+        self.assertEqual(publish.call_count, 1)
+        self.assertEqual(pipeline._last_live_state_publish, 120)
+        self.assertIn("Live state publication failed", output.call_args.args[0])
+
     def test_document_links_resolve_against_public_root_and_support_que(self):
         docs = pipeline.discover_documents(DOCS + """
         <a href="library/files.php?mode=que&amp;file=43">sheet.xlsx</a>
@@ -1066,6 +1093,28 @@ class SearchTests(unittest.TestCase):
         session.get.return_value = response(text="<html>Session error</html>")
         with self.assertRaises(pipeline.ProcessingError):
             monitor.search_tenders(session, "x")
+
+    def test_scheduled_monitor_run_respects_configured_interval(self):
+        import time
+
+        with tempfile.TemporaryDirectory() as directory:
+            state_path = Path(directory) / "state.json"
+            state = {
+                "version": 1,
+                "tenders": {},
+                "analyses": {},
+                "usage": {},
+                "last_monitor_run_at": time.time(),
+            }
+            pipeline.save_state(state_path, state)
+            search = MagicMock()
+            with patch.dict(os.environ, {
+                "STATE_PATH": str(state_path),
+                "GITHUB_EVENT_NAME": "schedule",
+                "SCHEDULE_INTERVAL_HOURS": "72",
+            }):
+                pipeline.run_monitor(MagicMock(), search, {})
+            search.assert_not_called()
 
 
 if __name__ == "__main__":

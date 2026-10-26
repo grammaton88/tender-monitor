@@ -1,5 +1,6 @@
 import os
 import re
+import time
 
 import requests
 from bs4 import BeautifulSoup
@@ -216,8 +217,28 @@ def main():
     print("Starting IT Tender Monitor")
     print("=" * 60)
 
+    from monitor_settings import apply_config_to_environment, load_config
+
+    config = load_config()
+    if not config["enabled"]:
+        print("Tender monitoring is disabled in monitor-config.json")
+        return
+    apply_config_to_environment(config)
+
+    def search_selected_types(session, basecode: str) -> list[dict]:
+        results = {}
+        for app_type in config["app_types"]:
+            for tender in search_tenders(session, basecode, app_type):
+                if tender["id"]:
+                    results[tender["id"]] = tender
+            time.sleep(1.3)
+        return list(results.values())
+
     with create_session() as session:
-        run_monitor(session, search_tenders, IT_BASECODES)
+        selected_basecodes = {
+            code: IT_BASECODES[code] for code in config["cpv_codes"]
+        }
+        run_monitor(session, search_selected_types, selected_basecodes)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block title %}გაშვების ჟურნალები | ტენდერების მონიტორინგი{% endblock %}
+{% block page_title %}GitHub Actions - გაშვების ჟურნალები{% endblock %}
+
+{% block content %}
+  <section class="welcome-panel runs-welcome">
+    <div>
+      <p class="section-kicker">GitHub Actions</p>
+      <h2>ბოლო გაშვებები და ჟურნალები</h2>
+      <p>აირჩიეთ გაშვება, რომ GitHub-ზე ნახოთ მისი სრული ნაბიჯები, შედეგი და ტექნიკური ჟურნალი.</p>
+    </div>
+    {% if actions_url %}
+      <a class="primary-button" href="{{ actions_url }}" target="_blank" rel="noopener noreferrer">ყველა გაშვების ნახვა GitHub-ზე</a>
+    {% endif %}
+  </section>
+
+  <section class="panel-section connection-panel" aria-labelledby="connection-heading">
+    <div class="panel-heading">
+      <div>
+        <p class="section-kicker">ინტეგრაციის შემოწმება</p>
+        <h2 id="connection-heading">GitHub კავშირი და უფლებები</h2>
+      </div>
+      <button class="refresh-button" type="button" data-refresh-health>შემოწმება</button>
+    </div>
+    <p class="refresh-status" id="health-refreshed" aria-live="polite">ბოლო შემოწმება: გვერდის ჩატვირთვისას</p>
+    <ul class="health-list" id="github-health-list">
+      {% for check in diagnostics %}
+        <li class="health-item {{ 'healthy' if check.ok else 'unhealthy' }}">
+          <strong>{{ check.name }}</strong>
+          <span>{{ check.detail }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section class="run-list-section" aria-labelledby="runs-heading">
+    <div class="run-list-toolbar">
+      <div>
+        <p class="section-kicker">GitHub Actions</p>
+        <h2 id="runs-heading">ბოლო გაშვებები</h2>
+      </div>
+      <div class="refresh-controls">
+        <span class="refresh-status" id="runs-refreshed" aria-live="polite">ბოლო განახლება: გვერდის ჩატვირთვისას</span>
+        <button class="refresh-button" type="button" data-refresh-runs>განახლება</button>
+      </div>
+    </div>
+    <div class="run-list" id="workflow-run-list" aria-live="polite" aria-label="ბოლო GitHub Actions გაშვებები">
+    {% if runs %}
+      {% for run in runs %}
+        <article class="run-card" data-run-id="{{ run.id }}">
+          <div class="run-card-main">
+            <div class="run-title-row">
+              <h2>{{ run.title }}</h2>
+              {% if run.conclusion == 'success' %}
+                <span class="run-badge success">წარმატებული</span>
+              {% elif run.conclusion %}
+                <span class="run-badge failure">წარუმატებელი</span>
+              {% elif run.status == 'in_progress' %}
+                <span class="run-badge running">მიმდინარეობს</span>
+              {% elif run.status == 'queued' %}
+                <span class="run-badge queued">რიგშია</span>
+              {% else %}
+                <span class="run-badge">{{ run.status }}</span>
+              {% endif %}
+            </div>
+            <p class="run-meta">
+              გაშვება #{{ run.number }}
+              {% if run.event == 'schedule' %}· ავტომატური{% elif run.event == 'workflow_dispatch' %}· ხელით{% endif %}
+              {% if run.branch %}· {{ run.branch }}{% endif %}
+            </p>
+            {% if run.current_step %}
+              <p class="run-current-step">მიმდინარე ნაბიჯი: {{ run.current_step }}</p>
+            {% endif %}
+            <p class="run-time">
+              დაწყება:
+              <time class="run-created" datetime="{{ run.created_at }}">{{ run.created_at }}</time>
+            </p>
+          </div>
+          <a class="text-button run-log-link" href="{{ run.url }}" target="_blank" rel="noopener noreferrer">
+            ჟურნალის ნახვა <span aria-hidden="true">↗</span>
+          </a>
+        </article>
+      {% endfor %}
+    {% else %}
+      <div class="runs-empty">
+        {% if config_remote %}
+          <h2>გაშვებები ჯერ არ არის</h2>
+          <p>როგორც კი GitHub Actions-ში workflow გაეშვება, ბოლო გაშვებები აქ გამოჩნდება.</p>
+        {% else %}
+          <h2>GitHub Actions არ არის დაკავშირებული</h2>
+          <p>გაშვების ისტორიის სანახავად დააკონფიგურირეთ GitHub Actions-ის კავშირი.</p>
+        {% endif %}
+      </div>
+    {% endif %}
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ka">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#10243a">
+    <title>{% block title %}ტენდერების მონიტორინგი{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css', v='20261026-7') }}">
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}" defer></script>
+  </head>
+  <body>
+    <div class="app-shell" id="page-top">
+      <aside class="sidebar">
+        <a class="brand" href="{{ url_for('dashboard') }}">
+          <span class="brand-mark" aria-hidden="true">TM</span>
+          <span class="brand-copy">
+            <strong>ტენდერების</strong>
+            <span>მონიტორინგი</span>
+          </span>
+        </a>
+
+        <p class="nav-heading">სამუშაო სივრცე</p>
+        <nav class="main-nav" aria-label="მთავარი ნავიგაცია">
+          <a class="nav-link {% if request.endpoint == 'dashboard' %}active{% endif %}" href="{{ url_for('dashboard') }}">
+            <span class="nav-indicator" aria-hidden="true"></span>
+            <span>მიმოხილვა</span>
+          </a>
+          <a class="nav-link {% if request.endpoint == 'workflow_runs' %}active{% endif %}" href="{{ url_for('workflow_runs') }}">
+            <span class="nav-indicator" aria-hidden="true"></span>
+            <span>გაშვების ჟურნალები</span>
+          </a>
+          <a class="nav-link {% if request.endpoint == 'settings' %}active{% endif %}" href="{{ url_for('settings') }}">
+            <span class="nav-indicator" aria-hidden="true"></span>
+            <span>ფილტრების პარამეტრები</span>
+          </a>
+        </nav>
+
+        {% if config_remote %}
+          <form class="sidebar-run-form" action="{{ url_for('run_now') }}" method="post">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+            <button class="sidebar-run-button" type="submit">გაშვება ახლავე</button>
+          </form>
+          <section class="sidebar-usage" aria-labelledby="sidebar-usage-heading">
+            <p class="footer-label" id="sidebar-usage-heading">დღიური AI სტატისტიკა</p>
+            <div class="sidebar-usage-row">
+              <span>მოთხოვნები</span>
+              <strong data-usage-metric="requests">--</strong>
+            </div>
+            <div class="sidebar-usage-row">
+              <span>ტოკენები</span>
+              <strong data-usage-metric="total">--</strong>
+            </div>
+            <a class="sidebar-usage-link" href="{{ url_for('dashboard', _anchor='usage-heading') }}">სრული სტატისტიკა</a>
+            <span class="sidebar-usage-updated" id="sidebar-usage-updated" aria-live="polite">იტვირთება...</span>
+          </section>
+        {% endif %}
+
+        <div class="sidebar-footer">
+          <span class="footer-label">მონიტორინგის სტატუსი</span>
+          {% if config.enabled %}
+            <span class="status-inline"><i aria-hidden="true"></i> ჩართულია</span>
+          {% else %}
+            <span class="status-inline disabled"><i aria-hidden="true"></i> შეჩერებულია</span>
+          {% endif %}
+          <p>ძიება მოიცავს გამოცხადებულ ტენდერებს და არჩეულ ფილტრებს.</p>
+        </div>
+      </aside>
+
+      <main class="main-area">
+        <header class="page-header">
+          <div>
+            <p class="page-overline">სახელმწიფო შესყიდვების მონიტორინგი</p>
+            <h1>{% block page_title %}მიმოხილვა{% endblock %}</h1>
+          </div>
+          {% if request.endpoint == 'settings' %}
+            <a class="header-link" href="{{ url_for('dashboard') }}">მიმოხილვა <span aria-hidden="true">↗</span></a>
+          {% else %}
+            <a class="header-link" href="{{ url_for('settings') }}">ფილტრების მართვა <span aria-hidden="true">↗</span></a>
+          {% endif %}
+        </header>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <div class="messages" aria-live="polite">
+              {% for category, message in messages %}
+                <div class="message {{ category }}" role="status">{{ message }}</div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+        <footer class="page-footer">
+          <div class="page-footer-copy">
+            ტენდერების მონიტორინგი <span>·</span>
+            {% if config_remote %}პარამეტრები ინახება GitHub-ში{% else %}პარამეტრები ინახება JSON ფაილში{% endif %}
+          </div>
+          <a class="back-to-top" href="#page-top" aria-label="გვერდის დასაწყისში დაბრუნება" title="გვერდის დასაწყისში დაბრუნება">
+            <span class="back-to-top-icon" aria-hidden="true">↑</span>
+          </a>
+          <div class="page-footer-author">
+            Developed by -
+            <a href="https://www.linkedin.com/in/mikheil-kakabadze" target="_blank" rel="noopener noreferrer">Mikheil Kakabadze</a>
+          </div>
+        </footer>
+      </main>
+    </div>
+    <div
+      id="dashboard-refresh-source"
+      data-usage-url="{{ url_for('usage_api') }}"
+      data-runs-url="{{ url_for('workflow_runs_api') }}"
+      data-health-url="{{ url_for('github_health_api') }}"
+      hidden
+    ></div>
+  </body>
+</html>

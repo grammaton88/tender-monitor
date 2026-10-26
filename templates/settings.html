@@ -1,0 +1,245 @@
+{% extends 'base.html' %}
+
+{% block title %}ფილტრების პარამეტრები | ტენდერების მონიტორინგი{% endblock %}
+{% block page_title %}ფილტრების პარამეტრები{% endblock %}
+
+{% block content %}
+  <div class="page-intro">
+    <p>აირჩიეთ CPV კატეგორიები და შესყიდვის პროცედურები, რომ განსაზღვროთ მონიტორინგის ფარგლები.</p>
+    <span class="read-only-note">სტატუსი: გამოცხადებული</span>
+  </div>
+
+  <form method="post" class="settings-form">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+    <input type="hidden" name="config_revision" value="{{ config_revision or '' }}">
+    <section class="panel-section filter-panel" aria-labelledby="cpv-heading">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">01 / კატეგორიები</p>
+          <h2 id="cpv-heading">CPV კატეგორიები</h2>
+          <p class="section-description">მონიშნეთ შესყიდვის საგნის შესაბამისი კატეგორიები. ძიება თითოეულ არჩეულ CPV კოდზე ცალ-ცალკე სრულდება.</p>
+        </div>
+        <div class="selection-count" aria-live="polite">
+          <strong id="cpv-selected-count">{{ config.cpv_codes|length }}</strong>
+          <span>არჩეული</span>
+        </div>
+      </div>
+
+      <div class="filter-toolbar">
+        <label class="search-field">
+          <span class="visually-hidden">CPV კოდის ან დასახელების ძიება</span>
+          <input id="cpv-search" type="search" placeholder="მოძებნეთ კოდით ან დასახელებით" autocomplete="off">
+        </label>
+        <div class="toolbar-actions">
+          <button class="text-button" type="button" data-select-visible="cpv-list">ყველას მონიშვნა</button>
+          <button class="text-button" type="button" data-clear-list="cpv-list">მონიშვნის მოხსნა</button>
+        </div>
+      </div>
+
+      <div class="option-list cpv-list" id="cpv-list">
+        {% for option in cpv_options %}
+          <label class="option-row cpv-option" data-search="{{ (option.id ~ ' ' ~ option.name)|lower }}">
+            <input type="checkbox" name="cpv_codes" value="{{ option.id }}" {% if option.id in config.cpv_codes %}checked{% endif %}>
+            <span class="checkbox-mark" aria-hidden="true"></span>
+            <span class="option-copy">
+              <span class="option-title">{{ option.name.split(' - ', 1)[1] if ' - ' in option.name else option.name }}</span>
+              <span class="option-meta">CPV {{ option.name.split(' - ', 1)[0] if ' - ' in option.name else option.id }} · შიდა კოდი {{ option.id }}</span>
+            </span>
+          </label>
+        {% endfor %}
+        <p class="no-results" id="cpv-no-results" hidden>შესაბამისი კატეგორია ვერ მოიძებნა.</p>
+      </div>
+    </section>
+
+    <section class="panel-section filter-panel" aria-labelledby="type-heading">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">02 / პროცედურები</p>
+          <h2 id="type-heading">შესყიდვის ტიპები</h2>
+          <p class="section-description">აირჩიეთ პორტალის პროცედურის ტიპი. თითოეულ ვარიანტთან მითითებულია პორტალის კოდი.</p>
+        </div>
+        <div class="selection-count" aria-live="polite">
+          <strong id="type-selected-count">{{ config.app_types|length }}</strong>
+          <span>არჩეული</span>
+        </div>
+      </div>
+
+      <div class="filter-toolbar">
+        <label class="search-field">
+          <span class="visually-hidden">შესყიდვის ტიპის ძიება</span>
+          <input id="type-search" type="search" placeholder="მოძებნეთ კოდით ან დასახელებით" autocomplete="off">
+        </label>
+        <div class="toolbar-actions">
+          <button class="text-button" type="button" data-select-visible="type-list">ყველას მონიშვნა</button>
+          <button class="text-button" type="button" data-clear-list="type-list">მონიშვნის მოხსნა</button>
+        </div>
+      </div>
+
+      <div class="option-list type-list" id="type-list">
+        {% for item in app_types %}
+          <label class="option-row type-option" data-search="{{ (item.id ~ ' ' ~ item.code ~ ' ' ~ item.name)|lower }}">
+            <input type="checkbox" name="app_types" value="{{ item.id }}" {% if item.id in config.app_types %}checked{% endif %}>
+            <span class="checkbox-mark" aria-hidden="true"></span>
+            <span class="option-copy">
+              <span class="option-title">{{ item.name }}</span>
+              <span class="option-meta">{{ item.code }} · პორტალის კოდი {{ item.id }}</span>
+            </span>
+          </label>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="panel-section filter-panel" aria-labelledby="runtime-heading">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">03 / დამუშავება</p>
+          <h2 id="runtime-heading">შეტყობინება და რესურსების ლიმიტები</h2>
+          <p class="section-description">ეს პარამეტრები განსაზღვრავს Gemini-ის მოდელს, კვოტებსა და ერთი გაშვების დამუშავების ზღვარს.</p>
+        </div>
+      </div>
+      <div class="settings-grid">
+        <label class="setting-field">
+          <span>Gemini მოდელი</span>
+          <input type="text" name="gemini_model" value="{{ config.gemini_model }}" maxlength="100" required>
+        </label>
+        <label class="setting-field">
+          <span>დღიური მოთხოვნების ლიმიტი</span>
+          <input type="number" name="gemini_rpd_limit" value="{{ config.gemini_rpd_limit }}" min="0" step="1" required>
+          <small>0 ნიშნავს, რომ აპლიკაციაში ლიმიტი მითითებული არ არის.</small>
+        </label>
+        <label class="setting-field">
+          <span>დღიური ტოკენების ლიმიტი</span>
+          <input type="number" name="gemini_tpd_limit" value="{{ config.gemini_tpd_limit }}" min="0" step="1" required>
+          <small>0 ნიშნავს, რომ აპლიკაციაში ლიმიტი მითითებული არ არის.</small>
+        </label>
+        <label class="setting-field">
+          <span>წუთში მოთხოვნების ლიმიტი</span>
+          <input type="number" name="gemini_rpm_limit" value="{{ config.gemini_rpm_limit }}" min="0" step="1" required>
+        </label>
+        <label class="setting-field">
+          <span>წუთში ტოკენების ლიმიტი</span>
+          <input type="number" name="gemini_tpm_limit" value="{{ config.gemini_tpm_limit }}" min="0" step="1" required>
+        </label>
+        <label class="setting-field">
+          <span>მაქსიმალური ანალიზები ერთ გაშვებაზე</span>
+          <input type="number" name="max_analyses_per_run" value="{{ config.max_analyses_per_run }}" min="0" step="1" required>
+        </label>
+        <label class="setting-field">
+          <span>დამუშავების დრო, წუთებში</span>
+          <input type="number" name="max_run_minutes" value="{{ config.max_run_minutes }}" min="1" max="80" step="1" required>
+          <small>მაქსიმუმ 80 წუთი; workflow-ის საერთო დროის ლიმიტია 90 წუთი.</small>
+        </label>
+        <label class="setting-field">
+          <span>პირველი გაშვების რეჟიმი</span>
+          <select name="initial_scan_mode">
+            <option value="all" {% if config.initial_scan_mode == 'all' %}selected{% endif %}>ყველა არსებული ტენდერის დამუშავება</option>
+            <option value="baseline" {% if config.initial_scan_mode == 'baseline' %}selected{% endif %}>საწყისი მდგომარეობის აღრიცხვა ანალიზის გარეშე</option>
+          </select>
+          <small>მოქმედებს მხოლოდ მაშინ, როცა მონიტორის ისტორია ჯერ არ არსებობს.</small>
+        </label>
+        <label class="setting-field">
+          <span>ავტომატური გაშვების სიხშირე</span>
+          <select name="schedule_interval_hours" required>
+            <option value="24" {% if config.schedule_interval_hours == 24 %}selected{% endif %}>ყოველ 1 დღეში (24 საათი)</option>
+            <option value="48" {% if config.schedule_interval_hours == 48 %}selected{% endif %}>ყოველ 2 დღეში (48 საათი)</option>
+            <option value="72" {% if config.schedule_interval_hours == 72 %}selected{% endif %}>ყოველ 3 დღეში (72 საათი)</option>
+            <option value="168" {% if config.schedule_interval_hours == 168 %}selected{% endif %}>ყოველ 7 დღეში (168 საათი)</option>
+          </select>
+          <small>გაშვების შუალედი დღეებითაა ნაჩვენები, შესაბამისი საათების მითითებით. GitHub Actions განრიგს ყოველ საათში ამოწმებს.</small>
+        </label>
+      </div>
+    </section>
+
+    <section class="panel-section filter-panel" aria-labelledby="secrets-heading">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">04 / წვდომა</p>
+          <h2 id="secrets-heading">ელფოსტისა და Gemini-ის საიდუმლო მონაცემები</h2>
+          <p class="section-description">შევსებული მნიშვნელობები დაშიფრულად შეინახება GitHub Actions Secrets-ში. არსებული მნიშვნელობები უსაფრთხოების მიზნით არ იკითხება და არ გამოჩნდება. ცარიელი ველები არსებულ Secrets-ს უცვლელად დატოვებს.</p>
+        </div>
+      </div>
+      <div class="settings-grid">
+        <label class="setting-field">
+          <span>შეტყობინების მიმღები (EMAIL_TO)</span>
+          <input type="email" name="secret_EMAIL_TO" autocomplete="off" maxlength="254">
+          <small>ელფოსტის მიმღების მისამართი.</small>
+        </label>
+        <label class="setting-field">
+          <span>გამომგზავნის მისამართი (EMAIL_FROM)</span>
+          <input type="email" name="secret_EMAIL_FROM" autocomplete="off" maxlength="254">
+        </label>
+        <label class="setting-field">
+          <span>Gmail აპის პაროლი (EMAIL_PASSWORD)</span>
+          <input type="password" name="secret_EMAIL_PASSWORD" autocomplete="new-password" maxlength="5000">
+        </label>
+        <label class="setting-field">
+          <span>Gemini API გასაღები (GEMINI_API_KEY)</span>
+          <input type="password" name="secret_GEMINI_API_KEY" autocomplete="new-password" maxlength="5000">
+        </label>
+      </div>
+    </section>
+
+    <section class="panel-section monitor-panel">
+      <div class="monitor-copy">
+        <p class="section-kicker">05 / მონიტორინგი</p>
+        <h2>მონიტორინგის სტატუსი</h2>
+        <p class="section-description">გათიშვის შემთხვევაში ფილტრის პარამეტრები შენარჩუნდება, თუმცა მონიტორინგი უნდა დარჩეს ჩართული.</p>
+      </div>
+      <label class="switch-control">
+        <input type="checkbox" name="enabled" {% if config.enabled %}checked{% endif %}>
+        <span class="switch-track" aria-hidden="true"></span>
+        <span>ჩართულია</span>
+      </label>
+      <input type="hidden" name="app_status" value="10">
+    </section>
+
+    <div class="save-bar">
+      {% if config_remote %}
+        <p>პარამეტრები ინახება GitHub Actions-ის <code>MONITOR_CONFIG</code> variable-ში და შემდეგ გაშვებაზე ამოქმედდება.</p>
+      {% else %}
+        <p>პარამეტრები ინახება ადგილობრივ <code>monitor-config.json</code> ფაილში.</p>
+      {% endif %}
+      <button class="primary-button" type="submit">ცვლილებების შენახვა</button>
+    </div>
+  </form>
+
+  <script>
+    (() => {
+      const wireFilter = (inputId, listId, itemSelector, countId, emptyId) => {
+        const input = document.getElementById(inputId);
+        const list = document.getElementById(listId);
+        const items = [...list.querySelectorAll(itemSelector)];
+        const count = document.getElementById(countId);
+        const empty = emptyId ? document.getElementById(emptyId) : null;
+        const update = () => {
+          const query = input.value.trim().toLocaleLowerCase();
+          let visible = 0;
+          items.forEach((item) => {
+            const matches = item.dataset.search.includes(query);
+            item.hidden = !matches;
+            visible += Number(matches);
+          });
+          if (empty) empty.hidden = visible > 0;
+          count.textContent = list.querySelectorAll('input[type="checkbox"]:checked').length;
+        };
+        input.addEventListener("input", update);
+        list.addEventListener("change", update);
+        update();
+      };
+
+      wireFilter("cpv-search", "cpv-list", ".cpv-option", "cpv-selected-count", "cpv-no-results");
+      wireFilter("type-search", "type-list", ".type-option", "type-selected-count");
+
+      document.querySelectorAll("[data-select-visible], [data-clear-list]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const list = document.getElementById(button.dataset.selectVisible || button.dataset.clearList);
+          const select = Boolean(button.dataset.selectVisible);
+          list.querySelectorAll(".option-row:not([hidden]) input[type='checkbox']").forEach((checkbox) => {
+            checkbox.checked = select;
+          });
+          list.dispatchEvent(new Event("change", { bubbles: true }));
+        });
+      });
+    })();
+  </script>
+{% endblock %}
