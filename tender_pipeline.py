@@ -862,12 +862,12 @@ def send_report(plain: str, rich: str) -> None:
     sender, password, recipient = (os.environ.get(k) for k in ("EMAIL_FROM", "EMAIL_PASSWORD", "EMAIL_TO"))
     if not sender or not password or not recipient:
         raise ValueError("EMAIL_FROM, EMAIL_PASSWORD and EMAIL_TO must be configured")
+    now = datetime.now(ZoneInfo('Asia/Tbilisi'))
     message = EmailMessage()
     message["From"], message["To"] = sender, recipient
     message["Subject"] = (
-        "IT ტენდერების მონიტორინგი - ყოველდღიური ანგარიში | "
-        f"{datetime.now(ZoneInfo('Asia/Tbilisi')):%Y-%m-%d %H:%M} "
-        "(თბილისის დრო, UTC+04:00)"
+        "IT ტენდერების მონიტორინგი - 72 საათიანი ანგარიში | "
+        f"{now:%Y-%m-%d} - {now:%H:%M}"
     )
     message.set_content(plain)
     message.add_alternative(rich, subtype="html")

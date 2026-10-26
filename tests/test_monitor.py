@@ -589,8 +589,8 @@ class PipelineTests(unittest.TestCase):
             message = server.send_message.call_args.args[0]
             self.assertRegex(
                 str(message["Subject"]),
-                r"^IT ტენდერების მონიტორინგი - ყოველდღიური ანგარიში \| "
-                r"\d{4}-\d{2}-\d{2} \d{2}:\d{2} \(თბილისის დრო, UTC\+04:00\)$",
+                r"^IT ტენდერების მონიტორინგი - 72 საათიანი ანგარიში \| "
+                r"\d{4}-\d{2}-\d{2} - \d{2}:\d{2}$",
             )
             self.assertEqual([p.get_content_type() for p in message.iter_parts()],
                              ["text/plain", "text/html"])
