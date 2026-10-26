@@ -777,7 +777,7 @@ def report(state: dict, ai: Gemini, scan_errors: list[str],
     ]
     lines = [
         f"IT ტენდერების მონიტორინგის ანგარიში - "
-        f"{datetime.now(ZoneInfo('Asia/Tbilisi')):%Y-%m-%d %H:%M} (თბილისის დრო, UTC+04:00)",
+        f"{datetime.now(ZoneInfo('Asia/Tbilisi')):%Y-%m-%d %H:%M} ",
         "", "შემოწმების შედეგები",
     ]
     if current_tenders is not None:
