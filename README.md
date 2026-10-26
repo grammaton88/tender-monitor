@@ -1,168 +1,147 @@
 # Georgian IT Tender Monitor
 
-An automated monitor for announced information-technology tenders on the [Georgian State Procurement portal](https://tenders.procurement.gov.ge/public/). It searches configured CPV categories and procedure types, reviews available public tender documents with Google Gemini, and sends a report by email.
+Monitors announced IT tenders on the [Georgian State Procurement portal](https://tenders.procurement.gov.ge/public/), analyzes eligible public tender documents with Google Gemini, and emails a Georgian-language report.
 
-**Author:** [Mikheil Kakabadze](https://www.linkedin.com/in/mikheil-kakabadze)
+**Developed by:** [Mikheil Kakabadze](https://www.linkedin.com/in/mikheil-kakabadze)
 
-## At a glance
+## What it does
 
-- **Schedule:** GitHub Actions checks hourly; the dashboard selects a 1-168-hour interval (including 24 hours / 1 day, 48 hours / 2 days, and 72 hours / 3 days), plus manual runs.
-- **Runtime:** GitHub Actions with Python 3.12; no always-on server or external database.
-- **AI output:** concise Georgian keywords for the procurement subject, delivery period, warranty, and explicit references to confidential materials.
-- **Documents:** PDF, DOCX, XLSX, and XLSM. Unsupported, malformed, or oversized files are reported for manual review.
-- **State:** saved as `state.json` on the `monitor-state` branch so progress and analysis cache survive between runs.
+- Searches configured CPV categories and procurement procedure types.
+- Analyzes supported public documents (PDF, DOCX, XLSX, and XLSM) and flags files that need manual review.
+- Caches analysis and retries pending work on later runs.
+- Sends plain-text and HTML email reports.
+- Runs scheduled and manual scans with GitHub Actions.
+- Provides a Flask dashboard for filters, workflow runs, usage statistics, and manual runs.
+- Serves the dashboard on Vercel; GitHub stores deployed settings and monitor state.
 
-## How it works
+The schedule workflow wakes hourly. The dashboard's configured interval (1-168 hours) determines whether a scheduled scan is due. GitHub may delay scheduled starts; use the dashboard or GitHub Actions for a manual run.
 
-1. `monitor.py` searches announced tenders in the configured IT CPV categories and paginates through the portal results.
-2. For each tender, the monitor discovers public documentation and downloads available attachments.
-3. Eligible documents for a tender are sent together in one Gemini analysis request. The prompt asks for short, factual values only; it does not ask Gemini for a long narrative or a general tender assessment.
-4. Results are cached using the model, analysis version, and document content. The app can reuse a matching cached result rather than make another Gemini generation request. If the model, extraction rules, or document content changes, a new analysis may be required.
-5. Pending work is saved and retried on a later run. Per-run request and time limits defer remaining work rather than intentionally discard it.
-6. The report is sent as both plain text and HTML. Its subject includes the current Tbilisi date and time (UTC+04:00).
+## Deploy to Vercel
 
-The monitor currently searches IT CPV base codes and procurement procedure types selected in `monitor-config.json`. The dashboard edits this configuration; the workflow uses the same values when it starts.
+### 1. Push the project to GitHub
 
-### Local dashboard (JSON-based, no database)
+Push the project files listed in [Project files](#project-files) to the repository's default branch, including `.github/workflows/tender-monitor.yml`. Do not upload `.venv/`, `data/`, `.vercel/`, `.env`, or local state files.
 
-A Georgian-language dashboard is included in `app.py`. The filter page lists every IT CPV category from `monitor.py` with its full Georgian name and a searchable checkbox, and lists the procurement procedure names with their portal IDs. `monitor-config.json` provides the non-secret local defaults; `data/state.json` holds the dashboard display state. Run locally with:
+### 2. Import the repository into Vercel
 
-```bash
-python app.py
-```
+Create a Vercel project from the GitHub repository. The included `vercel.json` configures the Flask function; Vercel installs the Python packages from `requirements.txt`. The Flask dashboard is served by `app.py`, and static CSS and JavaScript are in `public/static/`.
 
-Then open `http://localhost:5000` in a browser. The interface uses a restrained navy-and-white palette and adapts to mobile screens. Locally, settings are written to `monitor-config.json`. In deployment, settings are saved as the GitHub Actions repository variable `MONITOR_CONFIG`; the next scheduled or manually dispatched workflow reads that variable. This avoids committing settings or redeploying the UI on each save.
+Add these environment variables to the Vercel project. Set them for **Production** (and Preview only if you intend to use Preview deployments):
 
-The UI supports CPV and procedure filters, email recipient, sender, Gmail app password, Gemini API key, model and quota limits, per-run analysis/time limits, first-scan mode, monitoring enablement, and automatic frequency in hours. Frequent presets are 24 hours (1 day), 48 hours (2 days), and 72 hours (3 days); supported values are 1-168 hours. Secrets entered in the UI are encrypted with GitHub's repository public key and written directly to GitHub Actions Secrets; existing secret values are never read back or displayed. The GitHub token needs **Actions: Read and write** and **Contents: Read** permissions for this repository. The left sidebar shows daily request/token totals, links to recent workflow runs and their GitHub logs, and provides a **გაშვება ახლავე** action that dispatches the workflow on the repository's default branch. Manual dispatch bypasses the selected schedule interval, but monitoring still needs to be enabled.
-
-The GitHub Actions cron wakes hourly; a lightweight gate checks the saved state and skips dependency installation, tests, and scanning when the interval is not due. The monitor runs once the selected hour interval has elapsed. GitHub may delay scheduled starts, so this is an approximate interval, not an exact timer. Manual workflow dispatch runs immediately.
-
-The dashboard shows daily request, input-token, output-token, total-token, and quota-error counts, with a manual refresh control. It refreshes every minute from the monitor state stored on the `monitor-state` branch. During a workflow, state and AI usage are published to that branch at most every 30 seconds, so dashboard statistics can reflect in-progress work; GitHub API and dashboard refresh intervals still introduce a short delay. Statistics cover only API usage recorded by this monitor and use the Pacific-time quota day. The workflow-runs page refreshes run status every 30 seconds, shows the active GitHub job step when available, and includes a manual refresh and GitHub permission checks. Manual workflow dispatch is blocked when the dashboard detects a queued or running monitor workflow.
-
-Every page includes a bottom-right back-to-top control and a right-aligned footer. The workflow-runs page uses live GitHub API checks to show whether the repository, workflow, configuration, secrets, and monitor state are accessible. GitHub API credentials remain server-side and are not included in browser responses.
-
-### Vercel deployment
-
-The repository is configured for Vercel's Python/Flask runtime. Flask serves dynamic dashboard routes as a Vercel Function; CSS and JavaScript assets are in `public/static/` so Vercel can serve them as static assets. Dashboard settings and monitor state must use GitHub storage because Vercel Functions have ephemeral filesystems.
-
-1. Push the repository to GitHub and import it into Vercel as a project. Vercel detects `app.py` as the Flask entrypoint, installs `requirements.txt`, and uses `vercel.json` to configure the function's maximum duration.
-2. Add these environment variables in the Vercel project settings for the Production environment (and Preview if desired):
-   - `GITHUB_REPOSITORY` - repository slug, for example `owner/repository`.
-   - `GITHUB_ACTIONS_TOKEN` - fine-grained repository token with Actions read/write, Contents read, and repository metadata read permissions.
-   - `DASHBOARD_USERNAME` and `DASHBOARD_PASSWORD` - credentials for the dashboard's sign-in form.
-   - `SECRET_KEY` - a long, random value used to sign Flask sessions.
-3. Deploy or redeploy the project after setting the variables.
-4. In GitHub repository settings, allow Actions to write repository contents so the workflow can persist state to `monitor-state`. Add `GEMINI_API_KEY`, `EMAIL_FROM`, `EMAIL_PASSWORD`, and optionally `EMAIL_TO` as GitHub Actions Secrets.
-5. Open the deployed dashboard and save settings. Manual launches are available from the dashboard or from **Actions > IT Tender Monitor > Run workflow**.
-
-Do not deploy `.venv/`, `__pycache__/`, or local `data/state.json`. The `.gitignore` excludes local environments, Vercel metadata, caches, credentials, and local monitor state. The Vercel Hobby plan is subject to its monthly usage allowances and personal/non-commercial use terms; check the current [Hobby plan limits](https://vercel.com/docs/plans/hobby) and [Flask deployment guide](https://vercel.com/docs/frameworks/backend/flask).
-
-## Prerequisites
-
-- A GitHub repository containing this project and GitHub Actions enabled.
-- A Google AI Studio project and Gemini API key with access to the selected model.
-- A Gmail account for delivery, with 2-Step Verification enabled and a Gmail App Password created.
-- Repository permission for the workflow to write the `monitor-state` branch.
-
-Gemini model availability, quotas, pricing, and data-use terms can change. Check the current [AI Studio rate limits](https://aistudio.google.com/rate-limit?timeRange=last-28-days) and [Gemini API pricing and terms](https://ai.google.dev/gemini-api/docs/pricing) before selecting a model or relying on free-tier capacity.
-
-## GitHub Actions configuration
-
-Add the project files, `requirements.txt`, `.gitignore`, `tests/test_monitor.py`, and `.github/workflows/tender-monitor.yml` to the repository's default branch. The workflow installs dependencies and runs the tests before starting the monitor.
-
-Go to **Settings > Secrets and variables > Actions**. Store credentials as **secrets**:
-
-| Secret | Required | Description |
-|---|---:|---|
-| `GEMINI_API_KEY` | Yes | Gemini API key from your Google AI Studio project |
-| `EMAIL_FROM` | Yes | Gmail address used to send the report |
-| `EMAIL_PASSWORD` | Yes | Gmail App Password; do not use your normal Gmail password |
-| `EMAIL_TO` | No | Optional recipient secret; it can be securely updated in the dashboard. |
-
-Create a [Gmail App Password](https://myaccount.google.com/apppasswords) after enabling 2-Step Verification. Never place credentials in source code, README files, workflow logs, or committed state. Secrets can be managed either from this authenticated dashboard or directly in GitHub Actions Secrets.
-
-Non-secret runtime settings are managed in the dashboard and saved in the Actions variable `MONITOR_CONFIG`, rather than separate Actions variables. This includes CPV/procedure filters, Gemini model/quotas and processing limits. A quota value of `0` means no local cap is configured; Google still enforces its own limits. Check [AI Studio rate limits](https://aistudio.google.com/rate-limit?timeRange=last-28-days) before changing them. Usage counters cover only requests recorded by this monitor and follow Pacific Time.
-
-## First-time setup and operation
-
-1. In **Settings > Actions > General**, enable Actions and set workflow permissions to **Read and write permissions**. Make sure repository rules permit the workflow to create or update `monitor-state`.
-2. Add `GEMINI_API_KEY`, `EMAIL_FROM`, `EMAIL_PASSWORD`, and optionally `EMAIL_TO` as Actions Secrets. Configure the Vercel environment variables as described above.
-3. Open **Actions > IT Tender Monitor** and select **Run workflow** to start a manual run.
-4. Review the Actions log and the email. Confirm the workflow has created or updated `state.json` on `monitor-state`.
-5. Keep the `monitor-state` branch. It contains the saved progress required for analysis reuse and pending retries.
-
-The workflow wakes hourly and only performs a scheduled run when the interval chosen in the dashboard has elapsed. Scheduled runs may start late because GitHub does not guarantee exact start times. GitHub may disable scheduled workflows in inactive public repositories.
-
-### State and reset behavior
-
-The `monitor-state` branch holds the state file, which includes tender metadata, document statuses, cached AI analyses, and this monitor's usage records. The workflow saves progress even when processing or email delivery fails, when a state file was created.
-
-Deleting the `monitor-state` branch or its `state.json` resets history and cache. The next run behaves like a first run and may analyze tenders again. The dashboard's initial-scan setting (`all` or `baseline`) controls first-run handling; it is not a general cache-reset switch.
-
-## Documents, limits, and retries
-
-- A single downloaded attachment is limited to 12 MiB. Office documents are also checked for expanded archive size and extracted-text limits.
-- A combined Gemini request is kept within configured byte and text safety limits. If a tender's eligible documents cannot fit, affected material is flagged for manual review rather than silently assumed to be analyzed.
-- Gemini API requests use retries for temporary overload/server responses. Persistent network, quota, or time-budget failures leave work pending for a later run.
-- Content that was read and marked skipped is not parsed repeatedly when its hash is unchanged. A file rejected before its contents can be hashed (for example, an HTML/session response or download-size rejection) may be checked again on a later run.
-- If the analysis budget is reached, subsequent tenders are deferred. Increase `MAX_ANALYSES_PER_RUN` only when the model quota and total run time allow it.
-
-## Reading the email and troubleshooting
-
-| Email/log message | Meaning and next step |
+| Variable | Purpose |
 |---|---|
-| `Per-run analysis budget reached` | The run reached `MAX_ANALYSES_PER_RUN`. Remaining work is retained for a later run; increase the limit if appropriate. |
-| Pending or incomplete analysis | A temporary portal, download, API, quota, or time-limit issue prevented completion. Inspect the Actions log; pending tenders are retried. |
-| Manual-review/skipped-file note | A document could not safely be parsed or included. Open the original attachment on the procurement portal and review it directly. |
-| HTTP 429 | A rate or quota limit was reached. Check AI Studio usage and confirm the configured limits match the selected model. |
-| HTTP 503 | Gemini may be temporarily overloaded. The monitor retries selected temporary server errors and defers work if the failure persists. |
-| Search/CPV error | Tender discovery for one or more categories may be incomplete. Check the workflow log; the email indicates that discovery was not complete. |
-| Email not received | Check workflow completion and SMTP errors in the Actions log, and verify `EMAIL_FROM`, `EMAIL_TO`, and the Gmail App Password. |
+| `SECRET_KEY` | Long, random Flask session-signing key. Generate a unique value and keep it private. |
+| `DASHBOARD_USERNAME` | Username for the app's sign-in form. |
+| `DASHBOARD_PASSWORD` | Strong, unique password for the app's sign-in form. |
+| `GITHUB_REPOSITORY` | Exact repository slug, such as `owner/repository`. |
+| `GITHUB_ACTIONS_TOKEN` | Fine-grained token for the selected repository; permissions below. |
 
-The daily email is not a guarantee that every tender or every attachment was analyzed. Check the processing status and error summary, and use the Actions log for technical details.
+The dashboard uses its own `/login` form and a secure session cookie; it does not use the browser's HTTP Basic Authentication popup. After changing Vercel environment variables, create a new deployment so the function receives the updated values.
 
-## Privacy and responsible use
+### 3. Create the GitHub token
 
-The monitor downloads public tender documents and submits eligible document content to the configured Gemini model. Review Google's current data-use terms and your organization's requirements before enabling AI analysis. The GitHub repository's visibility and access permissions also apply to the `monitor-state` branch.
+Create a fine-grained personal access token limited to this repository. Grant these **repository permissions**:
 
-AI extraction may omit or misinterpret information. Treat report values as an aid to review, not as a legal or procurement determination. Verify important requirements-including deadlines, warranty terms, quantities, and confidentiality notices-against the official tender and source documents.
+| Permission | Access | Used for |
+|---|---|---|
+| Variables | Read and write | Read and save the dashboard's `MONITOR_CONFIG` Actions variable. |
+| Actions | Read and write | Read workflow runs and dispatch a manual workflow run. |
+| Contents | Read-only | Read monitor state from the `monitor-state` branch. |
+| Secrets | Read and write | Optional dashboard management of GitHub Actions secrets. |
+| Metadata | Read-only | Required by GitHub; normally selected automatically. |
 
-## Run locally
+`Variables: Read and write` is required separately; `Actions: Read and write` alone is not sufficient to access `MONITOR_CONFIG`. If you do not want to manage secrets in the dashboard, the token can omit Secrets permission and secrets can be maintained directly in GitHub. An organization may need to approve a token before it can access the repository.
 
-Python 3.12 or later is recommended. In PowerShell:
+Copy the token directly into Vercel's `GITHUB_ACTIONS_TOKEN` field. Store only the token itself-do not include a `Bearer` prefix. Never commit or share it. Revoking or regenerating a token invalidates the previous value; update Vercel and redeploy when replacing it.
+
+### 4. Configure GitHub Actions secrets and workflow permissions
+
+In the repository, open **Settings → Secrets and variables → Actions** and add:
+
+| Actions secret | Required | Purpose |
+|---|---:|---|
+| `GEMINI_API_KEY` | Yes | Google AI Studio API key for the selected model. |
+| `EMAIL_FROM` | Yes | Gmail address used to send reports. |
+| `EMAIL_PASSWORD` | Yes | Gmail App Password, not the normal account password. |
+| `EMAIL_TO` | No | Optional recipient; can also be configured from the dashboard. |
+
+Create a Gmail App Password after enabling 2-Step Verification. The workflow declares `contents: write` so its built-in GitHub token can persist `state.json` to the `monitor-state` branch. Repository rules must allow the workflow to create or update that branch.
+
+### 5. Start and verify
+
+Open **Actions → IT Tender Monitor → Run workflow** for an initial manual run, or use the dashboard's **გაშვება ახლავე** button. Review the Actions log and confirm that `state.json` is present on the `monitor-state` branch. Keep that branch: it holds progress, cached analyses, and usage history.
+
+The dashboard creates or updates the GitHub Actions variable `MONITOR_CONFIG` when settings are saved. Before that variable exists, the committed, non-secret `monitor-config.json` provides defaults.
+
+## Configuration and data
+
+- `monitor-config.json` contains non-secret default filters and monitor settings. It is required by the workflow as the initial/default configuration and should remain in the repository.
+- `MONITOR_CONFIG` is the deployed dashboard configuration stored as a GitHub Actions repository variable. It includes CPV and procedure filters, Gemini model and quotas, analysis limits, enabled state, and schedule interval.
+- `state.json` on the `monitor-state` branch stores progress, document statuses, cached analysis, errors, and recorded AI usage. It is not the same as `monitor-config.json`.
+- Gemini and email credentials are GitHub Actions secrets. Secrets entered through the dashboard are encrypted with GitHub's repository public key; their existing values are never displayed.
+- Vercel Functions have ephemeral filesystems, so deployed settings and state use GitHub rather than local files.
+
+Deleting the `monitor-state` branch or its `state.json` resets history and cached analysis. A subsequent run may analyze tenders again. The `all` or `baseline` initial-scan setting controls first-run behavior.
+
+## Run locally (Windows PowerShell)
+
+Python 3.12 or later is recommended:
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
 python -B -m unittest discover -s tests -v
+python app.py
 ```
 
-To run the monitor locally, set the secret environment variables `GEMINI_API_KEY`, `EMAIL_FROM`, `EMAIL_PASSWORD`, and `EMAIL_TO`. Configure non-secret options in `monitor-config.json`, then run:
+Open `http://127.0.0.1:5000/`. Local dashboard settings are saved in `monitor-config.json`; local dashboard state is stored under `data/`. With no GitHub token configured, the dashboard uses local files. To run the tender monitor locally, set `GEMINI_API_KEY`, `EMAIL_FROM`, `EMAIL_PASSWORD`, and optionally `EMAIL_TO` in the PowerShell environment before running `python monitor.py`.
+
+`.env.example` lists environment-variable names with placeholders only; the application does not load `.env` files automatically. Set real local values in your shell or another private environment manager, and never commit them.
+
+## Tests
+
+Run the full test suite:
 
 ```powershell
-python monitor.py
+python -B -m unittest discover -s tests -v
 ```
 
-By default, local state is written to `state.json`; set `STATE_PATH` to use a different location. Do not commit credentials or runtime state.
+The GitHub Actions workflow runs tests before a due scan. If the schedule gate determines the interval has not elapsed, it skips dependency installation, tests, and monitor processing for that scheduled wake-up.
+
+## Troubleshooting
+
+| Symptom | Check |
+|---|---|
+| Dashboard login page or credentials rejected | Verify `DASHBOARD_USERNAME` and `DASHBOARD_PASSWORD` in the correct Vercel project and environment; redeploy after changes. |
+| GitHub API returns HTTP 403 for `MONITOR_CONFIG` | Verify the active token is selected for the exact repository and has **Variables: Read and write**. Also check Actions: Read and write, Contents: Read, token approval, and that Vercel has the current token. |
+| Dashboard cannot manage secrets | Add **Secrets: Read and write** to the fine-grained token, or update secrets directly in GitHub Actions settings. |
+| Workflow does not persist state | Check that the workflow's built-in token can write repository contents and that repository rules allow updates to `monitor-state`. |
+| No email received | Check the Actions run log and verify `EMAIL_FROM`, `EMAIL_PASSWORD`, and `EMAIL_TO`. |
+| Gemini HTTP 429 or 503 | Check AI Studio quota/model availability. Temporary failures may be retried; unfinished work remains pending for a later run. |
+| A document is flagged for manual review | Open the source attachment on the procurement portal and review it directly. Unsupported, malformed, or oversized content is not assumed to have been analyzed. |
+
+The report is an aid to review, not a legal or procurement determination. Verify important dates, warranty terms, quantities, and confidentiality notices against the official tender documents. Eligible public document content is sent to the configured Gemini model; review Google's current data-use terms before enabling analysis.
 
 ## Project files
 
 | Path | Purpose |
 |---|---|
-| `monitor.py` | Portal search, IT CPV categories, and application entry point |
-| `monitor-config.json` | Local default configuration; deployed settings are stored in GitHub Actions variable `MONITOR_CONFIG` |
-| `monitor_settings.py` | Configuration validation and workflow environment mapping |
-| `app.py` | Authenticated Flask dashboard and GitHub configuration/secret management |
-| `templates/` | Dashboard, settings, run history, and error page templates |
-| `public/static/` | CSS and JavaScript files served as Vercel static assets |
-| `tender_pipeline.py` | Document handling, Gemini requests, caching, reporting, email, and saved state |
-| `tests/` | Automated dashboard and monitor unit tests; the workflow runs these before monitoring |
-| `requirements.txt` | Python dependencies |
-| `vercel.json` | Vercel Function configuration |
-| `.github/workflows/tender-monitor.yml` | Scheduled and manual GitHub Actions workflow |
-| `.env.example` | Names of local environment variables; contains placeholders only |
-| `.gitignore` | Excludes local environments, credentials, runtime state, and Vercel metadata |
+| `app.py` | Flask dashboard, in-app login, and GitHub API integration. |
+| `monitor.py` | Tender search and monitor entry point. |
+| `monitor_settings.py` | Configuration defaults, validation, and workflow environment mapping. |
+| `tender_pipeline.py` | Document processing, Gemini requests, caching, reporting, email, and state. |
+| `monitor-config.json` | Non-secret defaults used locally and by the workflow before `MONITOR_CONFIG` exists. |
+| `.github/workflows/tender-monitor.yml` | Scheduled and manually dispatched GitHub Actions workflow. |
+| `templates/` | Dashboard, login, settings, workflow history, and error-page templates. |
+| `public/static/` | Dashboard CSS and JavaScript served by Vercel. |
+| `tests/` | Unit tests run locally and in GitHub Actions. |
+| `requirements.txt` | Python dependencies for the dashboard and monitor. |
+| `vercel.json` | Vercel Flask function configuration. |
+| `.env.example` | Placeholder-only reference for local environment variables. |
+| `.gitignore` | Excludes local environments, credentials, caches, and runtime state. |
+
+Local-only directories such as `.venv/` and `data/` are ignored by Git and should stay on your computer; they do not need to be deleted to keep them out of GitHub.
 
 ---
 
