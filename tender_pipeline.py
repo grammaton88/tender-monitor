@@ -777,7 +777,8 @@ def report(state: dict, ai: Gemini, scan_errors: list[str],
     ]
     lines = [
         f"IT ტენდერების მონიტორინგის ანგარიში - "
-        f"{datetime.now(ZoneInfo('Asia/Tbilisi')):%Y-%m-%d %H:%M} ",
+        f"{datetime.now(ZoneInfo('Asia/Tbilisi')):%Y-%m-%d %H:%M} "
+        "(თბილისის დრო, UTC+04:00)",
         "", "შემოწმების შედეგები",
     ]
     if current_tenders is not None:
@@ -864,8 +865,9 @@ def send_report(plain: str, rich: str) -> None:
     message = EmailMessage()
     message["From"], message["To"] = sender, recipient
     message["Subject"] = (
-        "IT ტენდერების მონიტორინგი - 72 საათიანი ანგარიში | "
+        "IT ტენდერების მონიტორინგი - ყოველდღიური ანგარიში | "
         f"{datetime.now(ZoneInfo('Asia/Tbilisi')):%Y-%m-%d %H:%M} "
+        "(თბილისის დრო, UTC+04:00)"
     )
     message.set_content(plain)
     message.add_alternative(rich, subtype="html")
