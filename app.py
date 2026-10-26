@@ -212,6 +212,12 @@ def github_config_request(
                 "Contents: Read permissions. Organization-owned repositories may "
                 "also require token approval."
             )
+            try:
+                github_message = response.json().get("message")
+            except ValueError:
+                github_message = None
+            if github_message:
+                detail = f"{detail} GitHub's response: {github_message}"
         else:
             detail = f"GitHub Actions settings request failed (HTTP {response.status_code})"
         raise RuntimeError(

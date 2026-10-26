@@ -158,6 +158,7 @@ class DashboardTests(unittest.TestCase):
 
     def test_github_forbidden_error_explains_required_token_permissions(self):
         response = unittest.mock.MagicMock(status_code=403)
+        response.json.return_value = {"message": "Resource not accessible by personal access token"}
         with patch.object(
             dashboard.requests,
             "request",
@@ -166,6 +167,26 @@ class DashboardTests(unittest.TestCase):
             with self.assertRaisesRegex(
                 RuntimeError,
                 "Actions: Read and write.*Contents: Read",
+            ):
+                dashboard.github_config_request(
+                    "GET",
+                    "https://api.github.com/repos/owner/repository/actions/variables/MONITOR_CONFIG",
+                    "synthetic-test-token",
+                )
+
+    def test_github_forbidden_error_includes_github_response_message(self):
+        response = unittest.mock.MagicMock(status_code=403)
+        response.json.return_value = {
+            "message": "Resource not accessible by personal access token",
+        }
+        with patch.object(
+            dashboard.requests,
+            "request",
+            return_value=response,
+        ):
+            with self.assertRaisesRegex(
+                RuntimeError,
+                "GitHub's response: Resource not accessible by personal access token",
             ):
                 dashboard.github_config_request(
                     "GET",
