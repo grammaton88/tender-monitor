@@ -3184,7 +3184,7 @@
     }
   },
   "initialized": true,
-  "last_request_at": 1793041739.168148,
+  "last_request_at": 1793041799.691091,
   "tenders": {
     "694702": {
       "details": {
@@ -6010,9 +6010,26 @@
       "first_seen": "2026-10-25T06:13:21.618775+00:00",
       "notice": "",
       "notified": "0c61aa57cd3a78584f2ed9ff6db3a96480687776d4a7dfc7d41d1d996f6d7b03"
+    },
+    "710998": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 13`140.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 26.10.2026",
+        "buyer": "ციფრული მმართველობის სააგენტო",
+        "category": "48700000-პროგრამული პაკეტების მომსახურე პროგრამები",
+        "deadline": "წინადადებების მიღების ვადა: 03.11.2026",
+        "id": "710998",
+        "link": "https://tenders.procurement.gov.ge/public/?go=710998",
+        "reg_num": "NAT260022294",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-10-26T19:09:55.189825+00:00",
+      "notice": ""
     }
   },
-  "updated_at": "2026-10-26T19:09:35.809829+00:00",
+  "updated_at": "2026-10-26T19:11:03.703207+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -6049,13 +6066,13 @@
     },
     "2026-10-26/gemini-3.5-flash-lite": {
       "date": "2026-10-26",
-      "input": 32724,
+      "input": 42555,
       "model": "gemini-3.5-flash-lite",
-      "output": 212,
+      "output": 282,
       "quota_errors": 0,
-      "requests": 2,
-      "reserved_tokens": 34656,
-      "total": 32936,
+      "requests": 3,
+      "reserved_tokens": 44803,
+      "total": 42837,
       "unknown_usage": 0
     }
   },
