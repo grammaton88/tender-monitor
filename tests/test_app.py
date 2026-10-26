@@ -156,6 +156,23 @@ class DashboardTests(unittest.TestCase):
             response = self.client.get("/")
         self.assertEqual(response.status_code, 503)
 
+    def test_github_forbidden_error_explains_required_token_permissions(self):
+        response = unittest.mock.MagicMock(status_code=403)
+        with patch.object(
+            dashboard.requests,
+            "request",
+            return_value=response,
+        ):
+            with self.assertRaisesRegex(
+                RuntimeError,
+                "Actions: Read and write.*Contents: Read",
+            ):
+                dashboard.github_config_request(
+                    "GET",
+                    "https://api.github.com/repos/owner/repository/actions/variables/MONITOR_CONFIG",
+                    "synthetic-test-token",
+                )
+
     def test_vercel_shows_setup_error_when_github_is_not_configured(self):
         with patch.dict(os.environ, {
             "VERCEL": "1",

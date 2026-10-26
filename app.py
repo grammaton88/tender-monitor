@@ -200,8 +200,22 @@ def github_config_request(
     }
     response = requests.request(method, url, headers=headers, timeout=20, **kwargs)
     if response.status_code >= 400 and response.status_code not in allow_statuses:
+        if response.status_code == 401:
+            detail = (
+                "GitHub rejected GITHUB_ACTIONS_TOKEN (HTTP 401). "
+                "Replace it with an active token that has access to this repository."
+            )
+        elif response.status_code == 403:
+            detail = (
+                "GitHub denied access (HTTP 403). Check that the fine-grained token "
+                "selects this repository and has Actions: Read and write plus "
+                "Contents: Read permissions. Organization-owned repositories may "
+                "also require token approval."
+            )
+        else:
+            detail = f"GitHub Actions settings request failed (HTTP {response.status_code})"
         raise RuntimeError(
-            f"GitHub Actions settings request failed (HTTP {response.status_code})"
+            detail
         )
     return response
 
