@@ -3055,6 +3055,12 @@
       "subject": "სარეზერვო ოპტიკურ-ბოჭკოვანი არხებით სარგებლობის მომსახურება",
       "warranty": null
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/99193662f402498c40d913149c4ee9fb4e09558555c600117b361b62dc1a4b89": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან არაუგვიანეს 2026 წლის 4 დეკემბრისა",
+      "subject": "კრიპტოგრაფიული უსაფრთხოების Wildcard SSL სერტიფიკატი (1 ცალი)",
+      "warranty": null
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/9b4c80325a3c7620d63bc58cbe80f3171da05e591d066e22c8ba4cdd4929efcc": {
       "confidential": null,
       "delivery_deadline": "ხელშეკრულების გაფორმებიდან მიმდინარე წლის 19 ნოემბრიდან და მოქმედი უნდა იყოს გააქტიურებიდან 1 (ერთი) წლის ვადაში",
@@ -3172,7 +3178,7 @@
     }
   },
   "initialized": true,
-  "last_request_at": 1792908899.628033,
+  "last_request_at": 1793008529.2589726,
   "tenders": {
     "694702": {
       "details": {
@@ -3625,6 +3631,59 @@
       "first_seen": "2026-10-22T09:31:00.018399+00:00",
       "notice": "",
       "notified": "94c4eec64ca55c04d50f5ede34c65b8777fc5b32e20b651dd8ea939a71671d34"
+    },
+    "705166": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 4`900.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 26.10.2026",
+        "buyer": "საჯარო სამართლის იურიდიული პირი \"საქართველოს საპენსიო ფონდი\"",
+        "category": "48700000-პროგრამული პაკეტების მომსახურე პროგრამები",
+        "deadline": "წინადადებების მიღების ვადა: 06.11.2026",
+        "id": "705166",
+        "link": "https://tenders.procurement.gov.ge/public/?go=705166",
+        "reg_num": "NAT260022238",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {
+        "que/2162679": {
+          "error": "Unsupported file or HTML/session error instead of PDF/DOCX/XLSX",
+          "id": "que/2162679",
+          "name": "ფასთა ცხრილი (დანართი N1) - SSL.xls",
+          "status": "skipped",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2162679&code=1793011733"
+        },
+        "que/2162680": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/99193662f402498c40d913149c4ee9fb4e09558555c600117b361b62dc1a4b89",
+          "error": "",
+          "hash": "eb7e1f8397d95b75b8c2fda194a1d321122586b34bb8bf6b0f3023649306f362",
+          "id": "que/2162680",
+          "name": "ხელშეკრულების პროექტი - SSL.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2162680&code=1793011752"
+        },
+        "que/2162681": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/99193662f402498c40d913149c4ee9fb4e09558555c600117b361b62dc1a4b89",
+          "error": "",
+          "hash": "2d692f6cce7b6f3bea89ceaa1e01fa966b0fc7d52e24fe77ed3b3a98fffd964e",
+          "id": "que/2162681",
+          "name": "SSL სერტიფიკატის შესყიდვის -  სატენდერო კომისიის სხდომის ოქმი N1.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2162681&code=1793011768"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/99193662f402498c40d913149c4ee9fb4e09558555c600117b361b62dc1a4b89",
+          "error": "",
+          "hash": "3b9facfe329623bbe5dcdc78216c3e452de449e5c28b52b07aa5fad47e9d15dd",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=705166"
+        }
+      },
+      "error": "",
+      "first_seen": "2026-10-26T09:55:24.234799+00:00",
+      "notice": "",
+      "notified": "483214615081610a6bc264e29533182b32ac0d61d58868dc8c1d5cfadde8464a"
     },
     "705252": {
       "details": {
@@ -5927,6 +5986,17 @@
       "requests": 9,
       "reserved_tokens": 251372,
       "total": 239674,
+      "unknown_usage": 0
+    },
+    "2026-10-26/gemini-3.5-flash-lite": {
+      "date": "2026-10-26",
+      "input": 16166,
+      "model": "gemini-3.5-flash-lite",
+      "output": 92,
+      "quota_errors": 0,
+      "requests": 1,
+      "reserved_tokens": 17118,
+      "total": 16258,
       "unknown_usage": 0
     }
   },
