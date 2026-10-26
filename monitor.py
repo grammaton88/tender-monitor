@@ -1,10 +1,12 @@
+import os
+import re
+
 import requests
 from bs4 import BeautifulSoup
-import re
+
 from tender_pipeline import ProcessingError, run_monitor
 
 IT_BASECODES = {
-    "18924": "30200000 - კომპიუტერული მოწყობილობები და აქსესუარები",
     "18936": "32400000 - ქსელები",
     "18937": "32500000 - სატელეკომუნიკაციო მოწყობილობები და აქსესუარები",
     "19006": "48100000 - პროგრამული უზრუნველყოფის სამრეწველო პაკეტები",
@@ -12,17 +14,11 @@ IT_BASECODES = {
     "19013": "48300000 - დოკუმენტების, გრაფიკული გამოსახულებების შექმნის პროგრამული პაკეტები",
     "19014": "48400000 - საქმიანი გარიგებებისა და პირადი საქმეების მართვის პროგრამული პაკეტები",
     "19015": "48500000 - საკომუნიკაციო და მულტიმედიის პროგრამული პაკეტები",
-    "19016": "48600000 - მონაცემთა ბაზისა და ოპერაციული პროგრამული პაკეტები",
     "19017": "48700000 - პროგრამული პაკეტების მომსახურე პროგრამები",
-    "19008": "48800000 - საინფორმაციო სისტემები და სერვერები",
     "19009": "48900000 - სხვადასხვა სახის პროგრამული პაკეტები და კომპიუტერული სისტემები",
-    "19025": "50300000 - პერსონალური კომპიუტერების, საოფისე აპარატურის შეკეთება",
     "19027": "51600000 - კომპიუტერებისა და საოფისე მოწყობილობების დამონტაჟება",
-    "19056": "64200000 - სატელეკომუნიკაციო მომსახურებები",
     "19070": "72100000 - აპარატურულ უზრუნველყოფასთან დაკავშირებული საკონსულტაციო მომსახურებები",
-    "19071": "72200000 - პროგრამული უზრუნველყოფის შემუშავება და საკონსულტაციო მომსახურებები",
     "19083": "72300000 - მონაცემთა მომსახურება",
-    "19084": "72400000 - ინტერნეტმომსახურებები",
     "19072": "72500000 - კომპიუტერთან დაკავშირებული მომსახურებები",
     "19073": "72600000 - კომპიუტერული უზრუნველყოფა და საკონსულტაციო მომსახურებები",
     "19074": "72700000 - კომპიუტერული ქსელის მომსახურება",
@@ -32,6 +28,66 @@ IT_BASECODES = {
 
 BASE_URL = "https://tenders.procurement.gov.ge/public"
 CONTROLLER = f"{BASE_URL}/library/controller.php"
+APP_TYPE_CODES = {
+    "0": "0",
+    "ALL": "0",
+    "NAT": "9",
+    "SPA": "2",
+    "CON": "4",
+    "GEO": "3",
+    "NAT_SIMPLIFIED": "8",
+    "SPA_SIMPLIFIED": "1",
+    "MEP": "11",
+    "DAP": "15",
+    "TEP": "16",
+    "DEP": "5",
+    "GRA": "7",
+    "PPP": "22",
+    "B2B": "20",
+    "CNT": "6",
+}
+
+
+def normalize_app_type(app_type: str | int | None = None) -> str:
+    if app_type is None:
+        app_type = os.getenv("APP_TYPE")
+        if app_type is None:
+            app_type = os.getenv("APP_TYPE_FILTER", "0")
+    if app_type in ("", None):
+        return "0"
+    if isinstance(app_type, (list, tuple, set)):
+        for item in app_type:
+            candidate = normalize_app_type(item)
+            if candidate != "0":
+                return candidate
+        return "0"
+    value = str(app_type).strip().upper()
+    if "," in value:
+        for item in value.split(","):
+            candidate = normalize_app_type(item)
+            if candidate != "0":
+                return candidate
+        return "0"
+    if value in APP_TYPE_CODES:
+        return APP_TYPE_CODES[value]
+    if value.isdigit():
+        return value
+    aliases = {
+        "NAT-STD": "NAT",
+        "NAT_STANDARD": "NAT",
+        "NAT-REGULAR": "NAT",
+        "SPA-STD": "SPA",
+        "SPA_STANDARD": "SPA",
+        "SPA-REGULAR": "SPA",
+        "CONSOLIDATED": "CON",
+        "GEO-STD": "GEO",
+        "GEO_STANDARD": "GEO",
+        "GEO-REGULAR": "GEO",
+    }
+    candidate = aliases.get(value)
+    if candidate:
+        return APP_TYPE_CODES[candidate]
+    raise ValueError(f"Unsupported procurement type filter: {app_type!r}")
 
 
 def create_session():
@@ -44,7 +100,7 @@ def create_session():
     return session
 
 
-def search_tenders(session, basecode: str) -> list[dict]:
+def search_tenders(session, basecode: str, app_type: str | int | None = None) -> list[dict]:
     payload = {
         "action": "search_app",
         "app_t": "0",
@@ -58,7 +114,7 @@ def search_tenders(session, basecode: str) -> list[dict]:
         "app_donor_id": "0",
         "app_status": "10",          # მხოლოდ გამოცხადებულია
         "app_agr_status": "0",
-        "app_type": "0",
+        "app_type": normalize_app_type(app_type),
         "app_basecode": basecode,
         "app_codes": "",
         "app_date_type": "1",

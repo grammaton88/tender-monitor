@@ -1051,6 +1051,14 @@ class SearchTests(unittest.TestCase):
         self.assertEqual(initial["action"], "search_app")
         self.assertEqual(session.get.call_args.kwargs["params"]["page"], 2)
 
+    def test_search_supports_procurement_type_filter(self):
+        session = MagicMock()
+        session.get.return_value = response(text='<div class="pager">0 ჩანაწერი (გვერდი: 1/0)</div>')
+        self.assertEqual(monitor.search_tenders(session, "x", "NAT")[0:0], [])
+        self.assertEqual(session.get.call_args.kwargs["params"]["app_type"], "9")
+        self.assertEqual(monitor.search_tenders(session, "x", "GEO")[0:0], [])
+        self.assertEqual(session.get.call_args.kwargs["params"]["app_type"], "3")
+
     def test_empty_search_and_session_error_are_not_confused(self):
         session = MagicMock()
         session.get.return_value = response(text='<div class="pager">0 ჩანაწერი (გვერდი: 1/0)</div>')

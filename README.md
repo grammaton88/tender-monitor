@@ -21,7 +21,7 @@ An automated monitor for announced information-technology tenders on the [Georgi
 5. Pending work is saved and retried on a later run. Per-run request and time limits defer remaining work rather than intentionally discard it.
 6. The report is sent as both plain text and HTML. Its subject includes the current Tbilisi date and time (UTC+04:00).
 
-The monitor currently searches the IT CPV base codes defined in `monitor.py`. Edit that list if the scope of monitored procurement categories needs to change.
+The monitor currently searches the IT CPV base codes defined in `monitor.py`. Edit that list if the scope of monitored procurement categories needs to change. You can also limit results to a procurement procedure type by setting `APP_TYPE` to one of the supported codes such as `NAT`, `SPA`, `CON`, or `GEO` (or `0`/`ALL` to disable the extra filter).
 
 ## Prerequisites
 
