@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css', v='20261026-7') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css', v='20261026-8') }}">
     <script src="{{ url_for('static', filename='js/dashboard.js') }}" defer></script>
   </head>
   <body>
@@ -66,6 +66,12 @@
             <span class="status-inline disabled"><i aria-hidden="true"></i> შეჩერებულია</span>
           {% endif %}
           <p>ძიება მოიცავს გამოცხადებულ ტენდერებს და არჩეულ ფილტრებს.</p>
+            {% if auth_enabled %}
+              <form class="logout-form" action="{{ url_for('logout') }}" method="post">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                <button class="logout-button" type="submit">გასვლა</button>
+              </form>
+            {% endif %}
         </div>
       </aside>
 

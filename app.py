@@ -10,6 +10,7 @@ import tempfile
 import time
 from datetime import datetime
 from pathlib import Path
+from urllib.parse import urlsplit
 from zoneinfo import ZoneInfo
 
 import requests
@@ -581,28 +582,63 @@ def require_dashboard_authentication():
     expected_password = os.environ.get("DASHBOARD_PASSWORD")
     if os.environ.get("VERCEL") and not os.environ.get("SECRET_KEY"):
         abort(503, description="Set SECRET_KEY in the Vercel project environment")
-    if (
-        os.environ.get("VERCEL")
-        or expected_username
-        or expected_password
-    ):
+    auth_enabled = bool(os.environ.get("VERCEL") or expected_username or expected_password)
+    if auth_enabled:
         if not expected_username or not expected_password:
             abort(503, description="Dashboard authentication is not configured")
-        supplied = request.authorization
-        if (
-            not supplied
-            or not hmac.compare_digest(supplied.username or "", expected_username)
-            or not hmac.compare_digest(supplied.password or "", expected_password)
-        ):
-            return (
-                "Authentication required",
-                401,
-                {"WWW-Authenticate": 'Basic realm="Tender Monitor"'},
-            )
     if "csrf_token" not in session:
         import secrets
 
         session["csrf_token"] = secrets.token_urlsafe(32)
+    if (
+        auth_enabled
+        and request.endpoint not in ("login", "static")
+        and not session.get("authenticated")
+    ):
+        return redirect(url_for("login", next=request.full_path.rstrip("?")))
+
+
+def safe_redirect_target(target: str | None) -> str | None:
+    if not target or "\\" in target:
+        return None
+    parsed = urlsplit(target)
+    if parsed.scheme or parsed.netloc or not parsed.path.startswith("/") or parsed.path.startswith("//"):
+        return None
+    return target
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    expected_username = os.environ.get("DASHBOARD_USERNAME")
+    expected_password = os.environ.get("DASHBOARD_PASSWORD")
+    if not expected_username or not expected_password:
+        abort(503, description="Dashboard authentication is not configured")
+
+    next_url = safe_redirect_target(request.values.get("next"))
+    if request.method == "POST":
+        supplied_username = request.form.get("username", "")
+        supplied_password = request.form.get("password", "")
+        if (
+            hmac.compare_digest(supplied_username, expected_username)
+            and hmac.compare_digest(supplied_password, expected_password)
+        ):
+            import secrets
+
+            session.clear()
+            session["authenticated"] = True
+            session["csrf_token"] = secrets.token_urlsafe(32)
+            return redirect(next_url or url_for("dashboard"))
+        return render_template("login.html", next_url=next_url, invalid_credentials=True), 401
+
+    if session.get("authenticated"):
+        return redirect(next_url or url_for("dashboard"))
+    return render_template("login.html", next_url=next_url, invalid_credentials=False)
+
+
+@app.route("/logout", methods=["POST"])
+def logout():
+    session.clear()
+    return redirect(url_for("login"))
 
 
 @app.before_request
@@ -621,6 +657,11 @@ def inject_common_data():
         "app_types": APP_TYPES,
         "cpv_options": CPV_OPTIONS,
         "csrf_token": session.get("csrf_token", ""),
+        "auth_enabled": bool(
+            os.environ.get("VERCEL")
+            or os.environ.get("DASHBOARD_USERNAME")
+            or os.environ.get("DASHBOARD_PASSWORD")
+        ),
         "config_remote": bool(
             os.environ.get("GITHUB_ACTIONS_TOKEN")
             and os.environ.get("GITHUB_REPOSITORY")

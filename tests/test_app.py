@@ -32,6 +32,8 @@ class DashboardTests(unittest.TestCase):
                 "GITHUB_REPOSITORY": "",
                 "VERCEL": "",
                 "SECRET_KEY": "",
+                "DASHBOARD_USERNAME": "",
+                "DASHBOARD_PASSWORD": "",
             },
         )
         self.environment_patch.start()
@@ -115,7 +117,7 @@ class DashboardTests(unittest.TestCase):
             dashboard.load_json(self.config_path, dashboard.default_config())
         self.assertEqual(self.config_path.read_text(encoding="utf-8"), "{broken")
 
-    def test_vercel_requires_dashboard_authentication(self):
+    def test_vercel_uses_app_login_form_and_session_authentication(self):
         with patch.dict(os.environ, {
             "VERCEL": "1",
             "SECRET_KEY": "test-secret",
@@ -123,15 +125,63 @@ class DashboardTests(unittest.TestCase):
             "DASHBOARD_PASSWORD": "strong-password",
             "GITHUB_ACTIONS_TOKEN": "test-token",
             "GITHUB_REPOSITORY": "owner/repository",
-        }), patch.object(dashboard, "load_monitor_config", return_value=(dashboard.default_config(), None)):
-            self.assertEqual(self.client.get("/settings").status_code, 401)
-            self.assertEqual(
-                self.client.get(
-                    "/settings",
-                    headers={"Authorization": "Basic YWRtaW46c3Ryb25nLXBhc3N3b3Jk"},
-                ).status_code,
-                200,
+        }), patch.object(
+            dashboard,
+            "load_monitor_config",
+            return_value=(dashboard.default_config(), None),
+        ), patch.object(
+            dashboard,
+            "load_monitor_state",
+            return_value=dashboard.default_state(),
+        ):
+            protected = self.client.get("/settings")
+            self.assertEqual(protected.status_code, 302)
+            self.assertEqual(protected.headers["Location"], "/login?next=/settings")
+            login_page = self.client.get("/login?next=/settings")
+            self.assertEqual(login_page.status_code, 200)
+            self.assertIn(b'type="password"', login_page.data)
+            self.assertNotIn(b"WWW-Authenticate", login_page.headers)
+            csrf_token = BeautifulSoup(login_page.data, "html.parser").select_one(
+                'input[name="csrf_token"]',
+            )["value"]
+            response = self.client.post("/login", data={
+                "csrf_token": csrf_token,
+                "username": "admin",
+                "password": "strong-password",
+                "next": "/settings",
+            })
+            self.assertEqual(response.status_code, 302)
+            self.assertEqual(response.headers["Location"], "/settings")
+            self.assertEqual(self.client.get("/settings").status_code, 200)
+            dashboard_page = self.client.get("/")
+            logout_form = BeautifulSoup(dashboard_page.data, "html.parser").select_one(
+                'form[action="/logout"] input[name="csrf_token"]',
             )
+            self.assertIsNotNone(logout_form)
+            logged_out = self.client.post("/logout", data={
+                "csrf_token": logout_form["value"],
+            })
+            self.assertEqual(logged_out.status_code, 302)
+            self.assertEqual(self.client.get("/settings").headers["Location"], "/login?next=/settings")
+
+    def test_login_rejects_invalid_credentials_and_unsafe_redirect(self):
+        with patch.dict(os.environ, {
+            "DASHBOARD_USERNAME": "admin",
+            "DASHBOARD_PASSWORD": "strong-password",
+        }):
+            response = self.client.get("/login?next=https://example.com")
+            csrf_token = BeautifulSoup(response.data, "html.parser").select_one(
+                'input[name="csrf_token"]',
+            )["value"]
+            failed = self.client.post("/login", data={
+                "csrf_token": csrf_token,
+                "username": "admin",
+                "password": "wrong-password",
+                "next": "https://example.com",
+            })
+        self.assertEqual(failed.status_code, 401)
+        self.assertIn("მომხმარებლის სახელი ან პაროლი არასწორია".encode(), failed.data)
+        self.assertNotIn(b"example.com", failed.data)
 
     def test_public_static_assets_are_served_by_local_static_endpoint(self):
         response = self.client.get("/static/css/style.css")
@@ -203,10 +253,16 @@ class DashboardTests(unittest.TestCase):
             "GITHUB_ACTIONS_TOKEN": "",
             "GITHUB_REPOSITORY": "",
         }):
-            response = self.client.get(
-                "/",
-                headers={"Authorization": "Basic YWRtaW46c3Ryb25nLXBhc3N3b3Jk"},
-            )
+            login_page = self.client.get("/login")
+            csrf_token = BeautifulSoup(login_page.data, "html.parser").select_one(
+                'input[name="csrf_token"]',
+            )["value"]
+            self.client.post("/login", data={
+                "csrf_token": csrf_token,
+                "username": "admin",
+                "password": "strong-password",
+            })
+            response = self.client.get("/")
         self.assertEqual(response.status_code, 503)
         self.assertIn(b"GITHUB_REPOSITORY", response.data)
 

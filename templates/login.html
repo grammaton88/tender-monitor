@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ka">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#10243a">
+    <title>შესვლა | ტენდერების მონიტორინგი</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css', v='20261026-8') }}">
+  </head>
+  <body class="login-body">
+    <main class="login-card">
+      <a class="login-brand" href="{{ url_for('login') }}" aria-label="ტენდერების მონიტორინგი">
+        <span class="brand-mark" aria-hidden="true">TM</span>
+      </a>
+      <p class="section-kicker">ტენდერების მონიტორინგი</p>
+      <h1>შესვლა</h1>
+      <p class="login-description">გააგრძელეთ სისტემაში თქვენს ანგარიშზე შესვლით.</p>
+      {% if invalid_credentials %}
+        <p class="login-error" role="alert">მომხმარებლის სახელი ან პაროლი არასწორია.</p>
+      {% endif %}
+      <form class="login-form" action="{{ url_for('login') }}" method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+        {% if next_url %}
+          <input type="hidden" name="next" value="{{ next_url }}">
+        {% endif %}
+        <label for="username">მომხმარებლის სახელი</label>
+        <input id="username" name="username" type="text" autocomplete="username" required autofocus>
+        <label for="password">პაროლი</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required>
+        <button class="primary-button" type="submit">შესვლა</button>
+      </form>
+    </main>
+  </body>
+</html>
