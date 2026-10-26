@@ -2923,6 +2923,12 @@
       "subject": "სერვერები, რაოდენობა: 3 კომპლექტი",
       "warranty": "არანაკლებ 3 წელი"
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/22f4ea1f5a6a6683ea07bde30511c0078c845293e6091791b07b10efa4e63e44": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან 15 სამუშაო დღის ვადაში",
+      "subject": "სხვადასხვა სახის ქსელური მოწყობილობები: USB HUB (5 ცალი), cat 5e FTP cable (1500 მეტრი), Rj 45 კონექტორი (500 ცალი), USB Type A To Ethernet Lan (10 ცალი)",
+      "warranty": null
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/2cc33873196b7685fbd6cb5e4e811f07f0eedfc72c7b4c2610db008b2a7a2b49": {
       "confidential": null,
       "delivery_deadline": "ხელშეკრულების გაფორმებიდან არაუმეტეს 180 კალენდარული დღის განმავლობაში",
@@ -5657,7 +5663,7 @@
         "announce_date": "შესყიდვის გამოცხადების თარიღი: 21.10.2026",
         "buyer": "საქართველოს სახელმწიფო უსაფრთხოების სამსახურის სსიპ - საქართველოს ოპერატიულ-ტექნიკური სააგენტო",
         "category": "32400000-ქსელები",
-        "deadline": "წინადადებების მიღების ვადა: 29.10.2026",
+        "deadline": "წინადადებების მიღების ვადა: 02.11.2026",
         "id": "710422",
         "link": "https://tenders.procurement.gov.ge/public/?go=710422",
         "reg_num": "GEO260000472",
@@ -5901,7 +5907,42 @@
         "reg_num": "NAT260022276",
         "status": "გამოცხადებულია"
       },
-      "documents": {},
+      "documents": {
+        "que/2161969": {
+          "error": "Unsupported file or HTML/session error instead of PDF/DOCX/XLSX",
+          "id": "que/2161969",
+          "name": "ფასთა ცხრილი (დანართი N1).xls",
+          "status": "skipped",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2161969&code=1792761363"
+        },
+        "que/2161984": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/22f4ea1f5a6a6683ea07bde30511c0078c845293e6091791b07b10efa4e63e44",
+          "error": "",
+          "hash": "a9f4eefccb82ffec0433ef8af4e44477c2a1a252696d2bfc03399208c2106805",
+          "id": "que/2161984",
+          "name": "ხელშეკრულების პროექტი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2161984&code=1792761508"
+        },
+        "que/2162865": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/22f4ea1f5a6a6683ea07bde30511c0078c845293e6091791b07b10efa4e63e44",
+          "error": "",
+          "hash": "2ff3888dee762bdc4527b9a0c0f003cda090eff09f91dc3539d7c05b65f86706",
+          "id": "que/2162865",
+          "name": "სხვადასხვა სახის ქსელური მოწყობილობების შესყიდვა -  სატენდერო კომისიის სხდომის ოქმი N1.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2162865&code=1793020394"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/22f4ea1f5a6a6683ea07bde30511c0078c845293e6091791b07b10efa4e63e44",
+          "error": "",
+          "hash": "65e62f3155542016dff4483beb1c8210034256dfdff2c49b1a509232b092a736",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=710761"
+        }
+      },
       "error": "",
       "first_seen": "2026-10-26T19:08:52.550208+00:00",
       "notice": ""
@@ -5971,7 +6012,7 @@
       "notified": "0c61aa57cd3a78584f2ed9ff6db3a96480687776d4a7dfc7d41d1d996f6d7b03"
     }
   },
-  "updated_at": "2026-10-26T19:08:59.168213+00:00",
+  "updated_at": "2026-10-26T19:09:35.809829+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -6008,14 +6049,14 @@
     },
     "2026-10-26/gemini-3.5-flash-lite": {
       "date": "2026-10-26",
-      "input": 16166,
+      "input": 32724,
       "model": "gemini-3.5-flash-lite",
-      "output": 92,
+      "output": 212,
       "quota_errors": 0,
       "requests": 2,
       "reserved_tokens": 34656,
-      "total": 16258,
-      "unknown_usage": 1
+      "total": 32936,
+      "unknown_usage": 0
     }
   },
   "version": 1
