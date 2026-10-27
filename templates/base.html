@@ -5,10 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#10243a">
     <title>{% block title %}ტენდერების მონიტორინგი{% endblock %}</title>
+    <meta name="description" content="საქართველოს სახელმწიფო შესყიდვების IT ტენდერების მონიტორინგი">
+    <link rel="icon" href="{{ url_for('static', filename='brand/favicon.svg') }}" type="image/svg+xml">
+    <link rel="icon" href="{{ url_for('static', filename='brand/favicon.ico') }}" sizes="any">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='brand/apple-touch-icon.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='brand/site.webmanifest') }}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ტენდერების მონიტორინგი | Tender Monitor">
+    <meta property="og:description" content="საქართველოს სახელმწიფო შესყიდვების IT ტენდერების მონიტორინგი">
+    <meta property="og:url" content="{{ request.url_root }}">
+    <meta property="og:image" content="{{ request.url_root.rstrip('/') }}{{ url_for('static', filename='brand/social-preview.png') }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Tender Monitor — Georgian IT tender monitoring">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ტენდერების მონიტორინგი | Tender Monitor">
+    <meta name="twitter:description" content="საქართველოს სახელმწიფო შესყიდვების IT ტენდერების მონიტორინგი">
+    <meta name="twitter:image" content="{{ request.url_root.rstrip('/') }}{{ url_for('static', filename='brand/social-preview.png') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css', v='20261026-8') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css', v='20261027-2') }}">
     <script src="{{ url_for('static', filename='js/dashboard.js') }}" defer></script>
   </head>
   <body>
@@ -106,7 +123,7 @@
             <span class="back-to-top-icon" aria-hidden="true">↑</span>
           </a>
           <div class="page-footer-author">
-            Developed by -
+            © {{ current_year }} · Developed by
             <a href="https://www.linkedin.com/in/mikheil-kakabadze" target="_blank" rel="noopener noreferrer">Mikheil Kakabadze</a>
           </div>
         </footer>
