@@ -3025,6 +3025,12 @@
       "subject": "10 ერთეული სკანერი",
       "warranty": "არანაკლებ 1 წელი, მიღება-ჩაბარების აქტის გაფორმების დღიდან"
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/5f5f5274a8801a2e7e3c62d73db17c57206c116e02e4d120ceacc7600d6733f5": {
+      "confidential": null,
+      "delivery_deadline": "მიღება-ჩაბარების აქტის გაფორმებიდან 10 სამუშაო დღე",
+      "subject": "მონაცემთა რეზერვირების პროგრამული უზრუნველყოფა (რაოდენობა: 1)",
+      "warranty": "1 წლიანი სტანდარტული, 24/7 ტექნიკური მხარდაჭერა და პროგრამული უზრუნველყოფის განახლება"
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/643ee2e3786bb239ecd74b6e48f02a7f7833a1f09ec3b833c60bf20c780cbdcd": {
       "confidential": null,
       "delivery_deadline": "ხელშეკრულების გაფორმებიდან 5 კალენდარული დღის ვადაში",
@@ -3196,7 +3202,7 @@
     }
   },
   "initialized": true,
-  "last_monitor_run_at": 1793087632.2407737,
+  "last_monitor_run_at": 1793096374.766179,
   "last_request_at": 1793096367.3659735,
   "tenders": {
     "694702": {
@@ -4422,7 +4428,7 @@
       },
       "documents": {
         "que/2154379": {
-          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/3f26d20f23e39e88772326ace7eace6e48fcbbe473e8bf20fbfebebd5d470f55",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/5f5f5274a8801a2e7e3c62d73db17c57206c116e02e4d120ceacc7600d6733f5",
           "error": "",
           "hash": "f4408343b9a1e07e60eb6d6da90d43eb69c4152636a755149072b866d21527d7",
           "id": "que/2154379",
@@ -4431,7 +4437,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2154379&code=1791803457"
         },
         "que/2154380": {
-          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/3f26d20f23e39e88772326ace7eace6e48fcbbe473e8bf20fbfebebd5d470f55",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/5f5f5274a8801a2e7e3c62d73db17c57206c116e02e4d120ceacc7600d6733f5",
           "error": "",
           "hash": "1e29e027052090ead94eab62af409282f1b26049441128443a783c72effbbeb3",
           "id": "que/2154380",
@@ -4440,16 +4446,14 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2154380&code=1791803474"
         },
         "que/2160460": {
-          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/3f26d20f23e39e88772326ace7eace6e48fcbbe473e8bf20fbfebebd5d470f55",
-          "error": "",
-          "hash": "a7f4a08606b4721ea2c37e7063588516ba24cfec0430df08097e3f5fc351e30a",
+          "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
           "id": "que/2160460",
           "name": "ხელშეკრულების პროექტი - ბექაფი.pdf",
-          "status": "completed",
+          "status": "pending",
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2160460&code=1792600182"
         },
         "que/2161130": {
-          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/3f26d20f23e39e88772326ace7eace6e48fcbbe473e8bf20fbfebebd5d470f55",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/5f5f5274a8801a2e7e3c62d73db17c57206c116e02e4d120ceacc7600d6733f5",
           "error": "",
           "hash": "7d9f7b666e273d9d43b9ceafa3867fa20ff6edb46689f3f4f82d324b46cc6f10",
           "id": "que/2161130",
@@ -4458,7 +4462,7 @@
           "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2161130&code=1792679333"
         },
         "tab-text": {
-          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/3f26d20f23e39e88772326ace7eace6e48fcbbe473e8bf20fbfebebd5d470f55",
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/5f5f5274a8801a2e7e3c62d73db17c57206c116e02e4d120ceacc7600d6733f5",
           "error": "",
           "hash": "2db88ceef46eebdfd26b89611a276381acbc57c2b4ce153ce0e1db036716dd03",
           "id": "tab-text",
@@ -4470,7 +4474,7 @@
       "error": "",
       "first_seen": "2026-10-22T11:29:47.515044+00:00",
       "notice": "",
-      "notified": "44720d8b059b5d094b9d198e0e6a7bb750ab49a6160e23f2d85f37fb8fbebb9a"
+      "notified": "36282a2aba7d187965e02388523ea3e755519512f6381182dfa24457d1a9e536"
     },
     "708799": {
       "details": {
@@ -6160,10 +6164,10 @@
       "error": "",
       "first_seen": "2026-10-26T19:09:55.189825+00:00",
       "notice": "",
-      "notified": "47783ff249b39bd8c73d7e044996753835e9549a7f0eedcafa5524ec13dfd4b8"
+      "notified": "81fb4d0d17dcd7397652be1ff5cd6e31a450d894127bf2d7f6a5bb97d13a24df"
     }
   },
-  "updated_at": "2026-10-27T10:19:27.366026+00:00",
+  "updated_at": "2026-10-27T10:19:34.766251+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -6211,14 +6215,14 @@
     },
     "2026-10-27/gemini-3.5-flash-lite": {
       "date": "2026-10-27",
-      "input": 10049,
+      "input": 18850,
       "model": "gemini-3.5-flash-lite",
-      "output": 104,
+      "output": 225,
       "quota_errors": 0,
       "requests": 2,
       "reserved_tokens": 19634,
-      "total": 10153,
-      "unknown_usage": 1
+      "total": 19075,
+      "unknown_usage": 0
     }
   },
   "version": 1
