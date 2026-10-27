@@ -3190,7 +3190,7 @@
     }
   },
   "initialized": true,
-  "last_monitor_run_at": 1793041875.1267433,
+  "last_monitor_run_at": 1793087632.2407737,
   "last_request_at": 1793041799.691091,
   "tenders": {
     "694702": {
@@ -6093,7 +6093,7 @@
       "notified": "81fb4d0d17dcd7397652be1ff5cd6e31a450d894127bf2d7f6a5bb97d13a24df"
     }
   },
-  "updated_at": "2026-10-27T07:53:26.495660+00:00",
+  "updated_at": "2026-10-27T07:53:52.240845+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -6137,6 +6137,17 @@
       "requests": 3,
       "reserved_tokens": 44803,
       "total": 42837,
+      "unknown_usage": 0
+    },
+    "2026-10-27/gemini-3.5-flash-lite": {
+      "date": "2026-10-27",
+      "input": 0,
+      "model": "gemini-3.5-flash-lite",
+      "output": 0,
+      "quota_errors": 0,
+      "requests": 0,
+      "reserved_tokens": 0,
+      "total": 0,
       "unknown_usage": 0
     }
   },
