@@ -245,3 +245,38 @@
     window.setInterval(updateRuns, 30_000);
   }
 })();
+
+(() => {
+  const toggle = document.querySelector("#menu-toggle");
+  const sidebar = document.querySelector("#sidebar");
+  const backdrop = document.querySelector("#sidebar-backdrop");
+  if (!toggle || !sidebar) return;
+
+  const setOpen = (open) => {
+    document.body.classList.toggle("nav-open", open);
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    toggle.setAttribute("aria-label", open ? "მენიუს დახურვა" : "მენიუს გახსნა");
+    if (backdrop) {
+      if (open) backdrop.removeAttribute("hidden");
+      else backdrop.setAttribute("hidden", "");
+    }
+  };
+
+  toggle.addEventListener("click", () => {
+    setOpen(!document.body.classList.contains("nav-open"));
+  });
+
+  if (backdrop) {
+    backdrop.addEventListener("click", () => setOpen(false));
+  }
+
+  sidebar.querySelectorAll("a.nav-link, a.sidebar-usage-link").forEach((link) => {
+    link.addEventListener("click", () => setOpen(false));
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && document.body.classList.contains("nav-open")) {
+      setOpen(false);
+    }
+  });
+})();
