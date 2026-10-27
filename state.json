@@ -3191,7 +3191,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1793087632.2407737,
-  "last_request_at": 1793041799.691091,
+  "last_request_at": 1793095587.4403112,
   "tenders": {
     "694702": {
       "details": {
@@ -5316,6 +5316,23 @@
       "notice": "",
       "notified": "5e59bf18f707dec3631b07d1b8d7e5b33024934f6827d509d90a42566bcab88b"
     },
+    "710089": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 11`965.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 27.10.2026",
+        "buyer": "საქართველოს სტატისტიკის ეროვნული სამსახური (საქსტატი)",
+        "category": "48700000-პროგრამული პაკეტების მომსახურე პროგრამები",
+        "deadline": "წინადადებების მიღების ვადა: 04.11.2026",
+        "id": "710089",
+        "link": "https://tenders.procurement.gov.ge/public/?go=710089",
+        "reg_num": "NAT260022380",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-10-27T10:06:25.150375+00:00",
+      "notice": ""
+    },
     "710112": {
       "details": {
         "amount": "შესყიდვის სავარაუდო ღირებულება: 37`877.85 ლარი",
@@ -6093,7 +6110,7 @@
       "notified": "81fb4d0d17dcd7397652be1ff5cd6e31a450d894127bf2d7f6a5bb97d13a24df"
     }
   },
-  "updated_at": "2026-10-27T10:06:12.388135+00:00",
+  "updated_at": "2026-10-27T10:06:27.440372+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -6145,10 +6162,10 @@
       "model": "gemini-3.5-flash-lite",
       "output": 0,
       "quota_errors": 0,
-      "requests": 0,
-      "reserved_tokens": 0,
+      "requests": 1,
+      "reserved_tokens": 10521,
       "total": 0,
-      "unknown_usage": 0
+      "unknown_usage": 1
     }
   },
   "version": 1
