@@ -287,16 +287,25 @@ input:focus-visible {
 }
 
 .logout-button {
-  padding: 5px 0;
-  border: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  min-width: 72px;
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 7px;
   background: transparent;
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 11px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 12px;
   font-weight: 700;
   cursor: pointer;
+  transition: background-color 140ms ease, color 140ms ease, border-color 140ms ease;
 }
 
 .logout-button:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.55);
   color: var(--paper);
 }
 
@@ -1233,8 +1242,10 @@ h2 {
 .login-body {
   display: grid;
   min-height: 100vh;
+  min-height: 100svh;
   place-items: center;
-  padding: 24px;
+  padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right))
+    max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
   background:
     radial-gradient(ellipse at 15% 10%, rgba(49, 88, 120, 0.12), transparent 38%),
     var(--paper-muted);
@@ -1242,7 +1253,7 @@ h2 {
 
 .login-card {
   width: min(100%, 420px);
-  padding: 34px;
+  padding: clamp(20px, 5vw, 34px);
   border: 1px solid var(--line);
   border-radius: 12px;
   background: var(--paper);
@@ -1312,6 +1323,30 @@ h2 {
   font-weight: 600;
 }
 
+.login-footer {
+  display: grid;
+  gap: 5px;
+  margin-top: 25px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  color: var(--ink-faint);
+  font-size: 10px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.login-footer a {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+  text-underline-offset: 3px;
+}
+
+.login-footer a:hover {
+  color: var(--focus);
+  text-decoration: underline;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -1336,47 +1371,100 @@ h2 {
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 900px) {
   .app-shell {
     display: block;
   }
 
   .sidebar {
-    position: static;
+    position: sticky;
+    top: 0;
+    z-index: 40;
     min-height: auto;
     height: auto;
     overflow: visible;
-    padding: 15px 16px;
+    padding: 12px 14px 14px;
+    padding-top: max(12px, env(safe-area-inset-top));
+    box-shadow: 0 4px 18px rgba(16, 36, 58, 0.28);
   }
 
   .brand {
-    padding: 0 2px 14px;
+    padding: 0 2px 10px;
   }
 
-  .nav-heading,
-  .sidebar-footer {
+  .nav-heading {
     display: none;
   }
 
   .main-nav {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .sidebar-footer {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px 12px;
     margin-top: 12px;
+    padding: 10px 12px;
+  }
+
+  .sidebar-footer .status-inline {
+    justify-self: end;
+    margin-top: 0;
+  }
+
+  .sidebar-footer > p {
+    display: none;
+  }
+
+  .sidebar-footer .logout-form {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+    margin: 0;
+  }
+
+  .sidebar-footer .logout-button {
+    width: 100%;
+    min-height: 42px;
+    padding: 8px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--paper);
+    font-size: 13px;
+  }
+
+  .sidebar-footer .logout-button:hover {
+    background: rgba(255, 255, 255, 0.18);
   }
 
   .nav-link {
-    min-height: 40px;
-    padding: 8px;
-    font-size: 11px;
+    min-height: 44px;
+    padding: 8px 6px;
+    font-size: 12px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .nav-link .nav-indicator {
+    display: none;
   }
 
   .sidebar-run-form {
     margin: 10px 0;
   }
 
+  .sidebar-run-button {
+    min-height: 42px;
+    font-size: 12px;
+  }
+
   .sidebar-usage {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: center;
-    margin: 0;
+    margin: 0 0 4px;
   }
 
   .sidebar-usage .footer-label,
@@ -1392,12 +1480,26 @@ h2 {
   }
 
   .main-area {
-    padding: 25px 16px 20px;
+    padding: 18px 14px 20px;
+    padding-bottom: max(20px, env(safe-area-inset-bottom));
   }
 
   .option-list,
   .settings-grid {
     grid-template-columns: 1fr;
+  }
+
+  .filter-panel {
+    padding: 16px;
+  }
+
+  .panel-section {
+    padding: 15px;
+  }
+
+  .section-heading {
+    gap: 12px;
+    padding-bottom: 14px;
   }
 
   .usage-heading {
@@ -1423,16 +1525,18 @@ h2 {
   }
 
   .page-header {
-    gap: 6px;
+    gap: 8px;
   }
 
   .header-link {
-    min-height: 38px;
+    min-height: 42px;
+    width: 100%;
+    justify-content: center;
   }
 
   .summary-grid,
   .usage-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .filter-toolbar {
@@ -1445,7 +1549,14 @@ h2 {
   }
 
   .toolbar-actions {
-    justify-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: stretch;
+  }
+
+  .toolbar-actions .text-button {
+    flex: 1 1 130px;
+    min-height: 42px;
+    white-space: normal;
   }
 
   .section-heading {
@@ -1466,6 +1577,7 @@ h2 {
 
   .save-bar .primary-button {
     width: 100%;
+    min-height: 44px;
   }
 
   .dashboard-actions {
@@ -1477,6 +1589,7 @@ h2 {
   .dashboard-actions > *,
   .dashboard-actions .primary-button {
     width: 100%;
+    min-height: 44px;
   }
 
   .toolbar-actions {
@@ -1505,22 +1618,124 @@ h2 {
 
   .page-footer {
     grid-template-columns: minmax(0, 1fr) 38px minmax(0, 1fr);
-    gap: 6px;
+    grid-template-areas:
+      "copy copy copy"
+      ". top author";
+    gap: 8px 6px;
+    padding-top: 16px;
   }
 
   .page-footer-copy {
-    font-size: 9px;
+    grid-area: copy;
+  }
+
+  .page-footer .back-to-top {
+    grid-area: top;
+  }
+
+  .page-footer-author {
+    grid-area: author;
+  }
+
+  .page-footer-copy {
+    font-size: 10px;
     line-height: 1.5;
   }
 
   .page-footer-author {
-    font-size: 9px;
+    font-size: 10px;
     white-space: normal;
     text-align: right;
   }
 
   .page-footer-author a {
-    white-space: nowrap;
+    white-space: normal;
+  }
+
+  .sidebar {
+    padding-left: max(12px, env(safe-area-inset-left));
+    padding-right: max(12px, env(safe-area-inset-right));
+  }
+
+  .sidebar-usage {
+    gap: 7px;
+    padding: 10px;
+  }
+
+  .welcome-panel,
+  .usage-panel {
+    padding: 14px;
+  }
+
+  .summary-card {
+    min-height: 78px;
+    padding: 10px;
+  }
+
+  .summary-card strong {
+    font-size: 18px;
+  }
+
+  .usage-card {
+    padding: 9px;
+  }
+
+  .run-card {
+    padding: 13px;
+  }
+
+  .login-footer {
+    margin-top: 20px;
+  }
+
+  .main-nav {
+    gap: 4px;
+  }
+
+  .nav-link {
+    font-size: 11px;
+    padding: 8px 4px;
+    line-height: 1.25;
+  }
+}
+
+@media (max-width: 360px) {
+  .main-nav {
+    gap: 3px;
+  }
+
+  .nav-link {
+    gap: 4px;
+    padding: 8px 3px;
+    font-size: 10px;
+    min-height: 48px;
+  }
+
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .selected-row,
+  .type-summary {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .login-card {
+    padding: 18px;
+  }
+
+  .sidebar-footer .logout-button {
+    min-height: 44px;
+    font-size: 13px;
+  }
+
+  .brand-copy strong {
+    font-size: 13px;
+  }
+
+  .brand-copy > span {
+    font-size: 11px;
   }
 }
 
