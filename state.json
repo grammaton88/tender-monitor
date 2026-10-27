@@ -2989,6 +2989,12 @@
       "subject": "37 კომპლექტი პერსონალური კომპიუტერი (სისტემური ბლოკი, 2 მონიტორი, კლავიატურა, მაუსი)",
       "warranty": "არანაკლებ 3 წელი"
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/4812132f0cdf5f194ea1d24e32b4942be6475ba41503d02ac7db0ece1b441096": {
+      "confidential": null,
+      "delivery_deadline": "14 კალენდარული დღე ხელშეკრულების გაფორმებიდან",
+      "subject": "Barracuda Email Security Gateway Appliance 300 1 (ერთი) წლიანი ლიცენზიის განახლება (1 ცალი Energize Updates Subscription, 1 ცალი Instant Replacement Subscription)",
+      "warranty": "არანაკლებ 12 თვე"
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/4d0a9a69b61cf03c31c333e1e60ad98a1933d9b39d61473e148f8811290104a5": {
       "confidential": null,
       "delivery_deadline": "ხელშეკრულების გაფორმებიდან 45 კალენდარული დღის განმავლობაში",
@@ -5328,10 +5334,57 @@
         "reg_num": "NAT260022380",
         "status": "გამოცხადებულია"
       },
-      "documents": {},
+      "documents": {
+        "que/2159109": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/4812132f0cdf5f194ea1d24e32b4942be6475ba41503d02ac7db0ece1b441096",
+          "error": "",
+          "hash": "375f1713478cf3b4c352d524f77b007f962f78999d7c92d105e88715335bf266",
+          "id": "que/2159109",
+          "name": "დანართი N2 - ფასების ცხრილი (1).xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2159109&code=1792499938"
+        },
+        "que/2163730": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/4812132f0cdf5f194ea1d24e32b4942be6475ba41503d02ac7db0ece1b441096",
+          "error": "",
+          "hash": "83c518b0c7c802b0e80cbd5314757cd2f52fd52ea9a9e7d8c47534ee6e20066e",
+          "id": "que/2163730",
+          "name": "დანართი N1 - ტექნიკური დავალებ.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2163730&code=1793098370"
+        },
+        "que/2163920": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/4812132f0cdf5f194ea1d24e32b4942be6475ba41503d02ac7db0ece1b441096",
+          "error": "",
+          "hash": "1aeec0c6f9ca040a547e2924d35c7637b02684f15c3d2789960db51f07437297",
+          "id": "que/2163920",
+          "name": "ხელშეკრულების პროექტი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2163920&code=1793105013"
+        },
+        "que/2163969": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/4812132f0cdf5f194ea1d24e32b4942be6475ba41503d02ac7db0ece1b441096",
+          "error": "",
+          "hash": "77afbe48f385d324d1044cf2833124640cb8a63eb2f8c10b9eba08111e512247",
+          "id": "que/2163969",
+          "name": "ოქმი N1 -  Barracuda Email Security Gateway 300 ლიცენზიის განახლება.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2163969&code=1793107105"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/4812132f0cdf5f194ea1d24e32b4942be6475ba41503d02ac7db0ece1b441096",
+          "error": "",
+          "hash": "28e232e883074530cd686a8bf8d0b3b91c074236fd9894d3777d31673ac401c6",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=710089"
+        }
+      },
       "error": "",
       "first_seen": "2026-10-27T10:06:25.150375+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "62d5012a3bc0bd9a5db66e0c95eab2eb94e8b0e2e375e8bd467856ceb15673c2"
     },
     "710112": {
       "details": {
@@ -6104,13 +6157,13 @@
           "url": "https://tenders.procurement.gov.ge/public/?go=710998"
         }
       },
-      "error": "",
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
       "first_seen": "2026-10-26T19:09:55.189825+00:00",
       "notice": "",
-      "notified": "81fb4d0d17dcd7397652be1ff5cd6e31a450d894127bf2d7f6a5bb97d13a24df"
+      "notified": "47783ff249b39bd8c73d7e044996753835e9549a7f0eedcafa5524ec13dfd4b8"
     }
   },
-  "updated_at": "2026-10-27T10:06:27.440372+00:00",
+  "updated_at": "2026-10-27T10:06:42.448961+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -6158,14 +6211,14 @@
     },
     "2026-10-27/gemini-3.5-flash-lite": {
       "date": "2026-10-27",
-      "input": 0,
+      "input": 10049,
       "model": "gemini-3.5-flash-lite",
-      "output": 0,
+      "output": 104,
       "quota_errors": 0,
       "requests": 1,
       "reserved_tokens": 10521,
-      "total": 0,
-      "unknown_usage": 1
+      "total": 10153,
+      "unknown_usage": 0
     }
   },
   "version": 1
