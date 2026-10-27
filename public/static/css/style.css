@@ -1669,6 +1669,233 @@ h2 {
   }
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+button,
+a,
+label,
+select {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+@media (min-width: 901px) {
+  .sidebar {
+    height: 100vh;
+    height: 100dvh;
+    padding-left: max(14px, env(safe-area-inset-left));
+  }
+}
+
+.app-shell {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.main-area {
+  padding-right: max(clamp(24px, 3.5vw, 48px), env(safe-area-inset-right));
+}
+
+@media (min-width: 1800px) {
+  body {
+    font-size: 15px;
+  }
+
+  .main-area {
+    width: min(100%, 1680px);
+  }
+}
+
+/* Touch devices: comfortable tap targets and no iOS focus-zoom. */
+@media (pointer: coarse) {
+  .header-link,
+  .text-button,
+  .refresh-button,
+  .primary-button,
+  .sidebar-run-button,
+  .logout-button,
+  .back-to-top {
+    min-height: 44px;
+  }
+
+  .search-field input,
+  .setting-field input,
+  .setting-field select,
+  .login-form input {
+    min-height: 46px;
+  }
+
+  .option-row {
+    min-height: 48px;
+  }
+}
+
+@media (max-width: 900px) {
+  input,
+  select,
+  textarea,
+  .search-field input,
+  .setting-field input,
+  .setting-field select,
+  .login-form input {
+    font-size: 16px;
+  }
+
+  body {
+    font-size: 15px;
+  }
+
+  /* Raise the smallest labels to a legible size on phones and tablets. */
+  .nav-link,
+  .header-link,
+  .text-button,
+  .setting-field,
+  .search-field input,
+  .section-description,
+  .read-only-note,
+  .selected-row,
+  .type-summary,
+  .login-form label {
+    font-size: 13px;
+  }
+
+  .setting-field small,
+  .selection-count span,
+  .sidebar-usage-updated,
+  .sidebar-usage-row,
+  .sidebar-footer,
+  .login-footer,
+  .summary-label,
+  .usage-card span {
+    font-size: 12px;
+  }
+
+  .main-area {
+    padding-left: max(14px, env(safe-area-inset-left));
+    padding-right: max(14px, env(safe-area-inset-right));
+    padding-bottom: max(18px, env(safe-area-inset-bottom));
+  }
+
+  .usage-updated {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+
+  .usage-heading {
+    align-items: stretch;
+  }
+
+  /* Compact top bar: brand + logout on one row, tabs below. */
+  .sidebar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: 10px;
+    padding-top: max(12px, env(safe-area-inset-top));
+    padding-bottom: 12px;
+    padding-right: max(14px, env(safe-area-inset-right));
+    padding-left: max(14px, env(safe-area-inset-left));
+  }
+
+  .sidebar > .brand {
+    grid-column: 1;
+    padding: 0;
+  }
+
+  .sidebar > .main-nav,
+  .sidebar > .sidebar-run-form,
+  .sidebar > .sidebar-usage {
+    grid-column: 1 / -1;
+  }
+
+  .sidebar > .main-nav {
+    margin-top: 12px;
+  }
+
+  .sidebar-footer {
+    display: contents;
+  }
+
+  .sidebar-footer > .footer-label,
+  .sidebar-footer > .status-inline,
+  .sidebar-footer > p {
+    display: none;
+  }
+
+  .sidebar-footer .logout-form {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+  }
+
+  .sidebar-footer .logout-button {
+    min-height: 38px;
+    padding: 6px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--paper);
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .sidebar-footer .logout-button:active {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+@media (max-width: 560px) {
+  .save-bar {
+    gap: 8px;
+    padding: 10px 12px max(10px, env(safe-area-inset-bottom));
+  }
+
+  .save-bar > p {
+    display: none;
+  }
+
+  .page-footer-copy,
+  .page-footer-author {
+    font-size: 11px;
+  }
+
+  .nav-link {
+    font-size: 12px;
+  }
+
+  .summary-card strong,
+  .usage-card strong {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 360px) {
+  .nav-link {
+    font-size: 11px;
+  }
+}
+
+/* Phones and tablets in landscape have little vertical room. */
+@media (max-height: 500px) and (orientation: landscape) and (min-width: 901px) {
+  .sidebar {
+    position: static;
+    height: auto;
+    min-height: 0;
+  }
+}
+
+@media (hover: none) {
+  .header-link:hover,
+  .text-button:hover {
+    border-color: var(--line);
+    background: var(--paper);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

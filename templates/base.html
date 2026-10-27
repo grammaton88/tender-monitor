@@ -2,7 +2,8 @@
 <html lang="ka">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="color-scheme" content="light">
     <meta name="theme-color" content="#10243a">
     <title>{% block title %}ტენდერების მონიტორინგი{% endblock %}</title>
     <meta name="description" content="საქართველოს სახელმწიფო შესყიდვების IT ტენდერების მონიტორინგი">
@@ -25,8 +26,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css', v='20261027-1') }}">
-    <script src="{{ url_for('static', filename='js/dashboard.js') }}" defer></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css', v='20261027-5') }}">
+    <script src="{{ url_for('static', filename='js/dashboard.js', v='20261027-2') }}" defer></script>
   </head>
   <body>
     <div class="app-shell" id="page-top">

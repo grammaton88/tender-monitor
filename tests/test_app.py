@@ -341,6 +341,59 @@ class DashboardTests(unittest.TestCase):
         )
         self.assertEqual(api.call_args.kwargs["json"], {"ref": "main"})
 
+    def test_vercel_does_not_deploy_the_monitor_state_branch(self):
+        config = json.loads(
+            (Path(dashboard.BASE_DIR) / "vercel.json").read_text(encoding="utf-8"),
+        )
+        self.assertIs(config["git"]["deploymentEnabled"]["monitor-state"], False)
+        self.assertIn("monitor-state", config["ignoreCommand"])
+
+    def test_workflow_run_list_loads_steps_for_one_active_run_only(self):
+        def run(number):
+            return {
+                "id": number, "run_number": number, "status": "in_progress",
+                "html_url": f"https://github.com/owner/repository/actions/runs/{number}",
+            }
+
+        runs_response = unittest.mock.MagicMock(status_code=200)
+        runs_response.json.return_value = {"workflow_runs": [run(3), run(2), run(1)]}
+        jobs_response = unittest.mock.MagicMock(status_code=200)
+        jobs_response.json.return_value = {"jobs": [{
+            "status": "in_progress", "name": "run-monitor",
+            "steps": [{"status": "in_progress", "name": "Run tender monitor"}],
+        }]}
+        with patch.dict(os.environ, {
+            "GITHUB_ACTIONS_TOKEN": "test-token",
+            "GITHUB_REPOSITORY": "owner/repository",
+        }), patch.object(
+            dashboard.requests, "request", side_effect=[runs_response, jobs_response],
+        ) as api:
+            runs = dashboard.load_github_workflow_runs()
+        self.assertEqual(api.call_count, 2)
+        self.assertEqual(runs[0]["current_step"], "Run tender monitor")
+        self.assertIsNone(runs[1]["current_step"])
+
+    def test_manual_run_reports_invalid_github_responses_without_crashing(self):
+        page = self.client.get("/settings")
+        csrf_token = BeautifulSoup(page.data, "html.parser").select_one(
+            'input[name="csrf_token"]',
+        )["value"]
+        with patch.object(
+            dashboard, "dispatch_monitor_workflow", side_effect=ValueError("bad payload"),
+        ):
+            response = self.client.post(
+                "/run-now", data={"csrf_token": csrf_token}, follow_redirects=True,
+            )
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("bad payload".encode(), response.data)
+
+    def test_dashboard_shows_last_monitor_run(self):
+        state = {**dashboard.default_state(), "last_monitor_run_at": 1_790_000_000}
+        with patch.object(dashboard, "load_monitor_state", return_value=state):
+            response = self.client.get("/")
+        self.assertEqual(response.status_code, 200)
+        self.assertNotIn("ჯერ არ გაშვებულა".encode(), response.data)
+
     def test_manual_run_route_requires_csrf_and_reports_dispatch(self):
         page = self.client.get("/settings")
         csrf_token = BeautifulSoup(page.data, "html.parser").select_one(
@@ -644,7 +697,7 @@ class DashboardTests(unittest.TestCase):
             "updated_at": "2026-10-26T12:00:00+00:00",
         }
         response = unittest.mock.MagicMock(status_code=200)
-        response.text = json.dumps(remote_state)
+        response.content = json.dumps(remote_state).encode("utf-8")
         with patch.dict(os.environ, {
             "GITHUB_ACTIONS_TOKEN": "test-token",
             "GITHUB_REPOSITORY": "owner/repository",

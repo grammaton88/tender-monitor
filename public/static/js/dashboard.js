@@ -14,6 +14,7 @@
   });
 
   const formattedNow = () => dateFormat.format(new Date());
+  let runIsActive = false;
   const requestJson = async (url) => {
     const response = await fetch(url, {
       headers: { Accept: "application/json" },
@@ -168,6 +169,12 @@
       const active = (data.runs || []).some(
         (run) => run.status === "queued" || run.status === "in_progress",
       );
+      const wasActive = runIsActive;
+      runIsActive = active;
+      // A run just finished: pull the final usage numbers immediately.
+      if (wasActive && !active && (stats || document.querySelector("[data-usage-metric]"))) {
+        updateUsage();
+      }
       document.querySelectorAll(".run-now-form button, .sidebar-run-form button").forEach((runButton) => {
         if (!runButton.dataset.originalRunLabel) {
           runButton.dataset.originalRunLabel = runButton.textContent;
@@ -234,14 +241,35 @@
   });
 
   if (stats || document.querySelector("[data-usage-metric]")) {
+    // Poll faster while a workflow is running so live usage is visible.
+    const scheduleUsage = () => {
+      window.setTimeout(async () => {
+        if (!document.hidden) await updateUsage();
+        scheduleUsage();
+      }, runIsActive ? 15_000 : 60_000);
+    };
     updateUsage();
-    window.setInterval(updateUsage, 60_000);
+    scheduleUsage();
+    // Mobile browsers freeze timers in background tabs and restore pages from
+    // the back/forward cache, so refresh as soon as the page is visible again.
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) updateUsage();
+    });
+    window.addEventListener("pageshow", (event) => {
+      if (event.persisted) updateUsage();
+    });
+    window.addEventListener("online", () => updateUsage());
   }
   if (
     document.querySelector("#workflow-run-list") ||
     document.querySelector(".run-now-form button, .sidebar-run-form button")
   ) {
     updateRuns();
-    window.setInterval(updateRuns, 30_000);
+    window.setInterval(() => {
+      if (!document.hidden) updateRuns();
+    }, 30_000);
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) updateRuns();
+    });
   }
 })();

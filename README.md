@@ -117,6 +117,7 @@ The GitHub Actions workflow runs tests before a due scan. If the schedule gate d
 | GitHub API returns HTTP 403 for `MONITOR_CONFIG` | Verify the active token is selected for the exact repository and has **Variables: Read and write**. Also check Actions: Read and write, Contents: Read, token approval, and that Vercel has the current token. |
 | Dashboard cannot manage secrets | Add **Secrets: Read and write** to the fine-grained token, or update secrets directly in GitHub Actions settings. |
 | Workflow does not persist state | Check that the workflow's built-in token can write repository contents and that repository rules allow updates to `monitor-state`. |
+| Vercel shows failed deployments for the `monitor-state` branch during a run | The monitor pushes progress to `monitor-state` every few seconds, and Vercel tries to build each push. `vercel.json` disables Git deployments for that branch; deploy the updated `vercel.json` from the default branch and, if needed, also set **Settings → Git → Ignored Build Step** accordingly. |
 | No email received | Check the Actions run log and verify `EMAIL_FROM`, `EMAIL_PASSWORD`, and `EMAIL_TO`. |
 | Gemini HTTP 429 or 503 | Check AI Studio quota/model availability. Temporary failures may be retried; unfinished work remains pending for a later run. |
 | A document is flagged for manual review | Open the source attachment on the procurement portal and review it directly. Unsupported, malformed, or oversized content is not assumed to have been analyzed. |

@@ -255,7 +255,7 @@ def load_monitor_state(force_refresh: bool = False) -> dict:
         state = default_state()
     else:
         try:
-            state = json.loads(response.text)
+            state = json.loads(response.content)
         except json.JSONDecodeError as exc:
             raise ValueError("GitHub monitor-state branch contains invalid state JSON") from exc
         if (
@@ -290,7 +290,7 @@ def daily_usage_snapshot(state: dict) -> dict:
     }
 
 
-def load_github_workflow_runs(limit: int = 10) -> list[dict]:
+def load_github_workflow_runs(limit: int = 10, include_steps: bool = True) -> list[dict]:
     github = github_config_settings()
     if github is None:
         return []
@@ -305,6 +305,7 @@ def load_github_workflow_runs(limit: int = 10) -> list[dict]:
     if not isinstance(payload, dict) or not isinstance(payload.get("workflow_runs"), list):
         raise ValueError("GitHub returned an invalid workflow-runs response")
     runs = []
+    steps_loaded = False
     for run in payload["workflow_runs"]:
         if not isinstance(run, dict):
             continue
@@ -326,17 +327,25 @@ def load_github_workflow_runs(limit: int = 10) -> list[dict]:
             "updated_at": run.get("updated_at") or "",
             "url": run_url,
         }
-        if run_details["status"] in ("queued", "in_progress") and isinstance(
-            run_details["id"],
-            int,
+        # One jobs lookup is enough for the live step; more would multiply
+        # GitHub calls inside a single serverless request.
+        if (
+            include_steps
+            and not steps_loaded
+            and run_details["status"] in ("queued", "in_progress")
+            and isinstance(run_details["id"], int)
         ):
-            jobs_response = github_config_request(
-                "GET",
-                f"{GITHUB_API}/repos/{repository}/actions/runs/{run_details['id']}/jobs",
-                token,
-                params={"per_page": 100},
-            )
-            jobs_payload = jobs_response.json()
+            steps_loaded = True
+            try:
+                jobs_response = github_config_request(
+                    "GET",
+                    f"{GITHUB_API}/repos/{repository}/actions/runs/{run_details['id']}/jobs",
+                    token,
+                    params={"per_page": 30},
+                )
+                jobs_payload = jobs_response.json()
+            except (RuntimeError, ValueError, requests.RequestException):
+                jobs_payload = {}
             jobs = jobs_payload.get("jobs", []) if isinstance(jobs_payload, dict) else []
             for job in jobs:
                 if not isinstance(job, dict) or job.get("status") != "in_progress":
@@ -503,7 +512,7 @@ def dispatch_monitor_workflow() -> None:
     token, repository = github
     active_runs = [
         run
-        for run in load_github_workflow_runs(limit=10)
+        for run in load_github_workflow_runs(limit=10, include_steps=False)
         if run["status"] in ("queued", "in_progress")
     ]
     if active_runs:
@@ -690,6 +699,7 @@ def dashboard():
     return render_template(
         "dashboard.html",
         config=config,
+        state=state,
         summary=state.get("summary", {}),
         recent_tenders=state.get("recent_tenders", []),
         errors=state.get("errors", []),
@@ -784,7 +794,8 @@ def workflow_runs():
 def run_now():
     try:
         dispatch_monitor_workflow()
-    except (RuntimeError, requests.RequestException) as exc:
+    except (RuntimeError, ValueError, requests.RequestException) as exc:
+        app.logger.exception("Unable to start the monitor workflow")
         flash(f"Workflow-ის გაშვება ვერ მოხერხდა: {exc}", "error")
     else:
         flash(

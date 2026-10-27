@@ -104,7 +104,7 @@ def save_state(path: Path, state: dict) -> None:
     temporary.replace(path)
     if os.environ.get("GITHUB_ACTIONS") == "true":
         now = time.monotonic()
-        if now - _last_live_state_publish >= 30:
+        if now - _last_live_state_publish >= 15:
             _last_live_state_publish = now
             try:
                 publish_live_state(path)
