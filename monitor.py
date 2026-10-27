@@ -225,10 +225,21 @@ def main():
         return
     apply_config_to_environment(config)
 
+    def search_with_retries(session, basecode: str, app_type: str) -> list[dict]:
+        # The portal occasionally drops connections; a restarted search is safe.
+        for delay in (5, 20, None):
+            try:
+                return search_tenders(session, basecode, app_type)
+            except (requests.ConnectionError, requests.Timeout):
+                if delay is None:
+                    raise
+                print(f"CPV {basecode}: portal connection dropped; retrying in {delay}s")
+                time.sleep(delay)
+
     def search_selected_types(session, basecode: str) -> list[dict]:
         results = {}
         for app_type in config["app_types"]:
-            for tender in search_tenders(session, basecode, app_type):
+            for tender in search_with_retries(session, basecode, app_type):
                 if tender["id"]:
                     results[tender["id"]] = tender
             time.sleep(1.3)
