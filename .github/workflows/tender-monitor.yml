@@ -3,8 +3,8 @@ name: IT Tender Monitor
 on:
   schedule:
     # 3 დღეში 10:00 თბილისის დროით = 06:00 UTC
-    - cron: '0 6 */3 * *'
-  workflow_dispatch:   # ხელით გაშვების შესაძლებლობა
+    - cron: "0 6 */3 * *"
+  workflow_dispatch: # ხელით გაშვების შესაძლებლობა
 
 permissions:
   contents: write
@@ -24,13 +24,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
-          python-version: '3.12'
-
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
-      - name: Test scanner
-        run: python -m unittest discover -s tests -v
+          python-version: "3.12"
 
       - name: Load persistent state branch
         env:
@@ -59,21 +53,76 @@ jobs:
           else
             exit "$status"
           fi
+          # Vercel builds every pushed branch using that branch's own vercel.json.
+          # Keep one here so progress commits never trigger a deployment.
+          if [ ! -f vercel.json ]; then
+            cat > vercel.json <<'JSON'
+          {
+            "$schema": "https://openapi.vercel.sh/vercel.json",
+            "git": { "deploymentEnabled": false },
+            "ignoreCommand": "exit 0"
+          }
+          JSON
+            git add -- vercel.json
+            git commit -m "Disable Vercel deployments for monitor state" \
+              -m "Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+            git push origin HEAD:monitor-state
+          fi
+
+      - name: Check whether the configured interval has elapsed
+        id: schedule-gate
+        env:
+          MONITOR_CONFIG: ${{ vars.MONITOR_CONFIG }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import time
+          from pathlib import Path
+
+          raw_config = os.environ.get("MONITOR_CONFIG")
+          config_path = Path("monitor-config.json")
+          config = json.loads(raw_config) if raw_config else json.loads(config_path.read_text(encoding="utf-8"))
+          hours = config.get("schedule_interval_hours")
+          if hours is None:
+              hours = config.get("schedule_interval_days", 3) * 24
+          if isinstance(hours, bool) or not isinstance(hours, int) or not 1 <= hours <= 168:
+              raise ValueError("schedule interval must be between 1 and 168 hours")
+
+          should_run = os.environ["GITHUB_EVENT_NAME"] != "schedule"
+          if os.environ["GITHUB_EVENT_NAME"] == "schedule" and config.get("enabled", True):
+              state_path = Path(".monitor-state/state.json")
+              state = json.loads(state_path.read_text(encoding="utf-8")) if state_path.exists() else {}
+              last_run = state.get("last_monitor_run_at")
+              should_run = (
+                  not isinstance(last_run, (int, float))
+                  or time.time() - last_run >= hours * 60 * 60
+              )
+
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write(f"should_run={str(should_run).lower()}\n")
+          print("Monitor run is due." if should_run else "Configured interval has not elapsed; skipping monitor work.")
+          PY
+
+      - name: Install dependencies
+        if: steps.schedule-gate.outputs.should_run != 'false'
+        run: pip install -r requirements.txt
+
+      - name: Test scanner
+        if: steps.schedule-gate.outputs.should_run != 'false'
+        run: python -m unittest discover -s tests -v
 
       - name: Run tender monitor
+        if: steps.schedule-gate.outputs.should_run != 'false'
         env:
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
           EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
-          GEMINI_RPD_LIMIT: ${{ vars.GEMINI_RPD_LIMIT }}
-          GEMINI_TPD_LIMIT: ${{ vars.GEMINI_TPD_LIMIT }}
-          GEMINI_RPM_LIMIT: ${{ vars.GEMINI_RPM_LIMIT }}
-          GEMINI_TPM_LIMIT: ${{ vars.GEMINI_TPM_LIMIT }}
-          MAX_ANALYSES_PER_RUN: ${{ vars.MAX_ANALYSES_PER_RUN || '10' }}
-          INITIAL_SCAN_MODE: ${{ vars.INITIAL_SCAN_MODE || 'all' }}
+          MONITOR_CONFIG: ${{ vars.MONITOR_CONFIG }}
           STATE_PATH: .monitor-state/state.json
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
         run: python monitor.py
 
       - name: Persist progress even after processing or email failure
@@ -90,5 +139,5 @@ jobs:
           if ! git diff --cached --quiet; then
             git commit -m "Update tender monitor state" \
               -m "Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
-            git push origin HEAD:monitor-state
           fi
+          git push origin HEAD:monitor-state
