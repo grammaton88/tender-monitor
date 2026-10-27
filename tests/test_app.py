@@ -216,7 +216,7 @@ class DashboardTests(unittest.TestCase):
         ):
             with self.assertRaisesRegex(
                 RuntimeError,
-                "Actions: Read and write.*Contents: Read",
+                "Variables: Read and write.*Actions: Read and write.*Contents: Read",
             ):
                 dashboard.github_config_request(
                     "GET",

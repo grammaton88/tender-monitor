@@ -209,9 +209,11 @@ def github_config_request(
         elif response.status_code == 403:
             detail = (
                 "GitHub denied access (HTTP 403). Check that the fine-grained token "
-                "selects this repository and has Actions: Read and write plus "
-                "Contents: Read permissions. Organization-owned repositories may "
-                "also require token approval."
+                "selects this repository and has Variables: Read and write, "
+                "Actions: Read and write, and Contents: Read permissions. "
+                "Secrets: Read and write is also needed to manage secrets from "
+                "the dashboard. Organization-owned repositories may require "
+                "token approval."
             )
             try:
                 github_message = response.json().get("message")
@@ -379,12 +381,12 @@ def github_connection_diagnostics() -> list[dict]:
         (
             "მონიტორინგის კონფიგურაცია",
             f"{GITHUB_API}/repos/{repository}/actions/variables/{CONFIG_VARIABLE}",
-            "Actions variable-ების წასაკითხად/შესაცვლელად საჭიროა Actions: Read and write.",
+            "Actions variable-ების წასაკითხად/შესაცვლელად საჭიროა Variables: Read and write.",
         ),
         (
             "საიდუმლო გასაღებების მართვა",
             f"{GITHUB_API}/repos/{repository}/actions/secrets/public-key",
-            "GitHub Actions Secrets-ისთვის საჭიროა Actions: Read and write.",
+            "GitHub Actions Secrets-ისთვის საჭიროა Secrets: Read and write.",
         ),
         (
             "მონიტორინგის სტატისტიკა",
@@ -657,6 +659,7 @@ def inject_common_data():
         "app_types": APP_TYPES,
         "cpv_options": CPV_OPTIONS,
         "csrf_token": session.get("csrf_token", ""),
+        "current_year": datetime.now().year,
         "auth_enabled": bool(
             os.environ.get("VERCEL")
             or os.environ.get("DASHBOARD_USERNAME")

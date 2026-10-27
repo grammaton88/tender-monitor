@@ -142,7 +142,3 @@ The report is an aid to review, not a legal or procurement determination. Verify
 | `.gitignore` | Excludes local environments, credentials, caches, and runtime state. |
 
 Local-only directories such as `.venv/` and `data/` are ignored by Git and should stay on your computer; they do not need to be deleted to keep them out of GitHub.
-
----
-
-Maintained by [Mikheil Kakabadze](https://www.linkedin.com/in/mikheil-kakabadze).
