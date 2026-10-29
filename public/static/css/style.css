@@ -1504,18 +1504,22 @@ h2 {
   .filter-toolbar {
     align-items: stretch;
     flex-direction: column;
-    justify-content: flex-start;   /* ← this was the real problem */
+    justify-content: flex-start;
+    height: auto;
+    min-height: 0;
     margin: 12px 0 8px;
     gap: 10px;
   }
 
   .search-field {
     max-width: none;
+    flex: 0 0 auto;          /* prevents the search from growing */
   }
 
   .toolbar-actions {
     flex-wrap: wrap;
     justify-content: stretch;
+    flex: 0 0 auto;
     gap: 8px;
   }
 
