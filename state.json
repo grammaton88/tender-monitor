@@ -3049,6 +3049,12 @@
       "subject": "IT სისტემების/სერვისების განთავსების, ადმინისტრირების, მხარდაჭერის და მაღალი დატვირთვის პერიოდებისთვის რესურსების უზრუნველყოფის მომსახურება",
       "warranty": null
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/6bb3eb87b264687287a53beb8338dbd9239a09919531f3e4cdadb543e26e6514": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან 50 კალენდარული დღე",
+      "subject": "უკაბელო დაშვების მოწყობილობა (WiFi) - 4 ცალი",
+      "warranty": "არანაკლებ 5 წლის განმავლობაში"
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/7c35d0d17ee1fb6765584cd15271fb2f2b8eebb9e377ccc137653cdd32ec13d3": {
       "confidential": null,
       "delivery_deadline": "ხელშეკრულების გაფორმებიდან 30 კალენდარული დღე",
@@ -5219,7 +5225,53 @@
         "reg_num": "NAT260022587",
         "status": "გამოცხადებულია"
       },
-      "documents": {},
+      "documents": {
+        "que/2158146": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/6bb3eb87b264687287a53beb8338dbd9239a09919531f3e4cdadb543e26e6514",
+          "error": "",
+          "hash": "b8f1d763a1db7807efb085df76d640cfeabae23a785dfc0249aa2f3d27a22489",
+          "id": "que/2158146",
+          "name": "დანართი #1 -ფასების ცხრილი.xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2158146&code=1792410866"
+        },
+        "que/2158151": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/6bb3eb87b264687287a53beb8338dbd9239a09919531f3e4cdadb543e26e6514",
+          "error": "",
+          "hash": "e5b966e4323a123c20c6d5e05b71731de3d9e26b10e04e69989a66566ce034dd",
+          "id": "que/2158151",
+          "name": "დანართი #2  -ტექნიკური დავალება.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2158151&code=1792411147"
+        },
+        "que/2158155": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/6bb3eb87b264687287a53beb8338dbd9239a09919531f3e4cdadb543e26e6514",
+          "error": "",
+          "hash": "316a264f0566599794224432dbb6416ae9469d3844e3184ab72c0e6a70513e58",
+          "id": "que/2158155",
+          "name": "ხელშეკრულების პროექტი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2158155&code=1792411406"
+        },
+        "que/2165240": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/6bb3eb87b264687287a53beb8338dbd9239a09919531f3e4cdadb543e26e6514",
+          "error": "",
+          "hash": "0b02d2cebda14420846b2fd76196318bc93662cf988edeae7b0c1b6f43813a0c",
+          "id": "que/2165240",
+          "name": "ოქმი №1-signed.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2165240&code=1793211871"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/6bb3eb87b264687287a53beb8338dbd9239a09919531f3e4cdadb543e26e6514",
+          "error": "",
+          "hash": "b642f25b8d1342f429f396b9680917379c2b239d92df513779a7e3ad04d4cb19",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=709870"
+        }
+      },
       "error": "",
       "first_seen": "2026-10-29T12:21:24.236044+00:00",
       "notice": ""
@@ -6184,7 +6236,7 @@
       "notified": "81fb4d0d17dcd7397652be1ff5cd6e31a450d894127bf2d7f6a5bb97d13a24df"
     }
   },
-  "updated_at": "2026-10-29T12:21:47.735207+00:00",
+  "updated_at": "2026-10-29T12:22:04.478057+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
