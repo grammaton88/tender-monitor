@@ -1504,8 +1504,9 @@ h2 {
   .filter-toolbar {
     align-items: stretch;
     flex-direction: column;
-    margin: 10px 0 4px; 
-    gap: 8px;
+    justify-content: flex-start;   /* ← this was the real problem */
+    margin: 12px 0 8px;
+    gap: 10px;
   }
 
   .search-field {
@@ -1515,7 +1516,7 @@ h2 {
   .toolbar-actions {
     flex-wrap: wrap;
     justify-content: stretch;
-    gap: 6px;
+    gap: 8px;
   }
 
   .toolbar-actions .text-button {
@@ -1525,8 +1526,6 @@ h2 {
 
   .option-list {
     margin-top: 0;
-    padding-top: 0;
-    align-content: start;
     gap: 6px;
   }
 
@@ -1537,7 +1536,6 @@ h2 {
 
   .section-heading {
     align-items: flex-start;
-    padding-bottom: 12px;
   }
 
   .selected-row,
