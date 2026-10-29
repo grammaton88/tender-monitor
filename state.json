@@ -3226,7 +3226,7 @@
     }
   },
   "initialized": true,
-  "last_monitor_run_at": 1793096374.766179,
+  "last_monitor_run_at": 1793276595.7756763,
   "last_request_at": 1793276568.6721218,
   "tenders": {
     "694702": {
@@ -4170,7 +4170,8 @@
       },
       "error": "",
       "first_seen": "2026-10-29T12:22:32.546065+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "0dcacdb5af7690dd8eeced57516643e0ea0a4ba90bf90a360f722e6563d838d9"
     },
     "708202": {
       "details": {
@@ -4554,7 +4555,7 @@
       "error": "",
       "first_seen": "2026-10-22T11:29:47.515044+00:00",
       "notice": "",
-      "notified": "36282a2aba7d187965e02388523ea3e755519512f6381182dfa24457d1a9e536"
+      "notified": "44720d8b059b5d094b9d198e0e6a7bb750ab49a6160e23f2d85f37fb8fbebb9a"
     },
     "708799": {
       "details": {
@@ -5348,7 +5349,8 @@
       },
       "error": "",
       "first_seen": "2026-10-29T12:21:24.236044+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "90a289334dda18fe045a2d71b354a2a0fa988298a9e9149462084cb6d564fc07"
     },
     "709888": {
       "details": {
@@ -6379,7 +6381,8 @@
       },
       "error": "",
       "first_seen": "2026-10-29T12:22:42.293953+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "ac96374fce47e8f615fd77b8243b0d46fccfbbb2edd08432cc264ec03b2a354c"
     },
     "711389": {
       "details": {
@@ -6442,10 +6445,11 @@
       },
       "error": "",
       "first_seen": "2026-10-29T12:22:16.564934+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "bf8f17e647db0703bad734be770b170586580de30ecfa8d4ed99860631ac5f72"
     }
   },
-  "updated_at": "2026-10-29T12:23:12.474354+00:00",
+  "updated_at": "2026-10-29T12:23:15.775739+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
