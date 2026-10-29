@@ -1504,6 +1504,8 @@ h2 {
   .filter-toolbar {
     align-items: stretch;
     flex-direction: column;
+    margin: 10px 0 4px; 
+    gap: 8px;
   }
 
   .search-field {
@@ -1513,6 +1515,7 @@ h2 {
   .toolbar-actions {
     flex-wrap: wrap;
     justify-content: stretch;
+    gap: 6px;
   }
 
   .toolbar-actions .text-button {
@@ -1520,8 +1523,21 @@ h2 {
     white-space: normal;
   }
 
+  .option-list {
+    margin-top: 0;
+    padding-top: 0;
+    align-content: start;
+    gap: 6px;
+  }
+
+  .option-row {
+    min-height: 52px;
+    padding: 10px 12px;
+  }
+
   .section-heading {
     align-items: flex-start;
+    padding-bottom: 12px;
   }
 
   .selected-row,
