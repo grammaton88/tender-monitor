@@ -3209,7 +3209,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1793096374.766179,
-  "last_request_at": 1793276487.7980573,
+  "last_request_at": 1793276542.1917381,
   "tenders": {
     "694702": {
       "details": {
@@ -6234,9 +6234,26 @@
       "first_seen": "2026-10-26T19:09:55.189825+00:00",
       "notice": "",
       "notified": "81fb4d0d17dcd7397652be1ff5cd6e31a450d894127bf2d7f6a5bb97d13a24df"
+    },
+    "711389": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 14`500.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 28.10.2026",
+        "buyer": "სსიპ - ილია ჭავჭავაძის სახელობის საქართველოს ეროვნული ბიბლიოთეკა",
+        "category": "48200000-ქსელების, ინტერნეტისა და ინტრანეტის პროგრამული  პაკეტები",
+        "deadline": "წინადადებების მიღების ვადა: 05.11.2026",
+        "id": "711389",
+        "link": "https://tenders.procurement.gov.ge/public/?go=711389",
+        "reg_num": "NAT260022488",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-10-29T12:22:16.564934+00:00",
+      "notice": ""
     }
   },
-  "updated_at": "2026-10-29T12:22:04.478057+00:00",
+  "updated_at": "2026-10-29T12:22:22.191788+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -6299,10 +6316,10 @@
       "model": "gemini-3.5-flash-lite",
       "output": 86,
       "quota_errors": 0,
-      "requests": 1,
-      "reserved_tokens": 7858,
+      "requests": 2,
+      "reserved_tokens": 18988,
       "total": 7720,
-      "unknown_usage": 0
+      "unknown_usage": 1
     }
   },
   "version": 1
