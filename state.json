@@ -3226,7 +3226,7 @@
     }
   },
   "initialized": true,
-  "last_monitor_run_at": 1793279521.7671428,
+  "last_monitor_run_at": 1793280558.5058343,
   "last_request_at": 1793276568.6721218,
   "tenders": {
     "694702": {
@@ -6449,7 +6449,7 @@
       "notified": "bf8f17e647db0703bad734be770b170586580de30ecfa8d4ed99860631ac5f72"
     }
   },
-  "updated_at": "2026-10-29T13:29:07.205277+00:00",
+  "updated_at": "2026-10-29T13:29:18.505862+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
