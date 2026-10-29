@@ -380,7 +380,7 @@ class DashboardTests(unittest.TestCase):
         )["value"]
         with patch.object(
             dashboard, "dispatch_monitor_workflow", side_effect=ValueError("bad payload"),
-        ):
+        ), self.assertLogs(dashboard.app.logger, level="ERROR"):
             response = self.client.post(
                 "/run-now", data={"csrf_token": csrf_token}, follow_redirects=True,
             )
