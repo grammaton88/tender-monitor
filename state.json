@@ -2917,6 +2917,12 @@
       "subject": "IP/MPLS Active Equipment, Phase 2",
       "warranty": "10 years hardware, 5 years software, 10 years network stability, 5 years power system, 3-5 years air conditioner, 5 years firewall, 2 years NOC"
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/17974bdeb9eb5247800f1f7c017d34efe69fbf8cd0716f9f6944cfab12653b08": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან 15 კალენდარული დღე",
+      "subject": "Cisco ISE Essentials Subscription (1500 ენდპოინტისთვის) და SWSS UPGRADES Cisco ISE Virtual Machine Common PID (3 ცალი)",
+      "warranty": "ლიცენზიების გააქტიურებიდან 1 წელი"
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/1c38a7f61678e297f9cc1ffd9ece4c220283bf544e89281d1a3927acce362c26": {
       "confidential": null,
       "delivery_deadline": "ხელშეკრულების გაფორმებიდან 30 კალენდარული დღის ვადაში",
@@ -3215,7 +3221,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1793096374.766179,
-  "last_request_at": 1793276555.0705307,
+  "last_request_at": 1793276568.6721218,
   "tenders": {
     "694702": {
       "details": {
@@ -4118,7 +4124,44 @@
         "reg_num": "SPA260000958",
         "status": "გამოცხადებულია"
       },
-      "documents": {},
+      "documents": {
+        "que/2163668": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/17974bdeb9eb5247800f1f7c017d34efe69fbf8cd0716f9f6944cfab12653b08",
+          "error": "",
+          "hash": "d9c748a44945b4f54185647cff99fe153c0c7f2fc6229e193722b18fbc627030",
+          "id": "que/2163668",
+          "name": "ხელშეკრულების პროექტი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2163668&code=1793095882"
+        },
+        "que/2163669": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/17974bdeb9eb5247800f1f7c017d34efe69fbf8cd0716f9f6944cfab12653b08",
+          "error": "",
+          "hash": "0c6cf7701f12d90d2325de29727092d385bbc368279bc66d948f945aefd238b4",
+          "id": "que/2163669",
+          "name": "ოქმი №1.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2163669&code=1793095907"
+        },
+        "que/2163680": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/17974bdeb9eb5247800f1f7c017d34efe69fbf8cd0716f9f6944cfab12653b08",
+          "error": "",
+          "hash": "e7d7a9b1cbc2e957b33b3ae90679aa91f39b7e8b753ae3d178df392927c06f83",
+          "id": "que/2163680",
+          "name": "ფასების ცხრილი.xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2163680&code=1793096475"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/17974bdeb9eb5247800f1f7c017d34efe69fbf8cd0716f9f6944cfab12653b08",
+          "error": "",
+          "hash": "ed96a521374b0517e5121d5cd32c3abd76e757d779f88fe2a4c296975ebc65e0",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=707565"
+        }
+      },
       "error": "",
       "first_seen": "2026-10-29T12:22:32.546065+00:00",
       "notice": ""
@@ -6258,6 +6301,23 @@
       "notice": "",
       "notified": "81fb4d0d17dcd7397652be1ff5cd6e31a450d894127bf2d7f6a5bb97d13a24df"
     },
+    "711106": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 29`918.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 27.10.2026",
+        "buyer": "საქართველოს ეროვნული არქივი",
+        "category": "48700000-პროგრამული პაკეტების მომსახურე პროგრამები",
+        "deadline": "წინადადებების მიღების ვადა: 05.11.2026",
+        "id": "711106",
+        "link": "https://tenders.procurement.gov.ge/public/?go=711106",
+        "reg_num": "NAT260022423",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-10-29T12:22:42.293953+00:00",
+      "notice": ""
+    },
     "711389": {
       "details": {
         "amount": "შესყიდვის სავარაუდო ღირებულება: 14`500.00 ლარი",
@@ -6322,7 +6382,7 @@
       "notice": ""
     }
   },
-  "updated_at": "2026-10-29T12:22:41.009775+00:00",
+  "updated_at": "2026-10-29T12:22:56.712289+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -6381,13 +6441,13 @@
     },
     "2026-10-29/gemini-3.5-flash-lite": {
       "date": "2026-10-29",
-      "input": 28734,
+      "input": 39025,
       "model": "gemini-3.5-flash-lite",
-      "output": 314,
+      "output": 525,
       "quota_errors": 0,
-      "requests": 3,
-      "reserved_tokens": 29502,
-      "total": 29048,
+      "requests": 4,
+      "reserved_tokens": 40141,
+      "total": 39550,
       "unknown_usage": 0
     }
   },
