@@ -828,7 +828,7 @@ def report(state: dict, ai: Gemini, scan_errors: list[str],
     ]
     lines = [
         f"IT ტენდერების მონიტორინგის ანგარიში - "
-        f"{datetime.now(ZoneInfo('Asia/Tbilisi')):%Y-%m-%d %H:%M} "
+        f"{datetime.now(ZoneInfo('Asia/Tbilisi')):%Y-%m-%d %H:%M}",
         "", "შემოწმების შედეგები",
     ]
     if current_tenders is not None:
@@ -917,7 +917,7 @@ def send_report(plain: str, rich: str) -> None:
     message["From"], message["To"] = sender, recipient
     hours = positive_setting("SCHEDULE_INTERVAL_HOURS", 72)
     message["Subject"] = (
-        "IT ტენდერების მონიტორინგი - {hours} საათიანი ანგარიში | "
+        f"IT ტენდერების მონიტორინგი - {hours} საათიანი ანგარიში | "
         f"{now:%Y-%m-%d} - {now:%H:%M}"
     )
     message.set_content(plain)
