@@ -3203,7 +3203,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1793096374.766179,
-  "last_request_at": 1793096367.3659735,
+  "last_request_at": 1793276487.7980573,
   "tenders": {
     "694702": {
       "details": {
@@ -5207,6 +5207,23 @@
       "notice": "",
       "notified": "041294d82798464daa582e28cc4935d4f837d78801925c1d4e25d6bb2208ff6f"
     },
+    "709870": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 5`360.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 29.10.2026",
+        "buyer": "შპს \"საქართველოს ფოსტა\"",
+        "category": "32400000-ქსელები",
+        "deadline": "წინადადებების მიღების ვადა: 06.11.2026",
+        "id": "709870",
+        "link": "https://tenders.procurement.gov.ge/public/?go=709870",
+        "reg_num": "NAT260022587",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-10-29T12:21:24.236044+00:00",
+      "notice": ""
+    },
     "709888": {
       "details": {
         "amount": "შესყიდვის სავარაუდო ღირებულება: 832`615.00 ლარი",
@@ -6167,7 +6184,7 @@
       "notified": "81fb4d0d17dcd7397652be1ff5cd6e31a450d894127bf2d7f6a5bb97d13a24df"
     }
   },
-  "updated_at": "2026-10-27T10:19:34.766251+00:00",
+  "updated_at": "2026-10-29T12:21:27.798115+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -6223,6 +6240,17 @@
       "reserved_tokens": 19634,
       "total": 19075,
       "unknown_usage": 0
+    },
+    "2026-10-29/gemini-3.5-flash-lite": {
+      "date": "2026-10-29",
+      "input": 0,
+      "model": "gemini-3.5-flash-lite",
+      "output": 0,
+      "quota_errors": 0,
+      "requests": 1,
+      "reserved_tokens": 7858,
+      "total": 0,
+      "unknown_usage": 1
     }
   },
   "version": 1
