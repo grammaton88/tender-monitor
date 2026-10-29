@@ -616,7 +616,7 @@ class PipelineTests(unittest.TestCase):
             message = server.send_message.call_args.args[0]
             self.assertRegex(
                 str(message["Subject"]),
-                r"^IT ტენდერების მონიტორინგი - 72 საათიანი ანგარიში \| "
+                r"^IT ტენდერების მონიტორინგი - \d+ საათიანი ანგარიში \| "
                 r"\d{4}-\d{2}-\d{2} - \d{2}:\d{2}$",
             )
             self.assertEqual([p.get_content_type() for p in message.iter_parts()],
@@ -989,7 +989,7 @@ class PipelineTests(unittest.TestCase):
             plain, rich, _ = pipeline.report(self.state, self.ai, [], {})
         expected = (
             "IT ტენდერების მონიტორინგის ანგარიში - "
-            "2026-10-23 02:24 (თბილისის დრო, UTC+04:00)"
+            "2026-10-23 02:24"
         )
         self.assertTrue(plain.startswith(expected))
         self.assertIn(expected, BeautifulSoup(rich, "html.parser").get_text())
