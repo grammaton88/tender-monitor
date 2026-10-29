@@ -1504,11 +1504,9 @@ h2 {
   .filter-toolbar {
     align-items: stretch;
     flex-direction: column;
-    margin: 12px 0 6px;          /* tighter vertical spacing */
-    gap: 10px;
   }
 
-.search-field {
+  .search-field {
     max-width: none;
   }
 
@@ -1520,23 +1518,6 @@ h2 {
   .toolbar-actions .text-button {
     flex: 1 1 130px;
     white-space: normal;
-  }
-
-  /* Keep CPV / type lists close to the search field on phones —
-     avoid a tall empty-looking gap before the first option. */
-  .option-list {
-    max-height: min(55vh, 420px);
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    -webkit-overflow-scrolling: touch;
-    margin-top: 0;
-    padding-top: 2px;
-    gap: 6px;
-  }
-
-  .option-row {
-    min-height: 52px;
-    padding: 10px;
   }
 
   .section-heading {
