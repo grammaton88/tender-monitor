@@ -3,7 +3,7 @@ name: IT Tender Monitor
 on:
   schedule:
     # ყოველდღე 10:00 თბილისის დროით = 06:00 UTC
-    - cron: "0 6 * * *"
+    - cron: "0 6 * * *"  
   workflow_dispatch: # ხელით გაშვების შესაძლებლობა
 
 permissions:
