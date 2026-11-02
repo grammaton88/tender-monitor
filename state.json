@@ -3169,6 +3169,12 @@
       "subject": "კომპიუტერული მოწყობილობები და აქსესუარები",
       "warranty": null
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/c9cd5790f80ff0fb4309b5595e34357f33ec26d8b85d612db5f567eb1dcdc726": {
+      "confidential": null,
+      "delivery_deadline": "არაუგვიანეს 2026 წლის 16 დეკემბრისა",
+      "subject": "არსებული Fortinet FortiMail-VM01 (1 CPU) ელექტრონული ფოსტის Anti-Spam ფილტრის პროგრამული უზრუნველყოფის მხარდაჭერის ლიცენზიები - 3 ცალი",
+      "warranty": null
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/dfdedf571f659f90526ab9670ca272c1c21832cfcff1776d18fdcb2a8048712c": {
       "confidential": null,
       "delivery_deadline": "ხელშეკრულების ძალაში შესვლიდან არაუგვიანეს 45 კალენდარული დღე",
@@ -3239,7 +3245,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1793288862.2668793,
-  "last_request_at": 1793631705.6787617,
+  "last_request_at": 1793631756.1792734,
   "tenders": {
     "694702": {
       "details": {
@@ -6132,6 +6138,23 @@
       "notice": "",
       "notified": "26428aa477f4cd4a5fdd4f9c2268c9cf7d0a4a46d7cddb071d65915b721954cb"
     },
+    "710662": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 7`230`000.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 30.10.2026",
+        "buyer": "შინაგან საქმეთა სამინისტრო საჯარო სამართლის იურიდიული პირი საზოგადოებრივი უსაფრთხოების მართვის ცენტრი „112“",
+        "category": "72700000-კომპიუტერული ქსელის მომსახურება",
+        "deadline": "წინადადებების მიღების ვადა: 01.12.2026",
+        "id": "710662",
+        "link": "https://tenders.procurement.gov.ge/public/?go=710662",
+        "reg_num": "NAT260022707",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-11-02T15:02:33.680276+00:00",
+      "notice": ""
+    },
     "710681": {
       "details": {
         "amount": "შესყიდვის სავარაუდო ღირებულება: 3`520`000.00 ლარი",
@@ -6535,7 +6558,44 @@
         "reg_num": "NAT260022703",
         "status": "გამოცხადებულია"
       },
-      "documents": {},
+      "documents": {
+        "que/2165906": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/c9cd5790f80ff0fb4309b5595e34357f33ec26d8b85d612db5f567eb1dcdc726",
+          "error": "",
+          "hash": "3fb51b1ebb994449f62deda67729b2729a50f52b30de9582c5a0c8db9e81c596",
+          "id": "que/2165906",
+          "name": "ფასების ცხრილი.xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2165906&code=1793295267"
+        },
+        "que/2166313": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/c9cd5790f80ff0fb4309b5595e34357f33ec26d8b85d612db5f567eb1dcdc726",
+          "error": "",
+          "hash": "39b6a6ce481fcfb721d3e7c131a4fa5debcc317131f2f383eba1232cbd7764be",
+          "id": "que/2166313",
+          "name": "ხელშეკრულების პროექტი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2166313&code=1793362148"
+        },
+        "que/2166620": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/c9cd5790f80ff0fb4309b5595e34357f33ec26d8b85d612db5f567eb1dcdc726",
+          "error": "",
+          "hash": "0c4176a583c5667acdec2b0275ef2a0662e79637aeb947f953a181ae5a4f2301",
+          "id": "que/2166620",
+          "name": "ოქმი #1.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2166620&code=1793372830"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/c9cd5790f80ff0fb4309b5595e34357f33ec26d8b85d612db5f567eb1dcdc726",
+          "error": "",
+          "hash": "c88e9626760a9a7ffbd9682c7f1e83c45337ae10dba5f4dfddd41b428f297a25",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=711711"
+        }
+      },
       "error": "",
       "first_seen": "2026-11-02T15:01:33.038565+00:00",
       "notice": ""
@@ -6613,7 +6673,7 @@
       "notice": ""
     }
   },
-  "updated_at": "2026-11-02T15:02:24.518512+00:00",
+  "updated_at": "2026-11-02T15:03:26.388083+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -6683,13 +6743,13 @@
     },
     "2026-11-02/gemini-3.5-flash-lite": {
       "date": "2026-11-02",
-      "input": 40078,
+      "input": 58269,
       "model": "gemini-3.5-flash-lite",
-      "output": 312,
+      "output": 419,
       "quota_errors": 0,
-      "requests": 3,
-      "reserved_tokens": 41926,
-      "total": 40390,
+      "requests": 4,
+      "reserved_tokens": 60601,
+      "total": 58688,
       "unknown_usage": 0
     }
   },
