@@ -3227,7 +3227,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1793288862.2668793,
-  "last_request_at": 1793276568.6721218,
+  "last_request_at": 1793631658.8140907,
   "tenders": {
     "694702": {
       "details": {
@@ -6447,9 +6447,26 @@
       "first_seen": "2026-10-29T12:22:16.564934+00:00",
       "notice": "",
       "notified": "bf8f17e647db0703bad734be770b170586580de30ecfa8d4ed99860631ac5f72"
+    },
+    "711979": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 56`500.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 02.11.2026",
+        "buyer": "საქართველოს ინოვაციების და ტექნოლოგიების სააგენტო",
+        "category": "48100000-პროგრამული უზრუნველყოფის სამრეწველო პაკეტები",
+        "deadline": "წინადადებების მიღების ვადა: 11.11.2026",
+        "id": "711979",
+        "link": "https://tenders.procurement.gov.ge/public/?go=711979",
+        "reg_num": "NAT260022805",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-11-02T15:00:52.935904+00:00",
+      "notice": ""
     }
   },
-  "updated_at": "2026-11-02T15:00:48.892919+00:00",
+  "updated_at": "2026-11-02T15:01:14.843691+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -6515,6 +6532,17 @@
       "requests": 4,
       "reserved_tokens": 40141,
       "total": 39550,
+      "unknown_usage": 0
+    },
+    "2026-11-02/gemini-3.5-flash-lite": {
+      "date": "2026-11-02",
+      "input": 11573,
+      "model": "gemini-3.5-flash-lite",
+      "output": 120,
+      "quota_errors": 0,
+      "requests": 1,
+      "reserved_tokens": 12149,
+      "total": 11693,
       "unknown_usage": 0
     }
   },
