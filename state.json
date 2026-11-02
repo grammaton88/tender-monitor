@@ -3085,6 +3085,12 @@
       "subject": "რადიო-სარელეო არხებით მომსახურება (10 არხი)",
       "warranty": null
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/8d1f2df35bfeef2746c38659e082df350364d7c186b6735f165f9b839723faf2": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან არაუმეტეს 10 სამუშაო დღე",
+      "subject": "ანტივირუსული პროგრამული უზრუნველყოფის შესყიდვა (300 მომხმარებელი)",
+      "warranty": "1 წელი"
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/9714863efcb8e2cdc4852840eb9bb6a7a35f5bffab24e441be282c2032681857": {
       "confidential": null,
       "delivery_deadline": "2027 წლის 1 იანვრიდან 2029 წლის 31 დეკემბრის ჩათვლით",
@@ -3233,7 +3239,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1793288862.2668793,
-  "last_request_at": 1793631687.0949605,
+  "last_request_at": 1793631705.6787617,
   "tenders": {
     "694702": {
       "details": {
@@ -5434,7 +5440,53 @@
         "reg_num": "NAT260022847",
         "status": "გამოცხადებულია"
       },
-      "documents": {},
+      "documents": {
+        "que/2158976": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/8d1f2df35bfeef2746c38659e082df350364d7c186b6735f165f9b839723faf2",
+          "error": "",
+          "hash": "563f06e56c8bcae0930fe3ba912d2e37e5bb69e2786d9b28059be15b6985037b",
+          "id": "que/2158976",
+          "name": "ტექნიკური დავალება.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2158976&code=1792494703"
+        },
+        "que/2158990": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/8d1f2df35bfeef2746c38659e082df350364d7c186b6735f165f9b839723faf2",
+          "error": "",
+          "hash": "70c1399536e8cb1db33405b58cb30046abce88ae12ffa0a1f003a054d8cd09fa",
+          "id": "que/2158990",
+          "name": "დანართი N2 - ფასების ცხრილი.xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2158990&code=1792495158"
+        },
+        "que/2167700": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/8d1f2df35bfeef2746c38659e082df350364d7c186b6735f165f9b839723faf2",
+          "error": "",
+          "hash": "ac15f02eae0547a9b715b9d91b48d1af33f263500df463f8f8fdf14f48e6b185",
+          "id": "que/2167700",
+          "name": "ხელშეკრულების პროექტი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2167700&code=1793633625"
+        },
+        "que/2168000": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/8d1f2df35bfeef2746c38659e082df350364d7c186b6735f165f9b839723faf2",
+          "error": "",
+          "hash": "89997189b8496e743bad09a6ef2562b4522b16a0c5208ef7e418aaa05694256a",
+          "id": "que/2168000",
+          "name": "ოქმი N1.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2168000&code=1793640417"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/8d1f2df35bfeef2746c38659e082df350364d7c186b6735f165f9b839723faf2",
+          "error": "",
+          "hash": "c9d5bc663321232248483c5e219f3b0eeca23b2c29a238bab6eb70009b51e073",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=710034"
+        }
+      },
       "error": "",
       "first_seen": "2026-11-02T15:01:24.951521+00:00",
       "notice": ""
@@ -6471,6 +6523,23 @@
       "notice": "",
       "notified": "bf8f17e647db0703bad734be770b170586580de30ecfa8d4ed99860631ac5f72"
     },
+    "711711": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 50`895.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 30.10.2026",
+        "buyer": "საფინანსო-ანალიტიკური სამსახური",
+        "category": "48700000-პროგრამული პაკეტების მომსახურე პროგრამები",
+        "deadline": "წინადადებების მიღების ვადა: 13.11.2026",
+        "id": "711711",
+        "link": "https://tenders.procurement.gov.ge/public/?go=711711",
+        "reg_num": "NAT260022703",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-11-02T15:01:33.038565+00:00",
+      "notice": ""
+    },
     "711979": {
       "details": {
         "amount": "შესყიდვის სავარაუდო ღირებულება: 56`500.00 ლარი",
@@ -6544,7 +6613,7 @@
       "notice": ""
     }
   },
-  "updated_at": "2026-11-02T15:01:31.630686+00:00",
+  "updated_at": "2026-11-02T15:02:24.518512+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -6614,13 +6683,13 @@
     },
     "2026-11-02/gemini-3.5-flash-lite": {
       "date": "2026-11-02",
-      "input": 26366,
+      "input": 40078,
       "model": "gemini-3.5-flash-lite",
-      "output": 204,
+      "output": 312,
       "quota_errors": 0,
-      "requests": 2,
-      "reserved_tokens": 27454,
-      "total": 26570,
+      "requests": 3,
+      "reserved_tokens": 41926,
+      "total": 40390,
       "unknown_usage": 0
     }
   },
