@@ -3109,6 +3109,12 @@
       "subject": "25 მომხმარებლისთვის არსებული FileCloud ლიცენზიის განახლებისა და მწარმოებლის ტექნიკური მხარდაჭერის შესყიდვა",
       "warranty": "გააქტიურებიდან 1 (ერთი) წლის ვადით"
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/a2a4ea983723ebc157ff5d5db3c907750e07775365d5e855b15c71e1b0c800ab": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან 2028 წლის 31 დეკემბრის ჩათვლით",
+      "subject": "კავშირის წერტილების ოპტიკურ ბოჭკოვანი ქსელითა და რადიოსარელეო ხაზით მომსახურება (1200 წერტილი)",
+      "warranty": null
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/a6d5a4375ea3c59a2e037eddc924627fd88415d3fab2a3d86950f341191a5cd2": {
       "confidential": null,
       "delivery_deadline": "სატენდერო კომისიის ოქმით ხელშეკრულების გაფორმების შესაძლებლობის დადასტურებიდან 130 კალენდარული დღე",
@@ -3244,7 +3250,7 @@
     }
   },
   "initialized": true,
-  "last_monitor_run_at": 1793288862.2668793,
+  "last_monitor_run_at": 1793631811.68926,
   "last_request_at": 1793631756.1792734,
   "tenders": {
     "694702": {
@@ -5495,7 +5501,8 @@
       },
       "error": "",
       "first_seen": "2026-11-02T15:01:24.951521+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "1df1d9b07aba194bd0045f8f08c64d3c08153686afaab0d5ecc1f81ab4e396b6"
     },
     "710078": {
       "details": {
@@ -6150,10 +6157,57 @@
         "reg_num": "NAT260022707",
         "status": "გამოცხადებულია"
       },
-      "documents": {},
+      "documents": {
+        "que/2166234": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/a2a4ea983723ebc157ff5d5db3c907750e07775365d5e855b15c71e1b0c800ab",
+          "error": "",
+          "hash": "ed4049279674dfe981732cc2ac8b44cfb339afc780fa5b2cc631f97746094172",
+          "id": "que/2166234",
+          "name": "დანართი N1 - ფასთა ცხრილი.xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2166234&code=1793358948"
+        },
+        "que/2166469": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/a2a4ea983723ebc157ff5d5db3c907750e07775365d5e855b15c71e1b0c800ab",
+          "error": "",
+          "hash": "21ef68aaa91296b1a19c6691c549660ec52d39c6b2e7e5da378b4a9de248d182",
+          "id": "que/2166469",
+          "name": "ოქმი 1.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2166469&code=1793368703"
+        },
+        "que/2166470": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/a2a4ea983723ebc157ff5d5db3c907750e07775365d5e855b15c71e1b0c800ab",
+          "error": "",
+          "hash": "0429e342d2c42551f897866b7b9fc35392372667f2eee46d8670384cefe9a9f0",
+          "id": "que/2166470",
+          "name": "ხელშეკრულების პროექტი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2166470&code=1793368759"
+        },
+        "que/2166647": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/a2a4ea983723ebc157ff5d5db3c907750e07775365d5e855b15c71e1b0c800ab",
+          "error": "",
+          "hash": "7f72e6061e2de7e46826a9e2ad1025b545ea727027cae140088fb9455ff81701",
+          "id": "que/2166647",
+          "name": "ტექნიკური დავალება.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2166647&code=1793373808"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/a2a4ea983723ebc157ff5d5db3c907750e07775365d5e855b15c71e1b0c800ab",
+          "error": "",
+          "hash": "d0b97759d1c102531a8fa1409eef70b181ed7b3830b80d92d97300191b461709",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=710662"
+        }
+      },
       "error": "",
       "first_seen": "2026-11-02T15:02:33.680276+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "5222c0f718bcfa265cbf2ffdc93ff9d2f622b3ce086e9aaca5f005ff65efb656"
     },
     "710681": {
       "details": {
@@ -6598,7 +6652,8 @@
       },
       "error": "",
       "first_seen": "2026-11-02T15:01:33.038565+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "a36fabff10f0272fc708d20281406176ce93408deed52aeb53406b3012f83da7"
     },
     "711979": {
       "details": {
@@ -6670,10 +6725,11 @@
       },
       "error": "",
       "first_seen": "2026-11-02T15:00:52.935904+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "34a92d437bccabfa8da67c15c2a0a57e91194fd9395d316b6e1bf0c64a15aec4"
     }
   },
-  "updated_at": "2026-11-02T15:03:26.388083+00:00",
+  "updated_at": "2026-11-02T15:03:31.689344+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
