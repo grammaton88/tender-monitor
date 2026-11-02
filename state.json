@@ -3199,6 +3199,12 @@
       "subject": "SOPHOS XGS 3100 Standard Protection 1-წლიანი ლიცენზია და SOPHOS XGS 3100 Webserver Protection 1-წლიანი ლიცენზია (რაოდენობა: 1 ცალი თითოეული)",
       "warranty": "1 წელი"
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/f25cf9fda6d60424dfc6d83c372d98448e4ca7bdb9c0ec043bdd44d2591f299e": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან არაუგვიანეს 10 სამუშაო დღისა",
+      "subject": "ქუთაისის ტექნოლოგიური ჰაბის სასწავლო პროცესისთვის 39 პროფესიონალური შემოქმედებითი პროგრამული უზრუნველყოფის ლიცენზია",
+      "warranty": "არანაკლებ 12 თვე აქტივაციის დღიდან"
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/ff082f887fe41e4aafa46307a7c27368b15dea9021b46639cb9f4771f88c16b3": {
       "confidential": null,
       "delivery_deadline": "ხელშეკრულების გაფორმებიდან არაუგვიანეს 14 დღე",
@@ -3227,7 +3233,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1793288862.2668793,
-  "last_request_at": 1793631658.8140907,
+  "last_request_at": 1793631687.0949605,
   "tenders": {
     "694702": {
       "details": {
@@ -5416,6 +5422,23 @@
       "notice": "",
       "notified": "aa4bf7c323ca44e954cfd8425a38473579e26b32cbf4a1f0bec20ffb03af8234"
     },
+    "710034": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 17`970.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 02.11.2026",
+        "buyer": "საქართველოს სტატისტიკის ეროვნული სამსახური (საქსტატი)",
+        "category": "48700000-პროგრამული პაკეტების მომსახურე პროგრამები",
+        "deadline": "წინადადებების მიღების ვადა: 10.11.2026",
+        "id": "710034",
+        "link": "https://tenders.procurement.gov.ge/public/?go=710034",
+        "reg_num": "NAT260022847",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-11-02T15:01:24.951521+00:00",
+      "notice": ""
+    },
     "710078": {
       "details": {
         "amount": "შესყიდვის სავარაუდო ღირებულება: 9`000.00 ლარი",
@@ -6460,13 +6483,68 @@
         "reg_num": "NAT260022805",
         "status": "გამოცხადებულია"
       },
-      "documents": {},
+      "documents": {
+        "que/2167213": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/f25cf9fda6d60424dfc6d83c372d98448e4ca7bdb9c0ec043bdd44d2591f299e",
+          "error": "",
+          "hash": "93a6dc09f288fbecb65c4440f92bf86081b3cb7a504253c3272e3c603bfbb133",
+          "id": "que/2167213",
+          "name": "ტექნიკური დავალება.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2167213&code=1793616342"
+        },
+        "que/2167214": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/f25cf9fda6d60424dfc6d83c372d98448e4ca7bdb9c0ec043bdd44d2591f299e",
+          "error": "",
+          "hash": "8f3fa44fcd8011ee0e994442fee77f6378e9d2a30a6c9eaa686842f33e24b6cb",
+          "id": "que/2167214",
+          "name": "ფასების ცხრილი (დანართი N2).xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2167214&code=1793616368"
+        },
+        "que/2167229": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/f25cf9fda6d60424dfc6d83c372d98448e4ca7bdb9c0ec043bdd44d2591f299e",
+          "error": "",
+          "hash": "445c4f81c5d302fd4c1877b564dfc7dd9bfed62d5dca723a6ba2ac5e0bd2f817",
+          "id": "que/2167229",
+          "name": "თანხმობა.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2167229&code=1793616985"
+        },
+        "que/2167503": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/f25cf9fda6d60424dfc6d83c372d98448e4ca7bdb9c0ec043bdd44d2591f299e",
+          "error": "",
+          "hash": "b6fb796c1f5baea80593cc68f613acb6de29cff41300676fb27abe609f0f0523",
+          "id": "que/2167503",
+          "name": "ოქმი N 1 ლიცენზია_0001.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2167503&code=1793628097"
+        },
+        "que/2167528": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/f25cf9fda6d60424dfc6d83c372d98448e4ca7bdb9c0ec043bdd44d2591f299e",
+          "error": "",
+          "hash": "c8389a1a25863a9e1e1825181510a311ef34d62ef40e1ae117f3d5568c8b1e03",
+          "id": "que/2167528",
+          "name": "ხელშეკრულების პროექტი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2167528&code=1793628981"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/f25cf9fda6d60424dfc6d83c372d98448e4ca7bdb9c0ec043bdd44d2591f299e",
+          "error": "",
+          "hash": "809074d7318fea07b33f04d1418f5352ea56771433b6060c02af4b3f16f23ec5",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=711979"
+        }
+      },
       "error": "",
       "first_seen": "2026-11-02T15:00:52.935904+00:00",
       "notice": ""
     }
   },
-  "updated_at": "2026-11-02T15:01:14.843691+00:00",
+  "updated_at": "2026-11-02T15:01:31.630686+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -6536,13 +6614,13 @@
     },
     "2026-11-02/gemini-3.5-flash-lite": {
       "date": "2026-11-02",
-      "input": 11573,
+      "input": 26366,
       "model": "gemini-3.5-flash-lite",
-      "output": 120,
+      "output": 204,
       "quota_errors": 0,
-      "requests": 1,
-      "reserved_tokens": 12149,
-      "total": 11693,
+      "requests": 2,
+      "reserved_tokens": 27454,
+      "total": 26570,
       "unknown_usage": 0
     }
   },
