@@ -3085,6 +3085,12 @@
       "subject": "რადიო-სარელეო არხებით მომსახურება (10 არხი)",
       "warranty": null
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/880dde0450c048aa5a2f529ce31d21bb54aba5ed598144f589bc62bfbcff8a2b": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან 40 კალენდარული დღის განმავლობაში",
+      "subject": "50 ცალი რეგიონის უსაფრთხო VPN მარშრუტიზატორი და 1 კომპლექტი ცენტრალიზებული მართვის სისტემა",
+      "warranty": "არანაკლებ 1 წელი"
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/8d1f2df35bfeef2746c38659e082df350364d7c186b6735f165f9b839723faf2": {
       "confidential": null,
       "delivery_deadline": "ხელშეკრულების გაფორმებიდან არაუმეტეს 10 სამუშაო დღე",
@@ -3251,7 +3257,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1793631811.68926,
-  "last_request_at": 1793973250.0546505,
+  "last_request_at": 1793973265.4538822,
   "tenders": {
     "694702": {
       "details": {
@@ -6600,6 +6606,22 @@
       "notice": "",
       "notified": "bf8f17e647db0703bad734be770b170586580de30ecfa8d4ed99860631ac5f72"
     },
+    "711637": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 62`960.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 06.11.2026",
+        "buyer": "სს ,,საქართველოს რკინიგზა\"",
+        "category": "32500000-სატელეკომუნიკაციო მოწყობილობები და აქსესუარები",
+        "deadline": "წინადადებების მიღების ვადა: 17.11.2026",
+        "id": "711637",
+        "link": "https://tenders.procurement.gov.ge/public/?go=711637",
+        "reg_num": "NAT260023246",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "first_seen": "2026-11-06T13:54:14.438249+00:00"
+    },
     "711711": {
       "details": {
         "amount": "შესყიდვის სავარაუდო ღირებულება: 50`895.00 ლარი",
@@ -6667,9 +6689,72 @@
         "reg_num": "NAT260023117",
         "status": "გამოცხადებულია"
       },
-      "documents": {},
+      "documents": {
+        "que/2166287": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/880dde0450c048aa5a2f529ce31d21bb54aba5ed598144f589bc62bfbcff8a2b",
+          "error": "",
+          "hash": "cae7e6954cb1da1bbb134a5ee573b38ea6e89dfe35adde6db9f44558c3a301ad",
+          "id": "que/2166287",
+          "name": "დანართი №1 - ფასების ცხრილი.xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2166287&code=1793361372"
+        },
+        "que/2166302": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/880dde0450c048aa5a2f529ce31d21bb54aba5ed598144f589bc62bfbcff8a2b",
+          "error": "",
+          "hash": "2da990201373a955cc3fd7e6994c32e2ae8e766d487b2339f654fbcb534fef7d",
+          "id": "que/2166302",
+          "name": "ხელშეკრულების პროექტი - როუტერები.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2166302&code=1793361784"
+        },
+        "que/2166615": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/880dde0450c048aa5a2f529ce31d21bb54aba5ed598144f589bc62bfbcff8a2b",
+          "error": "",
+          "hash": "ccd9a86fe435abff8cde18eb150268708fd50822e85c0380d36e8ae13c1c5920",
+          "id": "que/2166615",
+          "name": "1.   ოქმი -1 (გამოცხადება) - VPN მარშრუტიზატორისა და ცენტრალიზებული მართვის სისტემის შესყიდვა-signed.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2166615&code=1793372682"
+        },
+        "que/2166638": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/880dde0450c048aa5a2f529ce31d21bb54aba5ed598144f589bc62bfbcff8a2b",
+          "error": "",
+          "hash": "6109c0d56bfbd750a31db11fa0a7daba800bc27be8ee1da2a375e025530a5a24",
+          "id": "que/2166638",
+          "name": "ტექნიკური დავალება.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2166638&code=1793373464"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/880dde0450c048aa5a2f529ce31d21bb54aba5ed598144f589bc62bfbcff8a2b",
+          "error": "",
+          "hash": "430bdd3748c78044c37e2f1ab3f063a29d005856882d0863f39f24801acebea7",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=711725"
+        }
+      },
       "error": "",
       "first_seen": "2026-11-06T13:54:07.224938+00:00",
+      "notice": ""
+    },
+    "711952": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 154`638.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 05.11.2026",
+        "buyer": "სს \"საქართველოს სახელმწიფო ელექტროსისტემა",
+        "category": "32500000-სატელეკომუნიკაციო მოწყობილობები და აქსესუარები",
+        "deadline": "წინადადებების მიღების ვადა: 16.11.2026",
+        "id": "711952",
+        "link": "https://tenders.procurement.gov.ge/public/?go=711952",
+        "reg_num": "SPA260000986",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-11-06T13:54:21.938713+00:00",
       "notice": ""
     },
     "711979": {
@@ -6746,7 +6831,7 @@
       "notified": "34a92d437bccabfa8da67c15c2a0a57e91194fd9395d316b6e1bf0c64a15aec4"
     }
   },
-  "updated_at": "2026-11-06T13:54:10.054713+00:00",
+  "updated_at": "2026-11-06T13:54:25.453939+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -6827,13 +6912,13 @@
     },
     "2026-11-06/gemini-3.5-flash-lite": {
       "date": "2026-11-06",
-      "input": 0,
+      "input": 11559,
       "model": "gemini-3.5-flash-lite",
-      "output": 0,
+      "output": 107,
       "quota_errors": 0,
-      "requests": 1,
-      "reserved_tokens": 11995,
-      "total": 0,
+      "requests": 2,
+      "reserved_tokens": 32853,
+      "total": 11666,
       "unknown_usage": 1
     }
   },
