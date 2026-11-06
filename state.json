@@ -3067,6 +3067,12 @@
       "subject": "უკაბელო დაშვების მოწყობილობა (WiFi) - 4 ცალი",
       "warranty": "არანაკლებ 5 წლის განმავლობაში"
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/70e5e876b7c6d8ca4a37b475fea38df7571300402e88c6bd617e7c3c666df133": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან არაუმეტეს 150 კალენდარული დღე",
+      "subject": "MPLS ქსელისათვის მარაგ-ნაწილები: MPLS მარშრუტიზატორი (2 ცალი), ქსელური უსაფრთხოების მარშრუტიზატორი (2 ცალი), ქსელური კომუტატორი (2 ცალი), DWDM Mux/Demux (10 ცალი), DWDM SFP+ ოპტიკური მოდული (10 ცალი), ოპტიკური მოდული (SFP+) (10 ცალი)",
+      "warranty": "3 წლიანი მწარმოებლის გარანტია მიღება-ჩაბარების აქტის გაფორმების დღიდან"
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/7c35d0d17ee1fb6765584cd15271fb2f2b8eebb9e377ccc137653cdd32ec13d3": {
       "confidential": null,
       "delivery_deadline": "ხელშეკრულების გაფორმებიდან 30 კალენდარული დღე",
@@ -3257,7 +3263,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1793631811.68926,
-  "last_request_at": 1793973265.4538822,
+  "last_request_at": 1793973284.7037015,
   "tenders": {
     "694702": {
       "details": {
@@ -6752,7 +6758,53 @@
         "reg_num": "SPA260000986",
         "status": "გამოცხადებულია"
       },
-      "documents": {},
+      "documents": {
+        "que/2167171": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/70e5e876b7c6d8ca4a37b475fea38df7571300402e88c6bd617e7c3c666df133",
+          "error": "",
+          "hash": "9370f61a19e48324006b08d18925a60521d865fffed6480e65f8666f73c3e7d2",
+          "id": "que/2167171",
+          "name": "ტექნიკური დავალება.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2167171&code=1793612569"
+        },
+        "que/2167172": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/70e5e876b7c6d8ca4a37b475fea38df7571300402e88c6bd617e7c3c666df133",
+          "error": "",
+          "hash": "5309e849e230c0fa0985f0a50f39f95efbfb39f5d7be7aca6ef7a211c2c57ee2",
+          "id": "que/2167172",
+          "name": "ფასების ცხრილი.xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2167172&code=1793612592"
+        },
+        "que/2167173": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/70e5e876b7c6d8ca4a37b475fea38df7571300402e88c6bd617e7c3c666df133",
+          "error": "",
+          "hash": "0fb8b7ce93c8ad5a0bb116ab6199e3e0154c4e4fafbbf1e4282a48867179fae9",
+          "id": "que/2167173",
+          "name": "ხელშეკრულების პროექტი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2167173&code=1793612825"
+        },
+        "que/2170464": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/70e5e876b7c6d8ca4a37b475fea38df7571300402e88c6bd617e7c3c666df133",
+          "error": "",
+          "hash": "9c9163b59cb0cc4c348d57c0cc07c4e0e70423e7fd05948aec88eea542c5192a",
+          "id": "que/2170464",
+          "name": "ოქმი №1 -MPLS ქსელისათვის მარაგ ნაწილების შესყიდვა.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2170464&code=1793873219"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/70e5e876b7c6d8ca4a37b475fea38df7571300402e88c6bd617e7c3c666df133",
+          "error": "",
+          "hash": "50d861368573f032c5b84514e58f112feb48c83fd3c9199d634e8dd5d1190047",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=711952"
+        }
+      },
       "error": "",
       "first_seen": "2026-11-06T13:54:21.938713+00:00",
       "notice": ""
@@ -6829,9 +6881,26 @@
       "first_seen": "2026-11-02T15:00:52.935904+00:00",
       "notice": "",
       "notified": "34a92d437bccabfa8da67c15c2a0a57e91194fd9395d316b6e1bf0c64a15aec4"
+    },
+    "712112": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 117`451.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 03.11.2026",
+        "buyer": "ციფრული მმართველობის სააგენტო",
+        "category": "48200000-ქსელების, ინტერნეტისა და ინტრანეტის პროგრამული  პაკეტები",
+        "deadline": "წინადადებების მიღების ვადა: 11.11.2026",
+        "id": "712112",
+        "link": "https://tenders.procurement.gov.ge/public/?go=712112",
+        "reg_num": "NAT260022920",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-11-06T13:54:40.277827+00:00",
+      "notice": ""
     }
   },
-  "updated_at": "2026-11-06T13:54:25.453939+00:00",
+  "updated_at": "2026-11-06T13:54:44.703761+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -6912,13 +6981,13 @@
     },
     "2026-11-06/gemini-3.5-flash-lite": {
       "date": "2026-11-06",
-      "input": 11559,
+      "input": 31513,
       "model": "gemini-3.5-flash-lite",
-      "output": 107,
+      "output": 310,
       "quota_errors": 0,
-      "requests": 2,
-      "reserved_tokens": 32853,
-      "total": 11666,
+      "requests": 3,
+      "reserved_tokens": 44295,
+      "total": 31823,
       "unknown_usage": 1
     }
   },
