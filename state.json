@@ -3274,7 +3274,7 @@
     }
   },
   "initialized": true,
-  "last_monitor_run_at": 1793631811.68926,
+  "last_monitor_run_at": 1793973327.7009563,
   "last_request_at": 1793973298.2497213,
   "tenders": {
     "694702": {
@@ -6676,7 +6676,8 @@
       },
       "error": "",
       "first_seen": "2026-11-06T13:54:55.560465+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "537cc813272941bb86244045652cd03421fee3630197913c3f41e779d20d13f4"
     },
     "711637": {
       "details": {
@@ -6692,7 +6693,8 @@
       },
       "documents": {},
       "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
-      "first_seen": "2026-11-06T13:54:14.438249+00:00"
+      "first_seen": "2026-11-06T13:54:14.438249+00:00",
+      "notified": "4132582acbacf8e9ceda848211567397dfafdbda823b2402d2ff4799c6158dd6"
     },
     "711711": {
       "details": {
@@ -6810,7 +6812,8 @@
       },
       "error": "",
       "first_seen": "2026-11-06T13:54:07.224938+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "8b86d08aa7418865fefbb4f355f875e32fc888006e855e3f958d784fc2cc935d"
     },
     "711952": {
       "details": {
@@ -6873,7 +6876,8 @@
       },
       "error": "",
       "first_seen": "2026-11-06T13:54:21.938713+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "9c1d2620563ddf4b2fda6f185958bf4d7aa019c3d2951e61a652debf158da8ad"
     },
     "711979": {
       "details": {
@@ -7018,10 +7022,11 @@
       },
       "error": "",
       "first_seen": "2026-11-06T13:54:40.277827+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "7e71182754f9964adceaeef8932861ce0b5e1872712b64d2c2157ec94c7f0129"
     }
   },
-  "updated_at": "2026-11-06T13:55:18.905992+00:00",
+  "updated_at": "2026-11-06T13:55:27.701032+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
