@@ -3019,6 +3019,12 @@
       "subject": "პროგრამული უზრუნველყოფის ლიცენზიები (Exchange Online - 900 ცალი და Microsoft 365 Business Standard + Teams - 300 ცალი)",
       "warranty": "12 კალენდარული თვე"
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/51c1ac6ff4ff6c1ab9e8bf53bd27d0476bec544b874f47c4695e18041ae301ad": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან 15 კალენდარული დღე",
+      "subject": "Adobe Creative Cloud პროგრამის არსებული ლიცენზიის 1 წლიანი განახლება - 2 მომხმარებელი",
+      "warranty": null
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/532906da02759f5869091a99b9d9879dabbe10d2208bb190ced0a8fe56bfaaec": {
       "confidential": null,
       "delivery_deadline": "ხელშეკრულების გაფორმების შემდეგ ეტაპობრივად, 2026 წლის 20 დეკემბრამდე",
@@ -6630,7 +6636,44 @@
         "reg_num": "NAT260022922",
         "status": "გამოცხადებულია"
       },
-      "documents": {},
+      "documents": {
+        "que/2164814": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/51c1ac6ff4ff6c1ab9e8bf53bd27d0476bec544b874f47c4695e18041ae301ad",
+          "error": "",
+          "hash": "6f2c1153462c57229b81b7c3ca7058cb18b9a623969f8098545e038466fec979",
+          "id": "que/2164814",
+          "name": "ფასების ცხრილი.xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2164814&code=1793191078"
+        },
+        "que/2164818": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/51c1ac6ff4ff6c1ab9e8bf53bd27d0476bec544b874f47c4695e18041ae301ad",
+          "error": "",
+          "hash": "0e48c39cd7d8feab4121286b1cd9af8f78480592dd79c176faa18cd34d38b03d",
+          "id": "que/2164818",
+          "name": "ხელშეკრულების პროექტი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2164818&code=1793191149"
+        },
+        "que/2168784": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/51c1ac6ff4ff6c1ab9e8bf53bd27d0476bec544b874f47c4695e18041ae301ad",
+          "error": "",
+          "hash": "8a7945cf74bb7f34e0396c994462974f55aade1d76d6942b6e17192d7568a7b2",
+          "id": "que/2168784",
+          "name": "ოქმი 02.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2168784&code=1793720203"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/51c1ac6ff4ff6c1ab9e8bf53bd27d0476bec544b874f47c4695e18041ae301ad",
+          "error": "",
+          "hash": "6a92952a1e4c8326f2f05432583a0879469f8c63f32b7c5916d49b55293345a0",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=711422"
+        }
+      },
       "error": "",
       "first_seen": "2026-11-06T13:54:55.560465+00:00",
       "notice": ""
@@ -6978,7 +7021,7 @@
       "notice": ""
     }
   },
-  "updated_at": "2026-11-06T13:55:01.339560+00:00",
+  "updated_at": "2026-11-06T13:55:18.905992+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
