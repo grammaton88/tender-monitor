@@ -3251,7 +3251,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1793631811.68926,
-  "last_request_at": 1793631756.1792734,
+  "last_request_at": 1793973250.0546505,
   "tenders": {
     "694702": {
       "details": {
@@ -6655,6 +6655,23 @@
       "notice": "",
       "notified": "a36fabff10f0272fc708d20281406176ce93408deed52aeb53406b3012f83da7"
     },
+    "711725": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 155`000.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 05.11.2026",
+        "buyer": "ინფორმაციული ტექნოლოგიების, გარემოსდაცვითი და აგროსერვისების სააგენტო",
+        "category": "32400000-ქსელები",
+        "deadline": "წინადადებების მიღების ვადა: 16.11.2026",
+        "id": "711725",
+        "link": "https://tenders.procurement.gov.ge/public/?go=711725",
+        "reg_num": "NAT260023117",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-11-06T13:54:07.224938+00:00",
+      "notice": ""
+    },
     "711979": {
       "details": {
         "amount": "შესყიდვის სავარაუდო ღირებულება: 56`500.00 ლარი",
@@ -6729,7 +6746,7 @@
       "notified": "34a92d437bccabfa8da67c15c2a0a57e91194fd9395d316b6e1bf0c64a15aec4"
     }
   },
-  "updated_at": "2026-11-02T15:03:31.689344+00:00",
+  "updated_at": "2026-11-06T13:54:10.054713+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -6807,6 +6824,17 @@
       "reserved_tokens": 60601,
       "total": 58688,
       "unknown_usage": 0
+    },
+    "2026-11-06/gemini-3.5-flash-lite": {
+      "date": "2026-11-06",
+      "input": 0,
+      "model": "gemini-3.5-flash-lite",
+      "output": 0,
+      "quota_errors": 0,
+      "requests": 1,
+      "reserved_tokens": 11995,
+      "total": 0,
+      "unknown_usage": 1
     }
   },
   "version": 1
