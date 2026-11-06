@@ -3001,6 +3001,12 @@
       "subject": "Barracuda Email Security Gateway Appliance 300 1 (ერთი) წლიანი ლიცენზიის განახლება (1 ცალი Energize Updates Subscription, 1 ცალი Instant Replacement Subscription)",
       "warranty": "არანაკლებ 12 თვე"
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/48227759e1c3e22a9bedb88f64e320b492df0371e3aba11059672bdf3e45981d": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან 5 სამუშაო დღის ვადაში",
+      "subject": "პროექტების მართვისა და კოლაბორაციის სისტემის 12-თვიანი ლიცენზიები: Atlassian Jira Cloud Standard - 200 მომხმარებელი; Atlassian Confluence Cloud Standard - 200 მომხმარებელი; Atlassian Guard Standard - 200 მომხმარებელი",
+      "warranty": null
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/4d0a9a69b61cf03c31c333e1e60ad98a1933d9b39d61473e148f8811290104a5": {
       "confidential": null,
       "delivery_deadline": "ხელშეკრულების გაფორმებიდან 45 კალენდარული დღის განმავლობაში",
@@ -3263,7 +3269,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1793631811.68926,
-  "last_request_at": 1793973284.7037015,
+  "last_request_at": 1793973298.2497213,
   "tenders": {
     "694702": {
       "details": {
@@ -6612,6 +6618,23 @@
       "notice": "",
       "notified": "bf8f17e647db0703bad734be770b170586580de30ecfa8d4ed99860631ac5f72"
     },
+    "711422": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 8`240.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 03.11.2026",
+        "buyer": "საქართველოს ცენტრალური საარჩევნო კომისია",
+        "category": "48300000-დოკუმენტების, გრაფიკული გამოსახულებების შექმნის, გამოსახულების დამუშავების, დაგეგმვისა და წარმადობის გაზრდის პროგრამული პაკეტები",
+        "deadline": "წინადადებების მიღების ვადა: 11.11.2026",
+        "id": "711422",
+        "link": "https://tenders.procurement.gov.ge/public/?go=711422",
+        "reg_num": "NAT260022922",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-11-06T13:54:55.560465+00:00",
+      "notice": ""
+    },
     "711637": {
       "details": {
         "amount": "შესყიდვის სავარაუდო ღირებულება: 62`960.00 ლარი",
@@ -6894,13 +6917,68 @@
         "reg_num": "NAT260022920",
         "status": "გამოცხადებულია"
       },
-      "documents": {},
+      "documents": {
+        "que/2167807": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/48227759e1c3e22a9bedb88f64e320b492df0371e3aba11059672bdf3e45981d",
+          "error": "",
+          "hash": "2ea0b2ad334c4804616679eb985c1844bb4424eb12430075aa5402f46dd99652",
+          "id": "que/2167807",
+          "name": "ტექნიკური_დავალება.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2167807&code=1793635645"
+        },
+        "que/2167817": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/48227759e1c3e22a9bedb88f64e320b492df0371e3aba11059672bdf3e45981d",
+          "error": "",
+          "hash": "e269e37ca02877f9aacc388635748ca89f8dc5eabe18a4e7cfb728cdff96a2a4",
+          "id": "que/2167817",
+          "name": "ფასების ცხრილი - დანართი №1.xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2167817&code=1793635714"
+        },
+        "que/2167853": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/48227759e1c3e22a9bedb88f64e320b492df0371e3aba11059672bdf3e45981d",
+          "error": "",
+          "hash": "ff2933d15623da85425b184deb16df2be7cd65cea0d7389c3891a6874ad17390",
+          "id": "que/2167853",
+          "name": "ხელშეკრულების პროექტი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2167853&code=1793636848"
+        },
+        "que/2167854": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/48227759e1c3e22a9bedb88f64e320b492df0371e3aba11059672bdf3e45981d",
+          "error": "",
+          "hash": "7275662abc44599aa17bf2793be5cdcd116dd525a4fac6092cb46fb412d97ac2",
+          "id": "que/2167854",
+          "name": "დანართი N3.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2167854&code=1793636883"
+        },
+        "que/2168127": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/48227759e1c3e22a9bedb88f64e320b492df0371e3aba11059672bdf3e45981d",
+          "error": "",
+          "hash": "547e50bd7a87644ab7889dfdedc82fa2f69b70ad2196be0c881f23dfed9a6302",
+          "id": "que/2168127",
+          "name": "ოქმი №1.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2168127&code=1793651165"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/48227759e1c3e22a9bedb88f64e320b492df0371e3aba11059672bdf3e45981d",
+          "error": "",
+          "hash": "39a8c020ef9fb26f13229f552223eca26160b6ebc153c96aa12e62cba6e86dd5",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=712112"
+        }
+      },
       "error": "",
       "first_seen": "2026-11-06T13:54:40.277827+00:00",
       "notice": ""
     }
   },
-  "updated_at": "2026-11-06T13:54:44.703761+00:00",
+  "updated_at": "2026-11-06T13:55:01.339560+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -6981,14 +7059,14 @@
     },
     "2026-11-06/gemini-3.5-flash-lite": {
       "date": "2026-11-06",
-      "input": 31513,
+      "input": 47907,
       "model": "gemini-3.5-flash-lite",
-      "output": 310,
+      "output": 518,
       "quota_errors": 0,
-      "requests": 3,
-      "reserved_tokens": 44295,
-      "total": 31823,
-      "unknown_usage": 1
+      "requests": 4,
+      "reserved_tokens": 49811,
+      "total": 48425,
+      "unknown_usage": 0
     }
   },
   "version": 1
