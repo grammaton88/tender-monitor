@@ -3055,6 +3055,12 @@
       "subject": "FortiGate-ის ფაირვოლისთვის 2 (ორი) ერთეული 1-წლიანი უსაფრთხოების ლიცენზია და 50 მომხმარებელზე გათვლილი ორფაქტორიანი ავტორიზაციის (2FA) მუდმივი (Perpetual) ლიცენზიები (FortiToken Mobile Electronic License)",
       "warranty": "1 წელი მისი გააქტიურებიდან"
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/63c4229cf115be4c2d2d1a8ed49470ce24f61ef5a1d6451e9b9cce57aa1b250e": {
+      "confidential": "სახელმწიფო საიდუმლოებასთან დაკავშირებული სახელმწიფო შესყიდვები",
+      "delivery_deadline": null,
+      "subject": "ქსელები",
+      "warranty": null
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/643ee2e3786bb239ecd74b6e48f02a7f7833a1f09ec3b833c60bf20c780cbdcd": {
       "confidential": null,
       "delivery_deadline": "ხელშეკრულების გაფორმებიდან 5 კალენდარული დღის ვადაში",
@@ -3120,6 +3126,12 @@
       "delivery_deadline": "2027 წლის 1 იანვრიდან 2029 წლის 31 დეკემბრის ჩათვლით",
       "subject": "სარეზერვო ოპტიკურ-ბოჭკოვანი არხებით სარგებლობის მომსახურება",
       "warranty": null
+    },
+    "gemini-3.5-flash-lite/tender-keywords-v4/9733620421c405ebc994672fb4acfb83fe609e080cf0979819cccabc6a5c5c3a": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან - 2026 წლის 20 დეკემბრის ჩათვლით",
+      "subject": "ქსელური მოწყობილობებისა და ქსელის კაბელების შესყიდვა",
+      "warranty": "არანაკლებ 1 წელი მიღება-ჩაბარების აქტის გაფორმებიდან"
     },
     "gemini-3.5-flash-lite/tender-keywords-v4/99193662f402498c40d913149c4ee9fb4e09558555c600117b361b62dc1a4b89": {
       "confidential": null,
@@ -3275,7 +3287,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1793973327.7009563,
-  "last_request_at": 1794238194.5029333,
+  "last_request_at": 1794238214.6524587,
   "tenders": {
     "694702": {
       "details": {
@@ -7025,6 +7037,23 @@
       "notice": "",
       "notified": "7e71182754f9964adceaeef8932861ce0b5e1872712b64d2c2157ec94c7f0129"
     },
+    "713171": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 215`000.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 06.11.2026",
+        "buyer": "სსიპ სსსტც \"დელტა\"",
+        "category": "32400000-ქსელები",
+        "deadline": "წინადადებების მიღების ვადა: 19.11.2026",
+        "id": "713171",
+        "link": "https://tenders.procurement.gov.ge/public/?go=713171",
+        "reg_num": "GEO260000509",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-11-09T15:30:08.195246+00:00",
+      "notice": "Portal mentions confidential material. Public files may be incomplete; displayed values may be conditional. Verify on the portal."
+    },
     "713376": {
       "details": {
         "amount": "შესყიდვის სავარაუდო ღირებულება: 2`795.00 ლარი",
@@ -7037,13 +7066,131 @@
         "reg_num": "NAT260023425",
         "status": "გამოცხადებულია"
       },
-      "documents": {},
+      "documents": {
+        "que/2173179": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/9733620421c405ebc994672fb4acfb83fe609e080cf0979819cccabc6a5c5c3a",
+          "error": "",
+          "hash": "50e29fa837595f7db5a7f11142ba418303472aae7999d9a5ae51cd4987aae9e0",
+          "id": "que/2173179",
+          "name": "დანართი_N1_-_ტექნიკური_დავალება_და_ფასების_ცხრილი.xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2173179&code=1794236941"
+        },
+        "que/2173185": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/9733620421c405ebc994672fb4acfb83fe609e080cf0979819cccabc6a5c5c3a",
+          "error": "",
+          "hash": "50e29fa837595f7db5a7f11142ba418303472aae7999d9a5ae51cd4987aae9e0",
+          "id": "que/2173185",
+          "name": "დანართი_N1_-_ტექნიკური_დავალება_და_ფასების_ცხრილი.xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2173185&code=1794236978"
+        },
+        "que/2173198": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/9733620421c405ebc994672fb4acfb83fe609e080cf0979819cccabc6a5c5c3a",
+          "error": "",
+          "hash": "7dc43f1d83716b5775f4fa852625c853fffcbac6f257036b2cc21755dc528e61",
+          "id": "que/2173198",
+          "name": "ხელშეკრულების პროექტი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2173198&code=1794237341"
+        },
+        "que/2173204": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/9733620421c405ebc994672fb4acfb83fe609e080cf0979819cccabc6a5c5c3a",
+          "error": "",
+          "hash": "50e29fa837595f7db5a7f11142ba418303472aae7999d9a5ae51cd4987aae9e0",
+          "id": "que/2173204",
+          "name": "დანართი_N1_-_ტექნიკური_დავალება_და_ფასების_ცხრილი.xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2173204&code=1794237474"
+        },
+        "que/2173206": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/9733620421c405ebc994672fb4acfb83fe609e080cf0979819cccabc6a5c5c3a",
+          "error": "",
+          "hash": "850c92a9aa8b833ff1dc085941a1f10b5437bfe0eaca70aa0710d7f3c58d465a",
+          "id": "que/2173206",
+          "name": "დანართი N2 - რეკვიზიტები.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2173206&code=1794237483"
+        },
+        "que/2173406": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/9733620421c405ebc994672fb4acfb83fe609e080cf0979819cccabc6a5c5c3a",
+          "error": "",
+          "hash": "5913815586f5d5de0088cfec5fe921d4e9e9cc4ac5af9f6dd644989a3c0461c0",
+          "id": "que/2173406",
+          "name": "ოქმი N1.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2173406&code=1794242929"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/9733620421c405ebc994672fb4acfb83fe609e080cf0979819cccabc6a5c5c3a",
+          "error": "",
+          "hash": "989428db6dfdad690f31697d76454ed8fb315ed8dbdde60b7ec5d8904c428a04",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=713376"
+        }
+      },
       "error": "",
       "first_seen": "2026-11-09T15:29:50.652679+00:00",
       "notice": ""
+    },
+    "713439": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 15`000.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 09.11.2026",
+        "buyer": "სსიპ სსსტც \"დელტა\"",
+        "category": "32400000-ქსელები",
+        "deadline": "წინადადებების მიღების ვადა: 20.11.2026",
+        "id": "713439",
+        "link": "https://tenders.procurement.gov.ge/public/?go=713439",
+        "reg_num": "GEO260000518",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {
+        "app/7306387": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/63c4229cf115be4c2d2d1a8ed49470ce24f61ef5a1d6451e9b9cce57aa1b250e",
+          "error": "",
+          "hash": "f2bb70f59c9b1451b8d6826c86e754015a7b9879b509a291b2025312c093f093",
+          "id": "app/7306387",
+          "name": "_განაცხადი...pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7306387&code=1794248955"
+        },
+        "app/7306389": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/63c4229cf115be4c2d2d1a8ed49470ce24f61ef5a1d6451e9b9cce57aa1b250e",
+          "error": "",
+          "hash": "3f141482c071be38105e2dbec20f440fb724cb91e1d474c3f29a154f858fec60",
+          "id": "app/7306389",
+          "name": "_დანართი №1 (რეკვიზიტების ფორმა).pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7306389&code=1794248962"
+        },
+        "app/7306390": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/63c4229cf115be4c2d2d1a8ed49470ce24f61ef5a1d6451e9b9cce57aa1b250e",
+          "error": "",
+          "hash": "a83d80c6c387ff45661cfebb08e43d1275f13c13cbbe00cbdec00d8b4eaedce8",
+          "id": "app/7306390",
+          "name": "_დანართი №2 (წერილის ფორმა).pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=app&file=7306390&code=1794248965"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/63c4229cf115be4c2d2d1a8ed49470ce24f61ef5a1d6451e9b9cce57aa1b250e",
+          "error": "",
+          "hash": "c886aa934576e828bf9d2ef028439ec68f20c6c5b22541b6d4cc34be17d1f19e",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=713439"
+        }
+      },
+      "error": "",
+      "first_seen": "2026-11-09T15:30:04.612871+00:00",
+      "notice": "Portal mentions confidential material. Public files may be incomplete; displayed values may be conditional. Verify on the portal."
     }
   },
-  "updated_at": "2026-11-09T15:29:54.502984+00:00",
+  "updated_at": "2026-11-09T15:30:14.652530+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -7135,13 +7282,13 @@
     },
     "2026-11-09/gemini-3.5-flash-lite": {
       "date": "2026-11-09",
-      "input": 0,
+      "input": 18357,
       "model": "gemini-3.5-flash-lite",
-      "output": 0,
+      "output": 166,
       "quota_errors": 0,
-      "requests": 1,
-      "reserved_tokens": 16152,
-      "total": 0,
+      "requests": 3,
+      "reserved_tokens": 21432,
+      "total": 18523,
       "unknown_usage": 1
     }
   },
