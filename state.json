@@ -3275,7 +3275,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1793973327.7009563,
-  "last_request_at": 1793973298.2497213,
+  "last_request_at": 1794238194.5029333,
   "tenders": {
     "694702": {
       "details": {
@@ -7024,9 +7024,26 @@
       "first_seen": "2026-11-06T13:54:40.277827+00:00",
       "notice": "",
       "notified": "7e71182754f9964adceaeef8932861ce0b5e1872712b64d2c2157ec94c7f0129"
+    },
+    "713376": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 2`795.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 09.11.2026",
+        "buyer": "აღსრულების ეროვნული ბიურო",
+        "category": "32400000-ქსელები",
+        "deadline": "წინადადებების მიღების ვადა: 17.11.2026",
+        "id": "713376",
+        "link": "https://tenders.procurement.gov.ge/public/?go=713376",
+        "reg_num": "NAT260023425",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-11-09T15:29:50.652679+00:00",
+      "notice": ""
     }
   },
-  "updated_at": "2026-11-06T13:55:27.701032+00:00",
+  "updated_at": "2026-11-09T15:29:54.502984+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -7115,6 +7132,17 @@
       "reserved_tokens": 49811,
       "total": 48425,
       "unknown_usage": 0
+    },
+    "2026-11-09/gemini-3.5-flash-lite": {
+      "date": "2026-11-09",
+      "input": 0,
+      "model": "gemini-3.5-flash-lite",
+      "output": 0,
+      "quota_errors": 0,
+      "requests": 1,
+      "reserved_tokens": 16152,
+      "total": 0,
+      "unknown_usage": 1
     }
   },
   "version": 1
