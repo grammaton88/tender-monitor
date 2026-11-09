@@ -2929,6 +2929,12 @@
       "subject": "სერვერები, რაოდენობა: 3 კომპლექტი",
       "warranty": "არანაკლებ 3 წელი"
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/1f72232ffd937874159da24de59ceef526bd0cf56e0fe06bd1a2858241af993f": {
+      "confidential": null,
+      "delivery_deadline": "2026 წლის 23 დეკემბრიდან 1 წლის განმავლობაში",
+      "subject": "FortiGate-201F (S/N: FG201FT922905472) პროგრამული უზრუნველყოფის/უსაფრთხოების სერვისების ლიცენზია (1 ერთეული)",
+      "warranty": null
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/22f4ea1f5a6a6683ea07bde30511c0078c845293e6091791b07b10efa4e63e44": {
       "confidential": null,
       "delivery_deadline": "ხელშეკრულების გაფორმებიდან 15 სამუშაო დღის ვადაში",
@@ -3299,7 +3305,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1793973327.7009563,
-  "last_request_at": 1794238223.1526072,
+  "last_request_at": 1794238247.6384652,
   "tenders": {
     "694702": {
       "details": {
@@ -6703,6 +6709,69 @@
       "notice": "",
       "notified": "537cc813272941bb86244045652cd03421fee3630197913c3f41e779d20d13f4"
     },
+    "711433": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 13`714.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 09.11.2026",
+        "buyer": "საქართველოს მუნიციპალური განვითარების ფონდი",
+        "category": "48200000-ქსელების, ინტერნეტისა და ინტრანეტის პროგრამული  პაკეტები",
+        "deadline": "წინადადებების მიღების ვადა: 17.11.2026",
+        "id": "711433",
+        "link": "https://tenders.procurement.gov.ge/public/?go=711433",
+        "reg_num": "NAT260023444",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {
+        "que/2172373": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/1f72232ffd937874159da24de59ceef526bd0cf56e0fe06bd1a2858241af993f",
+          "error": "",
+          "hash": "e0db83457f22fe0201921a99ed22da5f8840e43b288e1537d5be0bd9f830da54",
+          "id": "que/2172373",
+          "name": "დანართი N1 - ტექნიკური დავალება - FortiGate-201F ლიცენზია.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2172373&code=1793984655"
+        },
+        "que/2172410": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/1f72232ffd937874159da24de59ceef526bd0cf56e0fe06bd1a2858241af993f",
+          "error": "",
+          "hash": "94eaf16bca0523e827c07ae7f574b2640d04452ab59c9f2e24f10a415869bc9c",
+          "id": "que/2172410",
+          "name": "დანართი N2 - ფასების ცხრილი.xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2172410&code=1793985226"
+        },
+        "que/2172735": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/1f72232ffd937874159da24de59ceef526bd0cf56e0fe06bd1a2858241af993f",
+          "error": "",
+          "hash": "ea06a6bec34e968f2c62ed7626df2500ece0d3df9bd74a270cfd90956d38fa1d",
+          "id": "que/2172735",
+          "name": "ხელშეკრულების პროექტი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2172735&code=1794221110"
+        },
+        "que/2173610": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/1f72232ffd937874159da24de59ceef526bd0cf56e0fe06bd1a2858241af993f",
+          "error": "",
+          "hash": "8790315285bdacc52d4406e4be26894f33284031afe9eaa4fc5d1be5bf612da8",
+          "id": "que/2173610",
+          "name": "ოქმი N1 - ლიცენზია.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2173610&code=1794248728"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/1f72232ffd937874159da24de59ceef526bd0cf56e0fe06bd1a2858241af993f",
+          "error": "",
+          "hash": "570ef013eeb1c663b58391490e67d9c4e3ba8f1432f7a51033062dd1b4116559",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=711433"
+        }
+      },
+      "error": "",
+      "first_seen": "2026-11-09T15:30:37.241787+00:00",
+      "notice": ""
+    },
     "711637": {
       "details": {
         "amount": "შესყიდვის სავარაუდო ღირებულება: 62`960.00 ლარი",
@@ -7087,6 +7156,23 @@
       "notice": "",
       "notified": "7e71182754f9964adceaeef8932861ce0b5e1872712b64d2c2157ec94c7f0129"
     },
+    "713089": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 49`814.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 09.11.2026",
+        "buyer": "სახელმწიფო აუდიტის სამსახური",
+        "category": "48200000-ქსელების, ინტერნეტისა და ინტრანეტის პროგრამული  პაკეტები",
+        "deadline": "წინადადებების მიღების ვადა: 17.11.2026",
+        "id": "713089",
+        "link": "https://tenders.procurement.gov.ge/public/?go=713089",
+        "reg_num": "NAT260023383",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-11-09T15:30:43.202223+00:00",
+      "notice": ""
+    },
     "713171": {
       "details": {
         "amount": "შესყიდვის სავარაუდო ღირებულება: 215`000.00 ლარი",
@@ -7277,7 +7363,7 @@
       "notice": "Portal mentions confidential material. Public files may be incomplete; displayed values may be conditional. Verify on the portal."
     }
   },
-  "updated_at": "2026-11-09T15:30:31.277397+00:00",
+  "updated_at": "2026-11-09T15:30:47.638538+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -7369,14 +7455,14 @@
     },
     "2026-11-09/gemini-3.5-flash-lite": {
       "date": "2026-11-09",
-      "input": 32323,
+      "input": 41924,
       "model": "gemini-3.5-flash-lite",
-      "output": 480,
+      "output": 591,
       "quota_errors": 0,
-      "requests": 4,
-      "reserved_tokens": 33211,
-      "total": 32803,
-      "unknown_usage": 0
+      "requests": 6,
+      "reserved_tokens": 53595,
+      "total": 42515,
+      "unknown_usage": 1
     }
   },
   "version": 1
