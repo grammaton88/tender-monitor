@@ -3310,7 +3310,7 @@
     }
   },
   "initialized": true,
-  "last_monitor_run_at": 1793973327.7009563,
+  "last_monitor_run_at": 1794238268.0385394,
   "last_request_at": 1794238247.6384652,
   "tenders": {
     "694702": {
@@ -6776,7 +6776,8 @@
       },
       "error": "",
       "first_seen": "2026-11-09T15:30:37.241787+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "b28bd1b37cb0e183e3e9dabf80b69e707857cc7bfb371b48ee43f251e2560ea3"
     },
     "711637": {
       "details": {
@@ -6831,7 +6832,7 @@
       "error": "",
       "first_seen": "2026-11-06T13:54:14.438249+00:00",
       "notice": "",
-      "notified": "4132582acbacf8e9ceda848211567397dfafdbda823b2402d2ff4799c6158dd6"
+      "notified": "fee99c92ac37894b964d565239f7c86426db4e15c056bcf26d6909dc92fc2670"
     },
     "711711": {
       "details": {
@@ -7223,7 +7224,8 @@
       },
       "error": "",
       "first_seen": "2026-11-09T15:30:43.202223+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "4dff2a54de77a6318ae13e5db457c378a02cda11cb4b1369b2f726c8a0280860"
     },
     "713171": {
       "details": {
@@ -7277,7 +7279,8 @@
       },
       "error": "",
       "first_seen": "2026-11-09T15:30:08.195246+00:00",
-      "notice": "Portal mentions confidential material. Public files may be incomplete; displayed values may be conditional. Verify on the portal."
+      "notice": "Portal mentions confidential material. Public files may be incomplete; displayed values may be conditional. Verify on the portal.",
+      "notified": "c3e05a8af58110b2cfce4296b182da6b5fb7b8baa1ae74c4f5b1ad5b3b0cebb5"
     },
     "713376": {
       "details": {
@@ -7358,7 +7361,8 @@
       },
       "error": "",
       "first_seen": "2026-11-09T15:29:50.652679+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "828883ad13486572670a310c78915678e8484dabe71415e005bdab0acc3a67d2"
     },
     "713439": {
       "details": {
@@ -7412,10 +7416,11 @@
       },
       "error": "",
       "first_seen": "2026-11-09T15:30:04.612871+00:00",
-      "notice": "Portal mentions confidential material. Public files may be incomplete; displayed values may be conditional. Verify on the portal."
+      "notice": "Portal mentions confidential material. Public files may be incomplete; displayed values may be conditional. Verify on the portal.",
+      "notified": "c54bc1a4f4950a9154f03d3914b66864cb3c29b15a2b0d7a49431ef90ab650e0"
     }
   },
-  "updated_at": "2026-11-09T15:31:04.382064+00:00",
+  "updated_at": "2026-11-09T15:31:08.038608+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
