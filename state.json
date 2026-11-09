@@ -3277,6 +3277,12 @@
       "subject": "ქუთაისის ტექნოლოგიური ჰაბის სასწავლო პროცესისთვის 39 პროფესიონალური შემოქმედებითი პროგრამული უზრუნველყოფის ლიცენზია",
       "warranty": "არანაკლებ 12 თვე აქტივაციის დღიდან"
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/f39bdf74b965b10eb2b820384df146c4d706aeed05abe1d367d6b02b26aa7839": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან 20 სამუშაო დღის განმავლობაში, არაუგვიანეს 2026 წლის 25 დეკემბრისა",
+      "subject": "ელექტრონული ფოსტის უსაფრთხოების სისტემა (FortiMail FEVM020000211678 ლიცენზიის განახლება ან ალტერნატიული პროდუქტი)",
+      "warranty": "მწარმოებლის 3 წლიანი საგარანტიო მომსახურება, ტექნიკური მხარდაჭერა, პროგრამული უზრუნველყოფის, სიგნატურების და რეპუტაციული ბაზების განახლების სერვისი"
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/ff082f887fe41e4aafa46307a7c27368b15dea9021b46639cb9f4771f88c16b3": {
       "confidential": null,
       "delivery_deadline": "ხელშეკრულების გაფორმებიდან არაუგვიანეს 14 დღე",
@@ -7168,7 +7174,53 @@
         "reg_num": "NAT260023383",
         "status": "გამოცხადებულია"
       },
-      "documents": {},
+      "documents": {
+        "que/2173167": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/f39bdf74b965b10eb2b820384df146c4d706aeed05abe1d367d6b02b26aa7839",
+          "error": "",
+          "hash": "e43b02a54939eaad26a458e144cc037f3eb76a16130bdc122b866b35b1ba4e99",
+          "id": "que/2173167",
+          "name": "ტექნიკური დავალება დანართი N1.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2173167&code=1794236646"
+        },
+        "que/2173169": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/f39bdf74b965b10eb2b820384df146c4d706aeed05abe1d367d6b02b26aa7839",
+          "error": "",
+          "hash": "9bd80f3427c195b9be6b73644a176c8ffef6327c7d3f6c4531c771e7f9a87880",
+          "id": "que/2173169",
+          "name": "დანართი N2 ფასების ცხრილი.xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2173169&code=1794236671"
+        },
+        "que/2173171": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/f39bdf74b965b10eb2b820384df146c4d706aeed05abe1d367d6b02b26aa7839",
+          "error": "",
+          "hash": "7cdc62ec727dcbec245007b622a25b15b1482767548f8aa52ab499f972c8e924",
+          "id": "que/2173171",
+          "name": "ხელშეკრულების პროექტი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2173171&code=1794236753"
+        },
+        "que/2173172": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/f39bdf74b965b10eb2b820384df146c4d706aeed05abe1d367d6b02b26aa7839",
+          "error": "",
+          "hash": "f7d7ce95bb8a307192e9ef33b37d876de67c216dc5f1e7da1eabffe0deed2d88",
+          "id": "que/2173172",
+          "name": "ოქმი N1 - ელ. ფოსტის უსაფრთხოება.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2173172&code=1794236772"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/f39bdf74b965b10eb2b820384df146c4d706aeed05abe1d367d6b02b26aa7839",
+          "error": "",
+          "hash": "1e87719d67107d08dd890663d8e41b5ac5c3cb30436450301cc66f34194dd1f8",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=713089"
+        }
+      },
       "error": "",
       "first_seen": "2026-11-09T15:30:43.202223+00:00",
       "notice": ""
@@ -7363,7 +7415,7 @@
       "notice": "Portal mentions confidential material. Public files may be incomplete; displayed values may be conditional. Verify on the portal."
     }
   },
-  "updated_at": "2026-11-09T15:30:47.638538+00:00",
+  "updated_at": "2026-11-09T15:31:04.382064+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -7455,14 +7507,14 @@
     },
     "2026-11-09/gemini-3.5-flash-lite": {
       "date": "2026-11-09",
-      "input": 41924,
+      "input": 51883,
       "model": "gemini-3.5-flash-lite",
-      "output": 591,
+      "output": 787,
       "quota_errors": 0,
       "requests": 6,
       "reserved_tokens": 53595,
-      "total": 42515,
-      "unknown_usage": 1
+      "total": 52670,
+      "unknown_usage": 0
     }
   },
   "version": 1
