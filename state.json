@@ -3283,6 +3283,12 @@
       "subject": "SOPHOS XGS 3100 Standard Protection 1-წლიანი ლიცენზია და SOPHOS XGS 3100 Webserver Protection 1-წლიანი ლიცენზია (რაოდენობა: 1 ცალი თითოეული)",
       "warranty": "1 წელი"
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/f1ccbc5cf8a083687d83d1ab2c352920b4d08c2c265d1c9b000fa7f2567161c4": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან არაუმეტეს 30 კალენდარული დღე",
+      "subject": "ეზერნეტის და ოპტიკურ ბოჭკოვანი პაჩკორდების შესყიდვა (სულ 160 ცალი)",
+      "warranty": null
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/f25cf9fda6d60424dfc6d83c372d98448e4ca7bdb9c0ec043bdd44d2591f299e": {
       "confidential": null,
       "delivery_deadline": "ხელშეკრულების გაფორმებიდან არაუგვიანეს 10 სამუშაო დღისა",
@@ -3323,7 +3329,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1794238268.0385394,
-  "last_request_at": 1794578799.1812198,
+  "last_request_at": 1794578819.9798844,
   "tenders": {
     "694702": {
       "details": {
@@ -7175,6 +7181,60 @@
       "notice": "",
       "notified": "7e71182754f9964adceaeef8932861ce0b5e1872712b64d2c2157ec94c7f0129"
     },
+    "712514": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 1`846.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 10.11.2026",
+        "buyer": "საქართველოს სახელმწიფო უსაფრთხოების სამსახურის სსიპ - საქართველოს ოპერატიულ-ტექნიკური სააგენტო",
+        "category": "32400000-ქსელები",
+        "deadline": "წინადადებების მიღების ვადა: 24.11.2026",
+        "id": "712514",
+        "link": "https://tenders.procurement.gov.ge/public/?go=712514",
+        "reg_num": "SPA260001002",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {
+        "que/2169512": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/f1ccbc5cf8a083687d83d1ab2c352920b4d08c2c265d1c9b000fa7f2567161c4",
+          "error": "",
+          "hash": "9cf1ab5956d8f578b610d7cee7380a33f2811b9ff285b77280f7b973784c3af1",
+          "id": "que/2169512",
+          "name": "დანართი N 1..xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2169512&code=1793795006"
+        },
+        "que/2169518": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/f1ccbc5cf8a083687d83d1ab2c352920b4d08c2c265d1c9b000fa7f2567161c4",
+          "error": "",
+          "hash": "d0e740c9e7ac54b851854dd607a7ec265ea073352b3ff3a0dc0b9c95c06b08e0",
+          "id": "que/2169518",
+          "name": "ხელშეკრულების პროექტი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2169518&code=1793795208"
+        },
+        "que/2173581": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/f1ccbc5cf8a083687d83d1ab2c352920b4d08c2c265d1c9b000fa7f2567161c4",
+          "error": "",
+          "hash": "227f6597fc5dcd7baaeedb00a57510263e4dfd527625e1b1f8faedcdca06dc09",
+          "id": "que/2173581",
+          "name": "ოქმი N1.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2173581&code=1794246894"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/f1ccbc5cf8a083687d83d1ab2c352920b4d08c2c265d1c9b000fa7f2567161c4",
+          "error": "",
+          "hash": "a49e93e74a8d322d2a65c7a43ca67bd40daa6ee5226723852a7df211d9d3fc19",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=712514"
+        }
+      },
+      "error": "",
+      "first_seen": "2026-11-13T14:06:57.761274+00:00",
+      "notice": ""
+    },
     "713089": {
       "details": {
         "amount": "შესყიდვის სავარაუდო ღირებულება: 49`814.00 ლარი",
@@ -7567,7 +7627,7 @@
       "notice": ""
     }
   },
-  "updated_at": "2026-11-13T14:06:55.259097+00:00",
+  "updated_at": "2026-11-13T14:07:12.271247+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -7670,13 +7730,13 @@
     },
     "2026-11-13/gemini-3.5-flash-lite": {
       "date": "2026-11-13",
-      "input": 27764,
+      "input": 37900,
       "model": "gemini-3.5-flash-lite",
-      "output": 321,
+      "output": 416,
       "quota_errors": 0,
-      "requests": 2,
-      "reserved_tokens": 28600,
-      "total": 28085,
+      "requests": 3,
+      "reserved_tokens": 39016,
+      "total": 38316,
       "unknown_usage": 0
     }
   },
