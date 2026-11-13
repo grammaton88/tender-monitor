@@ -3151,6 +3151,12 @@
       "subject": "ადაპტერი (15 ცალი), ოპტიკური პიგთეილი (20 ცალი), ოპტიკური თვითმზიდი კაბელი (1000 მეტრი)",
       "warranty": null
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/90c6903d2545efa357e0e5bd0f389cf4ec8fdd4766386b8fdcffad32fc0e20b0": {
+      "confidential": "კონფიდენციალურობისა და გაუმჟღავნებლობის შესახებ",
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან 12 თვის განმავლობაში, ყოველთვიურად",
+      "subject": "1C ERP პროგრამული პროდუქტის მხარდაჭერის მომსახურება",
+      "warranty": null
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/927f50990cafc7588275f5b6cac5435041b88125f8a5f4737fd71f0eef4ebbbf": {
       "confidential": "სახელმწიფო საიდუმლოებასთან დაკავშირებული სახელმწიფო შესყიდვა",
       "delivery_deadline": null,
@@ -3347,7 +3353,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1794238268.0385394,
-  "last_request_at": 1794578959.5795426,
+  "last_request_at": 1794578975.5067716,
   "tenders": {
     "694702": {
       "details": {
@@ -7211,7 +7217,53 @@
         "reg_num": "SPA260001023",
         "status": "გამოცხადებულია"
       },
-      "documents": {},
+      "documents": {
+        "que/2169846": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/90c6903d2545efa357e0e5bd0f389cf4ec8fdd4766386b8fdcffad32fc0e20b0",
+          "error": "",
+          "hash": "68003de4ed6fcc4b4abd8a793a0dce59f0bd08e462ff107efb501680471ff61f",
+          "id": "que/2169846",
+          "name": "ფასების ცხრილი.xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2169846&code=1793806283"
+        },
+        "que/2170042": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/90c6903d2545efa357e0e5bd0f389cf4ec8fdd4766386b8fdcffad32fc0e20b0",
+          "error": "",
+          "hash": "eac755141c30f24668f82d666eae61bc49a2c7f6daf596009dd587cf1c3bae86",
+          "id": "que/2170042",
+          "name": "ტექნიკური დავალება.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2170042&code=1793810299"
+        },
+        "que/2174967": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/90c6903d2545efa357e0e5bd0f389cf4ec8fdd4766386b8fdcffad32fc0e20b0",
+          "error": "",
+          "hash": "c86941dd4ce3ec1cfe281401a29eae44d3664395d9dbcea3c8c47a7c7fe44244",
+          "id": "que/2174967",
+          "name": "ხელშეკრულების პროექტი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2174967&code=1794398966"
+        },
+        "que/2175985": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/90c6903d2545efa357e0e5bd0f389cf4ec8fdd4766386b8fdcffad32fc0e20b0",
+          "error": "",
+          "hash": "028b308db51a844d13da4ce433f6f584ad5487c1a7cd38f80015c7f15b7688ed",
+          "id": "que/2175985",
+          "name": "ოქმი №1.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2175985&code=1794479991"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/90c6903d2545efa357e0e5bd0f389cf4ec8fdd4766386b8fdcffad32fc0e20b0",
+          "error": "",
+          "hash": "dd64455966b39737e15c5ae7205566d97911a9645b560ec18524e643549d4c8a",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=712252"
+        }
+      },
       "error": "",
       "first_seen": "2026-11-13T14:09:14.324042+00:00",
       "notice": ""
@@ -7340,6 +7392,23 @@
       },
       "error": "",
       "first_seen": "2026-11-13T14:08:55.563902+00:00",
+      "notice": ""
+    },
+    "712980": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 31`240.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 13.11.2026",
+        "buyer": "საქართველოს ეროვნული ბანკი",
+        "category": "48700000-პროგრამული პაკეტების მომსახურე პროგრამები",
+        "deadline": "წინადადებების მიღების ვადა: 24.11.2026",
+        "id": "712980",
+        "link": "https://tenders.procurement.gov.ge/public/?go=712980",
+        "reg_num": "NAT260023905",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-11-13T14:09:31.442885+00:00",
       "notice": ""
     },
     "713039": {
@@ -7867,7 +7936,7 @@
       "notice": ""
     }
   },
-  "updated_at": "2026-11-13T14:09:29.559199+00:00",
+  "updated_at": "2026-11-13T14:09:44.654451+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -7970,13 +8039,13 @@
     },
     "2026-11-13/gemini-3.5-flash-lite": {
       "date": "2026-11-13",
-      "input": 87465,
+      "input": 97962,
       "model": "gemini-3.5-flash-lite",
-      "output": 888,
+      "output": 995,
       "quota_errors": 0,
-      "requests": 7,
-      "reserved_tokens": 90653,
-      "total": 88353,
+      "requests": 8,
+      "reserved_tokens": 101542,
+      "total": 98957,
       "unknown_usage": 0
     }
   },
