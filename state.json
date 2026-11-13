@@ -3103,6 +3103,12 @@
       "subject": "MPLS ქსელისათვის მარაგ-ნაწილები: MPLS მარშრუტიზატორი (2 ცალი), ქსელური უსაფრთხოების მარშრუტიზატორი (2 ცალი), ქსელური კომუტატორი (2 ცალი), DWDM Mux/Demux (10 ცალი), DWDM SFP+ ოპტიკური მოდული (10 ცალი), ოპტიკური მოდული (SFP+) (10 ცალი)",
       "warranty": "3 წლიანი მწარმოებლის გარანტია მიღება-ჩაბარების აქტის გაფორმების დღიდან"
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/7a157e23b0d8455179b0f737b6909c69a76f958d2e833808aefa08945e9942da": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან არაუგვიანეს 7 კალენდარული დღის განმავლობაში",
+      "subject": "არსებული HPE MSA 2060 LFF Storage Array-ის დისკური რესურსის გაზრდისა და არსებული Storage სისტემის გაფართოების მიზნით Drive Enclosure-ისა და კომპონენტების შეძენა (არანაკლებ 1 LFF Drive Enclosure, 12 LFF SAS HDD, 16 SFF SAS SSD, 2 Redundant DC Power Supply, ტექნიკური მხარდაჭერა)",
+      "warranty": "არანაკლებ 3 წელი"
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/7c35d0d17ee1fb6765584cd15271fb2f2b8eebb9e377ccc137653cdd32ec13d3": {
       "confidential": null,
       "delivery_deadline": "ხელშეკრულების გაფორმებიდან 30 კალენდარული დღე",
@@ -7500,13 +7506,68 @@
         "reg_num": "NAT260023852",
         "status": "გამოცხადებულია"
       },
-      "documents": {},
+      "documents": {
+        "que/2176775": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/7a157e23b0d8455179b0f737b6909c69a76f958d2e833808aefa08945e9942da",
+          "error": "",
+          "hash": "802bc9281dd63b2f9e6923802379429c121545333e1f1354c5b671c7da898fa3",
+          "id": "que/2176775",
+          "name": "დანართი N2 -ტექნიკური დავალება.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2176775&code=1794501026"
+        },
+        "que/2176777": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/7a157e23b0d8455179b0f737b6909c69a76f958d2e833808aefa08945e9942da",
+          "error": "",
+          "hash": "51697ddc8971682dc4b1e6b080b00cb4410752a1b05d7b801d82eaa036223ad7",
+          "id": "que/2176777",
+          "name": "დანართი N1 - ფასების ცხრილი.xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2176777&code=1794501037"
+        },
+        "que/2176781": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/7a157e23b0d8455179b0f737b6909c69a76f958d2e833808aefa08945e9942da",
+          "error": "",
+          "hash": "711a369c57227cc936b2629d724e12b4f8c00374af574a5c467f88b667498cf3",
+          "id": "que/2176781",
+          "name": "ხელშეკრულების პროექტი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2176781&code=1794501232"
+        },
+        "que/2177051": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/7a157e23b0d8455179b0f737b6909c69a76f958d2e833808aefa08945e9942da",
+          "error": "",
+          "hash": "bc98ad6be1e80a28ecba5f83ad2fef20e625241e1100ac64f715e9795e3d0cea",
+          "id": "que/2177051",
+          "name": "ცენტრალური შემსყიდველი ორგანოს თანხმობა.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2177051&code=1794506464"
+        },
+        "que/2177078": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/7a157e23b0d8455179b0f737b6909c69a76f958d2e833808aefa08945e9942da",
+          "error": "",
+          "hash": "4a40ef384208f952a9ce50eb8e3486ff8f9d3e00a84d85307229ccd634d01d4c",
+          "id": "que/2177078",
+          "name": "ოქმი N1- N2.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2177078&code=1794507085"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/7a157e23b0d8455179b0f737b6909c69a76f958d2e833808aefa08945e9942da",
+          "error": "",
+          "hash": "810313d28bd4d09984c9b5ab232d78f5de9f0624441b7d2b0fe9371b822316b7",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=714167"
+        }
+      },
       "error": "",
       "first_seen": "2026-11-13T14:06:27.200565+00:00",
       "notice": ""
     }
   },
-  "updated_at": "2026-11-13T14:06:39.181264+00:00",
+  "updated_at": "2026-11-13T14:06:55.259097+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -7609,14 +7670,14 @@
     },
     "2026-11-13/gemini-3.5-flash-lite": {
       "date": "2026-11-13",
-      "input": 14255,
+      "input": 27764,
       "model": "gemini-3.5-flash-lite",
-      "output": 145,
+      "output": 321,
       "quota_errors": 0,
       "requests": 2,
       "reserved_tokens": 28600,
-      "total": 14400,
-      "unknown_usage": 1
+      "total": 28085,
+      "unknown_usage": 0
     }
   },
   "version": 1
