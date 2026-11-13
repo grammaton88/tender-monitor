@@ -3235,6 +3235,12 @@
       "subject": "არსებული Fortinet FortiMail-VM01 (1 CPU) ელექტრონული ფოსტის Anti-Spam ფილტრის პროგრამული უზრუნველყოფის მხარდაჭერის ლიცენზიები - 3 ცალი",
       "warranty": null
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/de232f8a1551c707e2a14af38a551843bdd5beb7f5d6a6d87dd2984b2abdcb4f": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან არაუგვიანეს 100 კალენდარული დღე",
+      "subject": "ქსელური ინფრასტრუქტურა: ბრანდმაუერი (NGFW) - 2 ცალი, ტრანსივერები - 22 ცალი, სამონტაჟო კომპლექტი და კვების კაბელები, HA/კლასტერის ტრანსივერები",
+      "warranty": "არანაკლებ 3 წელი"
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/dfdedf571f659f90526ab9670ca272c1c21832cfcff1776d18fdcb2a8048712c": {
       "confidential": null,
       "delivery_deadline": "ხელშეკრულების ძალაში შესვლიდან არაუგვიანეს 45 კალენდარული დღე",
@@ -3311,7 +3317,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1794238268.0385394,
-  "last_request_at": 1794578780.285769,
+  "last_request_at": 1794578799.1812198,
   "tenders": {
     "694702": {
       "details": {
@@ -7431,13 +7437,76 @@
         "reg_num": "NAT260023936",
         "status": "გამოცხადებულია"
       },
-      "documents": {},
+      "documents": {
+        "que/2176297": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/de232f8a1551c707e2a14af38a551843bdd5beb7f5d6a6d87dd2984b2abdcb4f",
+          "error": "",
+          "hash": "a2d63248ad1c2d77ddcc43e9de0061a71c53bfcd10db05a4494a2c617331efcb",
+          "id": "que/2176297",
+          "name": "ტექნიკური დავალება.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2176297&code=1794489237"
+        },
+        "que/2177655": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/de232f8a1551c707e2a14af38a551843bdd5beb7f5d6a6d87dd2984b2abdcb4f",
+          "error": "",
+          "hash": "dcf05c9f60d625ef7e4ebaac13923650de203f5d01b77c9825325cb10417207c",
+          "id": "que/2177655",
+          "name": "ფასების ცხრილი - დანართი №1.xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2177655&code=1794576968"
+        },
+        "que/2177686": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/de232f8a1551c707e2a14af38a551843bdd5beb7f5d6a6d87dd2984b2abdcb4f",
+          "error": "",
+          "hash": "b08c995f40d92c23f64d5a1a0e789935ec4c0b223ae5677ca1ebb50283f5f282",
+          "id": "que/2177686",
+          "name": "ოქმი №1.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2177686&code=1794578140"
+        },
+        "que/2177827": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/de232f8a1551c707e2a14af38a551843bdd5beb7f5d6a6d87dd2984b2abdcb4f",
+          "error": "",
+          "hash": "8194fca6c4c5489b5cff7ec34f8816b3bf117403b07deb543a226d5ececc1282",
+          "id": "que/2177827",
+          "name": "ხელშეკრულების პროექტი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2177827&code=1794582868"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/de232f8a1551c707e2a14af38a551843bdd5beb7f5d6a6d87dd2984b2abdcb4f",
+          "error": "",
+          "hash": "9fa14392810d409e80bbf89617a68c8a0c6c5e6600ff22c6214c545ecf3ceec0",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=714075"
+        }
+      },
       "error": "",
       "first_seen": "2026-11-13T14:06:16.122001+00:00",
       "notice": ""
+    },
+    "714167": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 906`360.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 12.11.2026",
+        "buyer": "ლევან სამხარაულის სახელობის სასამართლო ექსპერტიზის ეროვნული ბიურო",
+        "category": "32400000-ქსელები",
+        "deadline": "წინადადებების მიღების ვადა: 14.12.2026",
+        "id": "714167",
+        "link": "https://tenders.procurement.gov.ge/public/?go=714167",
+        "reg_num": "NAT260023852",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-11-13T14:06:27.200565+00:00",
+      "notice": ""
     }
   },
-  "updated_at": "2026-11-13T14:06:20.285826+00:00",
+  "updated_at": "2026-11-13T14:06:39.181264+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -7540,13 +7609,13 @@
     },
     "2026-11-13/gemini-3.5-flash-lite": {
       "date": "2026-11-13",
-      "input": 0,
+      "input": 14255,
       "model": "gemini-3.5-flash-lite",
-      "output": 0,
+      "output": 145,
       "quota_errors": 0,
-      "requests": 1,
-      "reserved_tokens": 14563,
-      "total": 0,
+      "requests": 2,
+      "reserved_tokens": 28600,
+      "total": 14400,
       "unknown_usage": 1
     }
   },
