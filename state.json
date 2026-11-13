@@ -3187,6 +3187,12 @@
       "subject": "პერსონალური კომპიუტერების საჭიროებისთვის განკუთვნილი უწყვეტი კვების წყარო, 8 213 ერთეული",
       "warranty": "3 წელი"
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/a9568b05916ba6c50161f1303605959e2ccd87bd0e78c344cd45290b543eb0ed": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან 5 კალენდარული დღე",
+      "subject": "Check Point ფაირვოლების და მენეჯმენტის მაესტროს Hardware Support & License Renewal 1 წლის ვადით",
+      "warranty": "1 წელი"
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/a9bd80cef4601ddc8ddbd33de69ce2882319fc88fb19f9e36dd63277590f6dbf": {
       "confidential": null,
       "delivery_deadline": "ხელშეკრულების გაფორმებიდან არაუმეტეს 30 კალენდარული დღე",
@@ -3335,7 +3341,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1794238268.0385394,
-  "last_request_at": 1794578867.7869592,
+  "last_request_at": 1794578942.1481907,
   "tenders": {
     "694702": {
       "details": {
@@ -7241,6 +7247,23 @@
       "first_seen": "2026-11-13T14:06:57.761274+00:00",
       "notice": ""
     },
+    "712892": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 9`750.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 10.11.2026",
+        "buyer": "საქართველოს სახალხო დამცველის აპარატი",
+        "category": "48200000-ქსელების, ინტერნეტისა და ინტრანეტის პროგრამული  პაკეტები",
+        "deadline": "წინადადებების მიღების ვადა: 18.11.2026",
+        "id": "712892",
+        "link": "https://tenders.procurement.gov.ge/public/?go=712892",
+        "reg_num": "SPA260001008",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-11-13T14:08:55.563902+00:00",
+      "notice": ""
+    },
     "713039": {
       "details": {
         "amount": "შესყიდვის სავარაუდო ღირებულება: 865.00 ლარი",
@@ -7572,7 +7595,60 @@
         "reg_num": "SPA260001024",
         "status": "გამოცხადებულია"
       },
-      "documents": {},
+      "documents": {
+        "que/2176431": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/a9568b05916ba6c50161f1303605959e2ccd87bd0e78c344cd45290b543eb0ed",
+          "error": "",
+          "hash": "d45b75a8a77a94e36655582bdec032a5e3eaaad929e15aa393a73ecdbb85936b",
+          "id": "que/2176431",
+          "name": "მომსახურების გაწევის ვადა და ტექნიკური დავალება.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2176431&code=1794492836"
+        },
+        "que/2176433": {
+          "error": "Unsupported file or HTML/session error instead of PDF/DOCX/XLSX",
+          "id": "que/2176433",
+          "name": "დანართი N1 - ფასების ცხრილი.xls",
+          "status": "skipped",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2176433&code=1794492874"
+        },
+        "que/2176435": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/a9568b05916ba6c50161f1303605959e2ccd87bd0e78c344cd45290b543eb0ed",
+          "error": "",
+          "hash": "dabc6c7cb25f0159acbe7880ebabe2734c34f0c893951aaa67cfa6a68df3797f",
+          "id": "que/2176435",
+          "name": "ტექნიკური მოთხოვნები.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2176435&code=1794492891"
+        },
+        "que/2176436": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/a9568b05916ba6c50161f1303605959e2ccd87bd0e78c344cd45290b543eb0ed",
+          "error": "",
+          "hash": "ea5067f0c937b2ff88d1c3fd8cc68dc13c9fb7d480d8ccce9112959d0a7fa3d0",
+          "id": "que/2176436",
+          "name": "სახელმწიფო შესყიდვების შესახებ ხელშეკრულების პროექტი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2176436&code=1794492911"
+        },
+        "que/2176438": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/a9568b05916ba6c50161f1303605959e2ccd87bd0e78c344cd45290b543eb0ed",
+          "error": "",
+          "hash": "b95504def254e6d6436fe73e335bc13b9a0c8727a76745d753608bd9c5af9bc2",
+          "id": "que/2176438",
+          "name": "ოქმი #1.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2176438&code=1794492931"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/a9568b05916ba6c50161f1303605959e2ccd87bd0e78c344cd45290b543eb0ed",
+          "error": "",
+          "hash": "92b386ad093cf9eb0fb3d8c40ce8af26decd7d08c6491bce80cc9a43dc6a1c0b",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=713849"
+        }
+      },
       "error": "",
       "first_seen": "2026-11-13T14:07:41.602426+00:00",
       "notice": ""
@@ -7713,7 +7789,7 @@
       "notice": ""
     }
   },
-  "updated_at": "2026-11-13T14:08:54.326053+00:00",
+  "updated_at": "2026-11-13T14:09:12.137489+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -7816,13 +7892,13 @@
     },
     "2026-11-13/gemini-3.5-flash-lite": {
       "date": "2026-11-13",
-      "input": 62129,
+      "input": 73624,
       "model": "gemini-3.5-flash-lite",
-      "output": 611,
+      "output": 790,
       "quota_errors": 0,
-      "requests": 5,
-      "reserved_tokens": 64289,
-      "total": 62740,
+      "requests": 6,
+      "reserved_tokens": 76312,
+      "total": 74414,
       "unknown_usage": 0
     }
   },
