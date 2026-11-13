@@ -2917,6 +2917,12 @@
       "subject": "IP/MPLS Active Equipment, Phase 2",
       "warranty": "10 years hardware, 5 years software, 10 years network stability, 5 years power system, 3-5 years air conditioner, 5 years firewall, 2 years NOC"
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/13ba98464d26c9ba067c03619a4bdd96d3e7f2560ad2db8ee68d7d68b625b886": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან არაუგვიანეს 30 დღე",
+      "subject": "PDF ფორმატის ფაილების რედაქტირებისთვის განკუთვნილი Subscription ტიპის პროგრამული უზრუნველყოფის 3 (სამი) წლიანი ლიცენზია (20 ცალი)",
+      "warranty": null
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/17974bdeb9eb5247800f1f7c017d34efe69fbf8cd0716f9f6944cfab12653b08": {
       "confidential": null,
       "delivery_deadline": "ხელშეკრულების გაფორმებიდან 15 კალენდარული დღე",
@@ -3072,6 +3078,12 @@
       "delivery_deadline": "ხელშეკრულების გაფორმებიდან FortiGate-ის ფაირვოლისთვის 2 ერთეული 1-წლიანი ლიცენზიის - 10 კალენდარული დღე, ხოლო 50 მომხმარებელზე 2FA მუდმივი ლიცენზიების - 30 კალენდარული დღე",
       "subject": "FortiGate-ის ფაირვოლისთვის 2 (ორი) ერთეული 1-წლიანი უსაფრთხოების ლიცენზია და 50 მომხმარებელზე გათვლილი ორფაქტორიანი ავტორიზაციის (2FA) მუდმივი (Perpetual) ლიცენზიები (FortiToken Mobile Electronic License)",
       "warranty": "1 წელი მისი გააქტიურებიდან"
+    },
+    "gemini-3.5-flash-lite/tender-keywords-v4/6199db75f5a4614c462afdceb6d974e7c7f0c1e9eacc67229760f81265cd2232": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან არაუგვიანეს 2026 წლის 4 დეკემბრისა",
+      "subject": "კრიპტოგრაფიული უსაფრთხოების Wildcard SSL სერტიფიკატი, 1 ცალი",
+      "warranty": "სერტიფიკატის გააქტიურებიდან (2026 წლის 4 დეკემბრიდან) 2 წელი"
     },
     "gemini-3.5-flash-lite/tender-keywords-v4/63c4229cf115be4c2d2d1a8ed49470ce24f61ef5a1d6451e9b9cce57aa1b250e": {
       "confidential": "სახელმწიფო საიდუმლოებასთან დაკავშირებული სახელმწიფო შესყიდვები",
@@ -3352,8 +3364,8 @@
     }
   },
   "initialized": true,
-  "last_monitor_run_at": 1794238268.0385394,
-  "last_request_at": 1794578975.5067716,
+  "last_monitor_run_at": 1794578997.2996485,
+  "last_request_at": 1794578991.1776013,
   "tenders": {
     "694702": {
       "details": {
@@ -6306,10 +6318,10 @@
           "url": "https://tenders.procurement.gov.ge/public/?go=710662"
         }
       },
-      "error": "",
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
       "first_seen": "2026-11-02T15:02:33.680276+00:00",
       "notice": "",
-      "notified": "5222c0f718bcfa265cbf2ffdc93ff9d2f622b3ce086e9aaca5f005ff65efb656"
+      "notified": "edf314720478cbc33756d817d86bd9095d07156ec48f17e86a781d453fd9749c"
     },
     "710681": {
       "details": {
@@ -7266,7 +7278,8 @@
       },
       "error": "",
       "first_seen": "2026-11-13T14:09:14.324042+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "1bd890718456729c5ef99c7918f5dc2fd3c085425b610f1e3edc263d104cbf0d"
     },
     "712514": {
       "details": {
@@ -7320,7 +7333,8 @@
       },
       "error": "",
       "first_seen": "2026-11-13T14:06:57.761274+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "411ae049ec5a378bde407fc0054fc414c4952b4c2b979951ae278ae4be4661ad"
     },
     "712892": {
       "details": {
@@ -7392,7 +7406,8 @@
       },
       "error": "",
       "first_seen": "2026-11-13T14:08:55.563902+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "1890d01e465b115b9025d77828e37ef669ada426cfa386001750c34500d6a4c5"
     },
     "712980": {
       "details": {
@@ -7406,10 +7421,57 @@
         "reg_num": "NAT260023905",
         "status": "გამოცხადებულია"
       },
-      "documents": {},
+      "documents": {
+        "que/2171649": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/13ba98464d26c9ba067c03619a4bdd96d3e7f2560ad2db8ee68d7d68b625b886",
+          "error": "",
+          "hash": "ad49d2b917acd183c625a3a755fdb7d8d102c0ef679f5ec3469ac40a0e6c6b2f",
+          "id": "que/2171649",
+          "name": "ტექნიკური დავალება.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2171649&code=1793963441"
+        },
+        "que/2171673": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/13ba98464d26c9ba067c03619a4bdd96d3e7f2560ad2db8ee68d7d68b625b886",
+          "error": "",
+          "hash": "56af35eda740c2aa38069c3f99cf1c8c21eb554143b2e36f975164702e67a90f",
+          "id": "que/2171673",
+          "name": "ფასების ცხრილი.xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2171673&code=1793964480"
+        },
+        "que/2173982": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/13ba98464d26c9ba067c03619a4bdd96d3e7f2560ad2db8ee68d7d68b625b886",
+          "error": "",
+          "hash": "36ead55083901001e9501acf246da19a62ebf18dc8ad0ad66a8d143091d7fa2d",
+          "id": "que/2173982",
+          "name": "ხელშეკრულების პროექტი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2173982&code=1794312745"
+        },
+        "que/2175932": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/13ba98464d26c9ba067c03619a4bdd96d3e7f2560ad2db8ee68d7d68b625b886",
+          "error": "",
+          "hash": "1c931b7df980d993456078d265b9c1916519141724b72247ea6c765f9b03cbe2",
+          "id": "que/2175932",
+          "name": "N1 ოქმი - PDF ლიცენზიები.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2175932&code=1794477225"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/13ba98464d26c9ba067c03619a4bdd96d3e7f2560ad2db8ee68d7d68b625b886",
+          "error": "",
+          "hash": "30fea549ab304ae1289c25f454e371251e09760a50f2f0912bce135202e9cb7f",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=712980"
+        }
+      },
       "error": "",
       "first_seen": "2026-11-13T14:09:31.442885+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "4726d1120681026962fef7ce06cd03c2678a5c4aae66066c4af97a5c2e31885c"
     },
     "713039": {
       "details": {
@@ -7472,7 +7534,8 @@
       },
       "error": "",
       "first_seen": "2026-11-13T14:07:16.030721+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "cb5efe633e837880a1b05f3b0561b53a6b3bfe44ff7b3825846d6ead86402a07"
     },
     "713089": {
       "details": {
@@ -7730,6 +7793,59 @@
       "notice": "Portal mentions confidential material. Public files may be incomplete; displayed values may be conditional. Verify on the portal.",
       "notified": "c54bc1a4f4950a9154f03d3914b66864cb3c29b15a2b0d7a49431ef90ab650e0"
     },
+    "713830": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 4`900.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 11.11.2026",
+        "buyer": "საჯარო სამართლის იურიდიული პირი \"საქართველოს საპენსიო ფონდი\"",
+        "category": "48700000-პროგრამული პაკეტების მომსახურე პროგრამები",
+        "deadline": "წინადადებების მიღების ვადა: 24.11.2026",
+        "id": "713830",
+        "link": "https://tenders.procurement.gov.ge/public/?go=713830",
+        "reg_num": "NAT260023642",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {
+        "que/2175190": {
+          "error": "Unsupported file or HTML/session error instead of PDF/DOCX/XLSX",
+          "id": "que/2175190",
+          "name": "ფასთა ცხრილი (დანართი N1) - SSL.xls",
+          "status": "skipped",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2175190&code=1794405853"
+        },
+        "que/2175191": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/6199db75f5a4614c462afdceb6d974e7c7f0c1e9eacc67229760f81265cd2232",
+          "error": "",
+          "hash": "eb7e1f8397d95b75b8c2fda194a1d321122586b34bb8bf6b0f3023649306f362",
+          "id": "que/2175191",
+          "name": "ხელშეკრულების პროექტი - SSL.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2175191&code=1794406021"
+        },
+        "que/2175242": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/6199db75f5a4614c462afdceb6d974e7c7f0c1e9eacc67229760f81265cd2232",
+          "error": "",
+          "hash": "c95c23cfd602c48d2254bc663984283ac73f61e23739add7ecdbe9dd48f43272",
+          "id": "que/2175242",
+          "name": "SSL სერტიფიკატის შესყიდვის -  სატენდერო კომისიის სხდომის ოქმი N1.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2175242&code=1794408074"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/6199db75f5a4614c462afdceb6d974e7c7f0c1e9eacc67229760f81265cd2232",
+          "error": "",
+          "hash": "ea0fafca1336d818e56d2822fac154500f7c29d6e3d32c540ef70c002b372f7c",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=713830"
+        }
+      },
+      "error": "",
+      "first_seen": "2026-11-13T14:09:46.016858+00:00",
+      "notice": "",
+      "notified": "d55cb0dba68abcdbea576cba5dfd7b39f536fe3061137d83b64d7aa4144c967c"
+    },
     "713849": {
       "details": {
         "amount": "შესყიდვის სავარაუდო ღირებულება: 280`000.00 ლარი",
@@ -7798,7 +7914,8 @@
       },
       "error": "",
       "first_seen": "2026-11-13T14:07:41.602426+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "1d6ccc41820f843a61424960c09a285459896201ed358fd3a5904afb99cb126a"
     },
     "714075": {
       "details": {
@@ -7861,7 +7978,8 @@
       },
       "error": "",
       "first_seen": "2026-11-13T14:06:16.122001+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "a6f2969c1cae1646bf381dbfb801d4a35558a668b6401653e68a6895caa3386b"
     },
     "714167": {
       "details": {
@@ -7933,10 +8051,11 @@
       },
       "error": "",
       "first_seen": "2026-11-13T14:06:27.200565+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "2322dfefec6f85b749966ab7260f36ccd79b9a2f3a0197c7029783cd57353b60"
     }
   },
-  "updated_at": "2026-11-13T14:09:44.654451+00:00",
+  "updated_at": "2026-11-13T14:09:57.299760+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -8039,13 +8158,13 @@
     },
     "2026-11-13/gemini-3.5-flash-lite": {
       "date": "2026-11-13",
-      "input": 97962,
+      "input": 114844,
       "model": "gemini-3.5-flash-lite",
-      "output": 995,
+      "output": 1120,
       "quota_errors": 0,
-      "requests": 8,
-      "reserved_tokens": 101542,
-      "total": 98957,
+      "requests": 9,
+      "reserved_tokens": 119416,
+      "total": 115964,
       "unknown_usage": 0
     }
   },
