@@ -3329,7 +3329,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1794238268.0385394,
-  "last_request_at": 1794578819.9798844,
+  "last_request_at": 1794578838.1302657,
   "tenders": {
     "694702": {
       "details": {
@@ -7235,6 +7235,23 @@
       "first_seen": "2026-11-13T14:06:57.761274+00:00",
       "notice": ""
     },
+    "713039": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 865.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 13.11.2026",
+        "buyer": "შინაგან საქმეთა სამინისტროს საქვეუწყებო დაწესებულება სასაზღვრო პოლიცია",
+        "category": "32500000-სატელეკომუნიკაციო მოწყობილობები და აქსესუარები",
+        "deadline": "წინადადებების მიღების ვადა: 24.11.2026",
+        "id": "713039",
+        "link": "https://tenders.procurement.gov.ge/public/?go=713039",
+        "reg_num": "NAT260023945",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-11-13T14:07:16.030721+00:00",
+      "notice": ""
+    },
     "713089": {
       "details": {
         "amount": "შესყიდვის სავარაუდო ღირებულება: 49`814.00 ლარი",
@@ -7627,7 +7644,7 @@
       "notice": ""
     }
   },
-  "updated_at": "2026-11-13T14:07:12.271247+00:00",
+  "updated_at": "2026-11-13T14:07:27.581664+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -7730,13 +7747,13 @@
     },
     "2026-11-13/gemini-3.5-flash-lite": {
       "date": "2026-11-13",
-      "input": 37900,
+      "input": 47480,
       "model": "gemini-3.5-flash-lite",
-      "output": 416,
+      "output": 524,
       "quota_errors": 0,
-      "requests": 3,
-      "reserved_tokens": 39016,
-      "total": 38316,
+      "requests": 4,
+      "reserved_tokens": 48848,
+      "total": 48004,
       "unknown_usage": 0
     }
   },
