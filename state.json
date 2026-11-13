@@ -3311,7 +3311,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1794238268.0385394,
-  "last_request_at": 1794238247.6384652,
+  "last_request_at": 1794578780.285769,
   "tenders": {
     "694702": {
       "details": {
@@ -7418,9 +7418,26 @@
       "first_seen": "2026-11-09T15:30:04.612871+00:00",
       "notice": "Portal mentions confidential material. Public files may be incomplete; displayed values may be conditional. Verify on the portal.",
       "notified": "c54bc1a4f4950a9154f03d3914b66864cb3c29b15a2b0d7a49431ef90ab650e0"
+    },
+    "714075": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 3`498`748.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 13.11.2026",
+        "buyer": "ციფრული მმართველობის სააგენტო",
+        "category": "32400000-ქსელები",
+        "deadline": "წინადადებების მიღების ვადა: 14.12.2026",
+        "id": "714075",
+        "link": "https://tenders.procurement.gov.ge/public/?go=714075",
+        "reg_num": "NAT260023936",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-11-13T14:06:16.122001+00:00",
+      "notice": ""
     }
   },
-  "updated_at": "2026-11-09T15:31:08.038608+00:00",
+  "updated_at": "2026-11-13T14:06:20.285826+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -7520,6 +7537,17 @@
       "reserved_tokens": 53595,
       "total": 52670,
       "unknown_usage": 0
+    },
+    "2026-11-13/gemini-3.5-flash-lite": {
+      "date": "2026-11-13",
+      "input": 0,
+      "model": "gemini-3.5-flash-lite",
+      "output": 0,
+      "quota_errors": 0,
+      "requests": 1,
+      "reserved_tokens": 14563,
+      "total": 0,
+      "unknown_usage": 1
     }
   },
   "version": 1
