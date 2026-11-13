@@ -3055,6 +3055,12 @@
       "subject": "10 ერთეული სკანერი",
       "warranty": "არანაკლებ 1 წელი, მიღება-ჩაბარების აქტის გაფორმების დღიდან"
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/59ff8e447b91fba54367f5eb2030a6f4bdcee0ad1ef39263b9475eab6032362f": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან სამ სამუშაო დღეში, მაგრამ არაუადრეს 2026 წლის 15 დეკემბრისა",
+      "subject": "მონაცემების რეზერვირების უნივერსალური სისტემას (Barracuda) ერთწლიანი ქარხნული მხარდაჭერის სერვისების გაგრძელების შესყიდვა (მოდიფიკაცია - BBS490a-e; დასახელება Barracuda Backup Server Appliance 490 Energize; სერიული ნომერი - 2049555; რაოდენობა - 1 ცალი)",
+      "warranty": null
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/5f5f5274a8801a2e7e3c62d73db17c57206c116e02e4d120ceacc7600d6733f5": {
       "confidential": null,
       "delivery_deadline": "მიღება-ჩაბარების აქტის გაფორმებიდან 10 სამუშაო დღე",
@@ -3341,7 +3347,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1794238268.0385394,
-  "last_request_at": 1794578942.1481907,
+  "last_request_at": 1794578959.5795426,
   "tenders": {
     "694702": {
       "details": {
@@ -7193,6 +7199,23 @@
       "notice": "",
       "notified": "7e71182754f9964adceaeef8932861ce0b5e1872712b64d2c2157ec94c7f0129"
     },
+    "712252": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 36`720.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 12.11.2026",
+        "buyer": "სს \"საქართველოს სახელმწიფო ელექტროსისტემა",
+        "category": "48400000-საქმიანი გარიგებებისა და პირადი საქმეების მართვის პროგრამული პაკეტები",
+        "deadline": "წინადადებების მიღების ვადა: 24.11.2026",
+        "id": "712252",
+        "link": "https://tenders.procurement.gov.ge/public/?go=712252",
+        "reg_num": "SPA260001023",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-11-13T14:09:14.324042+00:00",
+      "notice": ""
+    },
     "712514": {
       "details": {
         "amount": "შესყიდვის სავარაუდო ღირებულება: 1`846.00 ლარი",
@@ -7259,7 +7282,62 @@
         "reg_num": "SPA260001008",
         "status": "გამოცხადებულია"
       },
-      "documents": {},
+      "documents": {
+        "que/2171224": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/59ff8e447b91fba54367f5eb2030a6f4bdcee0ad1ef39263b9475eab6032362f",
+          "error": "",
+          "hash": "408d7a638f4f5b0280e985a17a964d338710164788384f917dd369a7f2afd1ff",
+          "id": "que/2171224",
+          "name": "ტექნიკური ბარაკუდა.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2171224&code=1793895482"
+        },
+        "que/2171237": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/59ff8e447b91fba54367f5eb2030a6f4bdcee0ad1ef39263b9475eab6032362f",
+          "error": "",
+          "hash": "97c63aaf95ad6fe4060de8d278a0b47c4af6d3c49a4ed465aa490475c964c680",
+          "id": "que/2171237",
+          "name": "სახელმძღვანელო ინსტრუქცია.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2171237&code=1793895800"
+        },
+        "que/2172461": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/59ff8e447b91fba54367f5eb2030a6f4bdcee0ad1ef39263b9475eab6032362f",
+          "error": "",
+          "hash": "7d0a23b6ec91736f806d8e50cdddba482c73aa28207c0df50a0c21b943b444f6",
+          "id": "que/2172461",
+          "name": "ფასების ცხრილი (დანართი N1). ბარაკუდა.xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2172461&code=1793986564"
+        },
+        "que/2174112": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/59ff8e447b91fba54367f5eb2030a6f4bdcee0ad1ef39263b9475eab6032362f",
+          "error": "",
+          "hash": "b585624e22caf6fb85e21aadb2aabc484c0ddf48eb77ffcd25836f2c4fef694a",
+          "id": "que/2174112",
+          "name": "ხელშეკრულების პროექტი ბარაკუდა.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2174112&code=1794316360"
+        },
+        "que/2174115": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/59ff8e447b91fba54367f5eb2030a6f4bdcee0ad1ef39263b9475eab6032362f",
+          "error": "",
+          "hash": "035ad2e0a41a1a27617122d12c2196f4fc75597cccd55f20c1497137ca1e8b46",
+          "id": "que/2174115",
+          "name": "ოქმი 1 ბარაკუდა.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2174115&code=1794316430"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/59ff8e447b91fba54367f5eb2030a6f4bdcee0ad1ef39263b9475eab6032362f",
+          "error": "",
+          "hash": "4c5872ca55d543af872102e8d05b70509b34dc4d792660df6eb726abc3af7bc8",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=712892"
+        }
+      },
       "error": "",
       "first_seen": "2026-11-13T14:08:55.563902+00:00",
       "notice": ""
@@ -7789,7 +7867,7 @@
       "notice": ""
     }
   },
-  "updated_at": "2026-11-13T14:09:12.137489+00:00",
+  "updated_at": "2026-11-13T14:09:29.559199+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -7892,13 +7970,13 @@
     },
     "2026-11-13/gemini-3.5-flash-lite": {
       "date": "2026-11-13",
-      "input": 73624,
+      "input": 87465,
       "model": "gemini-3.5-flash-lite",
-      "output": 790,
+      "output": 888,
       "quota_errors": 0,
-      "requests": 6,
-      "reserved_tokens": 76312,
-      "total": 74414,
+      "requests": 7,
+      "reserved_tokens": 90653,
+      "total": 88353,
       "unknown_usage": 0
     }
   },
