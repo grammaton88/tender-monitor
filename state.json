@@ -3365,7 +3365,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1794578997.2996485,
-  "last_request_at": 1794578991.1776013,
+  "last_request_at": 1794841572.7148259,
   "tenders": {
     "694702": {
       "details": {
@@ -7217,6 +7217,23 @@
       "notice": "",
       "notified": "7e71182754f9964adceaeef8932861ce0b5e1872712b64d2c2157ec94c7f0129"
     },
+    "712167": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 381`850.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 16.11.2026",
+        "buyer": "საქართველოს პროკურატურა",
+        "category": "32400000-ქსელები",
+        "deadline": "წინადადებების მიღების ვადა: 30.11.2026",
+        "id": "712167",
+        "link": "https://tenders.procurement.gov.ge/public/?go=712167",
+        "reg_num": "NAT260023987",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-11-16T15:06:09.972148+00:00",
+      "notice": ""
+    },
     "712252": {
       "details": {
         "amount": "შესყიდვის სავარაუდო ღირებულება: 36`720.00 ლარი",
@@ -8055,7 +8072,7 @@
       "notified": "2322dfefec6f85b749966ab7260f36ccd79b9a2f3a0197c7029783cd57353b60"
     }
   },
-  "updated_at": "2026-11-13T14:09:57.299760+00:00",
+  "updated_at": "2026-11-16T15:06:12.714887+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -8166,6 +8183,17 @@
       "reserved_tokens": 119416,
       "total": 115964,
       "unknown_usage": 0
+    },
+    "2026-11-16/gemini-3.5-flash-lite": {
+      "date": "2026-11-16",
+      "input": 0,
+      "model": "gemini-3.5-flash-lite",
+      "output": 0,
+      "quota_errors": 0,
+      "requests": 1,
+      "reserved_tokens": 13023,
+      "total": 0,
+      "unknown_usage": 1
     }
   },
   "version": 1
