@@ -3370,7 +3370,7 @@
     }
   },
   "initialized": true,
-  "last_monitor_run_at": 1794578997.2996485,
+  "last_monitor_run_at": 1794841653.7187362,
   "last_request_at": 1794841572.7148259,
   "tenders": {
     "694702": {
@@ -6324,10 +6324,10 @@
           "url": "https://tenders.procurement.gov.ge/public/?go=710662"
         }
       },
-      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "error": "",
       "first_seen": "2026-11-02T15:02:33.680276+00:00",
       "notice": "",
-      "notified": "edf314720478cbc33756d817d86bd9095d07156ec48f17e86a781d453fd9749c"
+      "notified": "5222c0f718bcfa265cbf2ffdc93ff9d2f622b3ce086e9aaca5f005ff65efb656"
     },
     "710681": {
       "details": {
@@ -7275,7 +7275,8 @@
       },
       "error": "",
       "first_seen": "2026-11-16T15:06:09.972148+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "138149caa898325a3edaf0254e5ff2b9f6ecac414df9e4f6f734126572e54788"
     },
     "712252": {
       "details": {
@@ -8115,7 +8116,7 @@
       "notified": "2322dfefec6f85b749966ab7260f36ccd79b9a2f3a0197c7029783cd57353b60"
     }
   },
-  "updated_at": "2026-11-16T15:07:17.471393+00:00",
+  "updated_at": "2026-11-16T15:07:33.718810+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
