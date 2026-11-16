@@ -3193,6 +3193,12 @@
       "subject": "კრიპტოგრაფიული უსაფრთხოების Wildcard SSL სერტიფიკატი (1 ცალი)",
       "warranty": null
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/9aa0704cfdc6e959b3b0d23b675176a86d0b83cdac2c82df3a108c39be554210": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან 80 კალენდარული დღე",
+      "subject": "ქსელური მოწყობილობები: კომუტატორი A ტიპის (2 კომპლექტი), კომუტატორი B ტიპის (22 კომპლექტი), კომუტატორი C ტიპის (1 კომპლექტი), მარშრუტიზატორი (15 კომპლექტი)",
+      "warranty": "არანაკლებ 3 წლიანი გარანტია მიღება-ჩაბარების აქტის გაფორმების დღიდან"
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/9b4c80325a3c7620d63bc58cbe80f3171da05e591d066e22c8ba4cdd4929efcc": {
       "confidential": null,
       "delivery_deadline": "ხელშეკრულების გაფორმებიდან მიმდინარე წლის 19 ნოემბრიდან და მოქმედი უნდა იყოს გააქტიურებიდან 1 (ერთი) წლის ვადაში",
@@ -7229,7 +7235,44 @@
         "reg_num": "NAT260023987",
         "status": "გამოცხადებულია"
       },
-      "documents": {},
+      "documents": {
+        "que/2168377": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/9aa0704cfdc6e959b3b0d23b675176a86d0b83cdac2c82df3a108c39be554210",
+          "error": "",
+          "hash": "1cd2bfa83118187fccb71efbf56c610d699f9fa0753b012106bc3431595dae5d",
+          "id": "que/2168377",
+          "name": "ხელშეკრულების პროექტი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2168377&code=1793705677"
+        },
+        "que/2168378": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/9aa0704cfdc6e959b3b0d23b675176a86d0b83cdac2c82df3a108c39be554210",
+          "error": "",
+          "hash": "bcbdec6b431894d640ffe9b52e70ea29403ca32cfe7ca3093e7d977ea3b8465f",
+          "id": "que/2168378",
+          "name": "დანართი N1.xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2168378&code=1793705730"
+        },
+        "que/2169193": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/9aa0704cfdc6e959b3b0d23b675176a86d0b83cdac2c82df3a108c39be554210",
+          "error": "",
+          "hash": "5459e3ba8bc31835ec4a2cdcfb71efd98c3a8e762f90f75534649f09a03fa854",
+          "id": "que/2169193",
+          "name": "ოქმი №1.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2169193&code=1793785100"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/9aa0704cfdc6e959b3b0d23b675176a86d0b83cdac2c82df3a108c39be554210",
+          "error": "",
+          "hash": "f1284369b49f5887aa2cd0a6e1a262cc6fe4503a843f112cac870428927fb419",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=712167"
+        }
+      },
       "error": "",
       "first_seen": "2026-11-16T15:06:09.972148+00:00",
       "notice": ""
@@ -8072,7 +8115,7 @@
       "notified": "2322dfefec6f85b749966ab7260f36ccd79b9a2f3a0197c7029783cd57353b60"
     }
   },
-  "updated_at": "2026-11-16T15:06:45.434242+00:00",
+  "updated_at": "2026-11-16T15:07:01.005621+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
