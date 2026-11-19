@@ -3133,6 +3133,12 @@
       "subject": "HPE Proliant DL360 Gen10 Plus / VMware სასერვერო /პროგრამული ინფრასტრუქტურისთვის, არსებული ლიცენზიისა და მწარმოებლის მხარდაჭერის 01.10.2028-მდე გახანგრძლივება (კვირაში 40 საათი 8/5)",
       "warranty": null
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/7e32e13206169b4c8ddaca6761666090c900bbc5522b6c34ae037b4a7d27f86d": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმების დღიდან 90 კალენდარული დღის განმავლობაში, არაუადრეს 2027 წლის 12 იანვრისა",
+      "subject": "ქსელური მოწყობილობები: არამართვადი ქსელური კომუტატორი 8 პორტიანი (20 ცალი), არამართვადი ქსელური კომუტატორი 16 პორტიანი (10 ცალი), 6 პორტიანი PoE სვიჩი (10 ცალი), 8 პორტიანი PoE სვიჩი (10 ცალი), 24 პორტიანი PoE სვიჩი (5 ცალი), 48 პორტიანი PoE სვიჩი (2 ცალი), პაჩკორდი 0.3 მ (250 ცალი), პაჩკორდი 0.5 მ (250 ცალი), პაჩკორდი 1.5 მ (250 ცალი)",
+      "warranty": "არანაკლებ 1 წელი მიღება-ჩაბარების აქტის გაფორმების დღიდან"
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/7f9d720ba36ed2ff4c2e3e9f49e1113955baadfd1606420ff3b3aff0db7e5a43": {
       "confidential": null,
       "delivery_deadline": "ხელშეკრულების ორმხრივად გაფორმებიდან არაუგვიანეს 2026 წლის 20 დეკემბრისა",
@@ -6668,7 +6674,53 @@
         "reg_num": "NAT260024488",
         "status": "გამოცხადებულია"
       },
-      "documents": {},
+      "documents": {
+        "que/2182480": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/7e32e13206169b4c8ddaca6761666090c900bbc5522b6c34ae037b4a7d27f86d",
+          "error": "",
+          "hash": "d508b07238f74d8c055636461d1c0f70f6f418844499786c3a41abdbebcc232d",
+          "id": "que/2182480",
+          "name": "ოქმი N1.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2182480&code=1795105631"
+        },
+        "que/2182483": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/7e32e13206169b4c8ddaca6761666090c900bbc5522b6c34ae037b4a7d27f86d",
+          "error": "",
+          "hash": "f712cebe6185c0df0925a95a981759b9fe34f95ac1b0ddb6e119519beebad154",
+          "id": "que/2182483",
+          "name": "ხელშეკრულების პროექტი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2182483&code=1795105663"
+        },
+        "que/2182486": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/7e32e13206169b4c8ddaca6761666090c900bbc5522b6c34ae037b4a7d27f86d",
+          "error": "",
+          "hash": "1a919110e72d3fd473e15dfd2fde36160f145381fcf5ed51f2c8d5b6a8a64036",
+          "id": "que/2182486",
+          "name": "ტექნიკური დავალება.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2182486&code=1795105675"
+        },
+        "que/2182487": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/7e32e13206169b4c8ddaca6761666090c900bbc5522b6c34ae037b4a7d27f86d",
+          "error": "",
+          "hash": "6db51d99ee0d6b4a690fecaa5e9531f1d333d5af587ed2b1d6b6a28135ae6813",
+          "id": "que/2182487",
+          "name": "ფასების ცხრილი.xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2182487&code=1795105679"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/7e32e13206169b4c8ddaca6761666090c900bbc5522b6c34ae037b4a7d27f86d",
+          "error": "",
+          "hash": "92c60c5cbc1826f7f2e9171a03133a1f6b7a9c915ca31c2c80f9ba4eb18af1d5",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=711290"
+        }
+      },
       "error": "",
       "first_seen": "2026-11-19T15:25:12.103479+00:00",
       "notice": ""
@@ -8133,7 +8185,7 @@
       "notified": "2322dfefec6f85b749966ab7260f36ccd79b9a2f3a0197c7029783cd57353b60"
     }
   },
-  "updated_at": "2026-11-19T15:27:27.940735+00:00",
+  "updated_at": "2026-11-19T15:27:44.220221+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
