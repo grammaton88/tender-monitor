@@ -3115,6 +3115,12 @@
       "subject": "IT სისტემების/სერვისების განთავსების, ადმინისტრირების, მხარდაჭერის და მაღალი დატვირთვის პერიოდებისთვის რესურსების უზრუნველყოფის მომსახურება",
       "warranty": null
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/6a2a7a9aa753c9e6a759d8a7ae775f7134b23e4cecbfa7320b3ee24ef8b976c0": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან 10 სამუშაო დღის ვადაში",
+      "subject": "მონაცემთა გაჟონვის პრევენციის მიზნით (DLP) სისტემის პროგრამული პაკეტი, არანაკლებ 300 მოწყობილობის ლიცენზირება",
+      "warranty": "არანაკლებ 12 თვეს"
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/6bb3eb87b264687287a53beb8338dbd9239a09919531f3e4cdadb543e26e6514": {
       "confidential": null,
       "delivery_deadline": "ხელშეკრულების გაფორმებიდან 50 კალენდარული დღე",
@@ -3394,7 +3400,7 @@
     }
   },
   "initialized": true,
-  "last_monitor_run_at": 1794841653.7187362,
+  "last_monitor_run_at": 1795102320.098121,
   "last_request_at": 1795102277.9829931,
   "tenders": {
     "694702": {
@@ -6741,7 +6747,8 @@
       },
       "error": "",
       "first_seen": "2026-11-19T15:25:12.103479+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "9afbc0b599fe24e6468a79a9af31ca58954ee35be4cd68ae5a6c9a85336c66a2"
     },
     "711389": {
       "details": {
@@ -7545,7 +7552,8 @@
       },
       "error": "",
       "first_seen": "2026-11-19T15:30:58.772877+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "027cb0b876c29e2ffb42f43b8381be167b66568e9b493e12b172ccb2f1d0be49"
     },
     "712892": {
       "details": {
@@ -7928,7 +7936,8 @@
       },
       "error": "",
       "first_seen": "2026-11-19T15:28:00.699411+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "12be64e791e05ef5f7e73ec5cd0316d94a86d0ab16435301de57c8e8c1bb004c"
     },
     "713376": {
       "details": {
@@ -8252,7 +8261,8 @@
       },
       "error": "",
       "first_seen": "2026-11-19T15:30:22.839047+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "ac39c681699a4218e566dac4a1907e689e4fc27436ccacb44cf55a4f7b14d735"
     },
     "714075": {
       "details": {
@@ -8330,10 +8340,57 @@
         "reg_num": "NAT260024287",
         "status": "გამოცხადებულია"
       },
-      "documents": {},
+      "documents": {
+        "que/2179770": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/6a2a7a9aa753c9e6a759d8a7ae775f7134b23e4cecbfa7320b3ee24ef8b976c0",
+          "error": "",
+          "hash": "a984c34f0ef36e28ab3cab969512c3e8caf0a9636a9c7c3adbbc4c554931bf66",
+          "id": "que/2179770",
+          "name": "ხელშეკრულების პროექტი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2179770&code=1794915334"
+        },
+        "que/2180275": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/6a2a7a9aa753c9e6a759d8a7ae775f7134b23e4cecbfa7320b3ee24ef8b976c0",
+          "error": "",
+          "hash": "8c14b4498fce7a435b3ee94b28502a46f72fb6996659402bba7aa672dff24461",
+          "id": "que/2180275",
+          "name": "ფასების ცხრილი დანართი #2.xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2180275&code=1794932996"
+        },
+        "que/2180303": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/6a2a7a9aa753c9e6a759d8a7ae775f7134b23e4cecbfa7320b3ee24ef8b976c0",
+          "error": "",
+          "hash": "f69f78bde440d82cb49ecd3e545ae728dd7e819a7c428fc35b40b4745fa7ebee",
+          "id": "que/2180303",
+          "name": "დანართი N1 ტექნიკური დავალება.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2180303&code=1794934040"
+        },
+        "que/2180925": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/6a2a7a9aa753c9e6a759d8a7ae775f7134b23e4cecbfa7320b3ee24ef8b976c0",
+          "error": "",
+          "hash": "497124ef80ec003d8b3f062a3820581782de9c346a9e1a55ff047f68e48d6f5e",
+          "id": "que/2180925",
+          "name": "ოქმი N1 -  DLP.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2180925&code=1795011341"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/6a2a7a9aa753c9e6a759d8a7ae775f7134b23e4cecbfa7320b3ee24ef8b976c0",
+          "error": "",
+          "hash": "b272d0cc453cdc1752b06b536a744ec029780e5e7005e2e7fdca1d5e5d0aecd5",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=714156"
+        }
+      },
       "error": "",
       "first_seen": "2026-11-19T15:31:15.652667+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "45222042dba46fdc430611066f56d471cdde914c9ffe10b782696457ed6cfb58"
     },
     "714167": {
       "details": {
@@ -8409,7 +8466,7 @@
       "notified": "2322dfefec6f85b749966ab7260f36ccd79b9a2f3a0197c7029783cd57353b60"
     }
   },
-  "updated_at": "2026-11-19T15:31:46.916002+00:00",
+  "updated_at": "2026-11-19T15:32:00.098197+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
