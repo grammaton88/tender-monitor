@@ -8133,7 +8133,7 @@
       "notified": "2322dfefec6f85b749966ab7260f36ccd79b9a2f3a0197c7029783cd57353b60"
     }
   },
-  "updated_at": "2026-11-19T15:25:18.749110+00:00",
+  "updated_at": "2026-11-19T15:27:27.940735+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -8258,14 +8258,14 @@
     },
     "2026-11-19/gemini-3.5-flash-lite": {
       "date": "2026-11-19",
-      "input": 0,
+      "input": 23698,
       "model": "gemini-3.5-flash-lite",
-      "output": 0,
+      "output": 285,
       "quota_errors": 0,
       "requests": 1,
       "reserved_tokens": 24910,
-      "total": 0,
-      "unknown_usage": 1
+      "total": 23983,
+      "unknown_usage": 0
     }
   },
   "version": 1
