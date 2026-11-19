@@ -3371,7 +3371,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1794841653.7187362,
-  "last_request_at": 1794841572.7148259,
+  "last_request_at": 1795101918.7490485,
   "tenders": {
     "694702": {
       "details": {
@@ -6656,6 +6656,23 @@
       "notice": "",
       "notified": "ac96374fce47e8f615fd77b8243b0d46fccfbbb2edd08432cc264ec03b2a354c"
     },
+    "711290": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 28`075.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 19.11.2026",
+        "buyer": "შსს საპატრულო პოლიციის დეპარტამენტი",
+        "category": "32400000-ქსელები",
+        "deadline": "წინადადებების მიღების ვადა: 30.11.2026",
+        "id": "711290",
+        "link": "https://tenders.procurement.gov.ge/public/?go=711290",
+        "reg_num": "NAT260024488",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-11-19T15:25:12.103479+00:00",
+      "notice": ""
+    },
     "711389": {
       "details": {
         "amount": "შესყიდვის სავარაუდო ღირებულება: 14`500.00 ლარი",
@@ -8116,7 +8133,7 @@
       "notified": "2322dfefec6f85b749966ab7260f36ccd79b9a2f3a0197c7029783cd57353b60"
     }
   },
-  "updated_at": "2026-11-16T15:07:33.718810+00:00",
+  "updated_at": "2026-11-19T15:25:18.749110+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -8238,6 +8255,17 @@
       "reserved_tokens": 13023,
       "total": 12895,
       "unknown_usage": 0
+    },
+    "2026-11-19/gemini-3.5-flash-lite": {
+      "date": "2026-11-19",
+      "input": 0,
+      "model": "gemini-3.5-flash-lite",
+      "output": 0,
+      "quota_errors": 0,
+      "requests": 1,
+      "reserved_tokens": 24910,
+      "total": 0,
+      "unknown_usage": 1
     }
   },
   "version": 1
