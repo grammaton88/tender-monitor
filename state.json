@@ -3025,6 +3025,12 @@
       "subject": "პროექტების მართვისა და კოლაბორაციის სისტემის 12-თვიანი ლიცენზიები: Atlassian Jira Cloud Standard - 200 მომხმარებელი; Atlassian Confluence Cloud Standard - 200 მომხმარებელი; Atlassian Guard Standard - 200 მომხმარებელი",
       "warranty": null
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/49b3106c75970eb9d88bed5e21eb381e581fbfdc28c69b5c4ab761e380bf6cd0": {
+      "confidential": null,
+      "delivery_deadline": "Wildcard: 2027 წლის 19 იანვარიდან არანაკლებ 1 წელი; მულტიდომენური: 2027 წლის 23 მარტიდან არანაკლებ 1 წელი",
+      "subject": "1 ერთეული Wildcard ტიპის და 1 ერთეული მულტიდომენური (Multi-Domain) SSL სერტიფიკატი",
+      "warranty": "სერტიფიკატების მოქმედების ვადის განმავლობაში (არანაკლებ 1 წელი)"
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/4d0a9a69b61cf03c31c333e1e60ad98a1933d9b39d61473e148f8811290104a5": {
       "confidential": null,
       "delivery_deadline": "ხელშეკრულების გაფორმებიდან 45 კალენდარული დღის განმავლობაში",
@@ -3383,7 +3389,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1794841653.7187362,
-  "last_request_at": 1795102227.7768366,
+  "last_request_at": 1795102261.591888,
   "tenders": {
     "694702": {
       "details": {
@@ -7472,6 +7478,23 @@
       "notice": "",
       "notified": "411ae049ec5a378bde407fc0054fc414c4952b4c2b979951ae278ae4be4661ad"
     },
+    "712674": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 9`000.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 19.11.2026",
+        "buyer": "საქართველოს ენერგეტიკისა და წყალმომარაგების მარეგულირებელი ეროვნული კომისია",
+        "category": "48300000-დოკუმენტების, გრაფიკული გამოსახულებების შექმნის, გამოსახულების დამუშავების, დაგეგმვისა და წარმადობის გაზრდის პროგრამული პაკეტები",
+        "deadline": "წინადადებების მიღების ვადა: 27.11.2026",
+        "id": "712674",
+        "link": "https://tenders.procurement.gov.ge/public/?go=712674",
+        "reg_num": "NAT260024486",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-11-19T15:30:58.772877+00:00",
+      "notice": ""
+    },
     "712892": {
       "details": {
         "amount": "შესყიდვის სავარაუდო ღირებულება: 9`750.00 ლარი",
@@ -8128,7 +8151,53 @@
         "reg_num": "NAT260024191",
         "status": "გამოცხადებულია"
       },
-      "documents": {},
+      "documents": {
+        "que/2176076": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/49b3106c75970eb9d88bed5e21eb381e581fbfdc28c69b5c4ab761e380bf6cd0",
+          "error": "",
+          "hash": "32524cd08de5b246d2f866bba692f0610fb5783756f0a67f35e78900348fc780",
+          "id": "que/2176076",
+          "name": "დანართი N2- ტექნიკური დავალება.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2176076&code=1794482118"
+        },
+        "que/2176077": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/49b3106c75970eb9d88bed5e21eb381e581fbfdc28c69b5c4ab761e380bf6cd0",
+          "error": "",
+          "hash": "5ef4174c1bcb68c69ba386a539833fbfaf998155808edd1ee431d548e5906941",
+          "id": "que/2176077",
+          "name": "დანართი N1 - ფასთა ცხრილი.xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2176077&code=1794482123"
+        },
+        "que/2176082": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/49b3106c75970eb9d88bed5e21eb381e581fbfdc28c69b5c4ab761e380bf6cd0",
+          "error": "",
+          "hash": "45492cb7224cc8d5820045c39c9fe0a6f4341cebd72cc2228fd3d618b72211ba",
+          "id": "que/2176082",
+          "name": "ხელშეკრულების პროექტი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2176082&code=1794482314"
+        },
+        "que/2180328": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/49b3106c75970eb9d88bed5e21eb381e581fbfdc28c69b5c4ab761e380bf6cd0",
+          "error": "",
+          "hash": "f69b29b02ec71ffdd6520d8a5ad5750f2473b76c74cf1fecd6f152e5b8ce1702",
+          "id": "que/2180328",
+          "name": "ოქმი N1.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2180328&code=1794935259"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/49b3106c75970eb9d88bed5e21eb381e581fbfdc28c69b5c4ab761e380bf6cd0",
+          "error": "",
+          "hash": "554fd0281e625ad2d40ac10310b4f3272539aa7f1016678e9a751ff09346c54c",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=713969"
+        }
+      },
       "error": "",
       "first_seen": "2026-11-19T15:30:22.839047+00:00",
       "notice": ""
@@ -8271,7 +8340,7 @@
       "notified": "2322dfefec6f85b749966ab7260f36ccd79b9a2f3a0197c7029783cd57353b60"
     }
   },
-  "updated_at": "2026-11-19T15:30:49.636550+00:00",
+  "updated_at": "2026-11-19T15:31:09.316966+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -8396,13 +8465,13 @@
     },
     "2026-11-19/gemini-3.5-flash-lite": {
       "date": "2026-11-19",
-      "input": 45039,
+      "input": 52984,
       "model": "gemini-3.5-flash-lite",
-      "output": 571,
+      "output": 659,
       "quota_errors": 0,
-      "requests": 3,
-      "reserved_tokens": 47055,
-      "total": 45610,
+      "requests": 4,
+      "reserved_tokens": 55308,
+      "total": 53643,
       "unknown_usage": 0
     }
   },
