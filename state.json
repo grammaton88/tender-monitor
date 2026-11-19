@@ -3127,6 +3127,12 @@
       "subject": "MPLS ქსელისათვის მარაგ-ნაწილები: MPLS მარშრუტიზატორი (2 ცალი), ქსელური უსაფრთხოების მარშრუტიზატორი (2 ცალი), ქსელური კომუტატორი (2 ცალი), DWDM Mux/Demux (10 ცალი), DWDM SFP+ ოპტიკური მოდული (10 ცალი), ოპტიკური მოდული (SFP+) (10 ცალი)",
       "warranty": "3 წლიანი მწარმოებლის გარანტია მიღება-ჩაბარების აქტის გაფორმების დღიდან"
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/7523a6dfa77a32ee1d3ee8bab7c3f0cde25260096b3a8cfdeb742cb32e14773e": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან 7 სამუშაო დღე",
+      "subject": "PDF დოკუმენტებთან სამუშაო პროგრამული უზრუნველყოფის 10 მომხმარებლის ერთწლიანი ლიცენზია",
+      "warranty": "1 წელი"
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/7a157e23b0d8455179b0f737b6909c69a76f958d2e833808aefa08945e9942da": {
       "confidential": null,
       "delivery_deadline": "ხელშეკრულების გაფორმებიდან არაუგვიანეს 7 კალენდარული დღის განმავლობაში",
@@ -3389,7 +3395,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1794841653.7187362,
-  "last_request_at": 1795102261.591888,
+  "last_request_at": 1795102277.9829931,
   "tenders": {
     "694702": {
       "details": {
@@ -7490,7 +7496,53 @@
         "reg_num": "NAT260024486",
         "status": "გამოცხადებულია"
       },
-      "documents": {},
+      "documents": {
+        "que/2180981": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/7523a6dfa77a32ee1d3ee8bab7c3f0cde25260096b3a8cfdeb742cb32e14773e",
+          "error": "",
+          "hash": "d3bae1536ba90a410cc7d9b7fc4c6af2a93a5bf891243057734e9340db092b16",
+          "id": "que/2180981",
+          "name": "ტექ. დავალება.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2180981&code=1795012842"
+        },
+        "que/2180987": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/7523a6dfa77a32ee1d3ee8bab7c3f0cde25260096b3a8cfdeb742cb32e14773e",
+          "error": "",
+          "hash": "bf66e764051874d37647afd8ed1be09b6c30f0ec56fd9675e3b38416ff2c9846",
+          "id": "que/2180987",
+          "name": "ფასების ცხრილი.xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2180987&code=1795012958"
+        },
+        "que/2181043": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/7523a6dfa77a32ee1d3ee8bab7c3f0cde25260096b3a8cfdeb742cb32e14773e",
+          "error": "",
+          "hash": "f334bbe9f9a5b7148c4dfdd7326b71d5b0ec41000fa65e3608648527c74caf3f",
+          "id": "que/2181043",
+          "name": "ხელშეკრულების პროექტი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2181043&code=1795014386"
+        },
+        "que/2182505": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/7523a6dfa77a32ee1d3ee8bab7c3f0cde25260096b3a8cfdeb742cb32e14773e",
+          "error": "",
+          "hash": "bbdc6c6edbe956282e75fc8a1bad5e9b296ebea8b4a302eab674bfd6f3f25847",
+          "id": "que/2182505",
+          "name": "ოქმი N1.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2182505&code=1795105996"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/7523a6dfa77a32ee1d3ee8bab7c3f0cde25260096b3a8cfdeb742cb32e14773e",
+          "error": "",
+          "hash": "88afb622fa0a3f63019c4ac1515d5320e99520ec1e1f9d86a4a2a18176657c66",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=712674"
+        }
+      },
       "error": "",
       "first_seen": "2026-11-19T15:30:58.772877+00:00",
       "notice": ""
@@ -8266,6 +8318,23 @@
       "notice": "",
       "notified": "a6f2969c1cae1646bf381dbfb801d4a35558a668b6401653e68a6895caa3386b"
     },
+    "714156": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 72`000.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 18.11.2026",
+        "buyer": "საქართველოს სტატისტიკის ეროვნული სამსახური (საქსტატი)",
+        "category": "48700000-პროგრამული პაკეტების მომსახურე პროგრამები",
+        "deadline": "წინადადებების მიღების ვადა: 27.11.2026",
+        "id": "714156",
+        "link": "https://tenders.procurement.gov.ge/public/?go=714156",
+        "reg_num": "NAT260024287",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-11-19T15:31:15.652667+00:00",
+      "notice": ""
+    },
     "714167": {
       "details": {
         "amount": "შესყიდვის სავარაუდო ღირებულება: 906`360.00 ლარი",
@@ -8340,7 +8409,7 @@
       "notified": "2322dfefec6f85b749966ab7260f36ccd79b9a2f3a0197c7029783cd57353b60"
     }
   },
-  "updated_at": "2026-11-19T15:31:09.316966+00:00",
+  "updated_at": "2026-11-19T15:31:46.916002+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -8465,13 +8534,13 @@
     },
     "2026-11-19/gemini-3.5-flash-lite": {
       "date": "2026-11-19",
-      "input": 52984,
+      "input": 66683,
       "model": "gemini-3.5-flash-lite",
-      "output": 659,
+      "output": 774,
       "quota_errors": 0,
-      "requests": 4,
-      "reserved_tokens": 55308,
-      "total": 53643,
+      "requests": 5,
+      "reserved_tokens": 69531,
+      "total": 67457,
       "unknown_usage": 0
     }
   },
