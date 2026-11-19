@@ -3377,7 +3377,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1794841653.7187362,
-  "last_request_at": 1795101918.7490485,
+  "last_request_at": 1795102090.6899185,
   "tenders": {
     "694702": {
       "details": {
@@ -7786,6 +7786,23 @@
       "notice": "Portal mentions confidential material. Public files may be incomplete; displayed values may be conditional. Verify on the portal.",
       "notified": "c3e05a8af58110b2cfce4296b182da6b5fb7b8baa1ae74c4f5b1ad5b3b0cebb5"
     },
+    "713239": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 67`817.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 19.11.2026",
+        "buyer": "შპს \"გარდაბნის თბოსადგური\"",
+        "category": "48200000-ქსელების, ინტერნეტისა და ინტრანეტის პროგრამული  პაკეტები",
+        "deadline": "წინადადებების მიღების ვადა: 27.11.2026",
+        "id": "713239",
+        "link": "https://tenders.procurement.gov.ge/public/?go=713239",
+        "reg_num": "NAT260024432",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-11-19T15:28:00.699411+00:00",
+      "notice": ""
+    },
     "713376": {
       "details": {
         "amount": "შესყიდვის სავარაუდო ღირებულება: 2`795.00 ლარი",
@@ -8185,7 +8202,7 @@
       "notified": "2322dfefec6f85b749966ab7260f36ccd79b9a2f3a0197c7029783cd57353b60"
     }
   },
-  "updated_at": "2026-11-19T15:27:59.186437+00:00",
+  "updated_at": "2026-11-19T15:30:21.548599+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -8310,13 +8327,13 @@
     },
     "2026-11-19/gemini-3.5-flash-lite": {
       "date": "2026-11-19",
-      "input": 23698,
+      "input": 34888,
       "model": "gemini-3.5-flash-lite",
-      "output": 285,
+      "output": 426,
       "quota_errors": 0,
-      "requests": 1,
-      "reserved_tokens": 24910,
-      "total": 23983,
+      "requests": 2,
+      "reserved_tokens": 36504,
+      "total": 35314,
       "unknown_usage": 0
     }
   },
