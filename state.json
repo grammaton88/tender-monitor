@@ -3055,6 +3055,12 @@
       "subject": "ქსელური მოწყობილობები: L3 მართვადი სვიჩი (აგრეგაციული) (1 ცალი), L3 მართვადი სვიჩი (სასერვეროსთვის) (1 ცალი), L3 მართვადი სვიჩი (48 Port) (20 ცალი), L2 მართვადი სვიჩი (24 Port) (10 ცალი), უკაბელო დაშვების წერტილი (40 ცალი), PoE კვების ბლოკი (40 ცალი), SFP მოდული (წყვილი) (1 წყვილი), Adapter SC/UPC-SC/UPC (2 ცალი), SFP+ მოდული (30 ცალი), SFP დიაგნოსტიკის მოდული (1 ცალი), 5G მიმღები (მოდემი) (1 ცალი), ღია ტიპის რეკი (7 ცალი), კედლის საკომუნიკაციო კარადა (5 ცალი), ჯეკმეიკერი (3 ცალი), Punching tool (3 ცალი), პაჩ-პანელი CAT6 FTP (20 ცალი), ქსელის კაბელი Cat6A FTP (3 ცალი), ქსელის კაბელი Cat 5e FTP (15 ცალი), კონექტორები Cat6a (100 ცალი), კონექტორები Cat 5e FTP (300 ცალი), Media Convertor კომპლექტი (1 წყვილი), პაჩკორდები Cat 5e FTP (0.25მ) (250 ცალი), პაჩკორდები Cat 5e FTP (2მ) (250 ცალი), ოპტიკური პატჩკორდი SC/UPC - LC/UPC (2 ცალი)",
       "warranty": "არანაკლებ 12 თვე"
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/542b576e3e447a1fbf78edfc10f127dd358e6e84ee9d6b3cff343dd1730ad810": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან არაუგვიანეს 15 კალენდარული დღე",
+      "subject": "Milestone XProtect პროგრამული უზრუნველყოფის ლიცენზიები (6 Base License, 200 Device License, 200 Interconnect License, 6 სერვერის Care Plus მხარდაჭერა)",
+      "warranty": null
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/55c41ee68153cafeff3959c338461f056d9ff56822f52360f2d9d5815ddfffcb": {
       "confidential": null,
       "delivery_deadline": "ხელშეკრულების გაფორმებიდან არაუგვიანეს 20 კალენდარული დღის ჩათვლით",
@@ -3400,7 +3406,7 @@
     }
   },
   "initialized": true,
-  "last_monitor_run_at": 1795108480.2489998,
+  "last_monitor_run_at": 1795455493.5170462,
   "last_request_at": 1795455467.8373346,
   "tenders": {
     "694702": {
@@ -8477,13 +8483,60 @@
         "reg_num": "SPA260001067",
         "status": "გამოცხადებულია"
       },
-      "documents": {},
+      "documents": {
+        "que/2182899": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/542b576e3e447a1fbf78edfc10f127dd358e6e84ee9d6b3cff343dd1730ad810",
+          "error": "",
+          "hash": "112cb38bb5b956775dc198e62c6a87492d1c77904f6ffc2fa444fa214715c588",
+          "id": "que/2182899",
+          "name": "ტექნიკური დავალება.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2182899&code=1795170177"
+        },
+        "que/2182900": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/542b576e3e447a1fbf78edfc10f127dd358e6e84ee9d6b3cff343dd1730ad810",
+          "error": "",
+          "hash": "fef70159cf518583441f994061cded2f62f6fcf2aafad786bb25c1ca5e11c50a",
+          "id": "que/2182900",
+          "name": "ფასების ცხრილი.xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2182900&code=1795170213"
+        },
+        "que/2182906": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/542b576e3e447a1fbf78edfc10f127dd358e6e84ee9d6b3cff343dd1730ad810",
+          "error": "",
+          "hash": "2020b73eebf840f581c87c9f0a95893eb1298c33c753de4a10d82d0de869e5c5",
+          "id": "que/2182906",
+          "name": "ხელშეკრულების პროექტი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2182906&code=1795170519"
+        },
+        "que/2182913": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/542b576e3e447a1fbf78edfc10f127dd358e6e84ee9d6b3cff343dd1730ad810",
+          "error": "",
+          "hash": "200c097fd05a5f257d1b51c916f300cff93e751657ac5bebc844764bd89a5cc8",
+          "id": "que/2182913",
+          "name": "ოქმი  N1 - Milestone XProtect პროგრამული უზრუნველყოფის ლიცენზიები.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2182913&code=1795170602"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/542b576e3e447a1fbf78edfc10f127dd358e6e84ee9d6b3cff343dd1730ad810",
+          "error": "",
+          "hash": "6c3a9c3acccb1726befc50a9db94d83c9bcad5c18f5f91a09f866eea1f9a00cd",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=714437"
+        }
+      },
       "error": "",
       "first_seen": "2026-11-23T17:37:45.294681+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "fa309cfbe7ff3b9cf05865dc2d3c039e993fe67b09960c66a61052b11cb2c45a"
     }
   },
-  "updated_at": "2026-11-23T17:38:08.581835+00:00",
+  "updated_at": "2026-11-23T17:38:13.517128+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
