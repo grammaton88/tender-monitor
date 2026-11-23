@@ -3401,7 +3401,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1795108480.2489998,
-  "last_request_at": 1795102277.9829931,
+  "last_request_at": 1795455467.8373346,
   "tenders": {
     "694702": {
       "details": {
@@ -8464,9 +8464,26 @@
       "first_seen": "2026-11-13T14:06:27.200565+00:00",
       "notice": "",
       "notified": "2322dfefec6f85b749966ab7260f36ccd79b9a2f3a0197c7029783cd57353b60"
+    },
+    "714437": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 152`354.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 20.11.2026",
+        "buyer": "სს \"საქართველოს სახელმწიფო ელექტროსისტემა",
+        "category": "48700000-პროგრამული პაკეტების მომსახურე პროგრამები",
+        "deadline": "წინადადებების მიღების ვადა: 03.12.2026",
+        "id": "714437",
+        "link": "https://tenders.procurement.gov.ge/public/?go=714437",
+        "reg_num": "SPA260001067",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-11-23T17:37:45.294681+00:00",
+      "notice": ""
     }
   },
-  "updated_at": "2026-11-23T17:37:35.153696+00:00",
+  "updated_at": "2026-11-23T17:38:08.581835+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -8598,6 +8615,17 @@
       "requests": 5,
       "reserved_tokens": 69531,
       "total": 67457,
+      "unknown_usage": 0
+    },
+    "2026-11-23/gemini-3.5-flash-lite": {
+      "date": "2026-11-23",
+      "input": 12288,
+      "model": "gemini-3.5-flash-lite",
+      "output": 112,
+      "quota_errors": 0,
+      "requests": 1,
+      "reserved_tokens": 12672,
+      "total": 12400,
       "unknown_usage": 0
     }
   },
