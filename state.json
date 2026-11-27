@@ -2935,6 +2935,12 @@
       "subject": "სერვერები, რაოდენობა: 3 კომპლექტი",
       "warranty": "არანაკლებ 3 წელი"
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/1d91a4bea52d9f73265a8f494fe8b7d63e92511ec4919eb4bed98f3bf00de0bc": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან, მაგრამ არაუადრეს 2027 წლის 06 იანვრიდან 1 წლის ვადით",
+      "subject": "RS ჩათის ლიცენზია 1 წლის ვადით, ტექნიკური მხარდაჭერით (ოპერატორების რაოდენობა - 30)",
+      "warranty": null
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/1f72232ffd937874159da24de59ceef526bd0cf56e0fe06bd1a2858241af993f": {
       "confidential": null,
       "delivery_deadline": "2026 წლის 23 დეკემბრიდან 1 წლის განმავლობაში",
@@ -3461,7 +3467,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1795455493.5170462,
-  "last_request_at": 1795796510.1267173,
+  "last_request_at": 1795796521.7514522,
   "tenders": {
     "694702": {
       "details": {
@@ -8869,7 +8875,53 @@
         "reg_num": "NAT260025052",
         "status": "გამოცხადებულია"
       },
-      "documents": {},
+      "documents": {
+        "que/2184756": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/1d91a4bea52d9f73265a8f494fe8b7d63e92511ec4919eb4bed98f3bf00de0bc",
+          "error": "",
+          "hash": "f647871ea03bc7b404b8022b0f38ff81e3dc3a0e057c20f069fa1b4d2ce85507",
+          "id": "que/2184756",
+          "name": "ტექნიკური მოთხოვნები RSCHAT (2027).pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2184756&code=1795538418"
+        },
+        "que/2184764": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/1d91a4bea52d9f73265a8f494fe8b7d63e92511ec4919eb4bed98f3bf00de0bc",
+          "error": "",
+          "hash": "531522ad2ca3b803f04cdab749455a532b1164d7890bbbb1566879cceb26beca",
+          "id": "que/2184764",
+          "name": "ფასების ცხრილი - დანართი №1.xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2184764&code=1795538520"
+        },
+        "que/2186131": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/1d91a4bea52d9f73265a8f494fe8b7d63e92511ec4919eb4bed98f3bf00de0bc",
+          "error": "",
+          "hash": "0156e002e65976a515797efab05b3860b203009ee9f37dec4de7ce58c7fa8951",
+          "id": "que/2186131",
+          "name": "ხელშეკრულების პროექტი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2186131&code=1795626295"
+        },
+        "que/2186326": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/1d91a4bea52d9f73265a8f494fe8b7d63e92511ec4919eb4bed98f3bf00de0bc",
+          "error": "",
+          "hash": "fb27a777bd0c59563b758552cde632d35e0ab18d682f6127ba9cb8ef6ee28c2d",
+          "id": "que/2186326",
+          "name": "სატენდერო კომისიის სხდომის ოქმი N1 (RS CHAT)-signed.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2186326&code=1795631943"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/1d91a4bea52d9f73265a8f494fe8b7d63e92511ec4919eb4bed98f3bf00de0bc",
+          "error": "",
+          "hash": "32ac28a6fd7e3f5a08ddb6f03c7638fa22b51be0ff77b102b6052b56c44fddf5",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=715983"
+        }
+      },
       "error": "",
       "first_seen": "2026-11-27T16:21:47.368778+00:00",
       "notice": ""
@@ -8998,6 +9050,23 @@
       },
       "error": "",
       "first_seen": "2026-11-27T16:20:07.779658+00:00",
+      "notice": ""
+    },
+    "716233": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 90`900.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 26.11.2026",
+        "buyer": "საქართველოს ინოვაციების და ტექნოლოგიების სააგენტო",
+        "category": "48500000-საკომუნიკაციო და მულტიმედიის პროგრამული პაკეტები",
+        "deadline": "წინადადებების მიღების ვადა: 04.12.2026",
+        "id": "716233",
+        "link": "https://tenders.procurement.gov.ge/public/?go=716233",
+        "reg_num": "NAT260025048",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-11-27T16:21:55.756755+00:00",
       "notice": ""
     },
     "716535": {
@@ -9181,7 +9250,7 @@
       "notice": ""
     }
   },
-  "updated_at": "2026-11-27T16:21:50.126771+00:00",
+  "updated_at": "2026-11-27T16:22:05.198648+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -9328,14 +9397,14 @@
     },
     "2026-11-27/gemini-3.5-flash-lite": {
       "date": "2026-11-27",
-      "input": 102749,
+      "input": 128344,
       "model": "gemini-3.5-flash-lite",
-      "output": 1029,
+      "output": 1286,
       "quota_errors": 0,
-      "requests": 10,
-      "reserved_tokens": 123565,
-      "total": 103778,
-      "unknown_usage": 1
+      "requests": 11,
+      "reserved_tokens": 133300,
+      "total": 129630,
+      "unknown_usage": 0
     }
   },
   "version": 1
