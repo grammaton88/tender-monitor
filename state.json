@@ -2995,6 +2995,12 @@
       "subject": "სერვერული ტექნიკა (თანმდევი მომსახურებით, მონტაჟით) - 6 ცალი",
       "warranty": "მინიმუმ 5 წლიანი მწარმოებლის ქარხნული გარანტია მიღება-ჩაბარების აქტის გაფორმებიდან"
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/32e8725735e1c9fe7af82ee195d518d7879d92589e2f1cf19bb0c3a90d35b5fc": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან 10 კალენდარული დღის ვადაში",
+      "subject": "არსებული ანტივირუსის ლიცენზიების (Palo Alto Networks Cortex XDR) გაფართოება 200 საბოლოო მოწყობილობით",
+      "warranty": null
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/36b1e1fa77ffcfff0d3fbd2e64866e1fc58092a412c070b85bb50bdc488863a1": {
       "confidential": null,
       "delivery_deadline": "For Lot I: 160 days; For Lot II: 90 days from contract signing",
@@ -3478,7 +3484,7 @@
     }
   },
   "initialized": true,
-  "last_monitor_run_at": 1795455493.5170462,
+  "last_monitor_run_at": 1795796548.2488608,
   "last_request_at": 1795796540.4407935,
   "tenders": {
     "694702": {
@@ -4667,7 +4673,8 @@
       },
       "error": "",
       "first_seen": "2026-11-27T16:21:00.220743+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "0db78cba7fb614d826cc5acdbeb58bbf425cb2ebfa4eed7a7b7efcf84cf138be"
     },
     "708750": {
       "details": {
@@ -5781,7 +5788,8 @@
       },
       "error": "",
       "first_seen": "2026-11-27T16:22:06.417901+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "f22df5f25fae5e5f196c712910d854b44ef90484659b7f40dbaf37844dfa88e0"
     },
     "710034": {
       "details": {
@@ -6091,7 +6099,8 @@
       },
       "error": "",
       "first_seen": "2026-11-27T16:19:55.076274+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "99df6bcaf98e96f6d31a96167c269e079fd27972c911637d9b08c036ff69d61f"
     },
     "710229": {
       "details": {
@@ -8806,10 +8815,57 @@
         "reg_num": "NAT260024690",
         "status": "გამოცხადებულია"
       },
-      "documents": {},
+      "documents": {
+        "que/2181180": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/32e8725735e1c9fe7af82ee195d518d7879d92589e2f1cf19bb0c3a90d35b5fc",
+          "error": "",
+          "hash": "7b5982780e98b3f1330fea4e97d24d220d729e23fb397de367e950a71dae81dc",
+          "id": "que/2181180",
+          "name": "ტექნიკური დავალება.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2181180&code=1795017419"
+        },
+        "que/2181263": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/32e8725735e1c9fe7af82ee195d518d7879d92589e2f1cf19bb0c3a90d35b5fc",
+          "error": "",
+          "hash": "417b69e7526b75bc096f02f3364767e02939f950fdfb15a2ed9e76714fe5a1dd",
+          "id": "que/2181263",
+          "name": "ხელშეკრულების პროექტი ანტივირუსი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2181263&code=1795019445"
+        },
+        "que/2181290": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/32e8725735e1c9fe7af82ee195d518d7879d92589e2f1cf19bb0c3a90d35b5fc",
+          "error": "",
+          "hash": "a2450f73cb2bb199c368879bf75f10c97f77ce5616f7d5c2e702b3e5fbdf586c",
+          "id": "que/2181290",
+          "name": "დანართი N2 ფასების ცხრილი MRS.xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2181290&code=1795020052"
+        },
+        "que/2183689": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/32e8725735e1c9fe7af82ee195d518d7879d92589e2f1cf19bb0c3a90d35b5fc",
+          "error": "",
+          "hash": "1f46a8cea7a7880e64e867783d498214d47d121e799dd0992ed0e5245f04ee94",
+          "id": "que/2183689",
+          "name": "ოქმი N1 - ანტივირუსი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2183689&code=1795194119"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/32e8725735e1c9fe7af82ee195d518d7879d92589e2f1cf19bb0c3a90d35b5fc",
+          "error": "",
+          "hash": "bc7b8df64d88477093e40473e0f17861697e1a8d81b6981e563b6ccccde91d48",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=714838"
+        }
+      },
       "error": "",
       "first_seen": "2026-11-27T16:22:14.050197+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "4727847e7d1929b2ee02e74bae784118270254719948c423e9ecc796f7d8c23d"
     },
     "715318": {
       "details": {
@@ -8872,7 +8928,8 @@
       },
       "error": "",
       "first_seen": "2026-11-27T16:21:36.354696+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "674b51ff1b4d153c2818e69ba1627b0296c489e2fded2d70485a359107b43d17"
     },
     "715795": {
       "details": {
@@ -8953,7 +9010,8 @@
       },
       "error": "",
       "first_seen": "2026-11-27T16:20:49.578495+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "81f5c43e33849e31e5ec560e9e9bf49cc8fc943b0c81bd6d6ed0df77abe29592"
     },
     "715983": {
       "details": {
@@ -9016,7 +9074,8 @@
       },
       "error": "",
       "first_seen": "2026-11-27T16:21:47.368778+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "18c67852932f68355694ab3ee0abc8825c5ba08ce4f769e19a2c1d0018688a47"
     },
     "716129": {
       "details": {
@@ -9079,7 +9138,8 @@
       },
       "error": "",
       "first_seen": "2026-11-27T16:20:18.198352+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "d2e43aecb6ebb3783fa3a66c2fd94e55be7dad4a76c1f28e97f86ad8607f23e7"
     },
     "716131": {
       "details": {
@@ -9142,7 +9202,8 @@
       },
       "error": "",
       "first_seen": "2026-11-27T16:20:07.779658+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "6136ecdfca4f3f6bc6f193cf0585b857c7edc2c23608d6d57bc68a9fcaec4c7e"
     },
     "716233": {
       "details": {
@@ -9205,7 +9266,8 @@
       },
       "error": "",
       "first_seen": "2026-11-27T16:21:55.756755+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "8844d80f75ed64563907cbf6c99379ba371c8fba49fed01f375b1cbad8147f2f"
     },
     "716535": {
       "details": {
@@ -9259,7 +9321,8 @@
       },
       "error": "",
       "first_seen": "2026-11-27T16:20:44.543790+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "d9911e83b3fb6a37f6f98b9d0c12f4a20b835d20537d3efcc0501ad54570257e"
     },
     "716548": {
       "details": {
@@ -9322,7 +9385,8 @@
       },
       "error": "",
       "first_seen": "2026-11-27T16:21:22.315588+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "ad2e11699fe0fa69555b76ae49871dc57bb647f63baf8d9d56b6a77dbd6ce6fe"
     },
     "716614": {
       "details": {
@@ -9385,10 +9449,11 @@
       },
       "error": "",
       "first_seen": "2026-11-27T16:21:07.617784+00:00",
-      "notice": ""
+      "notice": "",
+      "notified": "5017a7905a5e387230bf4b120448e45a93b4d4ffb650a2276dd4352d0da60612"
     }
   },
-  "updated_at": "2026-11-27T16:22:20.440872+00:00",
+  "updated_at": "2026-11-27T16:22:28.248932+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -9535,14 +9600,14 @@
     },
     "2026-11-27/gemini-3.5-flash-lite": {
       "date": "2026-11-27",
-      "input": 139626,
+      "input": 148310,
       "model": "gemini-3.5-flash-lite",
-      "output": 1397,
+      "output": 1494,
       "quota_errors": 0,
       "requests": 13,
       "reserved_tokens": 153946,
-      "total": 141023,
-      "unknown_usage": 1
+      "total": 149804,
+      "unknown_usage": 0
     }
   },
   "version": 1
