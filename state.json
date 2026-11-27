@@ -3085,6 +3085,12 @@
       "subject": "მონაცემების რეზერვირების უნივერსალური სისტემას (Barracuda) ერთწლიანი ქარხნული მხარდაჭერის სერვისების გაგრძელების შესყიდვა (მოდიფიკაცია - BBS490a-e; დასახელება Barracuda Backup Server Appliance 490 Energize; სერიული ნომერი - 2049555; რაოდენობა - 1 ცალი)",
       "warranty": null
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/5c421f6e9b480cc031b127882362089f1bfaead59f85bfd6c29e78807510892c": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან არაუმეტეს 10 სამუშაო დღის ვადაში",
+      "subject": "SolarWinds DameWare Mini Remote Control - 40",
+      "warranty": null
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/5f5f5274a8801a2e7e3c62d73db17c57206c116e02e4d120ceacc7600d6733f5": {
       "confidential": null,
       "delivery_deadline": "მიღება-ჩაბარების აქტის გაფორმებიდან 10 სამუშაო დღე",
@@ -3425,7 +3431,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1795455493.5170462,
-  "last_request_at": 1795796421.8064497,
+  "last_request_at": 1795796455.9544806,
   "tenders": {
     "694702": {
       "details": {
@@ -8625,6 +8631,23 @@
       "notice": "",
       "notified": "fa309cfbe7ff3b9cf05865dc2d3c039e993fe67b09960c66a61052b11cb2c45a"
     },
+    "715795": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 39`246.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 27.11.2026",
+        "buyer": "საქართველოს დაზღვევის სახელმწიფო ზედამხედველობის სამსახური",
+        "category": "48200000-ქსელების, ინტერნეტისა და ინტრანეტის პროგრამული  პაკეტები",
+        "deadline": "წინადადებების მიღების ვადა: 07.12.2026",
+        "id": "715795",
+        "link": "https://tenders.procurement.gov.ge/public/?go=715795",
+        "reg_num": "NAT260025268",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-11-27T16:20:49.578495+00:00",
+      "notice": ""
+    },
     "716129": {
       "details": {
         "amount": "შესყიდვის სავარაუდო ღირებულება: 146`468.00 ლარი",
@@ -8750,9 +8773,63 @@
       "error": "",
       "first_seen": "2026-11-27T16:20:07.779658+00:00",
       "notice": ""
+    },
+    "716535": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 45`700.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 27.11.2026",
+        "buyer": "ა(ა)იპ \"მუნიციპალური სერვისების განვითარების სააგენტო\"",
+        "category": "48200000-ქსელების, ინტერნეტისა და ინტრანეტის პროგრამული  პაკეტები",
+        "deadline": "წინადადებების მიღების ვადა: 08.12.2026",
+        "id": "716535",
+        "link": "https://tenders.procurement.gov.ge/public/?go=716535",
+        "reg_num": "NAT260025293",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {
+        "que/2187562": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/5c421f6e9b480cc031b127882362089f1bfaead59f85bfd6c29e78807510892c",
+          "error": "",
+          "hash": "3b2f2b7c48757e8f29fe03e2756028341e54091686687f5960c6e65cdb33b967",
+          "id": "que/2187562",
+          "name": "ფასების ცხრილი (დანართი N1).xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2187562&code=1795716213"
+        },
+        "que/2187687": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/5c421f6e9b480cc031b127882362089f1bfaead59f85bfd6c29e78807510892c",
+          "error": "",
+          "hash": "5800dc526050907d48e5543f70213578791fac8f05cba677cb413a9678e87a3b",
+          "id": "que/2187687",
+          "name": "ხელშეკრულების პროექტი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2187687&code=1795726822"
+        },
+        "que/2188865": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/5c421f6e9b480cc031b127882362089f1bfaead59f85bfd6c29e78807510892c",
+          "error": "",
+          "hash": "d4cc11d71d1fb84c32c7a391cb3becb9a10bf34a75b1723f44f3aa83f39a53f8",
+          "id": "que/2188865",
+          "name": "ოქმი N1 Solarwinds-signed.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2188865&code=1795800526"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/5c421f6e9b480cc031b127882362089f1bfaead59f85bfd6c29e78807510892c",
+          "error": "",
+          "hash": "6c007f34094b6e257bff74129b1e79a498efeedff640f5e44087601ff9094f89",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=716535"
+        }
+      },
+      "error": "",
+      "first_seen": "2026-11-27T16:20:44.543790+00:00",
+      "notice": ""
     }
   },
-  "updated_at": "2026-11-27T16:20:35.419764+00:00",
+  "updated_at": "2026-11-27T16:20:55.954556+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -8899,14 +8976,14 @@
     },
     "2026-11-27/gemini-3.5-flash-lite": {
       "date": "2026-11-27",
-      "input": 35157,
+      "input": 42942,
       "model": "gemini-3.5-flash-lite",
-      "output": 362,
+      "output": 433,
       "quota_errors": 0,
-      "requests": 3,
-      "reserved_tokens": 36357,
-      "total": 35519,
-      "unknown_usage": 0
+      "requests": 5,
+      "reserved_tokens": 59889,
+      "total": 43375,
+      "unknown_usage": 1
     }
   },
   "version": 1
