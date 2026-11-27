@@ -3407,7 +3407,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1795455493.5170462,
-  "last_request_at": 1795455467.8373346,
+  "last_request_at": 1795796399.1182137,
   "tenders": {
     "694702": {
       "details": {
@@ -5833,6 +5833,23 @@
       "first_seen": "2026-10-22T09:31:49.792964+00:00",
       "notice": "",
       "notified": "c9a95370deac4b3536ea4e45c2db8dc5ddbf796128b3789458caa9ad7b85639c"
+    },
+    "710140": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 26`300.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 26.11.2026",
+        "buyer": "სივრცითი და ქალაქთმშენებლობითი განვითარების სააგენტო",
+        "category": "32400000-ქსელები",
+        "deadline": "წინადადებების მიღების ვადა: 04.12.2026",
+        "id": "710140",
+        "link": "https://tenders.procurement.gov.ge/public/?go=710140",
+        "reg_num": "NAT260025097",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-11-27T16:19:55.076274+00:00",
+      "notice": ""
     },
     "710229": {
       "details": {
@@ -8536,7 +8553,7 @@
       "notified": "fa309cfbe7ff3b9cf05865dc2d3c039e993fe67b09960c66a61052b11cb2c45a"
     }
   },
-  "updated_at": "2026-11-23T17:38:13.517128+00:00",
+  "updated_at": "2026-11-27T16:19:59.118273+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -8680,6 +8697,17 @@
       "reserved_tokens": 12672,
       "total": 12400,
       "unknown_usage": 0
+    },
+    "2026-11-27/gemini-3.5-flash-lite": {
+      "date": "2026-11-27",
+      "input": 0,
+      "model": "gemini-3.5-flash-lite",
+      "output": 0,
+      "quota_errors": 0,
+      "requests": 1,
+      "reserved_tokens": 20888,
+      "total": 0,
+      "unknown_usage": 1
     }
   },
   "version": 1
