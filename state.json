@@ -2953,6 +2953,12 @@
       "subject": "ოპტიკურ-ბოჭკოვანი კაბელისა და საკომუნიკაციო ინფრასტრუქტურის შესყიდვა (გარე გამოყენების ჰერმეტული სამონტაჟო ყუთი 70 ცალი, გარე გამოყენების გოფრირებული მილი 500 მეტრი, გარე გამოყენების FTP Cat5e კაბელი 4575 მეტრი, მედია კონვერტორი 300 წყვილი, დენის გამანაწილებელი (PDU) 100 ცალი, ოპტიკური პატჩ-კორდი 100 ცალი, PoE კომუტატორი 100 ცალი)",
       "warranty": "მიღება-ჩაბარების აქტის გაფორმებიდან 3 კალენდარული თვის ვადით"
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/2aed1960b436a28b1cfa4180a2d85fae162fa0563ce25296a8a7fe7ff35909c0": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან არაუმეტეს 150 კალენდარული დღე",
+      "subject": "2 ერთეული SAN კომუტატორი",
+      "warranty": "არანაკლებ 5 წლიანი (60 თვე)"
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/2cc33873196b7685fbd6cb5e4e811f07f0eedfc72c7b4c2610db008b2a7a2b49": {
       "confidential": null,
       "delivery_deadline": "ხელშეკრულების გაფორმებიდან არაუმეტეს 180 კალენდარული დღის განმავლობაში",
@@ -3241,6 +3247,12 @@
       "subject": "კავშირის წერტილების ოპტიკურ ბოჭკოვანი ქსელითა და რადიოსარელეო ხაზით მომსახურება (1200 წერტილი)",
       "warranty": null
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/a4a6ffb0faca1109058fdf7fd3ef0458af232544f7fc351a27f0c5311d2840ed": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან 25 კალენდარული დღე",
+      "subject": "8 (რვა) ერთეული ქსელის მართვადი კომუტატორი",
+      "warranty": "არანაკლებ 12 თვე"
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/a6d5a4375ea3c59a2e037eddc924627fd88415d3fab2a3d86950f341191a5cd2": {
       "confidential": null,
       "delivery_deadline": "სატენდერო კომისიის ოქმით ხელშეკრულების გაფორმების შესაძლებლობის დადასტურებიდან 130 კალენდარული დღე",
@@ -3413,7 +3425,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1795455493.5170462,
-  "last_request_at": 1795796411.7207017,
+  "last_request_at": 1795796421.8064497,
   "tenders": {
     "694702": {
       "details": {
@@ -8613,6 +8625,69 @@
       "notice": "",
       "notified": "fa309cfbe7ff3b9cf05865dc2d3c039e993fe67b09960c66a61052b11cb2c45a"
     },
+    "716129": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 146`468.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 25.11.2026",
+        "buyer": "საქართველოს რეგიონული განვითარებისა და ინფრასტრუქტურის სამინისტრო",
+        "category": "32400000-ქსელები",
+        "deadline": "წინადადებების მიღების ვადა: 04.12.2026",
+        "id": "716129",
+        "link": "https://tenders.procurement.gov.ge/public/?go=716129",
+        "reg_num": "NAT260025007",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {
+        "que/2185307": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/2aed1960b436a28b1cfa4180a2d85fae162fa0563ce25296a8a7fe7ff35909c0",
+          "error": "",
+          "hash": "d3f5c9c3fec15224138cae5bc6473648c43ea54f7fa7c83dd0c6bb1738b97d61",
+          "id": "que/2185307",
+          "name": "SAN კომუტატორების ტექნიკური დავალება.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2185307&code=1795605529"
+        },
+        "que/2185416": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/2aed1960b436a28b1cfa4180a2d85fae162fa0563ce25296a8a7fe7ff35909c0",
+          "error": "",
+          "hash": "56f1b6145e875300ff232d73699c8797876300f83a8a46d5f5ed62ad27404de0",
+          "id": "que/2185416",
+          "name": "ხელშეკრულების პროექტი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2185416&code=1795608124"
+        },
+        "que/2185423": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/2aed1960b436a28b1cfa4180a2d85fae162fa0563ce25296a8a7fe7ff35909c0",
+          "error": "",
+          "hash": "742f8f36b67fabb1f8885aa796f4454661dafa6d5c11f049f9b653fec5a4411e",
+          "id": "que/2185423",
+          "name": "ფასების ცხრილი.xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2185423&code=1795608287"
+        },
+        "que/2185665": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/2aed1960b436a28b1cfa4180a2d85fae162fa0563ce25296a8a7fe7ff35909c0",
+          "error": "",
+          "hash": "d85e364f563859ba24eb3d3d1b45b06b2a7f1f0e0de8c2b352db16b029933aaa",
+          "id": "que/2185665",
+          "name": "ოქმი 1 (კომუტატორი).pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2185665&code=1795617038"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/2aed1960b436a28b1cfa4180a2d85fae162fa0563ce25296a8a7fe7ff35909c0",
+          "error": "",
+          "hash": "708048aecd8eb3114b4c5a3bd5a17f73f1f741633acbadfb122e18bd056a8472",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=716129"
+        }
+      },
+      "error": "",
+      "first_seen": "2026-11-27T16:20:18.198352+00:00",
+      "notice": ""
+    },
     "716131": {
       "details": {
         "amount": "შესყიდვის სავარაუდო ღირებულება: 33`592.00 ლარი",
@@ -8625,13 +8700,59 @@
         "reg_num": "NAT260025042",
         "status": "გამოცხადებულია"
       },
-      "documents": {},
+      "documents": {
+        "que/2185707": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/a4a6ffb0faca1109058fdf7fd3ef0458af232544f7fc351a27f0c5311d2840ed",
+          "error": "",
+          "hash": "69f624e042f3890f31f6f34b1b317a89f3ba255abc0a11883639c8f45715b7c4",
+          "id": "que/2185707",
+          "name": "swich 2026.xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2185707&code=1795618580"
+        },
+        "que/2185708": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/a4a6ffb0faca1109058fdf7fd3ef0458af232544f7fc351a27f0c5311d2840ed",
+          "error": "",
+          "hash": "2894b89bd3119912e3f8e75a9783d008879a93cfa957a78f4e3220b7f604648d",
+          "id": "que/2185708",
+          "name": "დანართი N1 - ფასების ცხრილი - სვიჩი.xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2185708&code=1795618597"
+        },
+        "que/2185754": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/a4a6ffb0faca1109058fdf7fd3ef0458af232544f7fc351a27f0c5311d2840ed",
+          "error": "",
+          "hash": "ddc5f296fc1e52d050f768d7f6ba19716671b4ead3d3572cb5f0157c008799a6",
+          "id": "que/2185754",
+          "name": "ხელშეკრულების პროექტი - სვიჩები.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2185754&code=1795619390"
+        },
+        "que/2185934": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/a4a6ffb0faca1109058fdf7fd3ef0458af232544f7fc351a27f0c5311d2840ed",
+          "error": "",
+          "hash": "c90e5e47772697ea6e70e403213322bf8abfceee7f26e63c9983740f9f6d7216",
+          "id": "que/2185934",
+          "name": "ოქმი N1 - სვიჩი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2185934&code=1795622491"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/a4a6ffb0faca1109058fdf7fd3ef0458af232544f7fc351a27f0c5311d2840ed",
+          "error": "",
+          "hash": "52785589fcb03d13594977c5eb2c01367f01c3eb3a9a7ccd783298c672ca7ac5",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=716131"
+        }
+      },
       "error": "",
       "first_seen": "2026-11-27T16:20:07.779658+00:00",
       "notice": ""
     }
   },
-  "updated_at": "2026-11-27T16:20:16.851382+00:00",
+  "updated_at": "2026-11-27T16:20:35.419764+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -8778,13 +8899,13 @@
     },
     "2026-11-27/gemini-3.5-flash-lite": {
       "date": "2026-11-27",
-      "input": 27149,
+      "input": 35157,
       "model": "gemini-3.5-flash-lite",
-      "output": 279,
+      "output": 362,
       "quota_errors": 0,
-      "requests": 2,
-      "reserved_tokens": 28053,
-      "total": 27428,
+      "requests": 3,
+      "reserved_tokens": 36357,
+      "total": 35519,
       "unknown_usage": 0
     }
   },
