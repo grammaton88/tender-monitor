@@ -2911,6 +2911,12 @@
       "subject": "არსებული (Firewall) ბრენდმაუერის პროგრამული და ფუნქციური მხარდაჭერის ლიცენზიები - 1 კომპლექტი",
       "warranty": null
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/1067fd886f3be6cd39aad1511305b41427685ff98f50b165836e84d5e40539e8": {
+      "confidential": null,
+      "delivery_deadline": "2027 წლის 1 იანვრიდან ან/და ხელშეკრულების ძალაში შესვლის დღიდან - 2027 წლის 31 დეკემბრის ჩათვლით",
+      "subject": "საოფისე პროგრამული უზრუნველყოფის ბიზნეს პრემიუმ პაკეტი N1 (2 ცალი) და საოფისე პროგრამული უზრუნველყოფის ბიზნეს სტანდარტ პაკეტი N2 (180 ცალი)",
+      "warranty": null
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/116b981a2bbdc7eeb647442daf8fe5856daa40b46bc0c0b730d71f99741ded45": {
       "confidential": null,
       "delivery_deadline": "Phase 1: 60-100 days, Phase 2: 120-180 days, Phase 3: 120-180 days following order date, calculated from contract signature or order date",
@@ -3397,6 +3403,12 @@
       "subject": "3 x Wildcard SSL Certificate, 1 x SSL Certificate",
       "warranty": null
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/eb07e8f2d6da9c85f78e0c93bbb3156192530376a2ea7990884fee368ef031a4": {
+      "confidential": null,
+      "delivery_deadline": "2027 წლის 1 იანვრიდან 2027 წლის 31 დეკემბრის ჩათვლით",
+      "subject": "საოფისე პროგრამული უზრუნველყოფის პაკეტი/ლიცენზია (5+120+10 ცალი) და ანტივირუსი (120 მომხმარებელი)",
+      "warranty": null
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/eb327583e50fc13f8a0daedee4e8c1fec203d61c98919c1ac4c0a2911c35b03e": {
       "confidential": null,
       "delivery_deadline": "2027 წლის 01 იანვრიდან 2029 წლის 31 დეკემბრის ჩათვლით",
@@ -3467,7 +3479,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1795455493.5170462,
-  "last_request_at": 1795796521.7514522,
+  "last_request_at": 1795796540.4407935,
   "tenders": {
     "694702": {
       "details": {
@@ -5707,6 +5719,69 @@
       "first_seen": "2026-10-22T09:31:33.133958+00:00",
       "notice": "",
       "notified": "aa4bf7c323ca44e954cfd8425a38473579e26b32cbf4a1f0bec20ffb03af8234"
+    },
+    "709912": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 63`559.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 25.11.2026",
+        "buyer": "შპს „გარდაბნის თბოსადგური 2\"",
+        "category": "48500000-საკომუნიკაციო და მულტიმედიის პროგრამული პაკეტები",
+        "deadline": "წინადადებების მიღების ვადა: 03.12.2026",
+        "id": "709912",
+        "link": "https://tenders.procurement.gov.ge/public/?go=709912",
+        "reg_num": "NAT260024899",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {
+        "que/2176269": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/eb07e8f2d6da9c85f78e0c93bbb3156192530376a2ea7990884fee368ef031a4",
+          "error": "",
+          "hash": "047f0a67f8b2f53323e40f7f87243830258588fb70cb314553ee6e5233d42dac",
+          "id": "que/2176269",
+          "name": "ფასების ცხრილი - დანართი №1.xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2176269&code=1794487843"
+        },
+        "que/2176287": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/eb07e8f2d6da9c85f78e0c93bbb3156192530376a2ea7990884fee368ef031a4",
+          "error": "",
+          "hash": "29768f404d55f1639f3289693f0781ce5b96cf0603601ba0bccd6f58124bc9ae",
+          "id": "que/2176287",
+          "name": "ტექნიკური დავალება - 2027.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2176287&code=1794489025"
+        },
+        "que/2176310": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/eb07e8f2d6da9c85f78e0c93bbb3156192530376a2ea7990884fee368ef031a4",
+          "error": "",
+          "hash": "21396f651a1e407fab764776fe6c2b9d5b0807e21e531da78ed91628b143b8c6",
+          "id": "que/2176310",
+          "name": "დანართი 2 - ხელშეკრულების პროექტი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2176310&code=1794489781"
+        },
+        "que/2184805": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/eb07e8f2d6da9c85f78e0c93bbb3156192530376a2ea7990884fee368ef031a4",
+          "error": "",
+          "hash": "fae82214ed67cdeefc99deebbf3c2150090639dc66fe8042fafe1ca660732926",
+          "id": "que/2184805",
+          "name": "ოქმი №1 - საოფისე პროგრამული უზრუნველყოფის პაკეტისლიცენზიის და ანტივირუსის სახელმწიფო შესყიდვა.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2184805&code=1795539515"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/eb07e8f2d6da9c85f78e0c93bbb3156192530376a2ea7990884fee368ef031a4",
+          "error": "",
+          "hash": "627bce8c1aa2cbff6fa249d07eb6a9d867638c13d56fb285162822bcd4f72602",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=709912"
+        }
+      },
+      "error": "",
+      "first_seen": "2026-11-27T16:22:06.417901+00:00",
+      "notice": ""
     },
     "710034": {
       "details": {
@@ -8719,6 +8794,23 @@
       "notice": "",
       "notified": "fa309cfbe7ff3b9cf05865dc2d3c039e993fe67b09960c66a61052b11cb2c45a"
     },
+    "714838": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 27`442.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 24.11.2026",
+        "buyer": "სახელმწიფო აუდიტის სამსახური",
+        "category": "48700000-პროგრამული პაკეტების მომსახურე პროგრამები",
+        "deadline": "წინადადებების მიღების ვადა: 02.12.2026",
+        "id": "714838",
+        "link": "https://tenders.procurement.gov.ge/public/?go=714838",
+        "reg_num": "NAT260024690",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-11-27T16:22:14.050197+00:00",
+      "notice": ""
+    },
     "715318": {
       "details": {
         "amount": "შესყიდვის სავარაუდო ღირებულება: 26`601.00 ლარი",
@@ -9064,7 +9156,53 @@
         "reg_num": "NAT260025048",
         "status": "გამოცხადებულია"
       },
-      "documents": {},
+      "documents": {
+        "que/2185794": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/1067fd886f3be6cd39aad1511305b41427685ff98f50b165836e84d5e40539e8",
+          "error": "",
+          "hash": "f3532b7c507ec5516377c9767e04d364ea10ae974661c418616476b2fbfb1e25",
+          "id": "que/2185794",
+          "name": "სატენდერო დოკუმენტაცია.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2185794&code=1795620479"
+        },
+        "que/2185798": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/1067fd886f3be6cd39aad1511305b41427685ff98f50b165836e84d5e40539e8",
+          "error": "",
+          "hash": "eb023b819909f1620bace00430a387b25da7f7d653733210731fe5b66a01f922",
+          "id": "que/2185798",
+          "name": "ფასების ცხრილი (დანართი N1).xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2185798&code=1795620497"
+        },
+        "que/2185842": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/1067fd886f3be6cd39aad1511305b41427685ff98f50b165836e84d5e40539e8",
+          "error": "",
+          "hash": "ab442aa176069bec1529e5cd6704d06a9720accfb0761b9d6009261f6410c443",
+          "id": "que/2185842",
+          "name": "1 ოქმი_0001.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2185842&code=1795621220"
+        },
+        "que/2185858": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/1067fd886f3be6cd39aad1511305b41427685ff98f50b165836e84d5e40539e8",
+          "error": "",
+          "hash": "1314a2c845037eb67f90592df9ff912bc1350ed23432c9de4f45043d6f4324bc",
+          "id": "que/2185858",
+          "name": "ხელშეკრულების პროექტი.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2185858&code=1795621362"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/1067fd886f3be6cd39aad1511305b41427685ff98f50b165836e84d5e40539e8",
+          "error": "",
+          "hash": "807218348d36a35c712de02ba00cbe1fdbb61ed408afb4832c5c940e49c9a857",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=716233"
+        }
+      },
       "error": "",
       "first_seen": "2026-11-27T16:21:55.756755+00:00",
       "notice": ""
@@ -9250,7 +9388,7 @@
       "notice": ""
     }
   },
-  "updated_at": "2026-11-27T16:22:05.198648+00:00",
+  "updated_at": "2026-11-27T16:22:20.440872+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -9397,14 +9535,14 @@
     },
     "2026-11-27/gemini-3.5-flash-lite": {
       "date": "2026-11-27",
-      "input": 128344,
+      "input": 139626,
       "model": "gemini-3.5-flash-lite",
-      "output": 1286,
+      "output": 1397,
       "quota_errors": 0,
-      "requests": 11,
-      "reserved_tokens": 133300,
-      "total": 129630,
-      "unknown_usage": 0
+      "requests": 13,
+      "reserved_tokens": 153946,
+      "total": 141023,
+      "unknown_usage": 1
     }
   },
   "version": 1
