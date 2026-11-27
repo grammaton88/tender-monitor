@@ -3319,6 +3319,12 @@
       "subject": "არსებული Fortinet FortiMail-VM01 (1 CPU) ელექტრონული ფოსტის Anti-Spam ფილტრის პროგრამული უზრუნველყოფის მხარდაჭერის ლიცენზიები - 3 ცალი",
       "warranty": null
     },
+    "gemini-3.5-flash-lite/tender-keywords-v4/d6cabed05353054707852888b906d17831665c220bce122e5f9e9b6649380c71": {
+      "confidential": null,
+      "delivery_deadline": "ხელშეკრულების გაფორმებიდან 45 კალენდარული დღე",
+      "subject": "ქსელური მოწყობილობები: უსადენო წვდომის წერტილი (4 ცალი), Managed Ethernet Switch (2 ცალი), საკომუნიკაციო კარადა (1 ცალი), პაჩკორდი 0.5 მ (200 ცალი), პაჩკორდი 1 მ (40 ცალი), პაჩპანელი 48 პორტიანი (5 ცალი), ქსელის კაბელი UTP კ-6 (2 რულონი)",
+      "warranty": "I და II პოზიციაზე 1 წელი, სხვა პოზიციებზე 1 თვე"
+    },
     "gemini-3.5-flash-lite/tender-keywords-v4/de232f8a1551c707e2a14af38a551843bdd5beb7f5d6a6d87dd2984b2abdcb4f": {
       "confidential": null,
       "delivery_deadline": "ხელშეკრულების გაფორმებიდან არაუგვიანეს 100 კალენდარული დღე",
@@ -3407,7 +3413,7 @@
   },
   "initialized": true,
   "last_monitor_run_at": 1795455493.5170462,
-  "last_request_at": 1795796399.1182137,
+  "last_request_at": 1795796411.7207017,
   "tenders": {
     "694702": {
       "details": {
@@ -5846,7 +5852,62 @@
         "reg_num": "NAT260025097",
         "status": "გამოცხადებულია"
       },
-      "documents": {},
+      "documents": {
+        "que/2174994": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/d6cabed05353054707852888b906d17831665c220bce122e5f9e9b6649380c71",
+          "error": "",
+          "hash": "061c9b91092c9bb49153affde1b214c801332d1d02375e5f619b0577fefbfaab",
+          "id": "que/2174994",
+          "name": "დანართი N1- ტექნიკური დავალება.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2174994&code=1794399822"
+        },
+        "que/2175003": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/d6cabed05353054707852888b906d17831665c220bce122e5f9e9b6649380c71",
+          "error": "",
+          "hash": "60ddad8bbd9cb7f142fba763ff4319e800b09e0a7f6311663d6929f86ad84e4c",
+          "id": "que/2175003",
+          "name": "ხელშეკრულების პროექტი (ქსელები).pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2175003&code=1794400158"
+        },
+        "que/2175433": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/d6cabed05353054707852888b906d17831665c220bce122e5f9e9b6649380c71",
+          "error": "",
+          "hash": "eb14587b7ff91e526d1e78d0f3a921d5ad61e442befb10debb5428d2c8c7943e",
+          "id": "que/2175433",
+          "name": "დანართი N2- ფასების ცხრილი.xlsx",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2175433&code=1794413503"
+        },
+        "que/2187359": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/d6cabed05353054707852888b906d17831665c220bce122e5f9e9b6649380c71",
+          "error": "",
+          "hash": "bf74f145e0b174718ccbf182110b07c6f9ee18b1a0ddc522fd075c7e7f5283a6",
+          "id": "que/2187359",
+          "name": "ოქმიN1- ქსელები, signed.pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2187359&code=1795710888"
+        },
+        "que/2187362": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/d6cabed05353054707852888b906d17831665c220bce122e5f9e9b6649380c71",
+          "error": "",
+          "hash": "c9c265c68b13cf5b8827318455a936d0cd0115dd68a5e69f60d6a9f40e4dd0ba",
+          "id": "que/2187362",
+          "name": "სატენდერო დოკ..pdf",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/library/files.php?mode=que&file=2187362&code=1795710901"
+        },
+        "tab-text": {
+          "analysis_key": "gemini-3.5-flash-lite/tender-keywords-v4/d6cabed05353054707852888b906d17831665c220bce122e5f9e9b6649380c71",
+          "error": "",
+          "hash": "a1456595c7bfcb6cff0a91d4d35790cd60cecc87ee22e67e86588d95d63de118",
+          "id": "tab-text",
+          "name": "Documentation tab (text)",
+          "status": "completed",
+          "url": "https://tenders.procurement.gov.ge/public/?go=710140"
+        }
+      },
       "error": "",
       "first_seen": "2026-11-27T16:19:55.076274+00:00",
       "notice": ""
@@ -8551,9 +8612,26 @@
       "first_seen": "2026-11-23T17:37:45.294681+00:00",
       "notice": "",
       "notified": "fa309cfbe7ff3b9cf05865dc2d3c039e993fe67b09960c66a61052b11cb2c45a"
+    },
+    "716131": {
+      "details": {
+        "amount": "შესყიდვის სავარაუდო ღირებულება: 33`592.00 ლარი",
+        "announce_date": "შესყიდვის გამოცხადების თარიღი: 26.11.2026",
+        "buyer": "საქართველოს რეგიონული განვითარებისა და ინფრასტრუქტურის სამინისტრო",
+        "category": "32400000-ქსელები",
+        "deadline": "წინადადებების მიღების ვადა: 04.12.2026",
+        "id": "716131",
+        "link": "https://tenders.procurement.gov.ge/public/?go=716131",
+        "reg_num": "NAT260025042",
+        "status": "გამოცხადებულია"
+      },
+      "documents": {},
+      "error": "",
+      "first_seen": "2026-11-27T16:20:07.779658+00:00",
+      "notice": ""
     }
   },
-  "updated_at": "2026-11-27T16:19:59.118273+00:00",
+  "updated_at": "2026-11-27T16:20:16.851382+00:00",
   "usage": {
     "2026-10-22/gemini-3.5-flash-lite": {
       "date": "2026-10-22",
@@ -8700,14 +8778,14 @@
     },
     "2026-11-27/gemini-3.5-flash-lite": {
       "date": "2026-11-27",
-      "input": 0,
+      "input": 27149,
       "model": "gemini-3.5-flash-lite",
-      "output": 0,
+      "output": 279,
       "quota_errors": 0,
-      "requests": 1,
-      "reserved_tokens": 20888,
-      "total": 0,
-      "unknown_usage": 1
+      "requests": 2,
+      "reserved_tokens": 28053,
+      "total": 27428,
+      "unknown_usage": 0
     }
   },
   "version": 1
